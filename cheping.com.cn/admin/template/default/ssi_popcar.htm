@@ -1,0 +1,43 @@
+          <h1><img src="images/font6.jpg" width="115" height="18" /></h1>
+          <ul class="pop_nav">
+          <!--{loop $hotcar $k $v}-->
+            <li><a href="#"<!--{if !$k}--> class="focus"<!--{/if}-->>{$v[title]}</a></li>
+          <!--{/loop}-->
+            <li><span>>></span><a href="#" class="last">更多最受关注车型</a></li>
+          </ul>
+          <!--{loop $hotcar $k $v}-->
+          <dl class="nav_con">
+            <!--{loop $v[hotcar] $kk $vv}-->
+              <!--{if !$kk}-->
+              <dt>
+                <span class="num"><!--{eval echo $kk+1;}--></span>
+                  <div class="wrap">
+                    <div class="real"> 
+                      <a href="#" class="real_img"><img src="images/nopic130.gif" width="120" height="60" /></a>
+                      <h2><a href="#">{$vv[date_id]}款 {$vv[series_name]}</a></h2>
+                      <a href="#"><span class="star"></span></a><span class="star_num">(8)</span>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <th>厂商指导价</td>
+                            <td> {$vv[min_price]} - {$vv[max_price]} 万元</th>
+                          </tr>
+                          <tr>
+                            <th>参考价</th>
+                            <td>暂无</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                  </div>
+              </dt>
+            <!--{else}-->
+              <dd>
+                <span class="num"<!--{if $kk == 4}-->class="last"<!--{/if}-->>
+                  <!--{eval echo $kk+1;}-->
+                </span><a href="#">{$vv[date_id]}款 {$vv[series_name]}</a>
+              </dd>
+              <!--{/if}-->
+            <!--{/loop}-->
+          </dl>
+          <!--{/loop}-->

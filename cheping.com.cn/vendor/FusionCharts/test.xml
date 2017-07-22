@@ -1,0 +1,184 @@
+<!--<?xml version="1.0" encoding="GBK"?>
+
+
+    Document   : test.xml
+    Created on : 2012年5月16日, 上午11:25
+    Author     : Administrator
+    Description:
+        Purpose of the document follows.
+
+
+<root>
+
+</root>-->
+
+<!--<?xml version='1.0' encoding='GBK'?>
+<chart caption='UV' subCaption=' ' showValues='1' formatNumberScale='0'>
+
+<categories>
+
+<category label='2012/05/9' /><category label='2012/05/10' /><category label='2012/05/11' />
+
+<category label='2012/05/12' />
+
+<category label='2012/05/13' />
+
+<category label='2012/05/14' />
+
+<category label='2012/05/15' />
+
+<category label='2012/05/13' />
+
+<category label='2012/05/14' />
+
+<category label='2012/05/15' />
+
+<category label='2012/05/9' />
+
+<category label='2012/05/10' />
+
+<category label='2012/05/11' />
+
+<category label='2012/05/12' />
+
+<category label='2012/05/13' />
+
+<category label='2012/05/14' />
+
+<category label='2012/05/15' />
+
+<category label='2012/05/13' />
+
+<category label='2012/05/14' />
+
+<category label='2012/05/15' />
+
+<category label='2012/05/9' />
+
+<category label='2012/05/10' />
+
+<category label='2012/05/11' />
+
+<category label='2012/05/12' />
+
+<category label='2012/05/13' />
+
+<category label='2012/05/14' />
+
+<category label='2012/05/15' />
+
+<category label='2012/05/13' />
+
+<category label='2012/05/14' />
+
+<category label='2012/05/15' />
+
+</categories>
+
+<dataset seriesName='UV' color='1D8BD1' anchorBorderColor='1D8BD1' anchorBgColor='1D8BD1'>
+
+<set value='1000' />
+
+<set value='5000' />
+
+<set value='2000' />
+
+<set value='6000' />
+
+<set value='3000' />
+
+<set value='1500' />
+
+<set value='987' />
+
+<set value='3000' />
+
+<set value='1500' />
+
+<set value='987' />
+
+<set value='1000' />
+
+<set value='5000' />
+
+<set value='2000' />
+
+<set value='6000' />
+
+<set value='3000' />
+
+<set value='1500' />
+
+<set value='987' />
+
+<set value='3000' />
+
+<set value='1500' />
+
+<set value='987' />
+
+<set value='1000' />
+
+<set value='5000' />
+
+<set value='2000' />
+
+<set value='6000' />
+
+<set value='3000' />
+
+<set value='1500' />
+
+<set value='987' />
+
+<set value='3000' />
+
+<set value='1500' />
+
+<set value='987' />
+
+</dataset>
+
+</chart>-->
+
+
+
+<!--<?xml version="1.0" encoding="GBK"?>
+<chart caption="PV" subCaption=" " showValues="1" formatNumberScale="0">
+    <categories>
+        <category label="2012/05/15" />
+        <category label="2012/05/14" />
+        <category label="2012/05/13" />
+        <category label="2012/05/12" />
+        <category label="2012/05/11" />
+        <category label="2012/05/10" />
+        <category label="2012/05/09" />
+        <category label="2012/05/08" />
+        <category label="2012/05/07" />
+        <category label="2012/05/06" />
+        <category label="2012/05/05" />
+        <category label="2012/05/04" />
+        <category label="2012/05/03" />
+        <category label="2012/05/02" />
+        <category label="2012/05/01" />
+        <category label="2012/04/30" />
+        <category label="2012/04/29" />
+        <category label="2012/04/28" />
+        <category label="2012/04/27" />
+        <category label="2012/04/26" />
+        <category label="2012/04/25" />
+        <category label="2012/04/24" />
+        <category label="2012/04/23" />
+        <category label="2012/04/22" />
+        <category label="2012/04/21" />
+        <category label="2012/04/20" />
+        <category label="2012/04/19" />
+        <category label="2012/04/18" />
+        <category label="2012/04/17" />
+        <category label="2012/04/16" />
+        </categories>
+        <dataset seriesName="PV" color="1D8BD1" anchorBorderColor="1D8BD1" anchorBgColor="1D8BD1">
+            <set value="416" /><set value="1895" /><set value="1584" /><set value="1794" /><set value="1576" /><set value="2085" /><set value="1993" /><set value="2011" /><set value="1875" /><set value="1284" /><set value="860" /><set value="1645" /><set value="1714" /><set value="1578" /><set value="1691" /><set value="1934" /><set value="1530" /><set value="2400" /><set value="2367" /><set value="2279" /><set value="1464" /><set value="1624" /><set value="1608" /><set value="661" /><set value="1110" /><set value="1681" /><set value="989" /><set value="1334" /><set value="1115" /><set value="1744" /></dataset></chart>-->
+
+
+            <?xml version="1.0" encoding="GBK"?><chart caption="PV" subCaption=" " showValues="1" formatNumberScale="0"><categories><category label="2012/05/15" /><category label="2012/05/14" /><category label="2012/05/13" /></categories><dataset seriesName="PV" color="1D8BD1" anchorBorderColor="1D8BD1" anchorBgColor="1D8BD1"><set value="416" /><set value="1895" /><set value="1584" /></dataset></chart>

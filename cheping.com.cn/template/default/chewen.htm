@@ -1,0 +1,222 @@
+{template index_header}
+<script type="text/javascript">
+    Qfast.add('widgets', { path: "/js/terminator2.2.min.js", type: "js", requires: ['fx'] });  
+    Qfast(false, 'widgets', function () {
+        K.tabs({
+                id: 'fsD1',   //焦点图包裹id  
+                conId: "D1pic1",  //** 大图域包裹id  
+                tabId:"D1fBt",  
+                tabTn:"a",
+                conCn: '.fcon', //** 大图域配置class       
+                auto: 1,   //自动播放 1或0
+                effect: 'fade',   //效果配置
+                eType: 'click', //** 鼠标事件
+                pageBt:true,//是否有按钮切换页码
+                bns: ['.prev', '.next'],//** 前后按钮配置class                          
+                interval: 5000  //** 停顿时间  
+        });
+    }); 
+
+    $(function(){
+        $('.prevPage').click(function(){
+            if($('.song').length>0){
+                $('.song').prev().addClass('song').siblings('li').removeClass('song');
+            }
+        })
+        $('.nextPage').click(function(){
+            if($('.song').length>0){
+                $('.song').next().addClass('song').siblings('li').removeClass('song');
+            }
+        })
+        $('.ep-pages ol li a').click(function(){
+            $(this).parent('li').addClass('song').siblings('li').removeClass('song');
+        })
+    });
+
+    $(function(){
+        $('.main-title ul li').click(function(){
+            var c = $(this).index();
+            $('.main-title ul li').eq(c).addClass('song').siblings('li').removeClass('song');
+        })
+    });
+
+    if (window.parent.length>0){window.parent.document.all.mainframe.style.height=document.body.scrollHeight;}
+</script> 
+
+ <div id="fsD1" class="banner">  <!--轮播-->
+    <div id="D1pic1" class="fPic">  
+	<div class="banner_bt_bg"></div>
+        {loop $list $k $v}
+        <div class="fcon" style="display: none;">
+            <a target="_blank" href=""><img src="/attach/{$v[hot_pic]}" style="opacity: 1; "></a>
+            <span class="shadow"><a target="_blank" href="">$v[title2]</a></span><br />
+			<a href="" class="banner_biaoti">{$v[title]}</a>
+                        
+                        {loop $v[tag_name] $ke $va}
+			<a href="article.php?action=ActiveList&id={$va[id]}" class="bq0"><div class="red"></div><font style="float:left; margin-left:5px;">{$va[tag_name]}</font></a>
+			{/loop}
+        </div>
+        {/loop}
+
+		
+    </div>
+    <div class="fbg">  
+    <div class="D1fBt" id="D1fBt">  
+        {loop $list $key $val}
+        <a href="javascript:void(0)" hidefocus="true" target="_self" class="">{$val[title3]}</a>
+        {/loop}
+    </div>  
+	
+    </div>         
+</div>
+</div>
+<!--轮播结束-->
+<div class="concent">
+    <div class="main-title">
+             <ul> 
+                <li class="song" ><a href="article.php?action=CarReviews&id={$id}" target="myFrameName" >全部</a></li> 
+                {loop $ac $k $v}
+                    {if {$v[count]}==0}{else}
+                        <li><a href="article.php?action=CarReviews&ids={$v[id]}" target="myFrameName" >{$v[category_name]}</a></li> 
+                    {/if}
+                {/loop} 
+            </ul> 
+   </div> 
+   <div class="main-title-con">
+       <div class="left fl">
+           <iframe name="myFrameName" src="article.php?action=CarReviews&id={$id}" width="886px" height="100%" id=" myFrameName" onload="this.height=myFrameName.document.body.scrollHeight+20"  frameborder="0" scrolling="no"></iframe>
+<!--       <div id="d1">-->
+<!--          <div class="dl-main-left fl">-->
+<!--                 <ul class="">     
+                     {loop $list $k $v}
+                         <li>
+                           <span><img style="width:279px;height:184px;" src="{UPLOAD_DIR}{$v[pic]}" /></span>
+                           <div class="span-con fr">
+                               <p class="p1">{$v[title]}</p>
+                               <p class="p2">{loop {$v[series_name]} $key $val}<span class="spcolor">{$val[series_name]}</span>&nbsp;&nbsp;{/loop}<span class="fr margr4px">{eval echo date("Y-m-d",$v["uptime"]);}</span></p>
+                               <p class="p3 fade">{$v[chief]}</p>
+                               <p class="p-four">
+                                   {loop {$v[tag_name]} $keys $value}
+                                        <a href="">{$value[tag_name]}啊啊啊</a>
+                                   {/loop}
+                               </p>
+                           </div>
+                         </li>
+                      {/loop}
+                  </ul>-->
+<!--                 <div class="ep-pages">
+                           <ol>
+                                   <span> <a href="">上一页</a></span>
+                                   <li class="song" ><a href="javascript:;">1</a></li>
+                                   <li><a href="javascript:;">2</a></li>
+                                   <li><a href="javascript:;">3</a></li>
+                                   <li><a href="javascript:;">4</a></li>
+                                   <li><a href="javascript:;">5</a></li>
+                                   <li><a href="javascript:;">6</a></li>
+                                   <li><a class="off" href="javascript:;">7</a></li>
+                                   <span><a href="fenye_next">上一页</a></span>
+                           </ol>
+                   </div>-->
+<!--          </div>-->
+<!--       </div>-->
+   </div>
+   </div>
+    
+    
+   <div class="right fr">
+        <div class="dl-main-right fr">
+                           <div class="fenlei"><!--精品分类-->
+                                   <div class="hot_chexing"><a class="a1" href="">精品分类<a class="a2" href="">&raquo;</a></a></div>
+                                   <!--<div class="hot_chexing_gd"><a href="">&raquo;</a></div>-->
+                                   <div class="biaoqian_liebiao"><!--标签-->
+                                     <a href="" class="bq1">汽车</a>
+                                     <a href="" class="bq1">复联奥迪</a>
+                                     <a href="" class="bq1">非车党</a>
+                                     <a href="" class="bq1">自动挡</a>
+                                     <a href="" class="bq1">刹车</a>
+                                     <a href="" class="bq2">帕萨特</a>
+                                     <a href="" class="bq2">省油</a>
+                                     <a href="" class="bq2">响应好</a>
+                                     <a href="" class="bq2">操控</a>
+                                     <a href="" class="bq2">国产车系</a>
+                                     <a href="" class="bq3">停车占道</a>
+                                     <a href="" class="bq3">法拉利</a>
+                                     <a href="" class="bq3">储备</a>
+                                     <a href="" class="bq3">捷克超跑</a>
+                                     <a href="" class="bq3">马力</a>
+                                     <a href="" class="bq3">油门</a>
+                                     <a href="" class="bq3">安全</a>
+                                     <a href="" class="bq3">试驾</a>
+                                     <a href="" class="bq3">采埃孚</a>
+                                     <a href="" class="bq3">质量</a>
+                                     <a href="" class="bq3">7座</a>
+                                    
+                                   </div>
+                         </div><!--精品分类结束-->
+                        <div class="airtle"><!--热门文章-->
+                                <div class="airtle-hot"><a href="javascript:;">热门文章</a></div>  
+                                <div class="point"><a href="">>></a></div>
+                                <div class="list_sp">
+                                      <span><a href=""><img src="images/video_tu.jpg" width="139" height="92"></a></span>
+                                      <div class="airtle-span fr">
+                                          <span>
+                                             <p class="p4" >阿斯.顿马丁首席执行官安迪.安迪帕尔默博士</p>
+                                             <p class="p5">2015-5-28</p>
+                                          </span>
+                                      </div>
+                               </div> 
+                               <div class="list_sp">
+                                      <span><a href=""><img src="images/video_tu.jpg" width="139" height="92"></a></span>
+                                      <div class="airtle-span fr">
+                                          <span>
+                                             <p class="p4" >阿斯.顿马丁首席执行官安迪.安迪帕尔默博士</p>
+                                             <p class="p5">2015-5-28</p>
+                                          </span>
+                                      </div>
+                               </div>      
+                               <div class="list_sp">
+                                      <span><a href=""><img src="images/video_tu.jpg" width="139" height="92"></a></span>
+                                      <div class="airtle-span fr">
+                                          <span>
+                                             <p class="p4" >阿斯.顿马丁首席执行官安迪.安迪帕尔默博士</p>
+                                             <p class="p5">2015-5-28</p>
+                                          </span>
+                                      </div>
+                               </div>      
+                               <div class="list_sp">
+                                      <span><a href=""><img src="images/video_tu.jpg" width="139" height="92"></a></span>
+                                      <div class="airtle-span fr">
+                                          <span>
+                                             <p class="p4" >阿斯.顿马丁首席执行官安迪.安迪帕尔默博士</p>
+                                             <p class="p5">2015-5-28</p>
+                                          </span>
+                                      </div>
+                               </div>      
+                               <div class="list_sp">
+                                      <span><a href=""><img src="images/video_tu.jpg" width="139" height="92"></a></span>
+                                      <div class="airtle-span fr">
+                                          <span>
+                                             <p class="p4" >阿斯.顿马丁首席执行官安迪.安迪帕尔默博士</p>
+                                             <p class="p5">2015-5-28</p>
+                                          </span>
+                                      </div>
+                               </div>      
+                               <div class="list_sp">
+                                      <span><a href=""><img src="images/video_tu.jpg" width="139" height="92"></a></span>
+                                      <div class="airtle-span fr">
+                                          <span>
+                                             <p class="p4" >阿斯.顿马丁首席执行官安迪.安迪帕尔默博士</p>
+                                             <p class="p5">2015-5-28</p>
+                                          </span>
+                                      </div>
+                               </div>           
+                        </div><!--热门文章-->      
+             </div>
+   </div>
+   <div class="clear"></div>
+</div>
+{if !$ids}
+{template index_footer}
+{else}
+{template article_footer}
+{/if}

@@ -1,0 +1,100 @@
+{template header} 
+<div class="user_wrap">
+  <div class="module_con">
+    <div class="module_con1">
+      <table cellpadding="0" cellspacing="0" class="table2">
+        <tr><td colspan="6" class="td_left">
+        <form action="{$php_self}" method="post">
+        品牌
+        <select name="brand_id" id="brand_id">
+          <option value="">请选择品牌</option>
+          <!--{loop $brand_list $bk $bv}-->
+          <option value="$bv[brand_id]">$bv[brand_name]</option>
+          <!--{/loop}-->
+        </select>
+        厂商
+        <select name="factory_id" id="factory_id">
+          <option value="">请选择厂商</option>
+          <!--{if $factory_id}-->
+          <!--{loop $factory_list $fk $fv}-->
+          <option value="$fv[factory_id]">$fv[factory_name]</option>
+          <!--{/loop}-->
+          <!--{/if}-->
+        </select>
+        车系名称
+        <input type="text" size="20" name="keyword" id="keyword" value="">
+        <input type="submit" value="  搜 索  ">
+        </form>
+        </td>
+        
+        <tr  class='th'>
+          <th height="20" nowrap>编号</th>
+          <th width="30%" align="right">车系名称</th>
+          <th width="30%" align="right">品牌</th>
+          <th>厂商</th>
+          <th nowrap>属性</th>
+          <th nowrap>操作</th>
+        </tr>
+        
+        <!--{loop $list $k $v}-->
+        <tr align="right">
+          <td height="20" nowrap align="center"><!--{$v[series_id]}--></td>
+          <td>
+          <!--{$v[series_name]}-->
+          </td>
+          <td><!--{$v[brand_name]}-->(<!--{eval echo getCardbState2($v[bs]);}-->)</td>
+          <td height="20" nowrap align="center"><!--{$v[factory_name]}-->(<!--{eval echo getCardbState2($v[fs]);}-->)</td>
+          <td><!--{eval echo getCardbState2($v[state]);}--></td>
+          <td nowrap align="left">
+          <!--a class="unionpic" href="javascript:void(0);" tourl="<!--{$php_self}-->unionpic&series_id=<!--{$v[series_id]}-->&fatherId=<!--{$v[factory_id]}-->">
+          关联图片</a-->&nbsp;
+          <a href="index.php?action=realdata-type&series_id={$v['series_id']}&type=1"><img src="<!--{$admin_path}-->images/rewrite.gif" width="12" height="12" />车身数据</a>&nbsp;
+          <a  href="index.php?action=realdata-type&series_id={$v['series_id']}&type=2"><img src="<!--{$admin_path}-->images/rewrite.gif" width="12" height="12" />动力数据</a>
+          </td>
+        </tr>
+        <!--{/loop}-->
+
+      </table>
+      <!--{if $page_bar}-->
+      <div>
+        <div class="ep-pages">
+          {$page_bar}
+        </div>
+      </div>
+      <!--{/if}-->
+    </div>
+    
+  </div>
+</div>
+
+<script type="text/javascript">
+$().ready(function(){
+  //$().ajaxStop($.unblockUI);
+  
+  $('.click_pop_dialog').live('click', function(){
+    pop_window($(this), {message:'您确定要删除该车系吗？', pos:[200,150]});
+  });
+  
+  $('#brand_id').change(function(){
+    var brand_id=$(this).val();
+    var fact=$('#factory_id')[0];
+    var facturl="?action=factory-json&brand_id="+brand_id;
+    $.getJSON(facturl, function(ret){
+      $('#factory_id option[value!=""]').remove();
+      $.each(ret, function(i,v){
+        fact.options.add(new Option(v['factory_name'], v['factory_id']));
+      });
+    });
+  });
+  
+  <!--{if $keyword}-->
+  $('#keyword').val("$keyword");
+  <!--{/if}-->
+  
+  <!--{if $factory_id}-->
+  $('#brand_id option[value="$brand_id"]').attr({selected:true});
+  $('#factory_id option[value="$factory_id"]').attr({selected:true});
+  <!--{/if}-->
+});
+</script>
+{template footer} 

@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <meta name="format-detection" content="telephone=no" />
+        <title>车评-个人</title>
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/people.css"/>
+    </head>
+    <body>
+        <div class="con">
+            <div class="title">
+                <span class="fl" onclick='location.href="/wapindex.php?action=index"' style="cursor:hand" ><img src="images/return.png" /></span>
+                <span class="fr"> <a href="/wapuinfo.php?action=Person"> 管理 </a></span>
+            </div>
+            <div class="clear"></div>
+            <div class="toux">
+                <div class="peoplepic">
+                    <div class="persontou"><img src="{if $users['avatar']}attach/$users['avatar']{else}images/person.png{/if}" height="150px"/></div>
+                    <div class="youname">$name</div>   
+                </div>
+            </div>
+            <div class="pernav">
+                <div class="navd1"><span class="navsp1 fl"><img src="images/pingl.png" /></span><a href="/wapuinfo.php?action=ureview">评论</a></div>
+                <div class="navd1"><span class="navsp1 fl"><img src="images/star.png" /></span><a href="/wapuinfo.php?action=ucollect" class="shou">收藏</a></div>
+            </div>     
+        </div>
+    </body>
+</html>

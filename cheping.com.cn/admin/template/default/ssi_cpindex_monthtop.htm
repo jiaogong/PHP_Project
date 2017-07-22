@@ -1,0 +1,85 @@
+<div class="content_jjph">
+    <ul id="tab_tit1" class="tab_tit">
+        <li class="focus"><a href="javascript:void(0);" class="focus_1">折扣榜</a></li>
+        <li><a href="javascript:void(0);">优惠榜</a></li>
+        <li><a href="javascript:void(0);">点击榜</a></li>
+    </ul>
+    <div class="content_jjph_cont">
+        <div id="lintab10" class="lintab_mid">
+            <table border="0" width="318">
+                <tbody>
+                    <tr class="pm_bg">
+                        <th width="28" scope="col">排名</th>
+                        <th width="154" scope="col">车型</th>
+                        <th width="59" scope="col">折扣</th>
+                        <th width="59" scope="col">商情价</th>
+                    </tr>
+                    {loop $dprice $k $v}
+                    {eval $j = $k + 1}
+                    <tr>
+                        <td {if $j < 4}class="first_01"{else}class="first_04"{/if}>{$j}</td>
+                        <td><div class="chexing" title="{$v['model_name']}"><a href="modelinfo_{$v['model_id']}.html" target="_blank">
+                        {$v['short_name']}
+                        </a></div></td>
+                        <td class="hs"> {eval echo round($v['mb'] * 10, 2)}折</td>
+                        <td class="hs">{$v['bingobang_price']}万</td>
+                    </tr>
+                    {/loop}
+                </tbody>
+            </table>
+        </div>
+        <div style="display:none;" id="lintab11" class="lintab_mid">
+            <table border="0" width="318">
+                <tbody>
+                    <tr class="pm_bg">
+                        <th width="28" scope="col">排名</th>
+                        <th width="154" scope="col">车型</th>
+                        <th width="59" scope="col">幅度</th>
+                        <th width="59" scope="col">商情价</th>
+                    </tr>
+                    {loop $rprice $k $v}
+                    {eval $j = $k + 1}
+                    <tr>
+                        <td {if $j < 4}class="first_01"{else}class="first_04"{/if}>{$j}</td>
+                        <td><div class="chexing" title="{$v['model_name']}"><a href="modelinfo_{$v['model_id']}.html" target="_blank">
+                        {$v['short_name']}
+                        </a></div></td>
+                        <td class="hs"> {eval echo strchr($v['mb'],'.')=='.00' ? intval($v['mb']) : $v['mb']}万</td>
+                        <td class="hs">{$v['bingobang_price']}万</td>
+                    </tr>
+                    {/loop}
+                </tbody>
+            </table>            
+        </div>
+        
+        <div style="display:none;" id="lintab12" class="lintab_mid">
+            <table border="0" width="318">
+                <tbody>
+                    <tr class="pm_bg">
+                        <th width="28" scope="col">排名</th>
+                        <th width="179" scope="col">车型</th>
+                        <th width="78" scope="col">次数</th>
+                    </tr>
+                    {loop $hit $k $v}
+                    {eval $j = $k + 1}
+                    <tr>
+                        <td {if $j < 4}class="first_01"{else}class="first_04"{/if}>{$j}</td>
+                        <td><div class="chexing2" title="{$v['model_name']}"><a href="modelinfo_{$v['model_id']}.html" target="_blank">
+                        {$v['short_name']}
+                        </a></div></td>
+                        <td class="hs">
+                            {if $v['istop'] == 'up'}
+                            <img src="images/ck_sjfd.jpg">
+                            {elseif $v['istop'] == 'down'}
+                            <img src="images/cky_jgx.jpg">
+                            {else}
+                            <img src="images/ckyx_h.jpg">
+                            {/if}                              
+                        </td>
+                    </tr>
+                    {/loop}
+                </tbody>
+            </table>            
+        </div>        
+    </div>
+</div>

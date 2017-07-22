@@ -1,0 +1,42 @@
+{template header}
+        <div class="user-add">
+            <div class="nav">
+                <ul>
+                    <li><a href="<!--{$php_self}-->">评论列表</a></li>
+                    <li><a href="<!--{$php_self}-->parent">评论回复</a></li>
+                    <li><a href="<!--{$php_self}-->shenhes" class="song">审核</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="user-add-con">
+                <div style=" padding:0 10px;">
+                    <form name="tag_form" id="tag_form" action="index.php?action=review-Shenhes" method="post" enctype="multipart/form-data">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td class="right" >审核内容：</td>
+                                <td class="margin46">{$parent[content]}</td>
+                            </tr>
+                            <tr>
+                                <td class="right" >审核：</td>
+                                <td class="margin46">
+                                    <input type="radio" name="state" value="1" {if $parent[state]==1}checked{/if} style="width:20px;">通过
+                                    <input type="radio" name="state" value="0" {if $parent[state]==0}checked{/if} style="width:20px;">不通过
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="right" >
+                                    <input type="hidden" name="id" id="id" value="{$parent[id]}"/>
+                                    <button type=" submit" name="tag_btn" id="tag_btn">提交</button>
+                                </td>
+                                <td >
+                                    <button type=" reset">重填</button>
+                                </td>
+
+                            </tr>
+                        </table> 
+                    </form>
+                </div>  
+            </div>
+        </div>  
+    </body>
+</html>

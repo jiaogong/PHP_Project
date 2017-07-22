@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+.guanzhu_main{ margin-top:40px; width:1024px; height:auto;}
+.guanzhu_right{ width:770px; height:auto; float:right;}
+.guanzhu_wo{ font-size:18px; font-weight:bold;}
+.guanzhu_ren{ width:752px; height:120px; border:1px solid #F0F0F0; margin-top:30px;}
+.guanzhu_ren:hover{ border:1px solid #F99C50;}
+.gz_tx{ float:left; padding:10px 10px 10px 10px; width:100px; height:100px;}
+.gz_xx{ float:left; line-height:40px; margin-left:5px;}
+.gz_jj{ float:right; margin-top:10px; width:475px; height:100px; border-left:1px solid #F0F0F0;}
+.gz_jjf{ width:435px; height:auto; margin:0 auto; font-size:12px;}

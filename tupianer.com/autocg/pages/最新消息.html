@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>最新消息</title>
+<link rel="stylesheet" href="css/communal.css" />
+<link rel="stylesheet" href="css/xinxiaoxi.css" />
+<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script> 
+<script type="text/javascript"> 
+$(function() { 
+$("ul > li").click(tabxx); 
+
+function tabxx() { 
+$(this).addClass("ll").siblings().removeClass("ll"); 
+var tabxx = $(this).attr("title"); 
+$("#" + tabxx).show().siblings().hide(); 
+}; 
+}); 
+</script>
+<script> 
+function over(){
+div.style.visibility='';
+}
+function out(){
+div.style.visibility='hidden';
+}
+</script>
+</head>
+
+<body>
+<div class="zhengti">
+
+<!--toubu-->
+ <div class="header"  id="heads">
+  <!--logo nav-->
+    <ul class="ull">
+      <li class="lil"><a href="#"><img src="images/logo.png" width="111" height="57" alt="logo" /></a></li>
+      <li class="lil"><a href="#" class="xuanze">首页</a></li>
+      <li class="lil"><a href="#">我要查找</a></li>
+    </ul>
+	<!--sousuo-->
+    <div class="sousuo">
+       <form action="#">
+         <input type="text" placeholder="请输入要搜索的内容" class="sousuok" />
+		 <input type="submit" value="" class="sousuoa" />
+       </form>
+    </div>
+    <div class="wdlzc" style="display:none">
+	   <a href="#">登录</a>&nbsp;/&nbsp;<a href="#">注册</a>
+	</div>
+	<div class="dlzck">
+	
+	<div class="dlzc">
+	    <span><img id="tx" src="images/tx.png" width="44" height="44" style="vertical-align:middle;" /></span>
+			  <div id="tanchu">
+			       <ul>
+					  <li>用户名</li>
+					  <li>个人中心</li>
+					  <li>我的收藏</li>
+					  <li>我的关注</li>
+					  <li>我的作品</li>
+					  <li>我的订单</li>
+					  <li>我的交易</li>
+					  <li>我的个人页</li>
+				   </ul>
+                   <div class="tuichu">退出</div>
+			  </div>
+		
+	</div>
+    <span class="dlzcld">
+    <img src="images/ld.png" width="44" height="44" style="vertical-align:middle;" />
+      <span class="xiaoxi">(2)</span>
+    </span>
+	</div>
+  </div>
+  
+<div class="xinxiaoxi_main">
+
+<div class="people-left fl">
+          <div class="people-left-top">
+               <dl>
+                  <dt class="fl"><img src="images/peoplelefttu.png" /></dt>
+                  <dd>
+                     <a href="#">
+                        <img src="images/peopletou.png" style=" vertical-align:middle;"/>
+                        <span style=" vertical-align:middle;">修改头像</span>
+                     </a>
+                     <a href="#"><b>2000</b>&nbsp;积分</a>
+                     <a href="#" class="bornone">
+                     <img src="images/author.png" style=" vertical-align:middle;"/>
+                     <span style=" vertical-align:middle;">作者简介</span>
+                     </a>
+                  </dd>
+                  
+               </dl>
+               <div class="clear"></div>
+          </div>
+          <div class="people-left-bottom">
+              <ul>
+                  <li><a href="">收藏</a></li>
+                  <li><a href="">关注</a></li>
+                  <li><a href="">作品</a></li>
+                  <li><a href="">品牌</a></li>
+                  <li><a href="">订单</a></li>
+                  <li><a href="">交易</a></li>
+                  <li><a href="">个人页</a></li>
+                  <li><a href="">最新消息</a></li>
+              </ul>   
+          </div>   
+     </div>
+     <!--左侧内容结束--> 
+	 <!--youce-->
+	 <div class="xinxiaoxin_right">
+		<div class="xiaoxi_zi">我的消息</div>
+		<div class="xiaoxi_xxk">
+		
+			<div class="tabxx right-title active2">
+				<ul> 
+					<li class="ll" title="d1">订单消息</li> 
+					<li title="d2">系统消息</li> 
+				</ul> 
+			</div>
+			<div class="con"> 
+				<div id="d1">
+				
+					<div class="dingdan_xiaoxi">
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">订单消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">订单消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">订单消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">订单消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">订单消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">订单消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">订单消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">订单消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">订单消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">订单消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						
+					</div>
+					
+					
+					<div class="fenye">
+						<span class="fenye_ge bg">1</span>
+						<span class="fenye_ge">2</span>
+						<span class="fenye_ge">3</span>
+						<span class="fenye_ge">4</span>
+						<span class="fenye_ge">5</span>
+						<span class="fenye_dian">...</span>
+						<span class="fenye_ge">50</span>
+						<span class="fenye_dian">></span>
+						<span class="tz">跳转到</span>
+						<input class="tiaozhuan" type="text" width="34" height="28" />
+						<span class="fenye_ge">GO</span>
+					</div>
+					
+				</div> 
+				<div id="d2" style="display:none">
+				
+				
+				
+				<div class="dingdan_xiaoxi">
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">系统消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">系统消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">系统消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">系统消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">系统消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">系统消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">系统消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">系统消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">系统消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						<div class="ddxx_list">
+							<div class="shijian">2015-12-18&nbsp;&nbsp;13:32:18</div>
+							<div class="dingdan_xx_dd">系统消息</div>
+							<div class="ddxxnr">您的编号为1545616654的订单信息已更新，请注意查看</div>
+						</div>
+						
+						
+					</div>
+				
+					<div class="fenye">
+						<span class="fenye_ge bg">1</span>
+						<span class="fenye_ge">2</span>
+						<span class="fenye_ge">3</span>
+						<span class="fenye_ge">4</span>
+						<span class="fenye_ge">5</span>
+						<span class="fenye_dian">...</span>
+						<span class="fenye_ge">50</span>
+						<span class="fenye_dian">></span>
+						<span class="tz">跳转到</span>
+						<input class="tiaozhuan" type="text" width="34" height="28" />
+						<span class="fenye_ge">GO</span>
+					</div>
+				
+				</div> 
+			</div> 
+
+		</div>
+		
+	 
+	 </div>
+	 <!--youce jieshu-->
+<div class="clear"></div>
+</div>
+<div class="footer">
+	    <div class="guanyv_lianxi">
+        <a href="#" target="_blank" class="ys">关于我们</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="#" target="_blank" class="ys">联系我们</a>
+        </div>
+        <div class="banquan">
+          版权所有:**********<br />
+          Copyright:2006-2013&nbsp;www.justeasy.cn&nbsp;All&nbsp;rights&nbsp;reserved<br />
+          南京设易网络科技有限公司&nbsp;登记序号：苏ICP备11003578号-2<br />
+        </div>
+	</div>
+</div>
+
+
+<div class="gjl">
+ <a href=""><div class="gjl_1"></div></a>
+ <a href=""><div class="gjl_2"></div></a>
+ <a href=""><div class="gjl_3"></div></a>
+ <a href=""><div class="gjl_4"></div></a>
+ <a href=""><div class="gjl_5"></div></a>
+ <a href="#heads"><div class="gjl_6"></div></a>
+</div>
+<div class="clear"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,294 @@
+{template index_header}
+<script>
+    var historyid = "$model_info['model_id']";
+    var historyname = "$model_info['factory_name'] $model_info['series_name'] $model_info['model_name']";
+    var canAdd = true; //初始可以插入cookie信息 
+    var hisArt = $.cookie("hisArt");
+    var len = 0;
+    var newid = 0;
+    if (hisArt) {
+        hisArt = eval("(" + hisArt + ")");
+        len = hisArt.length;
+    }
+    $(hisArt).each(function (i) {
+        if (this.id == historyid) {
+            canAdd = false; //已经存在，不能插入 
+            newid = i;
+            return false;
+        }
+
+    });
+    if (canAdd == true) {
+        var json = "[";
+        var start = 0;
+        if (len > 4) {
+            start = 1;
+        }
+        for (var i = start; i < len; i++) {
+            json = json + "{\"id\":\"" + hisArt[i].id + "\",\"name\":\"" + hisArt[i].name + "\",\"is\":\"o\"},";
+        }
+        json = json + "{\"id\":\"" + historyid + "\",\"name\":\"" + historyname + "\",\"is\":\"o\"}]";
+
+        $.cookie("hisArt", json, {expires: 360, path: '/'});
+    } else {
+        hisArt.splice(newid, 1);
+        var newlen = hisArt.length;
+        var json = "[";
+        var start = 0;
+        for (var i = start; i < newlen; i++) {
+            json = json + "{\"id\":\"" + hisArt[i].id + "\",\"name\":\"" + hisArt[i].name + "\",\"is\":\"o\"},";
+        }
+        json = json + "{\"id\":\"" + historyid + "\",\"name\":\"" + historyname + "\",\"is\":\"o\"}]";
+        $.cookie("hisArt", json, {expires: 360, path: '/'});
+    }
+</script> 
+<script type="text/javascript">
+    try {
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            WeixinJSBridge.on('menu:share:timeline', function (argv) {
+                WeixinJSBridge.invoke('shareTimeline', {
+                    "img_url": "http://img1.cheping.com.cn/model/$model_info[model_id]/190x142$model_info[model_pic1]",
+                    "img_width": "120",
+                    "img_height": "120",
+                    "link": window.location.href,
+                    "desc": "我在这里看上一辆，【$model_info[series_name]】，$model_info[wx_price2]",
+                    "title": "我在这儿看上了一辆【$model_info[series_name]】，$model_info[wx_price1]"
+                }, function (res) {
+                });
+            });
+            WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+                WeixinJSBridge.invoke('sendAppMessage', {
+                    "img_url": "http://img1.cheping.com.cn/model/$model_info[model_id]/190x142$model_info[model_pic1]",
+                    "img_width": "120",
+                    "img_height": "120",
+                    "link": window.location.href,
+                    "desc": "我在这里看上一辆，【$model_info[series_name]】，$model_info[wx_price2]",
+                    "title": "【$model_info[series_name] $model_info[model_name]】"
+                }, function (res) {
+                });
+            });
+            var weiboContent = '';
+            WeixinJSBridge.on('menu:share:weibo', function (argv) {
+                WeixinJSBridge.invoke('shareWeibo', {
+                    "content": "我在这里看上一辆，【$model_info[series_name]】，$model_info[wx_price2]",
+                    "url": window.location.href
+                }, function (res) {
+                });
+            });
+
+        });
+
+
+    } catch (e) {
+        console.log("not in weixin")
+    }
+</script>
+
+<div class="content">
+    <div class="content_left">
+        <div class="shangqing_top1">
+            <form id="form_offers" name="form_offers" action="offers.php" method="get">            
+                <select id="brand_id" name="brand_id" onchange="javascript:series_select($('#series_id'), this.value);">
+                    <option selected value="0">品牌</option>
+                    {if $model_info['brand_id']}
+                    <script>brand_select($('#brand_id'), $model_info['brand_id']);</script>
+                    {else}
+                    <script>brand_select($('#brand_id'));</script> 
+                    {/if}
+                </select>
+                <select id="series_id" name="series_id" onchange="javascript:model_select($('#model_id'), this.value);">                                
+                    <option selected value="0">车型</option>
+                    <script>series_selected($("#series_id"), $model_info['brand_id'], $model_info['series_id']);</script>
+                </select>            
+                <select id="model_id" name="model_id">
+                    <option value="0">车款</option>
+                    <script>model_selected($("#model_id"), $model_info['series_id'], $model_info['model_id']);</script>
+                </select>
+                <div>
+                    <input id="offers_button" name="offers_button" type="button" class="input_ss" value="" onfocus="this.blur()" style="border: medium none;">
+                </div>                
+            </form>
+        </div>
+        <a name="shangqing_{$offers[0]['id']}"></a>
+        <div class="shangqing_top2">
+            <div class="xx_title" >
+                <div style="width:500px;float: left;"><a href="modelinfo_{$model_info['model_id']}.html" target="_blank"> {$model_info['factory_name']} {$model_info['series_name']} {$model_info['model_name']}</a>
+                </div>
+            </div>
+            <p style="border-bottom:solid 1px #d7dfe4;"></p>
+
+            <div class="top2_left">
+                <dl>
+                    <dt><img width="190" heigh="142" onerror="this.src='images/220x155.jpg'" src="/attach/images/model/{$model_info['model_id']}/190x142$model_info['model_pic1']" /></dt>
+                    <dd>
+                        <div style="margin:0px;">
+                            <div style="float:left;">
+                                <span style="font-size:18px; color:#000;">网络媒体价：</span>
+                                <span style="font-size:32px; color:#ed7001; line-height:30px;">
+                                    {if $model_info[price]>0}{$model_info[price]}{elseif $model_info[model_price]>0}{$model_info[model_price]}
+                                </span><span style="font-size:14px; color:#000;">万</span>{else}未获取</span>{/if}
+                            </div>
+                            {if $model_info['price_type'] == '5'}
+                            <div style="width:120px; text-align:left; float:left; margin-top:10px; float:left" class="bigo_sqj">       
+                                    <div class="ckxx2" style="width:auto; margin-top:5px; height:20px;"> 
+                                        <a style="display:block" href="javascript:void(0)">
+                                            <img src="/images/meiti.jpg" style="margin-left:5px;" />		
+                                        </a> 
+                                        <span id="span1" style="font-size: 12px; display: none;">
+                                            <div class="gzs_jtbg"><img src="/images/qkgc_gzs.png" /></div>
+                                            “网络媒体价”是网络媒体公开展示的经销商报价，是由经销商报给网站的价格，可能会有概念模糊甚至不实的情况；该价格(或优惠幅度)可能含有官方补贴、置换补贴、贷款额外优惠、礼包宣称价值等；这里提取的是时间最近的网络媒体价。
+                                        </span>
+                                    </div>
+                            {/if}
+                                        {if $model_info[privilege]}<span class="sq_hui">惠 <em>$model_info['privilege']</em></span>{/if}</div>
+                                    <div class="clear"></div>
+                                    <p> 厂商指导价：<span style="color:#000; font-size:14px;">{$model_info[model_price]}万</span><a href="calculator.php?bid={$model_info['brand_id']}&sid={$model_info['series_id']}&mid={$model_info['model_id']}&price={$model_info['bingobang_price']}" target="_blank"><img src="images/sqy_jsq.jpg" /></a></p>
+                                    </dd>
+                                    </dl>
+                                    <div class="ckyx_bor" style="width:573px;"></div>
+                                </div>
+                            </div>
+                            {if $offers[0][id]}
+                            <div class="sqhz_cont">
+                                <div class="top3_title">
+                                    <p style="padding:0px 10px"> <span style="font-size:18px;">单车商情汇总</span></p>
+                                </div>
+                                {loop $offers $k $v}
+                                <a name="shangqing_{eval echo $offers[$k+1]['id']}"></a>
+                                <div class="sqhz_cont_top1">
+                                    <div class="i-tabs">
+                                        <div class="i-tabs-nav">
+                                            <span class="i-tabs-item $v['item_active'][0]">详细内容 </span> 
+                                            {if $loanArr&&$model_info['hasloan']}<span class="i-tabs-item $v['item_active'][11]">贷款方案 </span> {/if}
+                                            {if $v[report_title1]}  <span class="i-tabs-item $v['item_active'][1]">$v[report_title1]</span> {/if}
+                                            {if $v[report_title2]}  <span class="i-tabs-item $v['item_active'][2]">$v[report_title2]</span> {/if}
+                                            {if $v[report_title3]}  <span class="i-tabs-item $v['item_active'][3]">$v[report_title3]</span> {/if}
+
+                                        </div>
+                                        <div class="i-tabs-container">
+                                            <div class="i-tabs-content $v['content_active'][0]">
+
+                                                <div class="top3_container">
+
+                                                    <div class="top3_left">
+                                                        <dl style="float:left">
+                                                            {eval $pics = explode('|', $v['dealer_pic'])}
+                                                            {eval $pic_alt = explode('|', $v['dealer_pic_alt'])}
+                                                            <dt style="position:relative;"><img width="210" {if $pic_alt[0]}alt='$pic_alt[0]'{/if} height="158" src="{if $pics[0]}{$pics[0]}{else}11{/if}" onerror="this.src='images/offerrs_dealer.jpg'" /></dt>
+                                                        </dl>
+                                                        <div class="top3_right_right">
+                                                            <dl>
+                                                                <dd style="font-size:14px;color:#000;" {eval $add_1 = strlen($v['dealer_name'])}{if $add_1>40}title="$v['dealer_name']"{/if}>{eval echo dstring::substring($v['dealer_name'],0,42)} </dd>
+                                                                <dt><img src="images/sq_4s.jpg"></dt>
+                                                            </dl>
+
+                                                            <p style="color:#585858;" {eval $add = strlen($v['dealer_addr'])}{if $add>42}title="$v['dealer_addr']"{/if}>地址：{eval echo dstring::substring($v['dealer_addr'],0,42)}</p>
+                                                        </div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="top3_right">
+                                                        <div>
+                                                            <div style="color:#000; font-size:18px;height:30px;">
+                                                                {if $v[price_type]==5}
+                                                                <div style="width:100px;float:left;">网络媒体价</div>
+                                                                <div style="width:20px; height:20px; float:left;margin-top: 6px; *margin-top:0px;" class="ckxx2"> 
+                                                                    <a href="javascript:void(0)" style="width:20px; display:block">
+                                                                        <img src="images/meiti.jpg" />		
+                                                                    </a> 
+                                                                    <span style="font-size: 12px; display: none;position:absolue;right:-18px" id="span2">
+                                                                        <div class="gzs_jtbg" style="position:absolue;right:30px"><img src="/images/syg_jt.png"></div>
+                                                                        “网络媒体价”是网络媒体公开展示的经销商报价，是由经销商报给网站的价格，可能会有概念模糊甚至不实的情况；该价格(或优惠幅度)可能含有官方补贴、置换补贴、贷款额外优惠、礼包宣称价值等；这里提取的是时间最近的网络媒体价。 									
+                                                                    </span>
+                                                                </div>
+                                                                <span style="display:block;color:#e61a15; font-size:12px; margin-left:3px;margin-top:3px;width: 220px;float:left;">4S店在媒体的报价，可能有附加条件</span>
+                                                                {/if}
+
+
+                                                            </div>
+                                                            <p style="height:38px; line-height:38px; clear:both;"><span style="font-size:32px; color:#ed7001;">{$v[price]}</span><span style="font-size:14px; color:#000;">万</span>{if $v['privilege_hui']}<span class="sq_hui2">惠 <em>{$v['privilege_hui']}</em></span>{/if}</p>
+                                                        </div>
+                                                        <div class="ckyx_bor" style="width:353px; margin-top:10px;"></div>
+                                                        <div class="bg_left">获取方式：{if $v['price_type'] == 0}
+                                                            到店暗访
+                                                            {else}
+                                                            网络媒体
+                                                            {/if}<br>
+                                                            获取渠道：{if $v['price_type'] == 5}                                                             
+                                                            汽车之家{/if}</div>
+                                                        <div class="bg_right">获取/核实时间：{if $v['get_time']}{eval echo date("Y-m-d",$v['get_time'])}{/if}<br>
+                                                            <span class="sq_id">商情ID:{$v[id]}</span></div>
+
+                                                        </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/loop}
+                            </div>    
+                            {/if}
+                        </div>
+                        <div class="content_right">
+                            {if !empty($compete_model)}
+                            <div class="content_right_modle">
+                                <div class="content_right_title">
+                                    <p style="padding-left:10px; background-color:#f5f7f8;">竞争车型价格对比</p>
+                                </div>
+                                {eval $ii=count($compete_model)}
+                                {loop $compete_model $k $v}
+                                <div class="content_right_container">
+                                    <p class="ss_title"><a href="modelinfo_{$v[model_id]}.html" target="_blank">{$v['factory_name']} {$v['series_name']} {$v['model_name']}</a></p>
+                                    <div style="float:left; width:190px;">
+                                        <a href="modelinfo_{$v[model_id]}.html" target="_blank"><img width="190px" heigh="142px" onerror="this.src='images/220x155.jpg'" src="/attach/images/model/{$v['model_id']}/190x142$v['model_pic1']" /></a>
+                                    </div>
+                                    <div class="cont_right">
+                                        <div style="padding:0px 0px 0px 4px;">
+                                            <div style="color:#000;">
+                                                <div style="float:left;">网络媒体价： 
+                                                    <span style="font-size:15px; color:#ff7e0d;">
+                                                        {if $v[price]>0}{$v[price]}{elseif $v[model_price]}{$v[model_price]}<span style="font-size:12px">万</span>{else}未获取{/if}
+                                                    </span>
+                                                </div>
+                                                {if $v['price_type'] == '5'}
+                                                <div class="ckxx4" style="width:auto; height:20px;float:left"> 
+                                                    <a style="margin-top:5px; display:block" href="javascript:void(0)">
+                                                        <img src="/images/meiti.jpg" />			
+                                                    </a> 
+                                                    <span id="span2" style="font-size: 12px; display: none;">
+                                                        <div class="gzs_jtbg"><img src="/images/syg_jt.png" /></div>
+                                                        “网络媒体价”是网络媒体公开展示的经销商报价，是由经销商报给网站的价格，可能会有概念模糊甚至不实的情况；该价格(或优惠幅度)可能含有官方补贴、置换补贴、贷款额外优惠、礼包宣称价值等；这里提取的是时间最近的网络媒体价。
+                                                    </span>
+                                                </div>
+                                                {/if}
+                                            </div>
+                                            <div class="clear"></div>
+                                            <p style="text-decoration:line-through">厂商指导价：{$v[model_price]}万</p>
+                                            <p style="margin-top:8px;">获取渠道：{if $v['price_type'] == '5'}汽车之家{else}无{/if}</p>
+                                            <p>获取方式：{if $v['price_type'] == '5'}网络媒体{else}无{/if}</p>
+                                            <p class="ckxq"><a href="offers_{$v[model_id]}.html" onfocus="this.blur()" target="_blank">查看详情</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {if $k+1!=$ii}<div class="ckyx_bor"></div>{/if}
+                                {/loop} 
+                            </div>
+                            {/if}
+                            <!--#include virtual="ssi/ssi_offers_price.shtml"-->
+                            {if !empty($article)}
+                            <div class="content_right_modle"{if !empty($compete_model)} style="margin-top:10px;"{/if}}>
+                                 <div class="content_right_title"><div style="padding-left:10px; width:150px; float:left">促销信息</div><div style="float:right; width:47px;" class="more"><a href="news.php?action=moreNews&ptype=2" target="_blank">更多..</a></div></div>
+                                {loop $article $art}
+                                <div class="cxxx_module" style="padding-top:5px;">
+                                    <div class="cxxx_title"><a href="html/article/{eval echo date('Ym/d', $art['created'])}/{$art['id']}.html" title="{$art['full_title']}" target="_blank">{$art['short_title']}</a></div>
+                                    <div class="cxxx_date">{eval echo date("Y-m", $art['created'])}</div>
+                                </div>			
+                                {/loop}
+                            </div>        
+                            {/if}
+                        </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="filter: Alpha(Opacity=50);opacity:0.5; display:none;" class="wrapGrayBg"></div>
+                        <script src="/js/counter.php?cname=offer&c1={$model_info['model_id']}&c2=&c3="></script>
+                        {template index_footer}

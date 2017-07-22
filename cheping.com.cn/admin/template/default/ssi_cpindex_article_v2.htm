@@ -1,0 +1,97 @@
+<div class="wrap2_v1" style="margin-top:8px;">
+  <div class="header6_v1">
+    <div class="title7_v1"></div>
+    <uL class="header6_list">
+      
+        <li><a href="javascript:void(0);" class="focus" onfocus="this.blur();">静态评测</a></li>
+        <li><a href="javascript:void(0);" onfocus="this.blur();">动态评测</a></li>
+        <li><a href="javascript:void(0);" onfocus="this.blur();">车型导购</a></li>
+    </uL>
+    <div class="header6_right1"><a href="article.php" target="_blank">查看更多>></a></div>
+  </div>
+  <div class="column_v2">
+    <div class="header10_v1">
+      <div class="title14_v1"></div>
+    </div>
+    <div class="search_box">
+      <select id="brand_id" name="brand_id" onchange="javascript:series_select($('#series_id2'), this.value);">
+          <option value="0">选择品牌</option>
+          <script>brand_select($('#brand_id'));</script>
+      </select>
+        <select id="series_id2" name="series_id">
+          <option value="0">选择车型</option>
+      </select>
+      <input type="button" class="search_v1_btn" />
+    </div>
+    <div class="hot_type">
+      <div class="header11_v1">
+        <div class="title15_v1"></div>
+      </div>
+      <ul>
+        <li><a target="_blank" href="/article.php?action=series&sid=85" style="color:#0A81DD;">宝马X5</a></li>
+        <li><a target="_blank" href="/article.php?action=series&sid=559" style="color:#0A81DD;">马自达6</a></li>
+        <li><a target="_blank" href="/article.php?action=series&sid=127" style="color:#0A81DD;">雅阁8</a></li>
+        <li><a target="_blank" href="/article.php?action=series&sid=292" style="color:#0A81DD;">凯美瑞</a></li>
+        <li><a target="_blank" href="/article.php?action=series&sid=257" style="color:#0A81DD;">高尔夫</a></li>
+        <li><a target="_blank" href="/article.php?action=series&sid=528" style="color:#0A81DD;">名爵MG3</a></li>
+        <li><a target="_blank" href="/article.php?action=series&sid=764" style="color:#0A81DD;">科鲁兹</a></li>
+        <li><a target="_blank" href="/article.php?action=series&sid=628" style="color:#0A81DD;">新骐达</a></li>
+      </ul>
+    </div>
+  </div>
+  {eval $j = 0;}
+  {loop $article_list $k $list}
+  
+  <div class="column2_v2" {if $k != 'html'}style="display: none;"{/if} >
+    <div class="column2_imgs">
+        <div class="focusmap" id="html{$j}" >
+            {eval $j++}
+            <div class="focuspic" >      
+              {loop $list[0] $k $push_article}
+                {eval $karr[] = $k + 1}
+                <a target="_blank" href="html/article/{eval echo date('Ym/d', $push_article['created'])}/{$push_article['id']}.html"><img onerror="this.src='images/v2/pic4.gif'" alt="{$push_article['title']} {$push_article['title2']}" class="dynload" imgsrc="attach/images/article/{eval echo date('Ym/d', $push_article['created'])}/{$push_article[pic]}" src="images/a.gif" title="{$push_article['title']} {$push_article['title2']}" width="290" height="218"/></a>
+              {/loop}
+           </div>
+           <ul>
+              {loop $list[0] $k $v}
+              {eval $q = $k + 1}
+                <li><a {if $k ==0}class="focus"{/if} href="javascript:void(-1);">{$q}</a></li>
+              {/loop}
+             
+           </ul>
+           {loop $list[0] $push_key $push_article}
+           <h2 style="{if $push_key==0}display:block;{/if}"><a target="_blank" href="html/article/{eval echo date('Ym/d', $push_article['created'])}/{$push_article['id']}.html" title="{$push_article['title']} {$push_article['title2']}">{$push_article['title']} {$push_article['title2']}</a></h2>
+           {/loop}
+        </div>
+    </div>
+ 
+       <ul class="column2list" >
+      {loop $list[1] $arti}
+      {eval $str = $arti['title'].' '.$arti['title2']}
+      <li><a target="_blank" href="/html/article/{eval echo date('Ym/d', $arti['created'])}/{$arti['id']}.html" title="{$arti['title']} {$arti['title2']}" style="color:#0A81DD;">{eval echo string::get_str($str,40)}</a><span>{eval echo date('m月d日', $arti['updated'])}</span></li>
+      {/loop}
+    </ul>
+  </div>
+  {/loop}
+  <div class="column3_v3">
+    <ul class="article">
+      {loop $push_img $val}
+      <li><a target="_blank" href="html/article/{eval echo date('Ym/d', $val['created'])}/{$val['id']}.html"><img alt="{eval echo string::get_str($tt,20)}" src="attach/images/article/{eval echo date('Ym/d', $val['created'])}/200x112{$val[pic]}"  onerror='this.src="images/v2/article-1.jpg"' title="{$val['title']} {$val['title2']}"/></a>
+        {eval $tt = $val['title'].' '.$val['title2']}
+        <span><a target="_blank" href="html/article/{eval echo date('Ym/d', $val['created'])}/{$val['id']}.html" style="color:#0A81DD;">{eval echo string::get_str($tt,18)}</a></span></li>
+      {/loop}
+    </ul>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+    $('.search_v1_btn').click(function() {
+        var sid = $('#series_id2').val();
+        if(sid == 0 || sid == null) {
+            alert('请选择车系!');
+            return false;
+        }
+        window.open("{$relat_dir}article.php?action=series&sid=" + sid);
+    });
+});
+</script>

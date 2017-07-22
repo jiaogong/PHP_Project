@@ -1,0 +1,90 @@
+<extend name="Public/base"/>
+<block name="style">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+</block>
+
+<block name="body">
+    <div class="main-title">
+        <h2>订单详情</h2>
+    </div>
+    <form action="{:U('edit&type='.I('type'))}" method="post" class="form-horizontal">
+
+        <div class="form-item">
+            <label class="item-label">上传合同<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="file" id="upload_file">
+                <input type="hidden" name="pact" value="{$info.pact}"/>
+                <div class="upload-img-box">
+                    <present name="info.pacts">
+                        <a href="{:U('download',array('id' => $info['pactid']))}"><div class="upload-pre-file"><span class="upload_icon_all"></span>{$info.pacts}</div></a>
+                    </present>
+                </div>
+            </div>
+            <script type="text/javascript">
+                        //上传图片
+                        /* 初始化上传插件 */
+                        $("#upload_file").uploadify({
+                "height"          : 30,
+                        "swf"             : "__STATIC__/uploadify/uploadify.swf",
+                        "fileObjName"     : "download",
+                        "buttonText"      : "上传附件",
+                        "uploader"        : "{:U('File/upload',array('session_id'=>session_id()))}",
+                        "width"           : 120,
+                        'removeTimeout'	  : 1,
+                        "onUploadSuccess" : uploadFilepact,
+                        'onFallback' : function() {
+                            alert('未检测到兼容版本的Flash.');
+                        }
+                });
+                        function uploadFilepact(file, data){
+                            var data = $.parseJSON(data);
+                            if (data.status){
+                                var name = "pact";
+                                $("input[name=" + name + "]").val(data.data);
+                                $("input[name=" + name + "]").parent().find('.upload-img-box').html(
+                                "<div class=\"upload-pre-file\"><span class=\"upload_icon_all\"></span>" + data.info + "</div>"
+                                );
+                            } else {
+                                updateAlert(data.info);
+                                setTimeout(function(){
+                                $('#top-alert').find('button').click();
+                                        $(that).removeClass('disabled').prop('disabled', false);
+                                }, 1500);
+                        }
+                         }
+            </script>
+        </div>
+        <div class="form-item">
+            <label class="item-label">付款金额<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="amount" value="{$info.amount|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">备注<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="note" value="{$info.note|default=''}">
+            </div>
+        </div>
+        <eq name="info.state" value="7">
+        <div class="form-item">
+            <label class="item-label">尾款<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="amounts" value="{$info.amounts|default=''}">
+            </div>
+        </div>
+        </eq>
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back( - 1);
+                        return false;">返 回</button>
+        </div>
+    </form>
+</block>
+<block name="script">
+    <script type="text/javascript" charset="utf-8">
+                //导航高亮
+                highlight_subnav('{:U('Custom/index')}');
+    </script>
+</block>

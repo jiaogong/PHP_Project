@@ -1,0 +1,12 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<div class="v5_cont_right">
+	<h3 class="right_title">大家都在看</h3>
+	<div class="right_content">
+		<? for($i=1; $i<=4; $i++) { ?>
+		<dl>
+			<dt><a href="/modelinfo_s<?=$result[$i]['series_id']?>.html" target="_blank"><img width="130" height="72" src="/attach/images/series/<?=$result[$i]['series_id']?>/<?=$result[$i]['pic']?>" onerror="this.src='/images/130x72.jpg'"></a></dt>
+			<dd><a href="/modelinfo_s<?=$result[$i]['series_id']?>.html" target="_blank"><?=$result[$i]['alias']?></a></dd>
+		</dl>
+		<? } ?>
+	</div>
+</div>

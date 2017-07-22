@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* CSS Document */
+.header{ background:#ee262b;  width:100%; height:50px; font-weight:700; color:white; font-size:16px; font-family:'微软雅黑'; line-height:50px; text-align:center; position:relative;}
+.header .hsp2{ position:absolute; top:0px; left:18px;}
+.header .hsp3{position:absolute; top:0px; right:18px;}
+.header .hsp3 a{ color:#fff;}
+
+/*个人*/
+.inline{ height:1px; background:#9c9c9c;}
+.con{  padding:6%;  color:#3d3c3c;}
+.title{  font-size:1.4em;}
+.title img{ width:12px; height:20px;}
+.toux{ width:100%; height:190px; position:relative; margin-top:16px; border-bottom:1px solid #9c9c9c;}
+.peoplepic{ width:150px;  position:absolute; left:50%; margin-left:-75px; text-align:center; }
+.persontou{ width:150px; height:150px;}
+.peoplepic img{ width:100%; border-radius:100%;}
+.a-upload {height: 30px; padding:6px 0px;position: relative; cursor: pointer; color: #666; overflow: hidden; display: inline-block; *display: inline; *zoom: 1}
+.a-upload  input { position: absolute;font-size: 100px;right: 0;top: 0;opacity: 0;filter: alpha(opacity=0);cursor: pointer;}
+.youname{padding:8px 0px; font-size:1.2em;}
+.martop{ margin-top:200px;}
+.pernav{ width:100%; font-size:1.6em; }
+.navsp1{ width:20px; padding:2px;}
+.navsp1 img{height:100%; width:100%;}
+.navd1{ height:21px; margin-top:14px;}
+.navd1 a{ padding:0px 10px; display:block; float:left; }
+.navd1 .shou{ padding:2px 10px;}
+.donginp{ height:30px; border:1px solid #666;}
+/*个人管理*/
+.pertouimg{ padding:6%; background:#fff; color:#333;}
+.pertouimg .borradiu img{ border-radius:100%;}
+.colpad{ padding:6%; background:#fff; font-size:1.6em; border-bottom:1px solid #c4c6c6; }
+.numbercol{ color:#999; font-size:18px;}
+.perpadtop{ padding-top:50px;}
+.percol{ padding:0px 6%; color:#999; }
+.padleft{ font-size:18px; color:#999; padding-left:20px;}
+.padlefts{ font-size:18px; color:#999; padding-left:20px;}
+.xiugaimi{ width:90%; background:#ee262b; border:none; border-radius:4px; padding:10px 0px; font-size:1.2em; display:block; margin:10px auto; text-align:center;color:#fff;}
+.xiugai{ width:90%; background:#c4c6c6; border:none; border-radius:4px; padding:10px 0px; font-size:1.2em; display:block; margin:10px auto; text-align:center;color:#fff;}
+
+/*找回密码*/
+.number{ border-bottom:1px solid #c4c6c6; font-size:1.6em; padding-top:8px; padding-bottom:8px;}
+.numberp{ border-bottom:1px solid #c4c6c6; padding-top:8px; padding-bottom:8px; font-size:1.2em; line-height:22px;}
+.telephone{ background:none; border:none;  height:40px;  text-indent:12px; font-size:0.9em; width:50%;  }
+.padtop{ padding:8px 0;}
+.gain{ background:none; border:none; width:25%;  padding:10px 0px; border-radius:4px; background:#ee262b; color:white; text-align:center;}
+.text-align{ text-align:center; margin-top:10px;}
+.tijiao{ width:86%; background:#ee262b; border:none; color:white; border-radius:4px; padding:10px 0px; font-size:1.2em;}
+/*评论*/
+.biaoti{ color:#333; font-size:1.8em;font-weight:500;}
+.xinxi{font-size:1.6em; padding:7px 0; line-height:30px; color:#9c9c9c; border-bottom:1px solid #c4c6c6; }
+.xinxi jianjv{ margin-left:15px;}
+.xinxi .time span{ padding-left:20px;}
+
+/*评论页*/
+.person-con{ background:#fff; border:1px solid #9c9c9c; color:#3d3c3c; padding:6px 8px; margin-top:16px;}
+.person-con .ptitlepic{ width:40px; padding:10px;}
+.person-title .ptitlepic img{ width:100%;}
+.wenzi{ padding-left:10px; font-size:1.6em; padding-top:12px;}
+.model-first{ font-size:14px; line-height:22px; margin-top:6px;}
+.circleimg{ border-radius:255px; width:22%;}
+.discript{ width:74%; padding-left:4%; font-size:1.1em; border-bottom:1px solid #bbbbbb;}
+.padg8{ padding-top:8px;}
+.discrp1{color:#bbbbbb;}
+.discrp2{ line-height:21px;}
+.duo textarea{ width:100%; margin:10px 0px;}
+.backcol{ background:#fff;}
+.table{width:100%; text-align:center; vertical-align:middle;}
+.table tr td{ width:16%; display:block; padding:40%;}
+.hang{ text-align:center; width:100%;}
+.hang textarea{ width:90%; margin:10px 0; }
+.forget{ padding:10px 0px;}
+.forget a {color:#525df2; font-size:1.4em;}
+/*我的收藏*/
+.coll-substance{ padding:5%; background:#fff; border:1px solid #CCC; margin:8px 0px;}
+.collect{ width:140px; height:140px; position:absolute; left:50%; top:50%; margin-left:-70px; margin-top:-90px;}
+.neirong{ margin-top:20px; }
+.coll-title{ font-size:1.7em; color:#333;}
+.coll-con{ margin-top:12px;}
+.coll-left{  height:auto;  width:46%; background:#FC6;}
+.coll-left img{ width:100%;}
+.coll-right{ width:52%; font-size:1.2em; line-height:18px; padding-left:2%; color:#333;}
+.detail{ padding-top:6px; color:#bababa;}
+.detailsp1{ padding-left:6px;}
+.detailsp2{ padding-top:4px;}
+.coll-relati{ position:relative;}
+.coll-relati .posiloca{ position:absolute; top:50%; left:50%; margin-top:-26px; margin-left:-26px;}
+.success{ position:absolute; top:50%; left:34%; background:#000; opacity:0.8; color:white; text-align:center; padding:3% 6%; font-size:1.5em; border-radius:5px;}
+/*我的评论*/
+.comm-nav a{background:#FFF; width:50%; display:block; height:50px; line-height:50px; text-align:center; border-bottom:2px solid #bbbbbb; float:left; font-size:1.6em; color:#696969;}
+.comm-nav .active{ color:#ee262b; border-bottom:2px solid #ee262b; }
+.comm-nei{ padding:4%; background:#fff;}
+.borbott{ border-bottom:1px solid #bbbbbb; padding:4% 0px;}
+.comm-con .padt{ padding-top:14px;}
+.comm-con .comm-confl1{ width:18%; }
+.comm-con .comm-confl1 img{ border-radius:255px;}
+.comm-con .comm-confl2{ margin-left:4px; padding-top:10px; width:70%;  }
+.comm-con .comm-confl2 h2{ font-size:1.2em;}
+.comm-con .comm-confl2 p{ padding-top:10px; font-size:1.2em;}
+.gray{ color:#cacaca;}
+.bag{ padding-top:10px; width:100%;}
+.bagfei{ padding:6px; color:#fff; background:#ee262b; border-radius:5px; font-size:1.2em; width:18%; text-align:center;}
+.xiangbag{ width:68%; padding-left:2%; font-size:1em;}
+.xiangbag em{ padding-left:2px;  color:#cacaca; }
+.xiangbag em a{ color:#cacaca; }
+.wenben{ padding:10px 0px; width:100%; }
+.wenben textarea{ width:94%;}
+.wenben textarea{ resize:none;}
+
+/*验证手机号*/
+.wid100{ width:100%; text-align: center; }
+.yanzinput{ width:100%; background:#fff; border-radius:6px; border:1px solid #ccc; height:35px; margin-top:5px; text-indent:10px;}
+.yztijiao{ width:100%; background:#ee262b; border:none; color:white; border-radius:4px; padding:10px 0px; font-size:1.2em;}

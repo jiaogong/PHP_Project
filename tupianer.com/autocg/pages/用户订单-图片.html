@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户订单-图片</title>
+<link type="text/css" rel="stylesheet" href="css/communal.css" />
+<link type="text/css" rel="stylesheet" href="css/userorder.css" />
+<script src="js/jquery.js"></script>
+</head>
+<body>
+<div class="concent">
+     <div class="header"  id="heads">
+          <!--logo nav-->
+                    <ul class="ull">
+                      <li class="lil"><a href="#"><img src="images/logo.png" width="111" height="57" alt="logo" /></a></li>
+                      <li class="lil"><a href="#" class="xuanze">首页</a></li>
+                      <li class="lil"><a href="#">我要查找</a></li>
+                    </ul>
+            <!--sousuo-->
+                    <div class="sousuo">
+                       <form action="#">
+                         <input type="text" placeholder="请输入要搜索的内容" class="sousuok" />
+                         <input type="submit" value="" class="sousuoa" />
+                       </form>
+                    </div>
+                    <div class="wdlzc" style="display:none">
+                       <a href="#">登录</a>&nbsp;/&nbsp;<a href="#">注册</a>
+                    </div>
+                    <div class="dlzck">
+                    
+                    <div class="dlzc">
+                        <span><img id="tx" src="images/tx.png" width="44" height="44" style="vertical-align:middle;" /></span>
+                              <div id="tanchu">
+                                   <ul>
+                                      <li>用户名</li>
+                                      <li>个人中心</li>
+                                      <li>我的收藏</li>
+                                      <li>我的关注</li>
+                                      <li>我的作品</li>
+                                      <li>我的订单</li>
+                                      <li>我的交易</li>
+                                      <li>我的个人页</li>
+                                   </ul>
+                                   <div class="tuichu">退出</div>
+                              </div>             
+               </div>
+                <span class="dlzcld">
+                <img src="images/ld.png" width="44" height="44" style="vertical-align:middle;" />
+                  <span class="xiaoxi">(2)</span>
+                </span>
+            </div>   
+         </div>
+<!--头部结束-->
+         <div class="userorder">
+              <div class="order-top">
+                  <div class="fl"><img src="images/order1.jpg" width="520px" height="392px" /></div> 
+                  <div class="orderdis fl">
+                       <span>作品名称：萌萌萌萌萌滴</span>
+                       <span>作品分类：机械/交通</span> 
+                       <span>品牌产品：一汽大众 A3 2015款 SPORTBACK 35TFSI手动 进取型</span>
+                       <span>标签：驾驶，旅行，看海，游玩，道路</span> 
+                       <span>创建时间：2015年12月17日</span>
+                       <span>图片用途：成品广告图</span>       
+                  </div>
+                  <div class="clear"></div>
+              </div> 
+              <div class="order-bottom">
+                   <h3>购买信息</h3>
+                   <form>
+                   <div class="choseorder">
+                       <ul>
+                          <li> 
+                             <input type="radio"  checked="checked" name="sport" >
+                             <label  class="checked" >使用许可：6个月</label>
+                            
+                            <span class="fr">￥300元</span>
+                          </li>
+                        
+                            <li> 
+                             <input type="radio"  name="sport"  >
+                             <label>使用许可：12个月</label>
+                             <span class="fr">￥600元</span>
+                          </li>
+                           <li> 
+                             <input type="radio"  checked="checked" name="sport"  >
+                             <label>使用许可：24个月</label>
+                             <span class="fr">￥1200元</span>
+                          </li>
+                           <li> 
+                             <input type="radio"   name="sport"  >
+                             <label>著作权转让</label>
+                             <span class="fr">￥5000元</span>
+                          </li>
+                        
+                       </ul> 
+                   </div>
+                   <button type="submit" class="shopbtn">立即购买</button>
+                   <form>
+                   
+              </div>        
+         </div>
+         <div class="footer">
+                <div class="guanyv_lianxi">
+                <a href="#" target="_blank" class="ys">关于我们</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#" target="_blank" class="ys">联系我们</a>
+                </div>
+                <div class="banquan">
+                  版权所有:**********<br />
+                  Copyright:2006-2013&nbsp;www.justeasy.cn&nbsp;All&nbsp;rights&nbsp;reserved<br />
+                  南京设易网络科技有限公司&nbsp;登记序号：苏ICP备11003578号-2<br />
+                </div>
+        </div> 
+</div>
+<script>
+$('.choseorder label').click(function(){
+    var radioId = $(this).attr('name');
+    $('.choseorder label').removeAttr('class') && $(this).attr('class', 'checked');
+    $('input[type="radio"]').removeAttr('checked') && $('#' + radioId).attr('checked', 'checked');
+  });
+  </script>
+</body>
+</html>

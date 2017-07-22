@@ -1,0 +1,7 @@
+<div class="nav">
+    <a href="/wapindex.php?action=index" {if !$id}class="active"{/if}>首页</a>
+    {loop $category $k $v}
+    
+    <a href="{if $v[id]==9}/v/{elseif $v[id]==8}/pingce/{elseif $v[id]==7}/news/{elseif $v[id]==10}/wenhua/{/if}" {if $id==$v[id]}class="active"{/if}>{$v[category_name]}</a>
+    {/loop} 
+</div>

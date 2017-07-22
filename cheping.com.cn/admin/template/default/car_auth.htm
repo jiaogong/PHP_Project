@@ -1,0 +1,63 @@
+{template header}
+  <div class="user_wrap">
+      <div class="module_con">
+        <div class="module_con1">
+        <form name="queryForm" id="queryForm" method="post" action="?action=auth-caredit">
+        <table cellpadding="0" cellspacing="0" class="table2" border="0">
+          <tr>
+            <td align="center" valign="top"> 
+                <input type="hidden" name="opFlag" value="">
+                <input type="hidden" name="module_nums" value="">
+                <input type="hidden" name="cartype_nums" value="">      
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <th colspan=5 height=30 class='th_left'>用户：<!--{$userinfo[username]}--> 的产品权限：</th>
+                  </tr>
+                  <tr>
+                    <td height="20" width='30%' nowrap>&nbsp;品牌名称&nbsp;</td>
+                    <td width="70%" colspan='4'>&nbsp;权限&nbsp;</td>
+                  </tr>
+                  <!--{loop $allauth $k $v}-->
+                  <tr align="center">
+                    <td nowrap>
+                    <!--{$v[brand_name]}-->
+                    <input type=hidden name="module_<!--{$k}-->" value="<!--{$v[brand_id]}-->">
+                    </td>
+                    <!--{loop $auth_value $ak $av}-->
+                    <td>
+                    <!--{if $userauth[$v[brand_id]] == $ak}-->
+                    <input type='radio' name="m_radio_<!--{$v[brand_id]}-->" value="<!--{$ak}-->" checked="checked">
+                    <!--{else}-->
+                    <input type='radio' name="m_radio_<!--{$v[brand_id]}-->" value="<!--{$ak}-->">
+                    <!--{/if}-->
+                    <!--{$av}-->
+                    </td>
+                    <!--{/loop}-->
+                  </tr>
+                  <!--{/loop}-->
+                  </table>
+                </td>
+            </tr>
+                
+             <tr align=center>
+               <td>
+               <input type=hidden name="mod_rights" value="1">
+               <input type=hidden name="uid" value="<!--{$userinfo[uid]}-->">
+               <input type=submit name=b1 class=button value=" 保 存 ">&nbsp;&nbsp;
+               <input type=button name=b1 class=button value=" 返 回 " onclick="javascript:history.go(-1);">
+               </td>
+             </tr>
+             
+            </table>
+            </form>
+            </div>
+        
+      </div>
+  </div>
+<script type="text/javascript">
+function goto_authedit(){
+  var auth_url="?action=auth-&uid=<!--{$userinfo[uid]}-->";
+  location.href=auth_url;
+}
+</script>
+{template footer}  

@@ -1,0 +1,38 @@
+{template header} 
+<div class="user_wrap">
+  <div class="module_con">
+    <div class="module_con1">
+      <table cellpadding="0" cellspacing="0" class="table2">
+        <tr align="right"  class='th'> 
+          <th height="20" nowrap>序号</th>
+          <th width="40%" align="left">分类名称</th>
+          <th nowrap>操作</th>
+        </tr>
+        {loop $series_type $k $v}
+        <tr align="right"  class='th'> 
+            <td height="20" nowrap align="center">{eval echo $k + 1}</td>
+            <td>
+                {if $type == 1}
+                    {$v['date_id']}款 {$v['st4']} {$v['st21']}门 轴距{$v['st15']}mm
+                {else}
+                    {$v['date_id']}款 {$v['st27']}升{$v['st41']}{$v['st28']} {$v['st48']}
+                {/if}
+            </td>
+            <td>
+                {if $type ==1}
+                    <a href="index.php?action=realdata-edithtml&type={$type}&series_id={$series_id}&date_id={$v['date_id']}&st15={$v['st15']}&st4={$v['st4']}&st21={$v['st21']}">车内空间</a>
+                {else}
+                    <a href="index.php?action=realdata-edithtml&type=3&id={$v['id']}&series_id={$series_id}&date_id={$v['date_id']}">实测噪音</a>
+                    <a href="index.php?action=realdata-edithtml&type={$type}&id={$v['id']}&date_id={$v['date_id']}&series_id={$series_id}">实测油耗</a>
+                    <a href="index.php?action=realdata-edithtml&type=4&id={$v['id']}&date_id={$v['date_id']}&series_id={$series_id}">4S保养</a>
+                    <a href="index.php?action=realdata-edithtml&type=5&id={$v['id']}&date_id={$v['date_id']}&series_id={$series_id}">国家补贴</a>
+                {/if}              
+            </td>
+        </tr>
+        {/loop}
+      </table>
+    </div>
+    
+  </div>
+</div>
+{template footer} 

@@ -1,0 +1,77 @@
+<extend name="Index/index" />
+<block name="con">
+
+    
+<div class="page-title">
+    <div class="title_left">
+        <h3>类别修改</h3>
+    </div>
+</div>
+<div class="x_panel">
+    <div class="x_title">
+        <h2>类别信息 <small>请认真填写</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+            	<a class="collapse-link">
+            		<i class="fa fa-chevron-up"></i>
+            	</a>
+            </li>
+            <li class="dropdown">
+                <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                	<i class="fa fa-wrench"></i>
+                </a>
+                <ul role="menu" class="dropdown-menu">
+                    <li>
+                    	<a href="#">Settings 1</a>
+                    </li>
+                    <li>
+                    	<a href="#">Settings 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+            	<a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+	<div class="x_content">
+	    <br>
+	    <form class="form-horizontal form-label-left" data-parsley-validate="" id="demo-form2" novalidate="" action="{:U('Admin/Type/update')}" method="post">
+        <input type="hidden" name="id" value="{$info['id']}">
+	        <div class="form-group">
+	            <label for="first-name" class="control-label col-md-3 col-sm-3 col-xs-12">类别名称 <span class="required">*</span>
+	            </label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+	                <input type="text" name="name" value="{$info['name']}" class="form-control col-md-7 col-xs-12" required="required" id="first-name" data-parsley-id="4702">
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="last-name" class="control-label col-md-3 col-sm-3 col-xs-12">父级类别<span class="required">*</span>
+	            </label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+					<select class="form-control" name="pid">
+                        <option value="0">请选择</option>
+                        <foreach name="types" item="vo">
+                        <option value="{$vo['id']}" <eq name="info['pid']" value="$vo['id']">selected="selected"</eq>>{$vo['name']}</option>
+                        </foreach>
+                    </select>
+	            </div>
+	        </div>
+
+	        <div class="ln_solid"></div>
+	        <div class="form-group">
+	            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+	                <button class="btn btn-success" type="submit">修改</button>
+	                <button class="btn btn-primary" type="reset">重置</button>
+	            </div>
+	        </div>
+
+	    </form>
+	</div>
+</div>
+
+<!-- <script type="text/javascript" src="__PUBLIC__/Admin/production/js/parsley/parsley.min.js"></script> -->
+        
+       
+</block>

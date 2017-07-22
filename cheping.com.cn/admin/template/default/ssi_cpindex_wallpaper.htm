@@ -1,0 +1,27 @@
+<ul class="wallpapers">
+    <!--{loop $newseries $key $value}-->
+    <li style="background-color:<!--{eval echo $color[$key];}-->;">
+        <!--{if $dis[$key]=='block'}-->
+        <div class="wallpaper_div1">
+            <a href="wallpaper.php?action=wallpaper_car&id={$value['id']}" target="_blank">
+            <img style="width: 195px;height: 146px;" title='{$value["series_name"]}' alt='{$value["series_name"]}' imgsrc="{$relative_dir}attach/wp_small{$value['series_pic_dir']}185x139{$value['series_pic']}" src="images/a.gif" onerror="this.src='images/v2/pic1_v1.gif'">
+            </a>
+        </div>
+        <div class="wallpaper_div2" style="margin:5px;">
+            <a href="wallpaper.php?action=wallpaper_car&id={$value['next']['id']}" target="_blank">
+            {$value['next']["series_name"]}</a>
+        </div>
+        <!--{else}-->
+        <div class="wallpaper_div1" style="margin:5px;">
+            <a href="wallpaper.php?action=wallpaper_car&id={$value['next']['id']}" target="_blank">
+            {$value['next']["series_name"]}</a>
+        </div>
+        <div class="wallpaper_div2">
+            <a href="wallpaper.php?action=wallpaper_car&id={$value['id']}" target="_blank">
+            <img style="width: 195px;height: 146px;" title='{$value["series_name"]}' alt='{$value["series_name"]}' imgsrc="{$relative_dir}attach/wp_small{$value['series_pic_dir']}185x139{$value['series_pic']}" src="images/a.gif" onerror="this.src='images/v2/pic1_v1.gif'">
+            </a>
+        </div>        
+        <!--{/if}-->
+    </li>
+    <!--{/loop}-->
+</ul>

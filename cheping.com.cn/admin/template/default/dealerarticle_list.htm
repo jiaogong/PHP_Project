@@ -1,0 +1,141 @@
+{template header}
+<div class="user">
+<div class="nav">
+    <ul id="nav">
+    <li><a href="" class="song">经销商文章列表</a></li>
+</ul>
+    </div>
+    <div class="clear"></div>
+<div class="user_con">
+    <div class="user_con1">
+    <form id="search_form" name="search_form" method="post" action="index.php?action=article-dealerlist">
+            <table class="table2" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td align="left">
+                      <select name="brand_id" id="brand_id">
+                        <option value="">==请选择品牌==</option>
+                        <!--{loop $brand $k $v}-->
+                        <option value="{$v[brand_id]}">{$v[brand_name]}</option>
+                        <!--{/loop}-->
+                      </select>
+                  
+                      <select name="factory_id" id="factory_id">
+                        <option value="">==请选择厂商==</option>
+                        <!--{loop $factory $k $v}-->
+                        <option value="{$v[factory_id]}">{$v[factory_name]}</option>
+                        <!--{/loop}-->
+                      </select>
+                      <select name="series_id" id="series_id">
+                        <option value="">==请选择车系==</option>
+                        <!--{loop $series $k $v}-->
+                        <option value="{$v[series_id]}">{$v[series_name]}</option>
+                        <!--{/loop}-->
+                      </select><br>                   
+                      标题关键字:<input type="text" name="keyword" id="keyword" size="10" value="{$keyword}"/>
+                      经销商名称:<input type="text" name="dealer_name" id="dealer_name" size="15" value="{$dealer_name}"/>
+                      <input id="search_btn" name="search_btn" type="submit" value="搜索" />
+                    </td>
+                </tr>
+            </table>
+    </form>
+      <table cellpadding="0" cellspacing="0" class="table2" border="0">
+        <tr>
+          <td>ID</td>
+          <td>标题</td>
+          <td>经销商名称</td>
+          <td>经销商提交时间</td>
+          <td>操作</td>
+        </tr>
+        <!--{loop $list $k $v}-->
+        <tr>
+          <td>{$v[id]}</td>
+          <td>{$v[title]}</td>
+          <td>{$v[dealer_name]}</td>
+          <td><!--{eval echo date('Y/m/d H:i:s', $v[created]);}--></td>
+          <td>
+          <a href="index.php?action=article-edit&did={$v[id]}">
+          <img src="{$admin_path}images/rewrite.gif" width="12" height="12" />修改</a>
+          </td>
+        </tr>
+        <!--{/loop}-->
+        <tr><td colspan="8" align="center" class="page_bar_css">{$page_bar}</td></tr>
+      </table>
+   </div>
+   <div class="user_con2"><img src="<!--{$admin_path}-->images/conbt.gif"  height="16" /></div>
+</div>
+</div> 
+
+<script type="text/javascript">
+$().ready(function(){
+  $('.click_pop_dialog').live('click', function(){
+    pop_window($(this), {message:'您确定要删除该文章吗？', pos:[200,150]});
+  });
+  
+  $('.article_make_page').click(function(){
+    $.get($(this).attr('tourl'), function(ret){
+      if($.trim(ret)>0){
+        alert('文章生成成功！');
+      }else{
+        alert('文章生成失败！'+ret);
+      }
+    });
+  });
+  $('#brand_id').val({$brand_id});
+  $('#factory_id').val({$factory_id});
+  $('#series_id').val({$series_id});
+  $('#article_type').val({$article_type});
+
+   $('#brand_id').change(function(){
+    var brand_id=$(this).val();
+    var fact=$('#factory_id')[0];
+    var facturl="?action=factory-json&brand_id="+brand_id;
+    var sel=$(this)[0];
+    $('#brand_name').val(sel.options[sel.selectedIndex].text)
+
+    $.getJSON(facturl, function(ret){
+      $('#factory_id option[value!=""]').remove();
+      $('#series_id option[value!=""]').remove();
+      $('#model_id option[value!=""]').remove();
+
+      $.each(ret, function(i,v){
+        fact.options.add(new Option(v['factory_name'], v['factory_id']));
+      });
+    });
+  });
+
+  $('#factory_id').change(function(){
+    var fact_id=$(this).val();
+    var ser=$('#series_id')[0];
+    var serurl="?action=series-json&factory_id="+fact_id;
+    var sel=$(this)[0];
+    $('#factory_name').val(sel.options[sel.selectedIndex].text)
+
+    $.getJSON(serurl, function(ret){
+      $('#series_id option[value!=""]').remove();
+      $('#model_id option[value!=""]').remove();
+
+      $.each(ret, function(i,v){
+        ser.options.add(new Option(v['series_name'], v['series_id']));
+      });
+    });
+  });
+
+  $('#series_id').change(function(){
+    var sel=$(this)[0];
+    $('#series_name').val(sel.options[sel.selectedIndex].text)
+
+    var sid=$(this).val();
+    var mod=$('#model_id')[0];
+    var modurl="?action=model-json&sid="+sid;
+    $.getJSON(modurl, function(ret){
+      $('#model_id option[value!=""]').remove();
+      $.each(ret, function(i,v){
+        mod.options.add(new Option(v['model_name'], v['model_id']));
+      });
+    });
+  });
+
+});
+</script>  
+    </body>
+</html>    

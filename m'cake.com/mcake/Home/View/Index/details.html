@@ -1,0 +1,573 @@
+<extend name="Index/indextemp" />
+<block name="con">
+
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/comm_header.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/Landing_city.css">
+
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/ebsig.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/goods.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/index.css">
+
+        <!-- 引入外部js -->
+        
+        <script src="__PUBLIC__/Home/js/goods.js" async="" type="text/javascript"></script>
+        <script src="__PUBLIC__/Home/js/mv.js" async="" type="text/javascript"></script>
+        <!--<script src="__PUBLIC__/Home/js/mba.js" async="" type="text/javascript"> </script>-->
+        <script src="__PUBLIC__/Home/js/s.js" async="" type="text/javascript"></script>
+        <!-- <script src="__PUBLIC__/Home/js/mvl.js" async="" type="text/javascript"></script> -->
+        <!-- <script src="__PUBLIC__/Home/php/core.php" charset="utf-8" async="" type="text/javascript"></script> -->
+        <!-- <script src="__PUBLIC__/Home/js/v.htm" charset="utf-8"></script> -->
+        <script type="text/javascript" src="__PUBLIC__/Home/js/jquery.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Home/js/LandingDialog.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Home/js/superscrollorama.js"></script>
+
+       
+
+        <script type="text/javascript" src="__PUBLIC__/Home/js/uaredirect.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Home/php/iplookup.php"></script>
+  <!-- contents 开始-->
+    
+  
+    <!--产品详情-->
+    <div class="page_details_box">
+        <div class="Product_details_box">
+            <div class="view_pro_img">
+                <!--小图列表-->
+                <div class="samll_left">
+                    <div class="top_btn"><i></i></div>
+                    <div class="samll_img_box">
+                        <ul class="pro_small_img" id="thumblist">
+                            <li class="cur">
+                              <a rel="{gallery: 'gal1', smallimage: 'http://www.mcake.com/postsystem/docroot/images/goods/20150602/1864/middle_1864_1.jpg',largeimage: 'http://www.mcake.com/postsystem/docroot/images/goods/20150602/1864/big_1864_1.jpg'}" href="javascript:void(0);">
+                              <img src="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/s_'.explode(',',rtrim($goods["picname"],','))[0]); ?>">
+                               </a>
+                            </li>
+                            <li>
+                              <a rel="{gallery: 'gal1', smallimage: 'http://www.mcake.com/postsystem/docroot/images/goods/20150602/1864/middle_1864_2.jpg',largeimage: 'http://www.mcake.com/postsystem/docroot/images/goods/20150602/1864/big_1864_2.jpg'}" href="javascript:void(0);">
+                              <img src="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/s_'.explode(',',rtrim($goods["picname"],','))[1]); ?>">
+                               </a>
+                            </li>
+                            <li>
+                              <a rel="{gallery: 'gal1', smallimage: 'http://www.mcake.com/postsystem/docroot/images/goods/20150602/1864/middle_1864_3.jpg',largeimage: 'http://www.mcake.com/postsystem/docroot/images/goods/20150602/1864/big_1864_3.jpg'}" href="javascript:void(0);">
+                              <img src="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/s_'.explode(',',rtrim($goods["picname"],','))[2]); ?>">
+                              </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom_btn nocur"><i></i></div>
+                </div>
+                <!--大图展示-->
+                <div class="pro_big_img" style="width:480px;height:480px;">
+                <div class="dian" style="background: url('__PUBLIC__/Home/images/icons/bg.png');width: 242px;height: 242px;position: absolute;left: 140px;top:120px;opacity: 0.3;display: none;"></div>
+                    <a title="magnifier" rel="gal1" class="jqzoom" href="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/b_'.explode(',',rtrim($goods["picname"],','))[0]); ?>" style="outline-style: none; text-decoration: none;">
+                        <img class="img340" src="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/c_'.explode(',',rtrim($goods["picname"],','))[0]); ?>">
+                    </a>
+                    <a title="magnifier" rel="gal1" class="jqzoom" href="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/b_'.explode(',',rtrim($goods["picname"],','))[1]); ?>" style="outline-style: none; text-decoration: none;">
+                        <img class="img340" src="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/c_'.explode(',',rtrim($goods["picname"],','))[1]); ?>">
+                    </a>
+                    <a title="magnifier" rel="gal1" class="jqzoom" href="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/b_'.explode(',',rtrim($goods["picname"],','))[2]); ?>" style="outline-style: none; text-decoration: none;">
+                        <img class="img340" src="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/c_'.explode(',',rtrim($goods["picname"],','))[2]); ?>">
+                    </a>
+
+                    <div style="float:left; width:400px;" class="pro_copy">
+                        <p class="en_copy">
+                            {$goods.descr_en}
+                        </p>
+                        <p class="cn_copy">
+                            {$goods.descr_cn}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="Pro_parameters_box">
+                <div class="pro_name"><span>{$goods.cn_gname}</span> {$goods.en_gname}</div>
+                 <for start="0" end="count(explode(',',rtrim($goods['price'],',')))" name="i">
+                <div class="pro_pire">￥<span id="price"><?php echo explode(',',rtrim($goods["price"],','))[$i].".00"; ?></span></div>
+                </for>
+                <!-- 尺寸 磅数 适合人群 start -->
+                <form action="{:U('Home/Orders/sindex')}" method="get" id="guwu_form">
+                <ul class="change_p">
+                    <for start="0" end="count(explode(',',rtrim($goods['weight'],',')))" name="i">
+                      <li id="size_id_{$goods.id}" class="">
+                        <div></div>
+                        <span ><ins class="wna"><?php echo explode(',',rtrim($goods['weight'],','))[$i];?></ins> 磅</span>
+                        
+                      </li>
+                      </for>
+                      <input type="hidden" class="weight_n" name="weight" value="">
+                    </ul>
+
+                    <for start="0" end="count(explode(',',rtrim($goods['size'],',')))" name="i">
+                    <div class="pro_desc">
+                        <span id="g_edible"><?php echo explode('+',explode(',',rtrim($goods['size'],','))[$i])[0];?></span>
+                        <span id="g_size"><?php echo explode('+',explode(',',rtrim($goods['size'],','))[$i])[1];?></span>
+                        <p id="g_aheadTime"><?php echo explode('+',explode(',',rtrim($goods['size'],','))[$i])[2];?></p>
+                    </div>
+                </for>
+                <!-- 尺寸 磅数 适合人群 end -->
+                    <div class="cake_num">
+                        <span>数量</span>
+                        <dl>
+                            <dd class="n_left nopoint"></dd>
+                            <dt><input type="text" id="buy_number1" class="num_1" value="1" name="num"></dt>
+                            <dd class="n_right"></dd>
+                        </dl>
+                    </div>
+
+                <ul class="buy_btn_box">
+                    <li>
+                        <input type="button" id="add_cart1" class="add_cart1 cur" value="加入购物车">
+                        
+                    </li>
+                    
+                    <li>
+                        <input type="submit" id="buy_now1" class="buy_now1" value="立即购买">
+                        
+                    </li>
+                    <input type="hidden" id="pro_id" name="gid" value="{$goods.id}">
+                </ul>
+                </form>
+                <div class="pro_Explain"></div>
+                <ul class="Select_view">
+                    <li class="yuancailiao cur"><span>Best Ingredient</span><p>优质原材料</p></li>
+                    <li class="dianpings"><span>Evaluation</span><p id="comments_count">累计点评({$pNum})</p></li>
+                </ul>
+                <ul class="view_list">
+                    <li class="m_cake cur">
+                        <dl>
+                            <for start="0" end="count(explode(',',rtrim($goods['material_name'],',')))" name="i">
+                                <dd>
+                                <img src="/mcake/<?php  $cNum = explode('-',explode(',',rtrim($goods['material_name'],','))[$i])[0];echo $cou[$cNum-1]['flag_pic'];?>"><span><?php echo explode('-',explode(',',rtrim($goods["material_name"],","))[$i])[1];?></span>
+                                </dd>
+                            </for>
+                        </dl>
+                      <ul>
+                        <li class="Basic" >
+                          <dl>
+                            <dd>
+                              <span>Texture</span>
+                              <span>口感</span>
+                              <samp>{$goods.taste}</samp> 
+                            </dd>                                    <dd>
+                              <span>Flavor</span>
+                              <span>口味</span>   
+                              <samp>{$goods.feeling}</samp>
+                            </dd>                                    <dd> 
+                              <span>Base</span>
+                              <span>口味基底</span>
+                              <samp>{$goods.basefeel} </samp>
+                            </dd>                                    <dd>
+                            <span>Sweetness</span>
+                            <span>甜味</span>
+                          <ul class="Sweet">
+                            <if condition="$goods.sweet eq 1">
+                            <li></li>
+                            <else /><li></li><li></li>
+                            </if>
+                          </ul>
+                          </dd>
+                        </dl>
+                        <dl>
+                          <dd>
+                           <if condition="$goods.state neq ''">
+                            <span>PS</span>
+                            <span>说明</span>
+                            <samp>{$goods.state}</samp>
+                            </dd>
+                            </if>
+                            <if condition="$goods.explian neq ''">
+                            <dd>
+                            <span>*</span>
+                            <span>特别说明</span>
+                            <samp>{$goods.explian}</samp>
+                            </dd>
+                            </if>                              
+                          </dl>
+                        </li>
+                        </ul>
+                     </li>
+                    <li class="page_con">
+                        <!--评论类别-->
+                        <ul class="Review_top">
+                            <li>
+                                <dl>
+                                <eq name="pNum" value="0">暂无评论!</eq><gt name="pNum" value="0">相关评论:</gt>
+                                </dl>
+                            </li>
+                        </ul>
+                        <!--评论类别 end-->
+                        <!--评论列表-->
+                        <ul id="comment_list" class="Review_list">
+                        <foreach name="pinglun" item="p">
+                            <li class="conts"><span style="color:#b0916a;padding-right: 10px;margin-left: 40px;font-size:13px ">{$p.uname}:</span><span style="font:13px '宋体,Courier New';">{$p.content}</span><i style="margin-left: 10px;font:8px 'Gulim';">{$p.addtime}</i></li>
+                        </foreach>
+                            
+                            <div style="margin-left: 380px;">
+                                <ul>
+                                    <for start="0" end='$page' name="i"> 
+                                    <li class="numdd" style="margin-right: 8px;width:18px;height: 18px;background: #ececec;color:#bbb;font-size:13px;list-style: none;float: left;cursor:pointer;"><p style="margin-top:-2px;margin-left: 5px;">{$i+1}</p></li>
+                                    </for>
+                                </ul>
+                            </div>
+                        </ul>       
+                        <div id="paging" class="Review_nav"></div>
+                        <!--评论列表结束-->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 放大镜后的大图 start -->
+    <div class="fdj" style="width: 480px;height: 480px;overflow: hidden;position: absolute;left:630px;top:120px;display: none;">
+        <div class="fdj_image" style="width:960px;height:960px;display: block;position: relative;left:-100px;top:-100px;"><img src="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/b_'.explode(',',rtrim($goods["picname"],','))[0]); ?>"></div>
+        <div class="fdj_image" style="width:960px;height:960px;display: none;position: relative;"><img src="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/b_'.explode(',',rtrim($goods["picname"],','))[1]); ?>"></div>
+        <div class="fdj_image" style="width:960px;height:960px;display: none;position: relative;"><img src="<?php echo ('__UPLOAD__/GoodsImg/'.substr($goods["addtime"],0,8).'/b_'.explode(',',rtrim($goods["picname"],','))[2]); ?>"></div>
+
+    </div>
+    <!-- 放大镜后的大图 end -->
+    
+<!-- 加入购物车遮罩层 开始 -->
+<div tabindex="-1" role="dialog" aria-labelledby="avatar-modal-label" aria-hidden="false" id="avatar-modal" class="modal fade in" style="display: none;position: absolute;left:400px;top:150px;z-index: 1000">
+    <div class="modal-backdrop fade in" id="heimu" style="height: 315px;width: 500px;left:400px;top:130px;background: rgba(176,145,106,1);border-radius: 3px;">
+       <div class="modal-dialog modal-lg" id="qrc" style="background:rgba(250,250,250,1);height: 255px;top: 30px;position: relative;">
+        <div style="color:#999;width:60px;height:12px;padding:10px;opacity: 1;">加入购物车</div>
+        <div class="modal-body" style="margin-left:100px;margin-top: 60px;" >
+            <div style="font: 20px 黑体;color:#666;line-height: 10px;font-weight:normal;">亲,这款蛋糕已添加至您的购物车!</div>
+
+        </div>
+        <div style="margin-left: 190px;margin-top: 10px;"><span style="font-family: 宋体;"><i class="miao"> 12 </i>秒后跳转至列表页</span></div>
+        <div style="margin-left: 120px;margin-top: 30px;">
+        <span style="margin-left: 40px;color:#aaa;"><a class="qugouwuche cur" style="width:18px;cursor:pointer;background: #ddd;padding:8px;">去购物车</a></span><span style="margin-left: 40px;color:#aaa;background: #ddd;padding:8px;"><a class="quxiaodiao" style="width:18px;cursor:pointer;">留在本页</a></span>
+         </div>
+        </div>
+    </div>
+   </div>
+  
+   <!-- 加入购物车遮罩层 结束 -->
+
+  <!-- 商品详情 结束 -->
+    
+  <script type="text/javascript">
+
+  //声明一个收集磅数的变量
+  var wnum = 0;
+    //打开页面时默认选择第二个
+
+             $('.change_p').children('li').eq(1).attr('class','cur');
+             $('.change_p').children('li').eq(1).siblings('li').attr('class','');
+             wnum = $('.change_p').children('li').eq(1).children('span').children('.wna').html();
+             $('.weight_n').attr('value',wnum);
+            $('.pro_desc').eq(1).css('display','block');
+            $('.pro_desc').eq(1).siblings('.pro_desc').css('display','none');
+            $('.Pro_parameters_box').children('.pro_pire').eq(1).css('display','block');
+            $('.Pro_parameters_box').children('.pro_pire').eq(1).siblings('.pro_pire').css('display','none');
+    //磅数选择事件
+      $('.change_p').children('li').each(function(i){
+        $(this).click(function(){
+            $(this).attr('class','cur');
+            $(this).siblings('li').attr('class','');
+            wnum = $(this).children('span').children('.wna').text();
+            $('.weight_n').attr('value',wnum);
+            $('.pro_desc').eq(i).css('display','block');
+            $('.pro_desc').eq(i).siblings('.pro_desc').css('display','none');
+            $('.Pro_parameters_box').children('.pro_pire').eq(i).css('display','block');
+            $('.Pro_parameters_box').children('.pro_pire').eq(i).siblings('.pro_pire').css('display','none');
+        })
+      })
+
+      
+
+      //商品图片默认处理
+        $('.pro_small_img').children('li').eq(0).attr('class','cur');
+        $('.pro_small_img').children('li').eq(0).siblings('li').attr('class','');
+        $('.pro_big_img').children('a').eq(0).css('display','block');
+        $('.pro_big_img').children('a').eq(0).siblings('a').css('display','none');
+        //放大镜默认处理
+        $('.fdj').children('.fdj_image').css('display','none');
+        $('.fdj').css('display','none');
+        //商品图片处理事件
+    $('.pro_small_img').children('li').each(function(i){
+        $(this).click(function(){
+            $(this).attr('class','cur');
+            $(this).siblings('li').attr('class','');
+            $('.pro_big_img').children('a').eq(i).css('display','block');
+            $('.pro_big_img').children('a').eq(i).siblings('a').css('display','none');          
+        }) 
+
+      })
+      //放大镜处理事件
+      $('.pro_big_img').children('a').each(function(i){
+
+        $(this).mouseover(function(){
+            $('.dian').css('display','block');
+            $('.dian').css('cursor','crosshair');
+            $('.dian').mousemove(function(e){
+                
+                $('.change_p').children('li').attr('class','');
+
+
+                //获取鼠标的位置
+                var x = e.pageX;
+                var y = e.pageY;
+
+                //获取移动div 宽度和高度的一般
+                var _w = $('.dian').width()/2;
+                var _h = $('.dian').height()/2;
+
+                //计算新的left和top
+                var newLeft = x  - _w;
+                var newTop = y - _h;
+
+                //检测newLeft是否越界
+                if(newLeft <= 140){
+                    newLeft = 140;
+                }
+                //计算最大的left属性
+                var maxLeft = $('.pro_big_img').width() - $('.dian').width()+_w+20;
+                if(newLeft >= maxLeft){
+                    newLeft = maxLeft;
+                }
+
+                //检测Y轴越界
+                if(newTop <= 120){
+                 newTop = 120;
+                }
+                var maxTop = $('.pro_big_img').height() - $('.dian').height()+_h;
+                if(newTop >= maxTop){
+                newTop = maxTop;
+                }
+                var dnewLeft=-(newLeft-140)*2;
+                var dnewTop = -(newTop-120)*2
+                // alert(dnewLeft);
+
+                //对图片进行移动
+                $('.dian').css({left:newLeft+'px',top:newTop+'px'});
+                $('.fdj').children('.fdj_image').eq(i).css('display','block');
+                $('.fdj').children('.fdj_image').eq(i).siblings('.fdj_image').css('display','none');
+                $('.fdj_image').eq(i).css({left:dnewLeft+'px',top:dnewTop+'px'});
+                $('.fdj').css('display','block');
+
+                // console.log(_w);
+
+            })
+            })
+            //鼠标离开放大镜区域事件
+            $('.dian').mouseout(function(){
+                $('.fdj').css('display','none');
+                $(this).mouseout(function(){
+                    $('.dian').css('display','none');
+                    $('.change_p').children('li').eq(1).attr('class','cur');
+                    $('.change_p').children('li').eq(1).siblings('li').attr('class','');
+                    $('.pro_desc').eq(1).css('display','block');
+                    $('.pro_desc').eq(1).siblings('.pro_desc').css('display','none');
+                    $('.fdj').children('.fdj_image').eq(i).css('display','none');
+                    $('.fdj').children('.fdj_image').eq(i).siblings('.pro_desc').css('display','none');
+
+
+            })
+        })
+
+      })
+
+
+    /*加入购物车事件*/
+
+    //声明一个收集购物车件数的变量
+    var car_nums=0;
+
+    //声明一个定时器变量
+    var i ='';
+
+    
+    $('.add_cart1').click(function(){
+        //获取gid
+        var gid = $('#pro_id').val();
+        //获取商品磅数
+        var weight = $('.weight_n').val();
+        //获取商品购买数量
+        var num = $('#buy_number1').val();
+
+        //发送ajax
+        $.get("{:U('Home/ShopCart/insert')}",{gid:gid,weight:weight,num:num},
+            function(data){
+            if(data!=0){
+               //定义购物篮特效
+                clearTimeout(i);
+                $('.gouwulan1').css('display','none');
+                $('.gouwulan2').css('display','block');
+                i = setTimeout(function(){
+                    $('.gouwulan1').css('display','block');
+                    $('.gouwulan2').css('display','none');
+                },1100); 
+                //购物车件数加1
+                car_nums++;
+                $('#cart_amount').html(car_nums);
+                //获取可视区域的宽高
+                var wY = $(window).height();
+                var wX = $(window).width();
+                //获取滚动条的top距离
+                var sY = $(window).scrollTop();
+                //计算新的遮罩层的位置
+                var wYnew = (wY/2)-200;
+                var wXnew = (wX/2)-200;
+                //修改遮罩层的位置、
+                $('heimu').css('left',wXnew+"px");
+                $('heimu').css('top',wXnew+"px");
+                    //获取可视区域宽高
+                $('#avatar-modal').show();
+               
+               //滚动条位置
+               scrollTo(0,0);
+               //12秒递减
+                var v=12;
+               //跳转列表页
+               var l = setTimeout(function(){ 
+                location.href="/index.php/Home/Index/index";
+            },12000);
+               var m= setInterval(function(){
+                v--;
+                if(v<0){
+                    v=12;
+                }
+                $('.miao').html(v+'&nbsp;');      
+               },1000);
+               $('.quxiaodiao').click(function(){
+                    clearTimeout(l);
+                    clearTimeout(m);
+                    $('.modal').css('display','none');
+                    v=12;
+
+               })
+               $('.qugouwuche').click(function(){
+                    location.href="/index.php/Home/ShopCart/index";
+               })
+              
+            }else{
+                alert("请先登陆！");
+                location.href = "{:U('/Home/Login/dologin')}";
+            }
+        })        
+    })
+    
+    
+    
+
+    /*点评的显示内容切换*/
+        //点击评论页码发送ajax
+        //绑定事件
+       $('.numdd').each(function(i){
+        var gid ={$goods['id']};
+
+            $(this).click(function(){
+                //发送ajax请求
+                $.get("{:U('Home/Index/cont')}",{p:i,id:gid},function(data){
+                 if(data){
+                    $('.Review_list li.conts').remove();
+                    $.each(data,function(key,value){
+                        var conk = $('<li class="conts"><span style="color:#b0916a;padding-right: 10px;margin-left: 40px;font-size:13px; ">'+value['uname']+':</span><span style="font:13px 宋体,Courier New;">'+value['content']+'</span><i style="margin-left: 10px;font:8px Gulim;">'+value['addtime']+'</i></li>');
+                        $('.Review_list').prepend(conk);
+                    })   
+                 }
+               }); 
+            })
+        })
+
+        /*材料点评信息切换*/
+        $('.yuancailiao').click(function(){
+                $(this).siblings('li').removeClass('cur');
+                $(this).addClass('cur');
+                $('.m_cake').siblings('li').removeClass('cur');
+                $('.m_cake').addClass('cur');
+        })
+        $('.dianpings').click(function(){
+                $(this).siblings('li').removeClass('cur');
+                $(this).addClass('cur');
+                $('.page_con').siblings('li').removeClass('cur');
+                $('.page_con').addClass('cur');
+        })
+
+     /*选择磅数*/
+    $("ul.change_p li").click(function(){
+        
+        $(this).addClass("");
+        G.goods.sizeChange($(this).attr('id').replace('size_id_', ''), 1);
+    });
+    //加减按钮
+    $(".n_right").click(function(){
+        //判断按钮是否可用
+
+        if($(this).attr("class").indexOf("nopoint")>0)
+            return false;
+        var num = $('#buy_number1');
+        var oldValue = parseInt(num.val()); //取出现在的值，并使用parseInt转为int类型数据
+
+        if(oldValue >= {$goods.stocks}-1)
+            $(this).addClass('nopoint');
+
+        if(oldValue >= {$goods.stocks})
+            return false;
+
+        oldValue++;   //自加1
+        num.val(oldValue);  //将增加后的值付给控件
+        $(".n_left").removeClass("nopoint");
+    });
+    $(".n_left").click(function(){
+        //判断按钮是否可用
+        if($(this).attr("class").indexOf("nopoint")>0)
+            return false;
+        var num = $('#buy_number1');
+        var oldValue = parseInt(num.val()); //取出现在的值，并使用parseInt转为int类型数据
+        oldValue--;   //自减1
+        num.val(oldValue);  //将增加后的值付给控件
+        $(".n_right").removeClass('nopoint');
+        if ( num.val() < 2) {
+            $(this).addClass("nopoint");
+            num.val(1);
+        }
+    });
+
+    //手动输入商品数量控制
+    $(document).on('keyup', '#buy_number1', function(){
+        var value = E.trim($(this).val());
+        if(!E.isInt(value) || value < 1)
+            value = 1;
+
+        if(value > {$goods.stocks})
+            value = {$goods.stocks};
+
+        $(this).val(value);
+    });
+
+    var temp_buy_number1 = 0;
+    $('#buy_number1').focus(function() {
+        temp_buy_number1 = $(this).val();
+    }).blur(function() {
+        var buy_number1 = $(this).val();
+        if (buy_number1 <= 0 || buy_number1 > 99) {
+            $(this).val(temp_buy_number1);
+        }
+    });
+    G.goods.init = function() {
+    E.ajax_get({
+        action: "goods",
+        operFlg: 2,
+        data: {
+            id: this.postID
+        },
+        call: "G.goods.display"
+    });
+    if(G.goods.useFlg==2){
+        //增减按钮样式处理
+        $(".n_right,.n_left").addClass("nopoint");
+        //数量0
+        $("#buy_number1").attr("disabled","disabled").val(0);
+        //立即购买和加入购物车按钮样式处理
+        $(".add_cart1,.buy_now1").addClass("disable");
+        $("#buy_now1").val("已售罄");
+    }
+}
+
+
+  </script>
+    <!-- contents 结束-->
+</block>

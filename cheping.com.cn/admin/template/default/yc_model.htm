@@ -1,0 +1,185 @@
+{template header}
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+            <li><a href="index.php?action=grabyiche">抓取易车商城数据</a></li>
+            <li><a href="index.php?action=grabyiche-yichetree">抓取易车产品数据</a></li>
+            <li><a href="index.php?action=grabyiche-brand">易车品牌管理</a></li>
+            <li><a href="index.php?action=grabyiche-factory">易车厂商管理</a></li>
+            <li><a href="index.php?action=grabyiche-series">易车车系管理</a></li>
+            <li><a href="index.php?action=grabyiche-model" class="song">易车车款管理</a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            <table class="table2" border="0" cellpadding="0" cellspacing="0" style="table-layout:fixed;word-wrap: break-word;">
+                <tr>
+                    <td>
+                        <form name="frm_ycsearch" id="frm_ycsearch" action="" method="post">
+                        筛选
+                        <select name="bid" id="yc_bid" style="width:160px">
+                            <option value="">请选择品牌</option>
+                            <!--{loop $yc_brand $k $v}-->
+                            <option value="{$v[yc_bid]}">{$v[yc_brandname]}</option>
+                            <!--{/loop}-->
+                        </select>
+                        <select name="fid" id="yc_fid" style="width:160px">
+                            <option value="">请选择厂商</option>
+                        </select>
+                        <select name="sid" id="yc_sid" style="width:160px">
+                            <option value="">请选择车系</option>
+                        </select>
+                        <input type="button" name="btn_search" id="btn_search" value='开始搜索'>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <table class="table2" border="0" cellpadding="0" cellspacing="0" style="table-layout:fixed;word-wrap: break-word;">
+                <tr align="right" class='th'>
+                    <td width="30" align="center">ID</td>
+                    <td width="200" align="center">易车品牌/厂商/车系</td>
+                    <td width="200" align="center">易车车款名称</td>
+                    <td width="120" align="center">冰狗车款名称</td>
+                    <td align="center">操作</td>
+                </tr>
+                <!--{loop $list $k $v}-->
+                <tr>
+                    <td>{$v['id']}</td>
+                    <td>
+                        {$v['yc_brandname']} {if $v['yc_brandname']<>$v['yc_factory_name']}/{$v['yc_factoryname']}{/if}
+                        /{$v[yc_seriesname]}
+                    </td>
+                    <td>{$v['yc_modelname']}</td>
+                    <td>{$v['model_name']}</td>
+                    <td>
+                        <a href='javascript:void(0);' yid='{$v[id]}' class='edit'>修改</a>
+                    </td>
+                </tr>
+                <!--{/loop}-->
+            </table>
+            <!--{if $page_bar}-->
+            <div>
+                <div class="ep-pages">
+                    {$page_bar}
+                </div>
+            </div>
+            <!--{/if}-->
+        </div>
+        <div class="user_con2">
+            <img src="{$admin_path}images/conbt.gif" height="16" >
+        </div>
+    </div>
+</div>
+<div style="display: none;" id="bc_list">
+    <select name='bc_factory' class='bc_factory' style="width: 200px">
+        <option value="">请选择厂商</option>
+        <!--{loop $bc_brand_fact $k $v}-->
+        <option value='{$v[factory_id]}'>{$v[letter]} > {$v[brand_name]} {$v[factory_name]}</option>
+        <!--{/loop}-->
+    </select>
+    <select name="bc_series" class="bc_series">
+    </select>
+    <select name="bc_model" class="bc_model">
+    </select>
+</div>
+<script type="text/javascript">
+$().ready(function(){
+    $('a.edit').click(function(){
+        var btn_txt = $(this).text();
+        if(btn_txt=='修改'){
+            var bc_list=$('#bc_list').html();
+            $(this).text('确定').before(bc_list);
+        }else{
+            var model_id = $(this).prev('select').val();
+            var yid = $(this).attr('yid');
+            var url='{$php_self}updatemodel&yid='+yid+'&mid='+model_id;
+            $.getJSON(url, function(ret){
+                alert(ret['msg']);
+                if(ret['code'] == 1){
+                    location.reload();
+                }
+            })
+        }
+    });
+    
+    /**
+     * 易车产品下拉框功能
+     * 品牌下拉框，添加厂商信息
+     */
+    $('#yc_bid').click(function(){
+        var yc_bid=$(this).val();
+        var yc_factory = $('#yc_fid');
+        var url="{$php_self}getycfactory&bid="+yc_bid;
+        if(yc_bid>1){
+            $.getJSON(url, function(fact){
+                yc_factory.children().remove();
+                yc_factory.append('<option value="">请选择厂商</option>');
+                $.each(fact, function(i,v){
+                    yc_factory.append('<option value='+v['yc_fid']+'>'+v['yc_factoryname']+'</option>');
+                });
+            });
+        }
+    });
+    
+    /**
+     * 厂商下拉，添加易车车系信息
+     */
+    $('#yc_fid').click(function(){
+        var yc_fid=$(this).val();
+        var yc_series = $('#yc_sid');
+        var url="{$php_self}getycseries&fid="+yc_fid;
+        if(yc_fid>1){
+            $.getJSON(url, function(series){
+                yc_series.children().remove();
+                yc_series.append('<option value="">请选择车系</option>');
+                $.each(series, function(i,v){
+                    yc_series.append('<option value='+v['yc_sid']+'>'+v['yc_seriesname']+'</option>');
+                });
+            });
+        }
+    });    
+    
+    $('#btn_search').click(function(){
+        var yc_sid=$('#yc_sid').val();
+        $('#frm_ycsearch').attr({
+            action:'{$php_self}model&sid='+yc_sid
+        });
+        $('#frm_ycsearch')[0].submit();
+    });
+    
+    /**
+     * 冰狗厂商下拉框功能
+     * 触发车系下拉里的内容
+     */
+    $('select.bc_factory').live('click', function(){
+        var fid=$(this).val();
+        var url="{$php_self}getseries&fid="+fid;
+        var series_sel=$(this).next();
+        $.getJSON(url, function(series){
+            series_sel.children().remove();
+            series_sel.append('<option value="">请选择车系</option>');
+            $.each(series, function(i,v){
+                series_sel.append('<option value='+v['series_id']+'>'+v['series_name']+'</option>');
+            });
+        });
+    });
+    
+    /**
+     * 冰狗车系下拉框功能，触发车款的下拉框里的内容
+     */
+    $('select.bc_series').live('click', function(){
+        var sid=$(this).val();
+        var url="{$php_self}getmodel&sid="+sid;
+        var model_sel=$(this).next();
+        $.getJSON(url, function(models){
+            model_sel.children().remove();
+            model_sel.append('<option value="">请选择车款</option>');
+            $.each(models, function(i,v){
+                model_sel.append('<option value='+v['model_id']+'>'+v['model_name']+'</option>');
+            });
+        });
+    });
+});
+</script>
+{template footer}

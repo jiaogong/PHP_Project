@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if $title}$title{else}车评网{/if}</title>
+<meta name="keywords" content="{if $keyword}$keyword{else}车评网{/if}" />
+<meta name="description" content="{if $description}$description{else}车评网{/if}" />
+<link rel="stylesheet" href="<!--{$admin_path}-->css/aircle.css" />
+<script type="text/javascript" src="<!--{$admin_path}-->js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body style=" font-size:16px">
+<div class="header">
+   <div class="header-con-index">车评 文章读图</div> 
+</div>
+<div class="index-con">
+   <ul>
+    {loop $list $k $v}
+    <li>
+      <div class="img-zi">
+      <span class="index-con-sp1"><a href="/articlepic.php?action=Final&type_id={$v[pic_org_id]}" target="_blank"><img src="{UPLOAD_DIR}{$v[capic]}" width="100%"  height="100%" alt="$v[title]"/></a></span>
+      <span class="index-con-sp2">{$v[caename]}</span>
+      </div>
+      <p class="index-p">
+      <span class="index-con-sp3"><a href="articlepic.php?action=Final&type_id={$v[pic_org_id]}" target="_blank">{$v[catitle]}</a></span>
+      </p>  
+    </li>
+    {/loop}
+   </ul>
+   <div class="clear"></div>
+</div>
+    <script src='/js/counter.php?cname=articlepic&c1=1&c2=&c3='></script>
+<div class="ep-pages">
+    {$page_bar}
+</div>
+    <div>{$num}</div>
+</body>
+</html>

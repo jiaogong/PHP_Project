@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+.custom-con{ width:1024px; margin:0 auto; margin-top:6px;}
+<!--定制订单-视频、定制订单-视频脚本样式-->
+.custom-con h3 { font-weight:normal; padding:20px 0 0 20px;}
+.texttdsp{ width:190px; text-align:right; padding:10px 0px; } 
+.custom-con .inline{ height:1px; background:#f0f0f0; width:100%;}
+.custom-con input, textarea{ border:1px solid #c0c0c0; }
+.custom-con .tab{ border-collapse: collapse; border-left:none; border-top:none; border-right:none; width:100%;}
+.custom-con .tab tr{ border-bottom:1px solid #f0f0f0; }
+.custom-con .tab td{ padding:20px 0; }
+.custom-con .texttd{ width:190px; text-align:right; }
+.distancefl{ padding-left:20px; }
+.custom-con .tab .distancefl textarea{width:608px; height:94px;}
+.cusinp1{ width:608px; height:32px;}
+.cycle,.customdan,.cartype,.contacts,.number,.xuanvideo,.size,.sclayout,.carcolor,.movies,.shows,.cyys,.chex{ padding:20px 0;}
+.cycle span{ display:block;  }
+.cycle .zhi{ padding:10px 10px 10px 10px;}
+.cycle .cusinp2{ width:170px; height:32px; vertical-align:middle;}
+.cusinp3{ width:168px; height:28px; vertical-align:middle;}
+.cusinp4{ width:170px; height:30px; vertical-align:middle; text-indent:10px;}
+.cusinp4{ width:160px; height:30px; vertical-align:middle; text-indent:10px;}
+.miaoshu{ font-size:12px; color:#ef1212; padding-top:3px;}
+.martop20{ margin-top:20px;}
+.palf10 input[type="checkbox"],.check input[type="checkbox"]{ vertical-align:middle; display:none;}
+.custom-con input[type="checkbox"]{ vertical-align:middle; display:none;}
+.agree{ font-size:16px; padding-left:10px; vertical-align:middle;}
+.palf10{ padding-left:38px;}
+.shanganniu{ width:120px; height:34px; background:#f99c50; color:white; font-size:16px; line-height:34px; text-align:center; border:none;}
+.music-title{ width:800px; height:29px;}
+.music-title ul li{ float:left; cursor:pointer; }
+.bjmusic-con .shi{ width:500px; padding:20px 0;   }
+.soundp-title ul li{ float:left;}
+.soundp-title{ width:800px; height:29px;}
+.soundp-con{  width:800px;}
+.dabtn{ width:320px; margin:0 auto;}
+/*下拉框的样式样式*/
+.cuselect{ position:relative; float:left;}
+.select{ position:relative;}
+.select span{ padding-right:5px;}
+.select dt{height:30px;display:inline-block;border:1px solid #d2ccc4;line-height:30px;padding-left:10px;cursor:pointer; padding-right:6px;position:relative;z-index:99; font-size:14px;}
+.wid100 dt{ width:100px; background:url(../images/triangle.png) no-repeat 98px center;}
+.wid130 dt{ width:130px; background:url(../images/triangle.png) no-repeat 128px center;}
+.wid300 dt{ width:300px; background:url(../images/triangle.png) no-repeat 298px center;}
+.wid250 dt{ width:250px; background:url(../images/triangle.png) no-repeat 248px center;}
+.wid170 dt{ width:170px; background:url(../images/triangle.png) no-repeat 168px center;}
+.cuselect dd{position:absolute; left:0; top:30px; background:#fff; display:none; z-index:666;}
+.cuselect dd{border:1px solid #d2ccc4;}
+.select dd ul{padding:px; max-height:190px;overflow:auto; }
+.wid100 dd ul{ width:115px;}
+.wid130 dd ul{ width:145px;}
+.wid300 dd ul{ width:315px;}
+.wid250 dd ul{ width:265px;}
+.wid170 dd ul{ width:185px;}
+.select dd ul li a{line-height:28px;display:block;padding:0 10px;}
+.selezi{ vertical-align:middle; padding:5px 10px;}
+/*单选按钮的样式*/
+.radiocss{}
+.radiocss input[type="radio"]{ display:none;}
+.radiocss label { padding-left: 20px; cursor: pointer; background:url(../images/radio.png) no-repeat left center;  }
+.radiocss label.checked { background: url(../images/uploadradio.png) no-repeat left center; color:#f77206; }
+.radiocss input{/* background:url(../images/radio.png);*/}
+
+/*定制订单-视频文本*/
+.detail-con h3{ font-size:18px; font-weight:normal;  padding:20px;  }
+.detail-con{ padding:0 ;}
+.detail-con table .wtd180{ width:180px; text-align:right; padding:30px 0;}
+.detail-con table .marlf{ padding-left:20px;}
+.detail-con table .marlf .wid620{ width:620px; display:inline-block; }
+.detail-con table{ width:1024px; border-collapse:collapse;}
+.detail-con table tr{ border-bottom:1px solid #f0f0f0;}
+
+.updown{ width:120px; height:30px; background:#f99c50; color:white; font-size:14px; text-align:center; line-height:30px;}
+.palf20{ padding-left:20px;}

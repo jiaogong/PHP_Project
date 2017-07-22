@@ -1,0 +1,39 @@
+{template header}
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+                <li><a href="{$php_self}">返回</a></li>
+                <li><a href="javascript:void(0);"   class="song">导入报价</a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+ <div class="user_con">
+    <div class="user_con1">
+      <form action="{$php_self}import" method="post" enctype="multipart/form-data">
+      <table cellpadding="0" cellspacing="0" class="table2" border="0">
+      <tr>
+         <td colspan="2" align="center">
+      	   <input type="radio" value="1" id="first" name="price_radio" checked="checked" /><label for="first">成本价</label>
+		   <input type="radio" value="2" id="second" name="price_radio" /><label for="second">暗访价</label>
+		   <input type="radio" value="3" id="third" name="price_radio" /><label for="third">最多人购买价</label>
+		   <input type="radio" value="4" id="fourth" name="price_radio" /><label for="fourth">价格趋势专用通道</label>
+		   <input type="radio" value="5" id="fifth" name="price_radio" /><label for="fifth">导入车款默认车型id</label>
+		   <input type="radio" value="6" id="sixth" name="price_radio" /><label for="sixth">导入双11活动</label>
+      	</td>
+      </tr>
+        <tr>
+            <td colspan="2" align="center">
+            csv格式文件：<input type="file" name="dealer_price" id="dealer_price"> <input id="bingoprice_btn" type="submit" value="  提  交  "></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+            <p>友情提示(所有表格导入都要有表头，表格里边字段的顺序需按照格式顺序)：<br/>成本价的表头格式为：<font color="red">车款id，价格，备注</font><br/>商情价表头需注意：<font color="red">省级、地级、县级地区后边都没有单位，例：北京-北京-海淀，日期格式为xxxx/xx/xx，<br/>商情价必填项有：车款id，指导价，新购裸车优惠幅度（万），省级单位，地级单位，县级单位，经销商名称，经销商地址，获取时间（共9项）</font><br/>最多人购买价的表头格式为：<font color="red">车款id，价格</font><br/>价格趋势的表头格式为：<font color="red">车系id，年款，排量，进气形式，轴距，2012-1-1，2012-2-1...</font><br/>默认车型id的表头格式为：<font color="red">编号，品牌，厂商，车系，车款，指导价，推荐度，是否为默认车款</font></p></td>
+        </tr>
+      </table>
+      </form>
+      
+   </div>
+   <div class="user_con2"><img src="<!--{$admin_path}-->images/conbt.gif"  height="16" /></div>
+</div>
+</div> 
+{template footer}      

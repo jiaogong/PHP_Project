@@ -1,0 +1,66 @@
+{template header} 
+<div class="user">
+    <div class="user_con">
+        <div class="user_con1">
+            <form method="post" action="{$php_self}rmdArticleAct">
+                <table cellpadding="0" cellspacing="0" class="table2" border="0" >
+                    <tr>
+                        <td colspan="4">{$date}模块操作信息</td>
+                    </tr>
+                    <tr>
+                        {loop $cols $col}
+                            <td>$col</td>
+                        {/loop}
+                    </tr>
+                    <tr>
+                        {loop $cols $key $col}
+                        <td>
+                            <center>
+                                <table style="width:100%">
+                                    {eval $j = 0;}
+                                    {loop $carType $type}
+                                        {for $i=1; $i<7; $i++}
+                                        {eval ++$j}
+                                            <tr {if $j % 2 == 0}style="background-color:#D2D2D2;"{/if}>                                    
+                                                <td>
+                                                    {if $key == 0}
+                                                        {$type}{$i}
+                                                    {elseif $key == 1}
+                                                        {eval echo $lastSeries[$j]['alias']}
+                                                    {elseif $key == 2}
+                                                        <input type="text" id="alias{$j}" name="alias{$j}" value="{eval echo $series[$j]['alias']}" size="20" class="alias">                                                        
+                                                    {else}
+                                                        <input type="text" id="price_id{$j}" name="price_id{$j}" value="{eval echo $series[$j]['price_id']}" size="10" class="price_id">                                                                                                                
+                                                    {/if}
+                                                </td>
+                                            </tr>
+                                        {/for}
+                                    {/loop}
+                                </table>
+                            </center>
+                        </td>
+                        {/loop}
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="line-height: 60px;">
+                            <input type="submit" value="确认提交">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="window.close();" value="取消关闭">
+                            <input type="hidden" name="date" id="date" value="{$date}"/>
+                        </td>                        
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="user_con2"><img src="<!--{$admin_path}-->images/conbt.gif"  height="16" /></div>
+    </div>
+</div>
+<script>
+    $('.price_id').change(function() {
+        var pid = $(this).val();
+        var index = $(this).index('.price_id') + 1;
+        $.get('{$php_self}GetRmdTitle', {price_id:pid}, function(ret){
+            $('#alias' + index).val(ret);
+        });
+    });
+</script>
+    </body>
+</html>

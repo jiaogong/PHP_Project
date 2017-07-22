@@ -1,0 +1,115 @@
+<extend name="Index/index" />
+            <block name="con">  
+            <html><head>
+		<title>发货单列表</title>
+		<meta charset="utf-8">
+		<link href="/test/3.2.2/83-fanke-OK/progect/Public/Admin/Css/bootstrap.css" rel="stylesheet">
+		<link href="/test/3.2.2/83-fanke-OK/progect/Public/Admin/Css/z_delivery.css" rel="stylesheet">
+		<script src="/test/3.2.2/83-fanke-OK/progect/Public/Admin/Js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("tr:odd").addClass("odd");  /* 奇数行添加样式*/
+				$("tr:even").addClass("even"); /* 偶数行添加样式*/
+			})
+		</script>
+		<style>
+			.even { 
+				background:#FFF38F;
+			}  /* 偶数行样式*/
+			.odd { 
+				background:#FFFFEE;
+			}  /* 奇数行样式*/
+		</style>
+	</head>
+	<body>
+		<div id="delivery_main">
+
+	
+		<title><h3 style="color:lightgreen;">打印发货单</h3></title>
+		<meta charset="utf-8">
+		<link href="/test/3.2.2/83-fanke-OK/progect/Public/Admin/Css/z_delivery.css" rel="stylesheet">
+		
+	
+	
+		<div id="delivery_main">
+			<div class="delivery_title">打印发货单：</div>
+			<div id="delivery_content">
+				<input type="hidden" value="16" name="id">
+				<table class="delivery_modify">
+					<tbody>
+					<tr>
+						<th>收货人</th><td>{$data['linkman']}</td><th>发货编号</th><td colspan="4">{$data['goodsinvoicenum']}</td>
+					</tr>
+					<tr>
+						<th>订单编号</th><td>{$data['oid']}</td><th>开发票</th><td colspan="2">有发票</td><th>付款方式</th><td>{$data['payway']}</td>
+					</tr>
+					<tr>
+						<th>包装编号</th><td>{$data['packname']}</td><th>包装费</th><td colspan="2">{$data['packpay']}</td><th>免费额</th><td>{$data['packfree']}</td>
+					</tr>
+					<tr>
+						<th>收货地址</th><td colspan="4">{$data['address']}</td><th>收货时间</th><td>{$data['sendtime']}</td>
+					</tr>
+					<tr>
+						<th colspan="2">商品名</th><th>数量</th><th>积分</th><th>商品价</th><th colspan="2">小计</th>
+					</tr>
+
+					<!-- 商品遍历开始 -->
+					<tr>
+						<td colspan="2">{$data['goodsname']}</td>
+						<td>{$data['goodsnum']}</td>
+						<td>{$goodstotal}</td>
+						<td>{$data['goodsprice']}</td>
+						<td>{$data['total']}</td>
+					</tr>
+										<!-- 商品遍历结束 -->
+					<tr>
+						<th>发货备注</th><td colspan="6">{$data['beizhu']}</td>
+					</tr>
+					<tr>
+						<th>总计</th><td colspan="4">商品总价格￥{$goodstotal}元 + 包装费￥{$data['packpay']}元 - 免费额度￥{$data['packfree']}元 = ￥{$data['total']}元</td><td colspan="2">发货单修改:{$data['time']}</td>
+					</tr>
+					<tr>
+						<th>发货开始时间</th><td colspan="2"><input type=text placeholder="如:2015-09-1 06:00" size="20"></td>
+						<th colspan="2">发货结束时间</th><td colspan="2"><input type=text placeholder="如:2015-09-1 15:00" size="20"></td>
+					</tr>
+					<tr><th>品牌</th><td colspan="2">Mcake蛋糕&nbsp;&nbsp;
+					MCAKE，唇齿间浪漫优雅的愉悦体验。法国本土品牌，巴黎名流生活的一面镜子~百年来对于浪漫和优雅的坚持体现<td><th>公司</th><td colspan="2">上海麦心食品有限公司</td></tr>
+				</tbody></table>
+			</div>
+		</div> 
+	
+	
+</div>
+</body></html>
+					
+<!--打印-->
+            <script language="javascript">
+			function printsetup(){
+			// 打印页面设置
+			web.execwb(8,1);
+			}
+			function printpreview(){
+			// 打印页面预览        
+			web.execwb(7,1);      
+			}
+			function printit()
+			{
+			if (confirm('确定打印吗？')) {
+			web.execwb(6,6)
+			}
+			}
+			</script>
+			</head>
+			<body>
+			<OBJECT classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"
+			height=0 id=web name=web width=0>
+			</OBJECT>
+			<input type="button" name=button_print value="打印" onclick="javascript:printit()">
+			<input type="button" name="button_setup" value="打印页面设置"
+			onclick="javascript:printsetup();"> 
+			<input type="button" name="button_show" value="打印预览"
+			onclick="javascript:printpreview();"> 
+			<input type="button" name="button_fh" value="关闭"
+			onclick="javascript:window.close();">
+                <!--打印结束-->
+            </block>

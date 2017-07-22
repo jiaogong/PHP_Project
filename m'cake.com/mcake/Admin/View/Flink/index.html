@@ -1,0 +1,278 @@
+<extend name="Index/index" />
+<block name="title">
+后台管理--友链浏览页
+
+</block>
+<block name="con">
+<!-- 文章浏览内容 开始 -->
+<div class="__PUBLIC__/Admin/production/col-md-12 col-sm-12 col-xs-12">
+
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>友情链接浏览列表</h2>
+            <ul class="nav navbar-right panel_toolbox">
+            <li><a href="#"><i style="font-size: 25px;" class="fa fa-close"></i></a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <form action="{:U(Admin/Flink/index)}" method="get">
+        <div class="x_content">
+            <div role="grid" class="dataTables_wrapper" id="example_wrapper">
+	            
+	        	<div class="clear"></div>
+	        	<div id="example_length" class="dataTables_length">
+           <label>显示 <select name="n" style="width: 56px;padding: 6px;border:1px solid #ddd;border-radius:3px;height:30px;opacity:0.8;" size="1" aria-controls="example">
+           <option <eq name="n" value="6">selected="selected"</eq> value="6">6</option>
+           <option <eq name="n" value="12">selected="selected"</eq> value="12">12</option>
+           <option <eq name="n" value="20">selected="selected"</eq> value="18">18</option>
+           <option <eq name="n" value="30">selected="selected"</eq> value="24">24</option>
+           <option <eq name="n" value="100">selected="selected"</eq> value="100">100</option>
+           </select> 条</label>
+	        	</div>
+		<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+		<div class="input-group">
+			 <input value="{$k}" name="k" type="text" placeholder="搜索: 输入网站名称关键字..." class="form-control">
+			 <span class="input-group-btn">
+				<button type="submit" class="btn btn-default">点击!</button>
+			</span>
+		</div>
+	</div>
+</form>
+	        	<table class="table table-striped responsive-utilities jambo_table dataTable"  id="example" aria-describedby="example_info">
+	                <thead>
+	                    <tr class="headings" role="row">
+	                    	<th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" style="width: 35px;" aria-label=" ">
+	                            <div class="icheckbox_flat-green" style="position: relative;">
+		                            <input type="checkbox" class="tableflat" style="position: absolute; opacity: 0;">
+		                            <ins class="iCheck-total" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;">	
+		                            </ins>
+	                            </div>
+	                        </th>
+	                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 65px;text-align: left;" aria-label="Invoice : activate to sort column ascending">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID </th>
+	                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 147px;" aria-label="Invoice Date : activate to sort column ascending">&nbsp;&nbsp;网站名称 </th>
+	                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 187px;" aria-label="Order : activate to sort column ascending">&nbsp;网站地址 </th>
+	                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 245px;" aria-label="Bill to Name : activate to sort column ascending">网站logo </th>
+	                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 100px;" aria-label="Status : activate to sort column ascending">添加时间 </th>
+	                         <th class="no-link last sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 63px;text-align: center;" aria-label="Action: activate to sort column ascending"><span class="nobr"></span></th>
+	                        <th class="no-link last sorting" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 163px;text-align: center;" aria-label="Action: activate to sort column ascending"><span class="nobr">操作</span></th>
+	                    </tr>
+	                </thead>
+	                
+	                <tbody role="alert" aria-live="polite" aria-relevant="all">
+
+	              <!-- 遍历数据库数据 -->
+	          <foreach name="ResArt" item="Art"> 	  	
+	    <tr class="pointer" style="border-top: 1px solid #ddd;padding: 6px;height:60px;background-color: #f9f9f9;">
+		<td class="a-center">
+			<div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="tableflat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div>
+             </td>
+             
+             <td class="gid" >{$Art.fid}</td>
+             <td class="gname" style="text-overflow:ellipsis;height: 60px;"><div style="height: 55px;overflow: hidden;">{$Art.fname}</div><br/>
+             </td>
+             <td class="  "><div style="height: 55px;overflow: hidden;">{$Art.furl}</div></td>
+             <td class="  "><img src="__ROOT__/Uploads/Admin/images/{$Art.fimage_c}" style="width:120px;"></td>
+             <td class="  " style="text-overflow:ellipsis;height: 60px;"><div style="height: 55px;overflow: hidden;">{$Art.addtime}</div></td>
+             <td class="a-right a-right  " style="text-align: center;" ></td>
+             <td class=" last "><ul class="nav navbar-right panel_toolbox">
+                
+                <li class="dropdown">
+                    <a href="{:U('Admin/Flink/edit',array('fid'=>$Art['fid']))}">
+                    <!-- 修改图标按钮 -->
+                    <i class="fa fa-wrench"></i>
+                    </a>
+                  
+                </li>
+                <li style="cursor:pointer;">
+                <!-- 删除图标按钮 -->
+                	<a class="delete_but" ahref="{:U('Admin/Flink/delete',array('fid'=>$Art['fid']))}">
+                	<i class="fa fa-close"></i>
+                	</a>
+                </li>
+            </ul>
+             </td>
+        </tr> 
+        </foreach>
+	      </tbody> 
+    </table>
+ 
+			
+         <div class="dataTables_info" id="example_info">共计{$count}页</div>
+       	<br>
+	    <!--页码链接样式-->
+	    <style type="text/css">	
+			#example_paginate .num {
+			    box-sizing: border-box;
+			    background-color: #ddd;
+			    border: 1px solid #aaa;
+			    cursor: pointer;
+			    margin: 0 3px;
+			    padding: 2px 5px;
+			    background-color: #ddd;
+			    background: none repeat scroll 0 0 #ddd !important;
+			    border-color: #ddd !important;
+			    padding: 6px 9px !important;
+			    text-decoration: none;
+			    outline: 0 none;
+			}
+
+			#example_paginate .current {
+			    box-sizing: border-box;
+			    border: 1px solid #aaa;
+			    cursor: pointer;
+			    margin: 0 3px;
+			    padding: 2px 5px;
+			    background: none repeat scroll 0 0 #99b3ff !important;
+			    background-color: rgba(38, 185, 154, 0.59) !important;
+			    border-color: rgba(38, 185, 154, 0.59) !important;
+			    padding: 6px 9px !important;
+			    text-decoration: none;
+			    outline: 0 none;
+			}
+	    </style>
+	    <!--页码链接-->
+    	<div id="example_paginate" class="dataTables_paginate paging_full_numbers">
+            {$page}
+        </div>
+        <br><br><br>
+                
+        </div>
+        </div>
+    </div>
+    
+</div>
+<!-- 删除遮罩层 开始 -->
+<div tabindex="-1" role="dialog" aria-labelledby="avatar-modal-label" aria-hidden="false" id="avatar-modal" class="modal fade in" style="display: none/*block*/;"><div class="modal-backdrop fade in" id="heimu" style="height: 650px;"></div>
+   <div class="modal-dialog modal-lg" id="qrc" style="width: 400px;height: 200px;opacity:1;">
+       <div class="modal-content">
+           <div class="modal-header">
+           <input type="hidden" name="id" value="" />
+           <button id="close_but" type="button" data-dismiss="modal" class="close">×</button>
+           <h4 id="avatar-modal-label" class="modal-title">删除确认</h4>
+           </div>
+           <div class="modal-body">
+           <div class="avatar-body" style="height: 200px;">
+
+               <!-- Upload image and data -->
+               <label for="avatarInput" style="width:500px;font-size:20px;color:#999;text-align: center;line-height: 40px;margin-top: 20px;font-weight:normal;">你确定要删除这条数据吗?</label>
+               <!-- 删除确认按钮 -->
+               <div style="margin-left: 60px;margin-top: 30px">
+	               <div style="width: 100px;float:left;margin-right: 30px;">
+					<a href="" class="del_buta btn btn-primary btn-block avatar-save"  type="button">确认删除</a>
+					</div>
+					<div style="width: 100px;">
+					<button class="btn btn-primary btn-block avatar-save" id="cancel_but" type="button">取消</button>
+					</div>
+               </div>
+               </div>
+           </div>
+           </div>
+           <!-- <div class="modal-footer">
+     <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+   </div> -->
+       </div>
+   </div>
+
+   </div>
+  
+   <!-- 删除遮罩层 结束 -->
+<script type="text/javascript">
+	
+	//设置全选\反选选择按钮事件
+	$('ins.iCheck-total').click(function(){
+		var divt = $(this).parent('div');
+		var trt = $(this).parents('tr');
+		if(divt.attr('class')=='icheckbox_flat-green'){
+			divt.attr('class','icheckbox_flat-green checked');
+			trt.attr('class','pointer even selected');
+			$('ins.iCheck-helper').each(function(){
+				var div = $('ins.iCheck-helper').parent('div')
+				var tr = $('ins.iCheck-helper').parents('tr')
+					
+				div.attr('class','icheckbox_flat-green checked');
+				tr.attr('class','pointer even selected');
+					
+			})
+		}else{
+			divt.attr('class','icheckbox_flat-green');
+			trt.attr('class','pointer even');
+			$('ins.iCheck-helper').each(function(){
+				var div = $('ins.iCheck-helper').parent('div')
+				var tr = $('ins.iCheck-helper').parents('tr')
+					
+				div.attr('class','icheckbox_flat-green ');
+				tr.attr('class','pointer even ');
+					
+			})
+
+		}
+		
+
+	})
+
+	var gids;
+	//设置单行选择按钮事件
+	$('ins.iCheck-helper').each(function(){
+		$(this).click(function(){
+			var div = $(this).parent('div');
+			var tr = $(this).parents('tr');
+			var gid_td = $(this).parents('tr').find('td:nth-child(2)').html(); 
+			if(div.attr('class')=='icheckbox_flat-green'){
+				div.attr('class','icheckbox_flat-green checked');
+				tr.attr('class','pointer even selected');
+				gids = [gid_td];
+				console.log(gids);
+			}else{
+				div.attr('class','icheckbox_flat-green');
+				tr.attr('class','pointer even');
+			}
+		})
+		
+	})
+	 
+
+	//设置删除按钮事件
+	var zhezhao = false;	
+	$('a.delete_but').each(function(){
+		$(this).click(function(){
+		// return zhezhao;
+			//获取遮罩层对象
+			$('#avatar-modal').removeAttr('style').attr('style','display:block');
+			// alert($(this).attr('ahref'));
+			$('.del_buta').attr('href',$(this).attr('ahref'));
+			// return false;
+		})
+	})
+	//获取可视区域的高度
+		var w = $(window).height();
+		// alert(w+"px");
+		//计算确认层的Y轴的位置
+		var zy = (w/2)-180+"px";
+		// alert(zy);
+		//读确认层的style样式
+		var qrcStyle = $('#qrc').attr('style');
+		//拼接确认层样式
+		var qrcStyleNew = qrcStyle+'margin-top:'+zy+';';
+		//修改确认层样式
+		// alert(qrcStyleNew);
+		$('#qrc').removeAttr('style').attr('style',qrcStyleNew);
+
+		$('#heimu').removeAttr('style').attr('style','height:'+w+'px');
+
+		//当点击X的时候退出遮罩层事件
+		$('#close_but').click(function(){
+
+			$('#avatar-modal').removeAttr('style').attr('style','display:none');
+			return false;
+			})
+		
+		//当点击取消时退出遮罩层事件
+		$('#cancel_but').click(function(){
+			$('#avatar-modal').removeAttr('style').attr('style','display:none');
+			return false;
+			})
+		
+
+</script>
+       
+</block>

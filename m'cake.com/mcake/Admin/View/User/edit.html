@@ -1,0 +1,196 @@
+<extend name="Index/index" />
+<block name="con">
+
+    
+<div class="page-title">
+    <div class="title_left">
+        <h3>修改会员信息</h3>
+    </div>
+</div>
+<div class="x_panel">
+    <div class="x_title">
+        <h2>修改会员信息 <small>请认真填写</small></h2>
+        <div class="clearfix"></div>
+    </div>
+	<div class="x_content">
+	    <br>
+	    <form class="form-horizontal form-label-left" method="post" action="{:U('Admin/User/update')}" data-parsley-validate="" id="demo-form2" novalidate="">
+
+	        <div class="form-group">
+	            <label for="first-name" class="control-label col-md-3 col-sm-3 col-xs-12">会员账号 <span class="required">*</span>
+	            </label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+	                <input type="text" class="form-control col-md-7 col-xs-12" required="required" id="first-name" data-parsley-id="4702" name="usercount" value="{$users['usercount']}"><span></span>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="first-name" class="control-label col-md-3 col-sm-3 col-xs-12">真实姓名 <span class="required">*</span>
+	            </label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+	                <input type="text" class="form-control col-md-7 col-xs-12" required="required" id="first-name" data-parsley-id="4702" name="name" value="{$users['name']}"><span></span>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="middle-name">邮编</label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+	                <input type="text" name="code" class="form-control col-md-7 col-xs-12" id="middle-name" data-parsley-id="0283" value="{$users['code']}"><span></span>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label class="control-label col-md-3 col-sm-3 col-xs-12">性别</label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+	                <div data-toggle="buttons" class="btn-group" id="gender">
+	                    <if condition="$users['sex'] eq 1 ">
+							<label data-toggle-passive-class="btn-default" data-toggle-class="btn-primary" class="btn btn-primary active">
+	                        	<input type="radio" checked="" value='1' name="sex" data-parsley-multiple="gender" data-parsley-id="5600"> &nbsp; 男 &nbsp;
+		                    </label>
+		                    <label data-toggle-passive-class="btn-default" data-toggle-class="btn-primary" class="btn btn-default">
+		                        <input type="radio"  value='0' name="sex" data-parsley-multiple="gender" data-parsley-id="5600"> &nbsp; 女 &nbsp; 
+		                    </label>
+	                	<else />
+		                    <label data-toggle-passive-class="btn-default" data-toggle-class="btn-primary" class="btn btn-default">
+		                        <input type="radio" checked="" value='1' name="sex" data-parsley-multiple="gender" data-parsley-id="5600"> &nbsp; 男 &nbsp;
+		                    </label>
+		                    <label data-toggle-passive-class="btn-default" data-toggle-class="btn-primary" class="btn btn-primary active">
+		                        <input type="radio"  value='0' name="sex" data-parsley-multiple="gender" data-parsley-id="5600"> &nbsp; 女 &nbsp; 
+		                    </label>
+	                    </if>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label class="control-label col-md-3 col-sm-3 col-xs-12">邮箱 <span class="required">*</span>
+	            </label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+	                <input type="text" required="required" class="date-picker form-control col-md-7 col-xs-12" id="birthday" data-parsley-id="3087" name="email" value="{$users['email']}"><span></span>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label class="control-label col-md-3 col-sm-3 col-xs-12">电话 <span class="required">*</span>
+	            </label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+	                <input type="text" required="required" class="date-picker form-control col-md-7 col-xs-12" id="birthday" data-parsley-id="3087" name="phone" value="{$users['phone']}"><span></span>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	        	<label class="control-label col-md-3 col-sm-3 col-xs-12">状态</label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+	                <div data-toggle="buttons" class="btn-group" id="state">
+	                	<if condition="$users['state'] eq 1 ">
+							<label data-toggle-passive-class="btn-default" data-toggle-class="btn-primary" class="btn btn-primary active">
+	                        	<input type="radio" checked="" value='1' name="state" data-parsley-multiple="gender" data-parsley-id="5600"> &nbsp; 启用 &nbsp;
+		                    </label>
+		                    <label data-toggle-passive-class="btn-default" data-toggle-class="btn-primary" class="btn btn-default">
+		                        <input type="radio"  value='0' name="state" data-parsley-multiple="gender" data-parsley-id="5600"> &nbsp; 禁用 &nbsp; 
+		                    </label>
+	                	<else />
+		                    <label data-toggle-passive-class="btn-default" data-toggle-class="btn-primary" class="btn btn-default">
+		                        <input type="radio" checked="" value='1' name="state" data-parsley-multiple="gender" data-parsley-id="5600"> &nbsp; 启用 &nbsp;
+		                    </label>
+		                    <label data-toggle-passive-class="btn-default" data-toggle-class="btn-primary" class="btn btn-primary active">
+		                        <input type="radio"  value='0' name="state" data-parsley-multiple="gender" data-parsley-id="5600"> &nbsp; 禁用 &nbsp; 
+		                    </label>
+	                    </if>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label class="control-label col-md-3 col-sm-3 col-xs-12">验证码 <span class="required">*</span>
+	            </label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+	            	<img src="{:U('Admin/Public/vcode')}" alt="" onclick="this.src=this.src+'?b'">
+	                <input type="text" required="required" class="date-picker form-control col-md-7 col-xs-12" id="birthday" data-parsley-id="3087" name="vcode"><span></span>
+	            </div>
+	        </div>
+	        <input type="hidden" name="id" value="{$users['id']}">
+	        <div class="ln_solid"></div>
+	        <div class="form-group">
+	            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+	                <button class="btn btn-success" type="submit">修改</button>
+	                <button class="btn btn-primary" type="reset">重置</button>
+	            </div>
+	        </div>
+
+	    </form>
+	</div>
+</div>
+
+<!-- <script type="text/javascript" src="__PUBLIC__/Admin/production/js/parsley/parsley.min.js"></script> -->
+
+<script type="text/javascript">
+	//性别点击事件
+	$('#gender label').click(function(){
+		$('#gender label').attr('class','');
+		$(this).attr('class','btn btn-primary active');
+		$(this).siblings('label').attr('class','btn btn-default');
+	})
+
+	//状态点击事件
+	$('#state label').click(function(){
+		$('#state label').attr('class','');
+		$(this).attr('class','btn btn-primary active');
+		$(this).siblings('label').attr('class','btn btn-default');
+	})
+	
+	//检测邮箱格式
+	var E = false;
+	$('input[name=email]').blur(function() {
+		/* Act on the event */
+		//获取邮箱值
+		var v = $(this).val();
+		var reg = /^\w+@\w+\.(com|cn|net|hk|org|jp|com.cn)$/;
+		//判断
+		if(!reg.test(v)){
+			E = false;
+			$(this).next().html('请正确填写邮箱').css('color','red');
+		}else{
+			E = true;
+			$(this).next().html('')
+		}
+	});
+		
+	//绑定提交
+	$('#demo-form2').submit(function() {
+		/* Act on the event */
+		// $(this).empty();
+		var vcode = $('input[name=vcode]').val();
+		var usercount = $('input[name=usercount]').val();
+		var name = $('input[name=name]').val();
+		var phone = $('input[name=phone]').val();
+		if(!usercount){
+			$('input[name=usercount]').next().html('用户名不能为空').css('color','red');
+			return false;
+		}else{
+			$('input[name=usercount]').next().html('')
+		};
+		if(!vcode){
+			$('input[name=vcode]').next().html('请填写验证码').css('color','red');
+			return false;
+		}else{
+			$('input[name=vcode]').next().html('')
+		};
+		if(!name){
+			$('input[name=name]').next().html('请填写姓名').css('color','red');
+			return false;
+		}else{
+			$('input[name=name]').next().html('')
+		};
+		if(!vcode){
+			$('input[name=phone]').next().html('请填写联系电话').css('color','red');
+			return false;
+		}else{
+			$('input[name=phone]').next().html('')
+		};
+		$('input[name=repass]').trigger('blur');
+		$('input[name=email]').trigger('blur');
+		$('input[name=pass]').trigger('blur');
+		$('input[name=usercount]').trigger('blur');
+		if(E){
+			return true;
+		}else{
+			return false;
+		}
+	});
+</script>
+       
+</block>

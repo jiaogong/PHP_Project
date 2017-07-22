@@ -1,0 +1,99 @@
+<extend name="Index/index" />
+<block name="con">
+<div class="__PUBLIC__/Admin/production/col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>发票列表管理及详情打印</h2>
+            <div class="clearfix"></div>
+        </div>
+         <div class="x_content">
+            <div role="grid" class="dataTables_wrapper" id="example_wrapper">
+	            
+	        	<div class="clear"></div>
+	        	<form action="{:U('Admin/Orders/fapiao')}" method="get">
+	        	<div id="example_length" class="dataTables_length">
+	        		<label>显示 <select name="xianshi" style="width: 56px;height:30px;padding: 6px;" size="1" aria-controls="example">
+	        		<option value="6" <eq name='xianshi' value='6'>selected="selected"</eq>>6</option>
+	        		<option value="10" <eq name='xianshi' value='10'>selected="selected"</eq>>10</option>
+	        		<option value="15" <eq name='xianshi' value='15'>selected="selected"</eq>>15</option>
+	        		<option value="30" <eq name='xianshi' value='30'>selected="selected"</eq>>30</option>
+	        		</select> 条</label>
+	        	</div>
+		        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+		            <div class="input-group">
+		                <input type="text" style="width:150px;height:30px;float:right" placeholder="订单状态搜索..." class="form-control" name="sou" value="{$sou}" />
+		                <span class="input-group-btn">
+		                	<button class="btn btn-default" style="height:30px;">搜索</button>
+		    			</span>
+		            </div>
+		        </div>
+		        </form>
+	        	<table class="table table-striped responsive-utilities jambo_table dataTable" id="example" aria-describedby="example_info">
+	                <thead>
+	                    <tr class="headings" role="row">
+	                    	<!--<th class="_disabled" role="columnheader" rowspan="1" colspan="1" style="width: 20px;" aria-label=" ">
+	                            <div class="icheckbox_flat-green" style="position: relative;">
+		                            <input type="checkbox" class="tableflat" style="position: absolute; opacity: 0;">
+		                            <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;">	
+		                            </ins>
+	                            </div>
+	                        </th>-->
+	                        <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 40px;" aria-label="Invoice : activate to sort column ascending">列表ID </th>
+	                        <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 120px;" aria-label="Invoice Date : activate to sort column ascending">发票号【点击详情打印,不含编号是新订单还没有发货单】</th>
+	                        <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 70px;" aria-label="Order : activate to sort column ascending">订单号</th>
+	                        <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 70px;" aria-label="Order : activate to sort column ascending">uid</th>
+	                        <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 70px;" aria-label="Order : activate to sort column ascending">发票内容</th>
+	                        <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 50px;" aria-label="Bill to Name : activate to sort column ascending">发票生成时间</th> 
+	                         <th class="" role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 70px;" aria-label="Amount : activate to sort column ascending">状态</th>
+	                         <th class="no-link last " role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width:90px;" aria-label="Action: activate to sort column ascending"><span class="nobr">总金额</span></th>
+
+	                        <th class="no-link last " role="columnheader" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width:130px;" aria-label="Action: activate to sort column ascending"><span class="nobr">操作</span></th>
+	                    </tr>
+	                </thead>
+	            	<tbody role="alert" aria-live="polite" aria-relevant="all">
+	            	<foreach name='res' item='vo'>
+                        
+                	<form action="{:U('Admin/Orders/fapiaoupdate')}" method="post">
+					<tr>
+                		<td>{$vo['id']}<input type="hidden" value="{$vo['id']}" name="inid"></td>
+                		<td><a href="#" title="点击查看发票详情如需发票可打印"><a href="__CONTROLLER__/fapiaoprint/invoice_number/{$vo['code']}">{$vo['code']}</a></td>
+                		<td>{$vo['oid']}</td>
+                		<td>{$vo['uid']}</td>
+                		<td>{$vo['content']}</td>
+                		<td>{$vo['addtime']}</td>
+                		 <td>
+	                        <select name="print" id="print">
+                		
+								<if condition="$vo['status'] eq 0"><option value="0" selected="selected">0.未打印</option><else/><option value="0">0.未打印</option></if>
+								<if condition="$vo['status'] eq 1"><option value="1" selected="selected">1.已打印</option><else /><option value="1">1.已打印</option></if>
+							</select>
+                		</td>
+                		<td>{$vo['total']}</td>
+	                       
+	                        <td>
+	                        	 <ul class="nav navbar-right panel_toolbox">
+					                
+					                <li>
+					                    <input type="submit" value="修改打印状态" name="update">
+					                </li>
+					                <li>
+					                	<a href="__CONTROLLER__/fapiaodel/id/{$vo['id']}" class="del">删除</a>
+					                </li>
+					            </ul>
+	                        </td>
+	                </tr>
+	                	</form>
+	                   </foreach>
+	                 
+	                </tbody>
+                </table>
+                <!--<div class="dataTables_info" id="example_info">显示 {$aa} ~ {$bb} 条 共 {$count} 条</div>-->
+
+                <div class="dataTables_paginate paging_full_numbers" style="width:600px;" id="example_paginate">
+                	{$pages}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</block>

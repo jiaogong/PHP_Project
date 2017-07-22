@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/* 个人设计师页样式 */
+.person-main{ width:1000px;  margin:0 auto; margin-top:28px; }
+.person-main .person-top{  }
+.person-top .person-left{ width:315px; color:#333; margin-top:10px; }
+.person-left .person-left-top{  width:315px; border-bottom:1px solid #ededed; }
+.person-left-top dl dt{ float:left;  width:151px;  border-right:1px solid #ededed; margin-top:3px; }
+.person-left-top dl dd{  border-bottom:1px solid #ededed;  width:162px; float:right; height:45px; line-height:45px; text-indent:10px; font-size:14px;}
+.person-left-top dl .bornone{ border:none; vertical-align:middle;}
+.person-left-top dl .zi{ vertical-align:middle; padding-left:3px;}
+.person-left-bottom{ width:315px; margin-top:10px;}
+.person-left-bottom ul li{ height:50px; border-bottom:1px solid #ededed; line-height:50px; text-indent:10px;} 
+.person-left-bottom .zi{vertical-align:middle; padding-left:3px;}
+.person-left-bottom ul .lihov{ background:url(../images/personzhan.png) no-repeat right center; cursor:pointer; position:relative;}
+.discripion{ width:800px; height:80px; background:url(../images/persondisc.png); position:absolute; top:40px; left:102px; line-height:22px; font-size:14px; overflow:hidden;  }
+.discripion p{ margin:12px 5px 5px 10px;}
+.person-top .person-right{ width:646px; height:360px; }
+.person-bottom{ width:986px; margin:0 auto; }
+.person-bottom h3{ padding:36px 0;}
+.bottom-title{ width:986px; background:#f5f5f5; height:44px;}
+.bottom-title ul li{ float:left; width:104px; text-align:center; line-height:40px; height:58px;}
+.bottom-title ul li.work{ background:url(../images/personlibg.png) no-repeat; color:white; height:55px;}
+.bottom-title-con{ width:986px;}
+.pubuliu{ position:relative; top:26px; }
+.pubuliu .jiazai{ position:absolute; top:18px; left:0px;  border:1px solid #dddddd;  width:316px; box-shadow: 3px 3px 1px #ededed; border-radius:4px; }
+.pubuliu .jiazai .mark{ display:inline-block; text-indent:10px; padding:20px 0px 8px 0px; font-size:16px; }
+.pubuliu .jiazai .inline{ height:1px; background:#ededed; width:98%; margin:0 auto;}
+.pubuliu .jiazai dl dd{ padding:8px 12px; float:left; background:#f5f5f5; margin-left:10px; margin-top:10px; border-radius:4px; border:1px solid #ededed;}
+.pubuliu.jiazai dl dd.coye{ background:#f77206; color:white;}
+.jiazai .jiazaisp{ display:block; padding-left:10px; }
+.jiazai .jiazaisp span{ display:block; width:100px; margin-left:2px; float:left; color:#f77206; padding:4px 0;}
+.jiazai .spimg{ text-align:center; padding:10px 0; }
+.jiazai .spimg img{ width:300px;}
+.jiazai .bor{ border-bottom:1px solid #dddddd;}
+
+
+
+/* 个人设计页样式 */
+.myperson-con{ width:1024px;  margin:0 auto; margin-top:26px;}
+.myperson-right{ width:744px;  margin-right:20px;}
+.myperson-top .myperson-left{ width:236px; color:#333; margin-top:10px; }
+.myperson-left .myperson-left-top{  width:236px; border-bottom:1px solid #ededed; }
+.myperson-left-top dl dt{ float:left;  width:120px;  border-right:1px solid #ededed; margin-top:3px; }
+.myperson-left-top dl dd{  border-bottom:1px solid #ededed;  width:114px; float:right; height:34px; line-height:34px; text-indent:10px; font-size:14px;}
+.myperson-left-top dl .mybornone{ border:none; vertical-align:middle;}
+.myperson-left-top dl .myzi{ vertical-align:middle; padding-left:3px;}
+.myperson-left-bottom{ width:236px; margin-top:10px;}
+.myperson-left-bottom ul li{ height:35px; border-bottom:1px solid #ededed; line-height:35px; text-indent:10px;} 
+.myperson-left-bottom .myzi{vertical-align:middle; padding-left:3px;}
+.myperson-left-bottom ul .mylihov{ background:url(../images/personzhan.png) no-repeat right center; cursor:pointer; position:relative; font-size:14px;}
+/*.mydiscripion{ width:800px; height:80px; background:url(../images/persondisc.png); position:absolute; top:40px; left:102px; line-height:22px; font-size:14px; overflow:hidden;  }
+.mydiscripion p{ margin:12px 5px 5px 10px;}*/
+.mypersonal-right{ width:480px; height:272px; position:relative; }
+.xiugai{ position:absolute; width:90px; height:30px; background:#df6808; color:white; line-height:30px; text-align:center; bottom:0px; right:0px; display:none;}
+.mypersonal-right:hover .xiugai{ display:block;}
+.gaitu{ width:100%; background:url(../images/tanbg.png); position:absolute; top:0px; display:none;}
+.gaitucon{ width:482px; height:270px; background:#fff; position:absolute; left:50%; border-radius:10px; -webkit-border-raduis:10px; margin-left:-200px; top:200px; display:none;}
+.gaitufl{ width:88px; padding:0 10px;  }
+.gaitufl button{ width:88px; height:34px; background:#f99c50; color:white; font-size:16px; margin-top:40px; border-radius:6px; -webkit-border-radius:6px;}
+.gaitucon .tu{ padding:10px 4px; }
+.gaitucon .tu .yj{ border-radius:5px; -webkit-border-radius:5px;}
+.myperson-bottom{ width:746px; margin:0 auto; }
+.myperson-bottom h3{ padding:36px 0;}
+.mybottom-title{ width:746px; background:#f5f5f5; height:44px;}
+.mybottom-title ul li{ float:left; width:104px; text-align:center; line-height:40px; height:58px;}
+.mybottom-title ul li.work{ background:url(../images/personlibg.png) no-repeat; color:white; height:55px;}
+.mybottom-title-con{ width:750px; }
+.mypubuliu{ position:relative; top:26px; }
+.mypubuliu .myjiazai{ position:absolute; top:18px; left:0px;  border:1px solid #dddddd;  width:234px; box-shadow: 3px 3px 1px #ededed; border-radius:4px; }
+.mypubuliu .myjiazai .mark{ display:inline-block; text-indent:10px; padding:20px 0px 8px 0px; font-size:16px; }
+.mypubuliu .myjiazai .inline{ height:1px; background:#ededed; width:98%; margin:0 auto;}
+.mypubuliu .myjiazai dl dd{ padding:8px 12px; float:left; background:#f5f5f5; margin-left:10px; margin-top:10px; border-radius:4px; border:1px solid #ededed;}
+.mypubuliu.myjiazai dl dd.coye{ background:#f77206; color:white;}
+.myjiazai .myjiazaisp{ display:block; padding-left:10px; }
+.myjiazai .myjiazaisp span{ display:block; width:100px; margin-left:2px; float:left; color:#f77206; padding:4px 0;}
+.myjiazai .myspimg{ text-align:center; padding:10px 0; }
+.myjiazai .myspimg img{ width:214px;}
+.myjiazai .mybor{ border-bottom:1px solid #dddddd;}

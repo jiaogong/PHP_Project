@@ -1,0 +1,190 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?>
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+          <li><a href="<?=$php_self?>" class="song">车系类型管理</a></li>
+          <li ><a href="<?=$php_self?>Seriesimportant">车系类型导入/导出</a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+                <form action="<?=$php_self?>SeriesList" method="post" name="form2">
+                <table class="table2" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td>品牌
+                            <select name="brand_id" id="brand_id">
+                            <option value="">请选择品牌</option>
+                            <? foreach((array)$brand as $k=>$v) {?>
+                            <option value="<?=$v[brand_id]?>" <? if ($v[brand_id]==$brand_id) { ?>selected<? } ?>><?=$v[brand_name]?></option>
+                            <?}?>
+                           </select>          
+                         类型
+                         <select name="state" id="state">
+                              <option value="">请选择车款</option>
+                              <? foreach((array)$series_type as $k=>$v) {?>
+                                <option value="<?=$k?>" <? if ($k==$state) { ?>selected<? } ?>><?=$v?></option>
+                                <?}?>
+                                <option value="10" <? if ($state==10) { ?>selected<? } ?>>无分类的车系</option>
+                          </select>
+                         车系名称<input type="text" name="series_name" size="8" value="<?=$series_name?>">
+                        
+                          <input type="submit" name="search" value=" 搜 索 ">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+            <table class="table2" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                        <td width="30%" class="td_left blue">
+                            <font style="color:red">全部车系分类统计：</font>
+                        </td>
+                        <td class="td_left">
+                            <font style="color:red">
+                                <? foreach((array)$series_type as $k=>$v) {?>
+                                <? if ($k==1) { ?><?=$v?> :<?=$type1?> 个&nbsp;&nbsp;&nbsp;
+                                <? } elseif($k==2) { ?><?=$v?> :<?=$type2?> 个&nbsp;&nbsp;&nbsp;<? } elseif($k==3) { ?><?=$v?> :<?=$type3?> 个&nbsp;&nbsp;&nbsp;<? } elseif($k==4) { ?><?=$v?> :<?=$type4?> 个&nbsp;&nbsp;&nbsp;<? } else { ?>
+                                <? } ?>
+                                <?}?>
+                              </font>
+                        </td>
+                  </tr>
+                 <? foreach((array)$result as $key=>$value) {?>
+                 <form action="<?=$php_self?>update" method="post" name="form">
+                    <tr>
+                        <td width="30%" class="td_left blue">
+                            <font style="color:#000">品牌-车系：</font><font style="color:#0093fa;"><?=$value['brand_name']?>-><?=$value['series_name']?></font>
+                        </td>
+                        <td class="td_left">
+                            类型1
+                            <select name="type1[<? echo $value['series_id'] ?>]">
+                                <option value="">请选择</option>
+                                <? foreach((array)$series_type as $k=>$v) {?>
+                                <option value="<?=$k?>" <? if ($value['type1']==$k) { ?>selected="selected"<? } ?>><?=$v?></option>
+                                <?}?>
+                            </select>
+                             类型2
+                            <select name="type2[<? echo $value['series_id'] ?>]">
+                                <option value="">请选择</option>
+                                <? foreach((array)$series_type as $k=>$v) {?>
+                                <option <? if ($value['type2']==$k) { ?>selected="selected"<? } ?> value="<?=$k?>"><?=$v?></option>
+                                <?}?>
+                            </select> 
+                             类型3
+                            <select name="type3[<? echo $value['series_id'] ?>]">
+                                <option value="">请选择</option>
+                                <? foreach((array)$series_type as $k=>$v) {?>
+                                <option value="<?=$k?>" <? if ($value['type3']==$k) { ?>selected="selected"<? } ?>><?=$v?></option>
+                                <?}?>
+                            </select>
+                              类型4
+                            <select name="type4[<? echo $value['series_id'] ?>]">
+                                <option value="">请选择</option>
+                                <? foreach((array)$series_type as $k=>$v) {?>
+                                <option value="<?=$k?>" <? if ($value['type4']==$k) { ?>selected="selected"<? } ?>><?=$v?></option>
+                                <?}?>
+                            </select>
+                               类型5
+                            <select name="type5[<? echo $value['series_id'] ?>]">
+                                <option value="">请选择</option>
+                                <? foreach((array)$series_type as $k=>$v) {?>
+                                <option value="<?=$k?>" <? if ($value['type5']==$k) { ?>selected="selected"<? } ?>><?=$v?></option>
+                                <?}?>
+                            </select>
+                               
+                               &nbsp;&nbsp;
+                               <input type="hidden" value="<?=$series_name?>" name="series_name">
+                               <input type="hidden" value="<?=$state?>" name="state">
+                               <input type="hidden" value="<?=$brand_id?>" name="brand_id">
+                          <input type="submit" name="search" value="提交">
+                        </td>
+                    </tr>
+                 </form>
+                  <?}?>
+            </table>
+             
+        </div>
+        <div class="user_con2">
+            <img src="<?=$admin_path?>images/conbt.gif" height="16" >
+        </div>
+    </div>
+</div>
+<script>
+$().ready(function(){
+   $('#brand_id').change(function(){
+    var brand_id=$(this).val();
+    var fact=$('#factory_id')[0];
+    var facturl="?action=factory-json&brand_id="+brand_id;
+    var sel=$(this)[0];
+    $('#brand_name').val(sel.options[sel.selectedIndex].text)
+
+    $.getJSON(facturl, function(ret){
+      $('#factory_id option[value!=""]').remove();
+      $('#series_id option[value!=""]').remove();
+      $('#model_id option[value!=""]').remove();
+
+      $.each(ret, function(i,v){
+        fact.options.add(new Option(v['factory_name'], v['factory_id']));
+      });
+    });
+  });
+
+  $('#factory_id').change(function(){
+    var fact_id=$(this).val();
+    var ser=$('#series_id')[0];
+    var serurl="?action=series-json&factory_id="+fact_id;
+    var sel=$(this)[0];
+    $('#factory_name').val(sel.options[sel.selectedIndex].text)
+
+    $.getJSON(serurl, function(ret){
+      $('#series_id option[value!=""]').remove();
+      $('#model_id option[value!=""]').remove();
+
+      $.each(ret, function(i,v){
+        ser.options.add(new Option(v['series_name'], v['series_id']));
+      });
+    });
+  });
+
+  $('#series_id').change(function(){
+    var sel=$(this)[0];
+    $('#series_name').val(sel.options[sel.selectedIndex].text)
+
+    var sid=$(this).val();
+    var mod=$('#model_id')[0];
+    var modurl="?action=model-json&sid="+sid;
+    $.getJSON(modurl, function(ret){
+      $('#model_id option[value!=""]').remove();
+      $.each(ret, function(i,v){
+        mod.options.add(new Option(v['model_name'], v['model_id']));
+      });
+    });
+  });
+
+  $('#model_id').change(function(){
+    var mod=$(this)[0];
+    $('#model_name').val(mod.options[mod.selectedIndex].text)
+  });
+  
+ <? if ($brand_id) { ?>
+  $('#brand_id option[value="<?=$brand_id?>"]').attr({selected:true});
+    <? } ?>
+ <? if ($factory_id) { ?>
+  $('#factory_id option[value="<?=$factory_id?>"]').attr({selected:true});
+    <? } ?>
+    <? if ($series_id) { ?>
+  $('#series_id option[value="<?=$series_id?>"]').attr({selected:true});
+    <? } ?>
+ <? if ($model_id) { ?>
+  $('#model_id option[value="<?=$model_id?>"]').attr({selected:true});
+  <? } ?>
+  
+  
+});
+
+</script>
+</body>
+</html>

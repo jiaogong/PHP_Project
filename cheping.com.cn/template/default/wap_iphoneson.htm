@@ -1,0 +1,67 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <meta name="format-detection" content="telephone=no" />
+        <title>wap-更换手机号</title>
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/people.css"/>
+        <script src="js/jquery-1.8.3.min.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <span class="sp1">验证手机号</span>
+            <span class="fl hsp2" onclick="history.go(-1)" style="cursor:hand"> < </span> 
+        </div>
+        <div class="con">
+            <div class="number"  style=" border:none;">
+                <span class=" padtop fontsi">验证新手机:</span>
+                <div class="wid100"><input type="text" placeholder="新手机号" class="yanzinput" id="mobile"/></div>
+                <p class="" id="codes" style=""></p>
+                <div class="clear"></div>
+            </div>  
+            <p class="text-align"><input type="submit" class="yztijiao" value="下一步"  id="btnSendCode1" onclick="sendMessage()"/></p> 
+        </div>
+        <script type="text/javascript">
+            //验证电话号码
+            $("#mobile").blur(function () {
+                var mobile = $(this).val();
+                if (mobile !='') {
+                    $.post("/wapuinfo.php?action=iphoneson", {mobile: mobile}, function (msg) {
+//                        if (msg == 2) {
+//                            $("#codes").html("号码已存在或与旧手机号相同!");
+//                        } else if (msg == 1) {
+//                            $("#codes").html("请查看新手机号码验证码!");
+//                        } else if (msg == 3) {
+//                            $("#codes").html("请正确输入手机号码!");
+//                        }
+                    })
+                }
+            })
+            var InterValObj; //timer变量，控制时间
+            var count = 60; //间隔函数，1秒执行
+            var curCount;//当前剩余秒数
+            var code = ""; //验证码
+            var codeLength = 4;//验证码长度
+            //发送验证码
+            function sendMessage() {
+                var mobile = $("#mobile").val();
+                if (mobile) {
+                    //发送手机号码验证一下是否已经注册过
+                    $.getJSON('/wapuinfo.php?action=SendCode&mobile=' + mobile,  function (msg) {
+                        if (msg==1) {
+                            alert("请正确输入正确手机号"); 
+                        } else if(msg==2){
+                            alert("手机号已经使用!")
+                        }else{
+                            location.href = "/wapuinfo.php?action=iphoneson2";
+                        }
+                    })
+                } 
+            }
+        </script>  
+
+
+    </body>
+</html>

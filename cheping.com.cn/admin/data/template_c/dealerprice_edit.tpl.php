@@ -1,0 +1,390 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?> 
+<div class="user">
+<div class="nav">
+    <ul id="nav">
+        <li><a href="index.php?action=dealerprice-list&state=1">车辆报价列表</a></li>
+        <li><a href="index.php?action=dealerprice-list&state=2">最新添加报价</a></li>
+        <li><a href="index.php?action=dealerprice-list&state=3">最新修改报价</a></li>
+        <li><a href="index.php?action=dealerprice-list&state=5">删除报价申请</a></li>
+        <li><a href="#" class="song"><?=$type?>车辆报价</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+    <form action="<?=$phpself?>" method="post" enctype="multipart/form-data" id="dealerpriceedit">
+        <input type="hidden" name="id" value="<?=$id?>"/>
+      <table cellpadding="0" cellspacing="0" class="table2">
+          <tr> 
+              <td width="200" height="20" align="right"><span style="color:#F0430E;">*</span>省份:</td>
+            <td class="td_left">
+                <select id="province_id" name="province_id" onchange="changeProvince(this.value);">
+                    <option value="0">==请选择省份==</option>
+                    <option value="24">A 安徽</option>
+                    <option value="29">A 澳门</option>
+                    <option value="1">B 北京</option>
+                    <option value="4">C 重庆</option>
+                    <option value="33">F 福建</option>
+                    <option value="12">G 甘肃</option>
+                    <option value="30">G 广东</option>
+                    <option value="31">G 广西</option>
+                    <option value="19">G 贵州</option>
+                    <option value="34">H 海南</option>
+                    <option value="8">H 河北</option>
+                    <option value="22">H 河南</option>
+                    <option value="5">H 黑龙江</option>
+                    <option value="21">H 湖北</option>
+                    <option value="20">H 湖南</option>
+                    <option value="7">J 吉林</option>
+                    <option value="25">J 江苏</option>
+                    <option value="32">J 江西</option>
+                    <option value="41">J 九龙</option>
+                    <option value="43">L 离岛</option>
+                    <option value="6">L 辽宁</option>
+                    <option value="9">N 内蒙</option>
+                    <option value="13">N 宁夏</option>
+                    <option value="150">Q 其它</option>
+                    <option value="16">Q 青海</option>
+                    <option value="23">S 山东</option>
+                    <option value="11">S 山西</option>
+                    <option value="10">S 陕西</option>
+                    <option value="2">S 上海</option>
+                    <option value="17">S 四川</option>
+                    <option value="27">T 台湾北部</option>
+                    <option value="146">T 台湾东部</option>
+                    <option value="147">T 台湾离岛</option>
+                    <option value="145">T 台湾南部</option>
+                    <option value="144">T 台湾中部</option>
+                    <option value="3">T 天津</option>
+                    <option value="15">X 西藏</option>
+                    <option value="28">X 香港岛</option>
+                    <option value="14">X 新疆</option>
+                    <option value="42">X 新界</option>
+                    <option value="18">Y 云南</option>
+                    <option value="26">Z 浙江</option>
+                </select>                
+            </td>
+          </tr>      
+         <tr> 
+            <td width="200" height="20" align="right"><span style="color:#F0430E;">*</span>城市:</td>
+            <td class="td_left">
+            <select id="city_id" name="city_id" onchange="changeCity(this.value);">
+                <option value="0">==请选择城市==</option>
+                <? if ($city) { ?>
+                <? foreach((array)$city as $k=>$v) {?>
+                    <option value="<?=$v['id']?>"><?=$v['letter']?> <?=$v['name']?></option>
+                <?}?>
+                <? } ?>
+            </select>
+            </td>
+          </tr>         
+          <tr> 
+            <td width="200" height="20" align="right"><span style="color:#F0430E;">*</span>品牌:</td>
+            <td class="td_left">
+		      <select name="brand_id" id="brand_id">
+		        <option value="">==请选择品牌==</option>
+		        <? foreach((array)$brand as $k=>$v) {?>
+		        <option value="<?=$v[brand_id]?>"><?=$v[brand_name]?></option>
+		        <?}?>
+		      </select>            
+            </td>
+          </tr>            
+          <tr> 
+            <td width="200" height="20" align="right"><span style="color:#F0430E;">*</span>厂商:</td>
+            <td class="td_left">
+		      <select name="factory_id" id="factory_id">
+		        <option value="">==请选择厂商==</option>
+		        <? foreach((array)$factory as $k=>$v) {?>
+		        <option value="<?=$v[factory_id]?>"><?=$v[factory_name]?></option>
+		        <?}?>
+		      </select>         
+            </td>
+          </tr>         
+          <tr> 
+            <td width="200" height="20" align="right"><span style="color:#F0430E;">*</span>车系:</td>
+            <td class="td_left">
+		      <select name="series_id" id="series_id">
+		        <option value="">==请选择车系==</option>
+		        <? foreach((array)$series as $k=>$v) {?>
+		        <option value="<?=$v[series_id]?>"><?=$v[series_name]?></option>
+		        <?}?>
+		      </select>                
+            </td>
+          </tr>                  
+          <tr> 
+            <td width="200" height="20" align="right"><span style="color:#F0430E;">*</span>车款:</td>
+            <td class="td_left">
+		      <select name="model_id" id="model_id" style="width:160px" onchange="getPrice(this.value);">
+		        <option value="">==请选择车款==</option>
+		        <? foreach((array)$model as $k=>$v) {?>
+		        <option value="<?=$v[model_id]?>"><?=$v[model_name]?></option>
+		        <?}?>
+		      </select>                 
+            </td>
+          </tr>    
+          <tr> 
+            <td width="200" height="20" align="right"><span style="color:#F0430E;">*</span>经销商名称:</td>
+            <td class="td_left">
+                <select id="dealer_id" name="dealer_id" >
+                    <option value="0">==选择经销商==</option>
+                    <? foreach((array)$dealer as $k=>$v) {?>
+                        <option value="<?=$v['dealer_id']?>"><?=$v['dealer_name']?></option>
+                    <?}?>
+                </select>            
+            </td>
+          </tr>
+          <tr>
+            <td width="200" height="20" align="right"><span style="color:#F0430E;">*</span>指导价(万元):</td>
+            <td class="td_left" name="model_price" id="model_price" style="font-size: 14px;" value="<?=$list['model_price']?>">
+                <span style="font-size: 14px;"><?=$list['model_price']?></span>
+            </td>
+          </tr>
+         <tr> 
+            <td width="200" height="20" align="right"><span style="color:#F0430E;">*</span>价格(万元):</td>
+            <td class="td_left">
+            <input type="text" name="bingo_price" id="bingo_price" size="30" value="<?=$list['bingo_price']?>">
+            </td>
+          </tr>
+          <? if ($type == '修改') { ?>    
+         <tr> 
+            <td width="200" height="20" align="right">发布时间:</td>
+            <td class="td_left"> <? echo  date('Y-m-d H:i:s',$list['updated']) ?>
+
+            </td>
+          </tr>       
+          <? } ?>
+         <tr> 
+            <td width="200" height="20" align="right">颜色:</td>
+            <td class="td_left">
+            <input type="text" name="color" id="color" size="30" value="<?=$list['color']?>">
+            </td>
+          </tr>  
+
+          <tr>
+            <td width="200" height="20" align="right">库存:</td>
+            <td class="td_left">
+            <select id="inventory_state" name="inventory">
+                  <option value="1"<? if ($list['inventory']==1) { ?> selected<? } ?>>现车</option>
+                  <option value="2"<? if ($list['inventory']==2) { ?>selected<? } ?>>预定</option>
+
+            </select>
+            </td>
+          </tr>
+          <tr>
+            <td width="200" height="20" align="right">试驾车:</td>
+            <td class="td_left">
+            <select id="drive_state" name="drive">
+                    <option value="1"<? if ($list['drive']==1) { ?>selected<? } ?>>有试驾车</option>
+                    <option value="2"<? if ($list['drive']==2) { ?>selected<? } ?>>无试驾车</option>
+
+            </select>
+          </td>
+        </tr>
+        <tr>
+            <td width="200" height="20" align="right">备注:</td>
+            <td class="td_left"><textarea cols="40" rows="4" name="remark"><?=$list['remark']?></textarea></td>
+        </tr>
+         <tr> 
+            <td width="200" height="20" align="right">生效时间:</td>
+            <td class="td_left">
+            开始时间：
+            <input id="start_time" name="start_time" class="datepicker" type="text" value="<? echo $list['start_time'] ? date("Y-m-d", $list['start_time']) : '' ?>"  readonly="readonly" style="width: 100px;" >
+            结束时间：
+            <input id="end_time" name="end_time" class="datepicker" type="text" value="<? echo $list['end_time'] ? date("Y-m-d", $list['end_time']) : '' ?>"  readonly="readonly" style="width: 100px;">
+            </td>
+          </tr>
+          <tr><td><span style="color:#F0430E;">*为必填项</span></td><td></td></tr>
+          <tr>
+            <td colspan="2">
+                 <select name="state" id="state" style="width: 60px;">
+                    <option value="1" <? if (($list['state']==1) ) { ?>selected <? } ?>>正常</option>
+                  <!--  <option value="3" <? if (($list['state']==2 || $list['state']==3) ) { ?>selected <? } ?>>待审核</option>
+                    <option value="4" <? if (($list['state']==4) ) { ?>selected <? } ?>>未通过</option>-->
+                </select>
+                <font <? if ($list['state']==3 || $list['state']==2) { ?>color="yellow"<? } elseif($list['state']==1 || $list['state']=='') { ?>color="green"<? } elseif($list['state']==4) { ?>color="blue"<? } else { ?>color="red"<? } ?>>■</font>
+                <input type="button" name="edit_submit" id="edit_submit" value="确定" onclick="javascript:chkform();"/>
+                <input type="button" name="edit_cancel" id="edit_cancel" value="取消" onclick="javascript:history.go('-1');window.close();"/>
+            </td>  
+          </tr>
+      </table>
+      </form>
+    </div>
+        <div class="user_con2">
+            <img src="<?=$admin_path?>images/conbt.gif" height="16" >
+        </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(function() {
+  $("input.datepicker" ).datepicker({
+    changeMonth: true,
+    changeYear: true
+  });  
+});
+var pid = '<?=$list['province_id']?>';
+var cid = '<?=$list['city_id']?>';
+var did = '<?=$list['dealer_id']?>';
+var bid = '<?=$list['brand_id']?>';
+var fid = '<?=$list['factory_id']?>';
+var sid = '<?=$list['series_id']?>';
+var mid = '<?=$list['model_id']?>'; 
+$('#province_id option[value="' + pid + '"]').attr({selected:true});
+$('#city_id option[value="' + cid + '"]').attr({selected:true});
+$('#dealer_id option[value="' + did + '"]').attr({selected:true});
+$('#brand_id option[value="' + bid + '"]').attr({selected:true});
+$('#factory_id option[value="' + fid + '"]').attr({selected:true});
+$('#series_id option[value="' + sid + '"]').attr({selected:true});
+$('#model_id option[value="' + mid + '"]').attr({selected:true});
+function changeProvince(pid) {
+    var option = '<option value="0">==请选择城市==</option>';
+    if(pid > 0) {
+        $.getJSON("index.php?action=dealer-city", {pid:pid}, function(json) {
+            for(var key in json) {
+                id = json[key]['id'];
+                name = json[key]['name'];
+                letter = json[key]['letter'];
+                option += '<option value="'+ id + '">' + letter + ' '+ name + '</option>' + "\n";                    
+            }
+            $('#city_id').html(option);
+            $('#dealer_id').html('<option value="0">==选择经销商==</option>');
+        });        
+    }
+    else {
+        $('#city_id').html(option);
+        var option = '<option value="0">==选择经销商==</option>';
+        $.getJSON("index.php?action=dealer-dealer", {pid:pid}, function(json) {
+            for(var key in json) {
+                id = json[key]['id'];
+                name = json[key]['name'];
+                option += '<option value="'+ id + '">' + name + '</option>' + "\n";
+            }
+            $('#dealer_id').html(option);
+        });          
+    }
+}
+  $('#brand_id').change(function(){
+    var brand_id=$(this).val();
+    var fact=$('#factory_id')[0];    
+    var dealer = $('#dealer_id')[0];
+    var province_id = $('#province_id').val();
+    var city_id = $('#city_id').val();    
+    var dealerUrl = "?action=dealerprice-getdealerbyid&brand_id=" + brand_id + '&province_id=' + province_id + '&city_id=' + city_id;    
+    var facturl="?action=factory-json&brand_id="+brand_id;
+    var sel=$(this)[0];
+    $('#brand_name').val(sel.options[sel.selectedIndex].text)
+    $.getJSON(dealerUrl, function(ret) {
+      $('#dealer_id option[value!="0"]').remove();
+      if(ret) {
+          $.each(ret, function(i,v){
+            dealer.options.add(new Option(v['dealer_name'], v['dealer_id']));
+          });           
+      }       
+    });
+    $.getJSON(facturl, function(ret){
+      $('#factory_id option[value!=""]').remove();
+      $('#series_id option[value!=""]').remove();
+      $('#model_id option[value!=""]').remove();
+      
+      $.each(ret, function(i,v){
+        fact.options.add(new Option(v['factory_name'], v['factory_id']));
+      });
+    });
+  });
+  
+  $('#factory_id').change(function(){
+    var fact_id=$(this).val();
+    var ser=$('#series_id')[0];
+    var serurl="?action=series-json&factory_id="+fact_id;
+    var sel=$(this)[0];
+    var factory_id = $('#factory_id').val();
+    var dealer = $('#dealer_id')[0];
+    var province_id = $('#province_id').val();
+    var city_id = $('#city_id').val();    
+    var dealerUrl = "?action=dealerprice-getdealerbyid&factory_id=" + factory_id + '&province_id=' + province_id + '&city_id=' + city_id;       
+    $('#factory_name').val(sel.options[sel.selectedIndex].text)
+    $.getJSON(dealerUrl, function(ret) {
+      $('#dealer_id option[value!="0"]').remove();
+      if(ret) {
+          $.each(ret, function(i,v){
+            dealer.options.add(new Option(v['dealer_name'], v['dealer_id']));
+          });      
+      }  
+    });    
+    $.getJSON(serurl, function(ret){
+      $('#series_id option[value!=""]').remove();
+      $('#model_id option[value!=""]').remove();
+      
+      $.each(ret, function(i,v){
+        ser.options.add(new Option(v['series_name'], v['series_id']));
+      });
+    });
+  });
+  
+  $('#series_id').change(function(){
+    var sel=$(this)[0];
+    var series_id = $('#series_id').val();
+    var dealer = $('#dealer_id')[0];
+    var province_id = $('#province_id').val();    
+    var city_id = $('#city_id').val();    
+    var dealerUrl = "?action=dealerprice-getdealerbyid&series_id=" + series_id + '&province_id=' + province_id + '&city_id=' + city_id;       
+    $('#series_name').val(sel.options[sel.selectedIndex].text)
+    
+    var sid=$(this).val();
+    var mod=$('#model_id')[0];
+    var modurl="?action=model-json&sid="+sid;
+    $.getJSON(dealerUrl, function(ret) {
+      $('#dealer_id option[value!="0"]').remove();
+      if(ret) {
+          $.each(ret, function(i,v){
+            dealer.options.add(new Option(v['dealer_name'], v['dealer_id']));
+          });           
+      }      
+    });    
+    $.getJSON(modurl, function(ret){
+      $('#model_id option[value!=""]').remove();
+      $.each(ret, function(i,v){
+        mod.options.add(new Option(v['model_name'], v['model_id']));
+      });
+    });
+  });
+  
+  $('#model_id').change(function(){
+    var mod=$(this)[0];
+    $('#model_name').val(mod.options[mod.selectedIndex].text)
+  });
+  function changeCity(id) {
+    var option = '<option value="0">==选择经销商==</option>';
+    $.getJSON("index.php?action=dealer-dealer", {cid:id}, function(json) {
+        for(var key in json) {
+            id = json[key]['id'];
+            name = json[key]['name'];
+            option += '<option value="'+ id + '">' + name + '</option>' + "\n";                  
+        }
+        $('#dealer_id').html(option);
+    });      
+  }
+
+function chkform(){
+    if($('#province_id').val()=='0') {alert('请选择省份！');return false;}
+    else if($('#brand_id').val()=='') {alert('请选择品牌！');return false;}
+    else if($('#factory_id').val()=='') {alert('请选择厂商！');return false;}
+    else if($('#series_id').val()=='') {alert('请选择车系！');return false;}
+    else if($('#model_id').val()=='') {alert('请选择车款！');return false;}
+    else if($('#dealer_id').val()=='0') {alert('请选择经销商！');return false;}
+    else if($('#bingo_price').val()=='') {alert('成交价格不能为空');return false;}
+    else if(isNaN($('#bingo_price').val())) {alert('价格填写不正确');return false;}
+    else{
+        $('#dealerpriceedit').submit();
+    }
+}
+function getPrice(model_id) {
+    if(model_id) {
+        $.getJSON("index.php?action=dealerprice-modelprice", {model_id:model_id}, function(json) {
+            $('#model_price').html(json);
+        });
+    }
+}
+</script>
+    </body>
+</html> 

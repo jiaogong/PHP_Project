@@ -1,0 +1,59 @@
+{template header}
+        <div class="user-add">
+            <div class="nav">
+                <ul>
+                    <li><a href="<!--{$php_self}-->">评论列表</a></li>
+                    <li><a href="<!--{$php_self}-->parent" class="song">评论回复</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="user-add-con">
+                <div style=" padding:0 10px;">
+                    <form name="tag_form" id="tag_form" action="index.php?action=review-parent" method="post" enctype="multipart/form-data">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td class="right" >评论内容：</td>
+                                <td class="margin46">{$parent[content]}</td>
+                            </tr>
+                            <tr>
+                                <td class="right" >回复：</td>
+                                <td class="margin46">
+                                    <textarea name="content" rows="5" cols="80"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="right" >
+                                    <input type="hidden" name="id" id="id" value="{$parent[id]}"/>
+                                    <button type=" submit" name="tag_btn" id="tag_btn">回　复</button>
+                                </td>
+                                <td >
+                                    <button type=" reset">重  填</button>
+                                </td>
+
+                            </tr>
+                        </table> 
+                    </form>
+                </div>  
+            </div>
+        </div>  
+        <script>
+            function check_form() {
+                if ($('#password').val() != $('#password_confirm').val()) {
+                    alert('两次密码不一致！');
+                    $('#password_confirm').focus();
+                    return false;
+                }
+                if ($('#password').val() == '') {
+                    alert('请填写密码再提交！');
+                    $('#password').focus();
+                    return false;
+                }
+                if ($('#username').val() == '') {
+                    alert('请填写用户名再提交！');
+                    $('#username').focus();
+                    return false;
+                }
+            }
+        </script>
+    </body>
+</html>

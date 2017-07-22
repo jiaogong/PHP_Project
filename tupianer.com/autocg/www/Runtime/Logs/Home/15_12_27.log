@@ -1,0 +1,90 @@
+[ 2015-12-27T14:37:40+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+SQL: SHOW COLUMNS FROM `tu_hooks` [ RunTime:0.0402s ]
+SQL: SELECT `name`,`addons` FROM `tu_hooks`  [ RunTime:0.0306s ]
+SQL: SHOW COLUMNS FROM `tu_addons` [ RunTime:0.0306s ]
+SQL: SELECT `id`,`name` FROM `tu_addons` WHERE `status` = 1 AND `name` IN ('ReturnTop','Email')  [ RunTime:0.0296s ]
+SQL: SELECT `id`,`name` FROM `tu_addons` WHERE `status` = 1 AND `name` IN ('Attachment')  [ RunTime:0.0306s ]
+SQL: SELECT `id`,`name` FROM `tu_addons` WHERE `status` = 1 AND `name` IN ('Attachment','SocialComment')  [ RunTime:0.0302s ]
+SQL: SELECT `id`,`name` FROM `tu_addons` WHERE `status` = 1 AND `name` IN ('Attachment')  [ RunTime:0.0296s ]
+SQL: SELECT `id`,`name` FROM `tu_addons` WHERE `status` = 1 AND `name` IN ('Editor')  [ RunTime:0.0306s ]
+SQL: SELECT `id`,`name` FROM `tu_addons` WHERE `status` = 1 AND `name` IN ('EditorForAdmin')  [ RunTime:0.0305s ]
+SQL: SELECT `id`,`name` FROM `tu_addons` WHERE `status` = 1 AND `name` IN ('SiteStat','SystemInfo','DevTeam')  [ RunTime:0.0310s ]
+SQL: SELECT `id`,`name` FROM `tu_addons` WHERE `status` = 1 AND `name` IN ('Editor')  [ RunTime:0.0299s ]
+SQL: SELECT `id`,`name` FROM `tu_addons` WHERE `status` = 1 AND `name` IN ('Silder')  [ RunTime:0.0306s ]
+SQL: SELECT `id`,`name` FROM `tu_addons` WHERE `status` = 1 AND `name` IN ('Timeline')  [ RunTime:0.0304s ]
+SQL: SELECT `id`,`name` FROM `tu_addons` WHERE `status` = 1 AND `name` IN ('Brand')  [ RunTime:0.0309s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.562061s ]
+INFO: [ app_init ] --END-- [ RunTime:0.563761s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002952s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0296s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0309s ]
+SQL: SHOW COLUMNS FROM `tu_category` [ RunTime:0.0309s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`model_sub`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon`,`groups` FROM `tu_category` WHERE `status` = 1 ORDER BY sort  [ RunTime:0.0332s ]
+SQL: SHOW COLUMNS FROM `tu_document` [ RunTime:0.0327s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`group_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `tu_document` WHERE `status` = 1 AND `pid` = 0 AND `create_time` < 1451198238 AND ( deadline = 0 OR deadline > 1451198238 ) ORDER BY `id` DESC  [ RunTime:0.0327s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000345s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000701s ]
+SQL: SHOW COLUMNS FROM `tu_channel` [ RunTime:0.0307s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`sort`,`create_time`,`update_time`,`status`,`target` FROM `tu_channel` WHERE ( status=1 ) ORDER BY sort  [ RunTime:0.0311s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`model_sub`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon`,`groups` FROM `tu_category` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0336s ]
+SQL: SELECT `id`,`name`,`pid`,`title`,`link_id` FROM `tu_category` WHERE `status` = 1 ORDER BY sort  [ RunTime:0.0299s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000198s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.155117s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014056s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014414s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000915s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001254s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`model_sub`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon`,`groups` FROM `tu_category` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0327s ]
+SQL: SELECT `id`,`name`,`pid`,`title`,`link_id` FROM `tu_category` WHERE `status` = 1 ORDER BY sort  [ RunTime:0.0300s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`group_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `tu_document` WHERE `status` = 1 AND `pid` = 0 AND `category_id` IN ('1','2') AND `create_time` < 1451198238 AND ( deadline = 0 OR deadline > 1451198238 ) ORDER BY `level` DESC,`id` DESC LIMIT 0,10   [ RunTime:0.0293s ]
+NOTIC: [8] Undefined index: lite D:\wamp\www\autocg\www\ThinkPHP\Library\Think\Db.class.php ç¬¬ 37 è¡Œ.
+ERR: SQLSTATE[HY000] [2002] ÓÉÓÚÁ¬½Ó·½ÔÚÒ»¶ÎÊ±¼äºóÃ»ÓÐÕýÈ·´ð¸´»òÁ¬½ÓµÄÖ÷»úÃ»ÓÐ·´Ó¦£¬Á¬½Ó³¢ÊÔÊ§°Ü¡£
+
+
+[ 2015-12-27T14:38:27+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000102s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.006408s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009003s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001126s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001491s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0320s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `tu_category` [ RunTime:0.0318s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`model_sub`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon`,`groups` FROM `tu_category` WHERE `status` = 1 ORDER BY sort  [ RunTime:0.0315s ]
+SQL: SHOW COLUMNS FROM `tu_document` [ RunTime:0.0303s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`group_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `tu_document` WHERE `status` = 1 AND `pid` = 0 AND `create_time` < 1451198285 AND ( deadline = 0 OR deadline > 1451198285 ) ORDER BY `id` DESC  [ RunTime:0.0310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000341s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000687s ]
+SQL: SHOW COLUMNS FROM `tu_channel` [ RunTime:0.0310s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`sort`,`create_time`,`update_time`,`status`,`target` FROM `tu_channel` WHERE ( status=1 ) ORDER BY sort  [ RunTime:0.0304s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`model_sub`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon`,`groups` FROM `tu_category` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0301s ]
+SQL: SELECT `id`,`name`,`pid`,`title`,`link_id` FROM `tu_category` WHERE `status` = 1 ORDER BY sort  [ RunTime:0.0302s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000202s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.150532s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013466s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013819s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000856s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001186s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`model_sub`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon`,`groups` FROM `tu_category` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0294s ]
+SQL: SELECT `id`,`name`,`pid`,`title`,`link_id` FROM `tu_category` WHERE `status` = 1 ORDER BY sort  [ RunTime:0.0300s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`group_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `tu_document` WHERE `status` = 1 AND `pid` = 0 AND `category_id` IN ('1','2') AND `create_time` < 1451198285 AND ( deadline = 0 OR deadline > 1451198285 ) ORDER BY `level` DESC,`id` DESC LIMIT 0,10   [ RunTime:0.0313s ]
+NOTIC: [8] Undefined index: lite D:\wamp\www\autocg\www\ThinkPHP\Library\Think\Db.class.php ç¬¬ 37 è¡Œ.
+ERR: SQLSTATE[HY000] [2002] ÓÉÓÚÁ¬½Ó·½ÔÚÒ»¶ÎÊ±¼äºóÃ»ÓÐÕýÈ·´ð¸´»òÁ¬½ÓµÄÖ÷»úÃ»ÓÐ·´Ó¦£¬Á¬½Ó³¢ÊÔÊ§°Ü¡£
+
+

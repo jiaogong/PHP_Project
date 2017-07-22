@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=$page_charset" />
+  <link rel='stylesheet' href='<!--{$admin_path}-->css/style.css' type='text/css' />
+</head>
+<body>
+<table width=100% height=22 border=0>
+  <tr>
+    <td>
+    <span id="treeof_btn">
+    <a href="#" onclick="javascript:setFrame('tree', 1)">隐藏树</a>
+    </span>
+    <span id="treeon_btn" style="display: none;">
+    <a href="#" onclick="javascript:setFrame('tree', 2)">展开树</a>
+    </span> 
+    <a href="#" onclick="javascript:setFrame('tree', 3)">刷新树</a>
+    </td>
+    <td align=right>
+    <a href="?action=tree-" target="_blank">全屏本页</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+function setFrame(idstr, state){
+  var frm_parent = parent.document.getElementById("frm_content");
+  var obj = parent.document.getElementById(idstr);
+  switch(state){
+    case 1:
+      frm_parent.cols = "0%,100%";
+      document.getElementById('treeof_btn').style.display = "none";
+      document.getElementById('treeon_btn').style.display = "";
+    break;
+    case 2:
+      frm_parent.cols = "31%,*";
+      document.getElementById('treeof_btn').style.display = "";
+      document.getElementById('treeon_btn').style.display = "none";
+    break;
+    case 3:
+      parent.document.getElementById('tree').src="?action=tree-treeleft";
+    break;
+  }
+}
+</script>
+</body>
+</html>

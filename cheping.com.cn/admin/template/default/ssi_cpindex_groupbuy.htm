@@ -1,0 +1,47 @@
+<div id="groupbuy_div" class="column2_v1 bg1">
+    <div class="colunm_tit"> <img src="images/v2/sy_tg.jpg" />
+        <ul>
+            {loop $result $key $value}
+            <li class="sy_qh {if $key==0}sy_qh1{/if} menu" index="{$key}"><a href="javascript:void(0)">{eval echo $key+1;}</a></li>
+            {/loop}
+        </ul>
+    </div>
+    {loop $result $key $value}
+    <div class="sy_qhcon content1" <!--{if $key>0}-->style="display: none;"<!--{/if}-->>
+        <ul class="sy_bgt">
+            <li><a  target="_blank" href="{$relative_dir}groupbuy.php?action=groupdetail&id={$value['id']}"><img alt="{eval echo string::get_str($value['title'],60);}" width="236" height="132" onerror="this.src='images/v2/col_bus.jpg'" src="{if $value['indexpic']}{$relat_dir}attach/images/{$value['indexpic']}{else}images/v2/col_bus.jpg{/if}" /></a></li>
+            <li style="text-align:left;"><samp style="text-decoration:line-through; line-height:26px;">指导价：{$value['model_price']}</samp>
+                <div class="pre1_pos" id="index_groupbuy{$key}"></div>
+            </li>
+        </ul>
+        <div class="p_v1">
+            <a target="_blank" href="{$relative_dir}groupbuy.php?action=groupdetail&id={$value['id']}">{eval echo string::get_str($value["title"],60);}</a>
+        </div>
+
+         <div class="pre_ords_v1"><a class="pre_btn_v" target="_blank" href="{$relative_dir}groupbuy.php?action=groupdetail&id={$value['id']}"></a> <samp><span>团购价：</span><strong>{$value['group_price']}</strong></samp>
+
+        </div>
+    </div>
+    <script>
+        setInterval('_fresh1(new Date("{eval echo date('Y/m/d,H:i:s', $value['end_time']);}"), $("#index_groupbuy{$key}"))', 1000);
+    </script>
+    {/loop}
+</div>
+
+<script>
+    commonfocus("groupbuy_div","sy_qh1",1,5000);
+    function _fresh1(endtime, obj) {
+        var endtime = endtime;
+        var nowtime = new Date();
+        var leftsecond = parseInt((endtime.getTime() - nowtime.getTime()) / 1000);
+        __d = parseInt(leftsecond / 3600 / 24);
+        __s = parseInt(leftsecond % 60);
+        if(__d>1){
+            obj.html("还剩：<span>" + __d + "</span> 天<span>");
+        }else if(leftsecond>0){
+            obj.html("仅剩：<span>1</span> 天<span>");
+        }else if(leftsecond <= 0){
+            obj.html("团购已结束!");
+        }
+    }
+</script>

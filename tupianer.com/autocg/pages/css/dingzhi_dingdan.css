@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+.dingzhi_main{ width:1024px; height:auto; margin:60px auto;}
+.dingdan_leixing{ margin-left:20px; font-size:18px; font-weight:bold; }
+.dingzhi_xuanze{ width:610px; height:auto; margin:30px auto; }
+.huadong_xk{ width:610px; height:100px; margin:25px auto; background-color:#fff; border-radius:10px; border:1px solid #EDEDED;}
+.huadong_xk:hover{ border:1px solid #F77205}
+.dingzhigg1{ background-image:url(../images/dd_che.png); width:79px; height:62px; position:relative; top:18px; margin-left:180px;}
+.dingzhigg2{  background-image:url(../images/dd_ad.png); width:79px; height:62px; position:relative; top:18px; margin-left:180px;}
+.dingzhigg3{  background-image:url(../images/dd_ben.png); width:79px; height:62px; position:relative; top:18px; margin-left:180px;}
+.dingzhigg4{  background-image:url(../images/dd_sp.png); width:79px; height:62px; position:relative; top:18px; margin-left:180px;}
+.dingzhigg5{  background-image:url(../images/dd_sxt.png); width:79px; height:62px; position:relative; top:18px; margin-left:180px;}
+.dd_hg_wz{ margin-left:320px; font-size:20px; font-weight:bold; margin-top:-30px;}
+.huadong_xk:hover .dd_hg_wz{color:#f77205;}
+.huadong_xk:hover .dingzhigg1{ background-image:url(../images/dd_che1.png);}
+.huadong_xk:hover .dingzhigg2{ background-image:url(../images/dd_ad1.png);}
+.huadong_xk:hover .dingzhigg3{ background-image:url(../images/dd_ben1.png);}
+.huadong_xk:hover .dingzhigg4{ background-image:url(../images/dd_sp1.png);}
+.huadong_xk:hover .dingzhigg5{ background-image:url(../images/dd_sxt1.png);}
+
+.huadong_xk_n{ width:600px; height:90px; margin:5px auto; background-color:#fafafa; border-radius:10px; position:relative; top:0px;}

@@ -1,0 +1,48 @@
+{template header}
+<div class="user_wrap">
+    <ul class="nav2">
+        <li class="li1"><a href="<!--{$php_self}-->usercomment">用户评论排行榜</a></li>
+    </ul>
+    <div class="user_con">
+        <div class="user_con1">
+            <table id="content" class="table2" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th width="10%">TOP排行</th>
+                    <th width="15%">用户名</th>
+                    <th width="15%">用户状态</th>
+                    <th width="14%">正常评论数</th>
+                    <th width="14%">总评论数</th>
+                    <th width="16%">起始评论时间</th>
+                    <th width="16%">最新评论时间</th>
+                </tr>
+                <!--{if $list}-->
+                <!--{loop $list $key $value}-->
+                <tr>
+                    <td><!--{eval echo $top=$top+1;}--></td>
+                    <td>$value["name"]</td>
+                    <td>{eval echo $state[$value["state"]]}</td>
+                    <td>$value["comment_count"]</td>
+                    <td>$value["comment_count2"]</td>
+                    <td><!--{if $value["comment_time2"]}--><!--{eval echo date("Y-m-d",$value["comment_time2"]);}--><!--{/if}--></td>
+                    <td><!--{if $value["comment_time"]}--><!--{eval echo date("Y-m-d",$value["comment_time"]);}--><!--{/if}--></td>
+                </tr>
+                <!--{/loop}-->
+                <!--{else}-->
+                <tr>
+                    <th colspan="7"><h3 style="color:red;">暂无相关数据</h3></th>
+                </tr>
+                <!--{/if}-->
+            </table>
+            <!--{if $page_bar}-->
+            <table class="table2" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th  class="page_bar_css">
+                        <!--{$page_bar}-->
+                    </th>
+                </tr>
+            </table>
+             <!--{/if}-->
+        </div>
+    </div>
+</div>
+{template footer}

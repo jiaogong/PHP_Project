@@ -1,0 +1,104 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?> 
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+            <li><a href="javascript:void(0);" class="song">信息预览</a></li>
+            <li><a href="<?=$php_self?>focushistory&num=<?=$num?>">历史信息</a></li>
+            <? if ($num==2) { ?>
+            <li><a href="<?=$php_self?>hotcarNotice&act=focustwo">逻辑说明</a></li>
+            <? } else { ?>
+            <li><a href="<?=$php_self?>hotcarNotice&act=focusfive">逻辑说明</a></li>
+            <? } ?>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            <form method="post" action="<?=$php_self?>addFocusFive" enctype="multipart/form-data">
+                <table cellpadding="0" cellspacing="0" class="table2" border="1">
+                    <tr>
+                        <td>图片顺序</td>
+                        <? foreach((array)$pagedate as $k=>$v) {?>
+                        <? if ($k==1) { ?>
+                        <td><?=$v?><br/>当天</td>
+                        <? } else { ?>
+                        <td><?=$v?></td>
+                        <? } ?>
+                        <?}?>
+                    </tr>
+                    <? for($i=1; $i<=$num; $i++) { ?>
+                    <tr>
+                        <td><?=$i?></td>
+                        <? if ($pagedata[$i]) { ?>
+                        <? for($j=0; $j<10; $j++) { ?>
+                        <? if ($pagedata[$i][$j]) { ?><td><?=$pagedata[$i][$j]['title']?><br/><?=$pagedata[$i][$j]['state']?></td><? } else { ?><td style="background-color:red">未录入</td><? } ?>
+                        <? } ?>
+                        <? } else { ?>
+                        <td style="background-color:red">未录入</td>
+                        <td style="background-color:red">未录入</td>
+                        <td style="background-color:red">未录入</td>
+                        <td style="background-color:red">未录入</td>
+                        <td style="background-color:red">未录入</td>
+                        <td style="background-color:red">未录入</td>
+                        <td style="background-color:red">未录入</td>
+                        <td style="background-color:red">未录入</td>
+                        <td style="background-color:red">未录入</td>
+                        <td style="background-color:red">未录入</td>
+                        <? } ?>
+                    </tr>
+                    <? } ?>
+                    <tr>
+                        <td></td>
+                        <? foreach((array)$statedata as $val) {?>
+                        <td>
+                            <? if ($val['s']==2 || $val['s']==0) { ?>
+                            <a href="<?=$php_self?>focusact&id=<?=$val['id']?>&num=<?=$num?>" target="_blank">修改</a> &nbsp;
+                            <!--<a href="javascript:makeIndexMod('<?=$pdName?>', '<?=$val['date']?>')">生成</a>-->
+                            <? } elseif($val['s']==3) { ?>
+                            <? if ($num==2) { ?>
+                            <a href="<?=$php_self?>focusact&date=<?=$val['date']?>&num=<?=$num?>" target="_blank">录入</a>
+                            <? } else { ?>
+                            <a href="<?=$php_self?>focussort&date=<?=$val['date']?>&num=<?=$num?>" target="_blank">录入</a>
+                            <? } ?>
+                            <? } ?>
+                        </td>
+                        <? } ?>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="user_con2"><img src="<?=$admin_path?>images/conbt.gif"  height="16" /></div>
+    </div>
+</div>
+<!--<script type="text/javascript">
+        var nowDate = new Date();
+        var nowY = nowDate.getFullYear();
+        var nowM = nowDate.getMonth()+1;
+        var nowD = nowDate.getDate()-1;
+        var dateHtml = '';
+        var nowMHigh = new Date(nowY+'/'+nowM+1+'/0').getDate();
+        //alert(nowMHigh);
+        var lastMHigh = new Date(nowY+'/'+nowM+'/0').getDate();
+        $(function(){
+                for(i=0; i<10; i++){
+                        if(i==0 && nowD==0){
+                                dateHtml += '<td><br/>' + nowY + '-' + (nowM-1) + '-' + lastMHigh +'</td>';
+                        }else{
+                                if(i==1){
+                                        dateHtml += '<td>当天<br/>' + nowY + '-' + nowM + '-' + nowD +'</td>';
+                                }else{
+                                        dateHtml += '<td>' + nowY + '-' + nowM + '-' + nowD +'</td>';
+                                }
+                        }
+                        nowD = nowD+1;
+                        if(nowD>nowMHigh){
+                                nowM++;
+                                nowD = 1;
+                        }
+                }
+                //$("tr").first().append(dateHtml);
+        })
+</script>-->
+</body>
+</html>

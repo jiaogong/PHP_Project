@@ -1,0 +1,71 @@
+{template wap_header}
+    {if $iphone=='iphone'}
+    <div class="downapp" id="xiazai">
+       <div class="downsp1 fl"><img src="images/downlogo.png" /></div> 
+       <div class="downdiv fl">
+          <p class="p-one">ams车评 APP</p>
+          <p class="p-two">专业试驾评测 车型导购</p>
+       </div> 
+       <div class="download fl">
+           <span>
+           {if $weixin=='weixin'}
+           <a href="http://mp.weixin.qq.com/mp/redirect?url=https%3A%2F%2Fitunes.apple.com%2Fcn%2Fapp%2Fche-ping%2Fid953001548%3Fmt%3D8">马上下载</a>
+           {else}
+           <a href="https://itunes.apple.com/cn/app/che-ping/id953001548?mt=8">马上下载</a>
+           {/if}
+           </span>
+       </div>
+      <div class="close fr"><img src="images/close.png" width="20px" height="20px;"/></div>
+      
+       <div class="clear"></div>  
+    </div>
+    {/if}
+    <!--#include virtual="/ssi/ssi_banner_wap_pingce.shtml"-->
+    {template wap_nav}
+
+    <div class="pingcon" style="margin-top:10px;">
+        <ul class="mainPingce">
+            {loop $list $k $v}
+            <li>
+                <div class="img1 fl"><a href="/pingce/{eval echo date("Ym-d",$v["uptime"]);}-{$v[id]}.html"><img src="/attach/$v[pic]" width="100%"/></a></div>
+                <div class="desc fr">
+                    <span style=" display:block;"><a href="/pingce/{eval echo date("Ym-d",$v["uptime"]);}-{$v[id]}.html">{$v[title]}</a></span>
+                    <div class="sptime">{eval echo date("Y-m-d",$v["uptime"]);}</div>     
+                </div>       
+                <div class="clear"></div>
+            </li>
+            {/loop}
+        </ul>
+    </div>
+
+    <div class="clear"></div>
+    <!--底部开始-->
+    <div id="wrapper">
+        <div id="scroller">
+            <ul>
+                {loop $p_category $k $v}
+                <li><a {if $type==$v[id]}class="baise"{/if} href="{if $v[id]==16}/pingce/jiashi/{elseif $v[id]==56}/pingce/ceshi/{elseif $v[id]==59}/pingce/duibi/{else}/pingce/{/if}">{$v[category_name]}</a></li>
+                {/loop} 
+            </ul>
+        </div>
+    </div>	
+    <input type="hidden" value="{$id}" id="id">
+    <input type="hidden" value="{$type}" id="type">
+    <script type="text/javascript">
+        var myScroll;
+        function loaded() {
+            myScroll = new iScroll('wrapper', {
+                snap: true,
+                momentum: false,
+                hScrollbar: false,
+                onScrollEnd: function () {
+                    document.querySelector('#indicator > li.active').className = '';
+                    document.querySelector('#indicator > li:nth-child(' + (this.currPageX + 1) + ')').className = 'active';
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', loaded, false);
+    </script> 
+{template wap_countjs}
+</body>
+</html>

@@ -1,0 +1,76 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?>
+<div class="user">
+  <div class="nav">
+    <ul id="nav">
+    <li class="li1"><a href="<?=$php_self?>">静态化数据列表</a></li>
+    <li><a href="<?=$php_self?>autotask">自动任务列表</a></li>
+    <li><a href="<?=$php_self?>add">添加静态化数据</a></li>
+</ul>
+</div>
+<div class="clear"></div>
+ <div class="user_con">
+    <div class="user_con1">
+    <table cellpadding="0" cellspacing="0" class="table2" border="0">
+      <tr class="blue"> 
+        <td>&nbsp;ID&nbsp;</td>
+        <td>&nbsp;名称&nbsp;</td>
+        <td>&nbsp;链接&nbsp;</td>
+        <td>&nbsp;生成路径&nbsp;</td>
+        <td>&nbsp;添加时间&nbsp;</td>
+        <td>&nbsp;操作&nbsp;</td>
+      </tr>
+      <? if ($list) { ?>
+      <? foreach((array)$list as $k=>$v) {?>
+      <tr> 
+        <td>&nbsp;<?=$v[id]?>&nbsp;</td>
+        <td>&nbsp;<?=$v[name]?>&nbsp;</td>
+        <td>&nbsp;<?=$v[url]?>&nbsp;</td>
+        <td>&nbsp;<?=$v[savepath]?>&nbsp;</td>
+        <td>&nbsp;<? echo date('Y/m/d H:i', $v[created]); ?>&nbsp;</td>
+        <td>
+        <? if ($v['state'] ==2 ) { ?>
+          <a href="javascript:void(0);" onclick="alert('此任务已被设定为禁止手动生成！');return false;">生成</a>
+        <? } else { ?>
+          <a href="javascript:void(0);" tourl="<?=$php_self?>makefile&id=<?=$v[id]?>" class="btn_tofile">生成</a>
+        <? } ?>
+          <a href="<?=$php_self?>edit&id=<?=$v[id]?>">修改</a>
+          <a href="javascript:void(0);" class="click_pop_dialog" tourl="<?=$php_self?>del&id=<?=$v[id]?>">删除</a>
+        </td>
+      </tr>
+      <?}?>
+      <? } ?>
+      <tr>
+      </tr>
+    </table>
+      <? if ($page_bar) { ?>
+      <div>
+        <div class="ep-pages">
+          <?=$page_bar?>
+        </div>
+      </div>
+      <? } ?>
+   </div>
+   
+</div>
+</div> 
+<script type="text/javascript">
+$().ready(function(){
+  $('.click_pop_dialog').live('click', function(){
+    pop_window($(this), {message:'您确定要删除该记录吗？', pos:[200,150]});
+  });
+  
+  $('a.btn_tofile').live('click', function(){
+    var tourl=$(this).attr('tourl')+'&rand='+Math.random()*100000;
+    $.get(tourl, function(ret){
+      if($.trim(ret) == '1'){
+        alert('文件生成成功！');
+      }else{
+        alert('文件生成失败！');
+      }
+    });
+    return false;
+  });
+});
+</script>
+<? include $this->gettpl('footer');?>

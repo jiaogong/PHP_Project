@@ -1,0 +1,126 @@
+{template header}
+<div class="user">
+<div class="nav">
+    <ul id="nav">
+        <li class="li1"><a href="?action=comment-indexcomment">首页评论列表</a></li>
+        <li><a href="?action=comment-addcomment">添加评论</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            <table class="table2" id="content" border="0" cellpadding="0" cellspacing="0">
+                <tr align="right"  class='th'>
+                    <td width="20%">车款名称</td>
+                    <td width="10%">成交价</td>
+                    <td width="25%">网站评价</td>
+                    <td width="25%">经销商评价</td>
+                    <td width="10%">评价时间</td>
+                    <td width="10%">操作</td>
+                </tr>
+                <!--{loop $list $key $value}-->
+                <tr class='th'>
+                    <td><a target="_blank" href="<!--{$php_self}-->detail&id=158">{$value['model_name']}</a></td>
+                    <td><!--{$value['s10']}-->万</td>
+                    <td><!--{eval echo string::substring($value['pros'],0,20);}--></td>
+                    <td><!--{eval echo string::substring($value['cons'],0,20);}--></td>
+                    <td><!--{eval echo date("Y-m-d H:i:s", $value['created']);}--></td>
+                    <td>
+                        <a href="<!--{$php_self}-->addcomment&id=<!--{$value['id']}-->">查看</a>
+                        <a href="<!--{$php_self}-->delcomment&id=<!--{$value['id']}-->">删除</a>
+                    </td>
+                </tr>
+                <!--{/loop}-->
+                <!--{if $page_bar}-->
+                <tr class='page_bar_css'>
+                    <td colspan="8">
+                        <!--{$page_bar}-->
+                    </td>
+                </tr>
+                <!--{/if}-->
+            </table>
+            <div style="height:40px;"></div>
+        </div>
+        <div class="user_con2">
+            <img src="{$admin_path}images/conbt.gif" height="16" >
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#content select").change(function(){            
+            var statetxt=$(this).children("option:selected").html();
+            var cid=$(this).attr("cid");
+            var uid=$(this).attr("uid");
+            var order_num=$(this).attr("order_num");
+            
+            if(confirm("你确定要将订单号: "+order_num+" 的评论内容修改为 "+statetxt+" 状态!!")){
+                if(order_num&&$(this).val()){
+                    $.ajax({
+                        type:"POST",
+                        url:"index.php?action=comment-updatastate",
+                        data:{order_num:order_num,uid:uid,state:$(this).val()},
+                        error:function(){
+                            alert("网络异常，请求失败！！");
+                        },
+                        success:function(date){
+                            var color=eval("("+date+")");
+                            if(color){
+                                $("#"+cid).attr("color", color);
+                            }else{
+                                alert("修改失败!!请联系管理员");
+                            }
+                        }
+                    })
+                }else{
+                    alert("没有此订单号!!");
+                    return false;
+                }
+            }else{
+                
+                return false;
+            }
+        });
+
+        //设置首页显示
+        $(".setindex").click(function(){
+            var order_num=$(this).attr("order_num");
+            var val = 0;
+            var set = $(this);
+            if(set.html()=="首页显示"){
+                val = 1;
+            }
+                if(order_num){
+                $.ajax({
+                    type:"POST",
+                    url:"index.php?action=comment-updateindexshow",
+                    data:{order_num:order_num,val:val},
+                    error:function(){
+                        alert("网络异常，请求失败！！");
+                    },
+                    success:function(date){
+                        if(date==0){
+                            alert("设置成功!");
+                            if(set.html()=="取消首页显示"){
+                                set.html("首页显示");
+                            }else{
+                                set.html("取消首页显示");
+                            }
+                            
+                            return false;
+                        }else{
+                            alert("修改失败!!请联系管理员");
+                        }
+                        
+                    }
+                })
+            }else{
+                alert("没有此订单号!!");
+                return false;
+            }
+        });
+        
+    });
+</script>
+    </body>
+</html>

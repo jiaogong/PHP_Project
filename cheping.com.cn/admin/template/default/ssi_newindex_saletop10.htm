@@ -1,0 +1,57 @@
+<div class="i-tabs-content">
+	<div class="tabs-news-module">
+		<div class="dtcp">
+			{for $i=0; $i<3; $i++}
+				<div class="news_right_tu">
+					<div class="show_qian" style="display: none;">
+						<a href="/offers_$result[$i]['model_id'].html"  target="_blank">
+							<div class="img_zhong">
+								{if $i==0}
+									<img src="images/news_right_one.jpg">
+								{elseif $i==1}
+									<img src="images/news_right_two.jpg">
+								{elseif $i==2}
+									<img src="images/news_right_three.jpg">
+								{/if}
+							</div>
+							<div class="img_left"><img width="122" height="93" src="/attach/images/model/$result[$i]['model_id']/122x93$result[$i]['model_pic1']" onerror="this.src='/images/122x93.jpg'"></div>
+						</a>
+					</div>
+					<div style="display: block;" class="show_hou">
+						<div class="img_left"><img width="122" height="93" src="/attach/images/model/$result[$i]['model_id']/122x93$result[$i]['model_pic1']" onerror="this.src='/images/122x93.jpg'"></div>
+						<div class="img_zhong">
+							{if $i==0}
+								<img src="images/news_right_one.jpg">
+							{elseif $i==1}
+								<img src="images/news_right_two.jpg">
+							{elseif $i==2}
+								<img src="images/news_right_three.jpg">
+							{/if}
+						</div>
+					</div>
+					<div class="img_right{eval echo $i+1} img_rightx">
+                                            <a href="/offers_$result[$i]['model_id'].html"  target="_blank" class="righta">
+							<p style=" font-size:16px; padding-top:27px;">$result[$i]['series_name']</p><p style="font-size:18px;">降价<span>{eval echo floatval($result[$i]['nude_car_rate'])}</span>万</p>
+						</a>
+                                                <input type="hidden" name="rightx_color" id="rightx_color" value="{if $i == 0}#f2773b{elseif $i == 1}#59a5f5{elseif $i == 2}#50e596{/if}"/>
+					</div>
+				</div>
+			{/for}
+
+			<div class="news">
+				<table>
+				<tbody>
+					{for $i=3; $i<10; $i++}
+						<tr onclick="jump($result[$i]['model_id'])">
+							<td width="36">{eval echo $i+1}.</td>
+							<td width="208">$result[$i]['series_name']</td>
+							<td width="25"><span class="shangjiantou"></span></td>
+							<td width="55">{eval echo floatval($result[$i]['nude_car_rate'])}万</td>
+						</tr>
+					{/for}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

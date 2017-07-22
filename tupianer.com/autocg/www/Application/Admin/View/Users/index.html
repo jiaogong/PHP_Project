@@ -1,0 +1,133 @@
+<extend name="Public/base" />
+
+<block name="style">
+    <link rel="stylesheet" type="text/css" media="all" href="__STATIC__/bootstrap-daterangepicker/daterangepicker-bs3.css"
+          />
+</block>
+
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>前台用户列表</h2>
+    </div>
+    <div class="cf">
+        <div class="fl">
+            <a class="btn" href="{:U('add')}">新 增</a>
+            <button class="btn ajax-post confirm" url="{:U('changeStatus?method=deleteUser')}" target-form="ids">删 除</button>
+        </div>
+
+        <!-- 高级搜索 -->
+        <div class="search-form fr cf">
+            <div class="sleft">
+                <?php
+                    $data[$field['name']] = date('Y-m-d H:i:s');
+                ?>
+                <input type="text" name="created" class="search-input time" value="{:I('created')}" placeholder="{$data[$field['name']]}" />
+                <!--                <input type="text" name="created" style="width: 200px" name="reservation" id="birthday" class="search-input" placeholder="起始时间:03/18/2013" />-->
+            </div>
+            <div class="sleft">
+                <input type="text" name="createds" class="search-input time" value="{:I('createds')}" placeholder="{$data[$field['name']]}" />
+                <!--                <input type="text" name="createds" style="width: 200px" name="reservation" id="birthday" class="search-input" placeholder="结束时间:03/18/2013" />-->
+            </div>
+            <div class="sleft">
+                <input type="text" name="score" class="search-input" value="{:I('score')}" placeholder="请输入积分,例：0">
+            </div>
+            <div class="sleft">
+                <input type="text" name="scores" class="search-input" value="{:I('scores')}" placeholder="请输入积分,例：10">
+            </div>
+            <div class="sleft">
+                <input type="text" name="username" class="search-input" value="{:I('username')}" placeholder="请输入用户名">
+            </div>
+            <div class="sleft">
+                <a class="sch-btn" href="javascript:;" id="search" url="{:U('index')}"><i class="btn-search"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+        <table class="">
+            <thead>
+                <tr>
+                    <th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+                    <th class="">UID</th>
+                    <th class="">用户名</th>
+                    <th class="">昵称</th>
+                    <th class="">积分</th>
+                    <th class="">最后登录时间</th>
+                    <th class="">最后登录IP</th>
+                    <th class="">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            <notempty name="_list">
+                <volist name="_list" id="vo">
+                    <tr>
+                        <td><input class="ids" type="checkbox" name="id[]" value="{$vo.uid}" /></td>
+                        <td>{$vo.uid} </td>
+                        <td>{$vo.username}</td>
+                        <td>{$vo.realname}</td>
+                        <td>{$vo.score}</td>
+                        <td><span>{$vo.last_login|time_format}</span></td>
+                        <td><span>{:long2ip($vo['last_ip'])}</span></td>
+                        <td>
+                            <a href="{:U('Users/edit?uid='.$vo['uid'])}">修改信息</a>
+                            <a href="{:U('Users/updatePassword?uid='.$vo['uid'])}">修改密码</a>
+                            <a href="{:U('AuthFront/group?uid='.$vo['uid'])}" class="authorize">授权</a>
+                            <a href="{:U('Users/changeStatus?method=deleteUser&id='.$vo['uid'])}" class="confirm ajax-get">删除</a>
+                        </td>
+                    </tr>
+                </volist>
+                <else/>
+                <td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+            </notempty>
+            </tbody>
+        </table>
+    </div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+    <script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">
+    <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        //搜索功能
+        $("#search").click(function () {
+            var url = $(this).attr('url');
+            var query = $('.search-form').find('input').serialize();
+            query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+            query = query.replace(/^&/g, '');
+            if (url.indexOf('?') > 0) {
+                url += '&' + query;
+            } else {
+                url += '?' + query;
+            }
+            window.location.href = url;
+        });
+        //回车搜索
+        $(".search-input").keyup(function (e) {
+            if (e.keyCode === 13) {
+                $("#search").click();
+                return false;
+            }
+        });
+
+        $(function(){
+            $('.time').datetimepicker({
+                format: "yyyy-mm-dd hh:ii:ss",
+                language:"zh-CN",
+                autoclose: true,
+                maxView:4,
+            });
+        showTab();
+                    
+        });
+        //导航高亮
+        highlight_subnav('{:U('Users/index')}');
+    </script>
+</block>

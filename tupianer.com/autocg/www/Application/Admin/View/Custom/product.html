@@ -1,0 +1,55 @@
+<script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+
+<form action="{:U('product&type='.I('type'))}" method="post" class="form-horizontal">
+
+    <div class="form-item">
+        <label class="item-label">上传附件<span class="check-tips"></span></label>
+        <div class="">
+            <input type="file" id="upload_file">
+            <input type="hidden" name="product" value="{$info.product}"/>
+            <div class="upload-img-box">
+                <present name="info.name">
+                    <a href="{:U('download',array('id' => $info['uid']))}"><div class="upload-pre-file"><span class="upload_icon_all"></span>{$info.name}</div></a>
+                </present>
+            </div>
+        </div>
+        <script type="text/javascript">
+            //上传图片
+            /* 初始化上传插件 */
+            $("#upload_file").uploadify({
+                "height": 30,
+                "swf": "__STATIC__/uploadify/uploadify.swf",
+                "fileObjName": "download",
+                "buttonText": "上传附件",
+                "uploader": "{:U('File/upload',array('session_id'=>session_id()))}",
+                "width": 120,
+                'removeTimeout': 1,
+                "onUploadSuccess": uploadFilepact,
+                'onFallback': function () {
+                    alert('未检测到兼容版本的Flash.');
+                }
+            });
+            function uploadFilepact(file, data) {
+                var data = $.parseJSON(data);
+                if (data.status) {
+                    var name = "product";
+                    $("input[name=" + name + "]").val(data.data);
+                    $("input[name=" + name + "]").parent().find('.upload-img-box').html(
+                            "<div class=\"upload-pre-file\"><span class=\"upload_icon_all\"></span>" + data.info + "</div>"
+                            );
+                } else {
+                    updateAlert(data.info);
+                    setTimeout(function () {
+                        $('#top-alert').find('button').click();
+                        $(that).removeClass('disabled').prop('disabled', false);
+                    }, 1500);
+                }
+            }
+        </script>
+    </div>
+    <div class="form-item modal-footer">
+        <input type="hidden" name="id" value="{$info.id|default=''}">
+        <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+    </div>
+</form>

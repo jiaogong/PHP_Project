@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <meta name="format-detection" content="telephone=no" />
+        <title>wap-登录</title>
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/people.css"/>
+        <script src="js/jquery-1.8.3.min.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <span class="sp1">登录</span>
+            <span class="fl hsp2" onclick="history.go(-1)" style="cursor:hand" > < </span>
+            <span class="fr hsp3" ><a href="/wapregister.php?action=register">注册</a></span>
+        </div>
+        <!--<form action="" name="login" method="post">-->
+            <div class="con">
+                <div class="number">
+                    <span class="fl padtop"> 账号 :</span>
+                    <input type="text" placeholder="手机号/用户名"   name="username" id ="name" class="telephone fl"/>
+                    <div class="clear"></div>
+                </div>  
+                <div class="number">
+                    <span class="fl padtop"> 密码 :</span>
+                    <input type="password" placeholder="请输入密码"  name="password"  id="password" class="telephone fl"/>
+                    <div class="clear"></div>
+                </div>  
+                <p class="text-align"><input type="submit" class="tijiao" value="登录" onclick='sub_from()'/></p> 
+                <p class=" forget"><a href="/waplogin.php?action=repassword">忘记密码？</a></p>
+            </div>
+        <!--</form>-->
+        <script>
+            function sub_from() {
+//                window.location.href = "/wapindex.php?action=Index";
+                var name = $("#name").val();
+                var password = $("#password").val();
+                if (!name || !password) {
+                    alert("请填写完整");
+                } else {
+                    $.post("/waplogin.php?action=Login", {"name":name,"password":password}, function (msg) {
+                        if (msg == 1 || msg == 3) {
+                            location.href = "/wapindex.php?action=index"
+                        }else if(msg==6){
+                            alert("用户名或者密码不正确!");
+                        } 
+                    })
+//                    return false;
+                }
+            }
+
+        </script>
+    </body>
+</html>

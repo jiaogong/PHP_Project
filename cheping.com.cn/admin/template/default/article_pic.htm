@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="<!--{$admin_path}-->vendor/plupload/commen.css" />
+<script type="text/javascript" src="<!--{$admin_path}-->vendor/plupload/jquery.js"></script>
+<script type="text/javascript" src="<!--{$admin_path}-->vendor/plupload/plupload.full.min.js"></script>
+<title>上传图片</title>
+<link rel="stylesheet" href="css/upload.css" />
+</head>
+<body>
+    <div  class="wapper">
+        <div class="top">
+            <div class="top-left">车评网</div>
+        </div>
+        <form action="index.php?action=article-alleditpic" method="post" enctype="multipart/form-data"> 
+            <div class="clean"><span onclick="clearorder()">清空排序</span></div>
+            <div class="upload2-main">
+                <ul id="ul_pics" class="clearfix">
+                {if $list}
+                {loop $list $key $value}
+                <li>
+                    <input type='hidden' name='id[]' value="$value[id]">
+                    <span><img  src="$main_site/attach/images/article/{eval echo date('Y/m/d',$value[created])}/$value[name]" width="100%" height="100px" /></span>
+                    <textarea style="overflow-x:hidden; overflow-y:hidden; font-family:'微软雅黑' font-size:14px; resize:none; color:#333;"  id="name_title_$value[id]" name='name_title[]' value="图片解说" onClick="if(this.value=='图片解说'){this.value='';}" onBlur="if(this.value==''){this.value='图片解说';this}" >$value[memo]</textarea>
+                    <input type="text" class='clearorder'style=" color:#333; font-family:'微软雅黑' font-size:14px;;" name="ppos[]" value="$value[ppos]" onClick="if(this.value=='排列顺序'){this.value='';}" onBlur="if(this.value==''){this.value='排列顺序';this}" /> 
+                    <div style=" padding:2% 16% 5% 16%;">
+                        <button>提交</button>
+                    </div>
+                    <div class="close" id="delpic_$value[id]" onclick="delpic($value[id],'images/article/{eval echo date('Y/m/d',$value[created])}/$value[name]');"><img src="images/close.png" /></div>
+                </li>
+                {/loop}
+                {/if}
+        
+                <li style=" border:none;" id="but_pig">
+                    <span id="btn"><i><IMG  SRC="images/upload2-2.png" width="100%" /></i>
+                    <input type="button"  value="继续添加图片" style=" border:none; background:none; font-size:16px; position:relative; top:-25px;z-index:20"/>
+                    </span>
+                    <div class="zi">
+                        <p>最大50M,支持jpg、gif、png格式</p>
+                    </div>
+                </li>
+                </ul>
+                <input type="hidden" id="pic_org_id" value="$id" name='pic_org_id'>
+                <div class="clear"></div>
+                <button type="submit" class="bnt1" style="width: 200px;">提交全部</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script type="text/javascript">
+    var uploader = new plupload.Uploader({//创建实例的构造方法
+        runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
+        browse_button: 'btn', // 上传按钮
+        url: "{$php_self}addpic", //远程上传地址
+        flash_swf_url: '<!--{$admin_path}-->vendor/plupload/Moxie.swf', //flash文件地址
+        silverlight_xap_url: '<!--{$admin_path}-->vendor/plupload/Moxie.xap', //silverlight文件地址
+        filters: {
+            max_file_size: '50mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
+            mime_types: [//允许文件上传类型
+                {title: "files", extensions: "jpg,png,gif"}
+            ]
+        },
+        multi_selection: true, //true:ctrl多文件上传, false 单文件上传
+        init: {
+            FilesAdded: function(up, files) { //文件上传前
+                if ($("#ul_pics").children("li").length > 10000) {
+                    alert("您上传的图片太多了！");
+                    uploader.destroy();
+                } else {
+                    var li = '';
+                    plupload.each(files, function(file) { //遍历文件
+                        li += "<li id='" + file['id'] + "'></li>";
+                    });
+                    $("#but_pig").before(li);
+                    uploader.start();
+                }
+            },
+            UploadProgress: function(up, file) { //上传中，显示进度条
+           var percent = file.percent;
+                $("#" + file.id).find('.bar').css({"width": percent + "%"});
+                $("#" + file.id).find(".percent").text(percent + "%");
+            },
+            FileUploaded: function(up, file, info) { //文件上传成功的时候触发
+                //var data = JSON.parse(info.response);
+                var data = eval('(' + info.response + ')');
+                var html ="<input type='hidden' name='id[]' value='" + data.id + "'><span><img src='$main_site/attach/" + data.pic + "' width='100%' /></span><textarea name='name_title[]' id='name_title_" + data.id + "' style='overflow-x:hidden; overflow-y:hidden; resize:none;'  value='图片解说' onClick=\"if(this.value=='图片解说'){this.value='';}\" onBlur=\"if(this.value==''){this.value='图片解说';this}\" > </textarea><input class='clearorder' type='text' name='ppos[]' id='name_sork_" + data.id + "' value='排列顺序' onClick=\"if(this.value=='排列顺序'){this.value='';}\" onBlur=\"if(this.value==''){this.value='排列顺序';this}\" /> <div style=' padding:2% 16% 5% 16%;'><button type='button' onclick='addtitle(" + data.id + ")'>提交</button></div><div class='close' id='delpic_" + data.id + "' onclick='delpic(" + data.id + ",\"" + data.pic + "\");'><img src='images/close.png' /></div>";
+                $("#" + file.id).html(html);
+            },
+            Error: function(up, err) { //上传出错的时候触发
+                alert(err.message);
+            }
+        }
+    });
+    uploader.init();
+			
+    function clearorder(){
+        $(".clearorder").val('');
+    }
+    function wr(i){
+            $("#name_title_"+i).attr("readonly",false);
+    }
+    function addtitle(i){
+        var pic_org_id =$("#pic_org_id").val();
+        var content = $("#name_title_"+i).val();
+        var sork = $("#name_sork_"+i).val();
+            $.post("{$php_self}editpic",{'pic_org_id':pic_org_id,'content':content,'id':i,'sork':sork},function(msg){
+                if(msg==1){
+
+                    alert("图文编辑成功");
+                }else{
+                    alert("图文编辑失败");
+                }
+            });
+    }
+
+    function delpic(i,pic){
+        $.post("{$php_self}delpic",{'id':i,'pic':pic},function(msg){
+                if(msg==1){
+                    $("#delpic_"+i).parent("li").remove();
+                    alert("图文删除成功");
+                }else{
+                    alert("图文删除失败");
+                }
+            });
+    }
+                        
+    window.onunload = function(){
+        //this.opener.location.reload();         
+        this.opener.refreshPicList($id);         
+    }
+</script>
+</html>

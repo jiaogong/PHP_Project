@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+ .moremain{ width:818px; margin:0 auto; }
+ .moremain:hover{ color:#66F;}
+ .moremain .morep{ padding:30px 0; font-size:16px;}
+ .timeline{ margin-left:16px;}
+ .timeline ul{  margin-left:12px;}
+ .timeline ul li{  font-size:14px; position:relative; z-index:1; border-left:2px solid #f77205; height:40px; padding:0px 0px 20px 12px; height:40px; width:480px;}
+ .timeline ul li:before{ background:#FFF; width:10px; height:10px; position:absolute; content:""; border-raduis:255px; top:0px; left:-6px; z-index:2;}
+ .timeline ul li:after{ width:10px; height:10px; position:absolute; content:"";  background:url(../images/circleline.png); top:0px; left:-6px; z-index:3}
+  .timeline ul li.active:after{width:10px; height:10px; position:absolute; content:"";  background:url(../images/circle.png); top:0px; left:-6px; z-index:3}
+ .timeline ul li .time{ padding:5px 0px;}
+ .timeline ul li .fen{ padding-left:24px;} 
+ .timeline ul li p:hover,.timeline ul li .time span:hover{color:#f77205;}
+ .anniu{ width:516px; height:36px; background:#f99c50; margin:0 auto; color:white; margin-top:70px; text-align:center; line-height:36px;}

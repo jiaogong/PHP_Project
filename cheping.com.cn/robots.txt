@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /action/
+Disallow: /admin/
+Disallow: /tools/
+Disallow: /vendor/
+Disallow: /include/
+Disallow: /lib/
+Disallow: /model/
+Disallow: /ssi/
+Disallow: /template/
+
+User-Agent: AhrefsBot
+Disallow: /
+User-Agent: Ezooms
+Disallow: /
+User-Agent: Yahoo! Slurp
+Disallow: /

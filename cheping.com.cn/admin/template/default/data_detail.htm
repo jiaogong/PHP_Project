@@ -1,0 +1,69 @@
+{template header}
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+        <li><a href="javascript:;" class="song">{$page_title}</a></li>
+        <li><a href="javascript:history.back(-1);">返回</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            <!--{if $result}-->
+            <table class="table2" border="0" cellpadding="0" cellspacing="0">
+                <tr style="color:red;">
+                    <th colspan="6" style="text-align: left;line-height:26px;"><h3>共有{eval echo count($result)}条</h3></th>
+                </tr>
+                <tr align="right"  class='th'>
+                    <td height="20" nowrap>ID</td>
+                    <td width="20%" align="left">名称</td>
+                    <td height="20" nowrap>ID</td>
+                    <td width="20%" align="left">名称</td>
+                    <td height="20" nowrap>ID</td>
+                    <td width="20%" align="left">名称</td>
+                </tr>
+                <!--{loop $result $k $v}-->
+                <!--{if $k%3==0}-->
+                <tr align="right"  class='th'>
+                    <td height="20" nowrap>$v["id"]</td>
+                    <td width="20%" align="left">$v["name"]</td>
+                    <!--{eval $i=($k+1)}-->
+                    <td height="20" nowrap>$result[$i]["id"]</td>
+                    <td width="20%" align="left">$result[$i]["name"]</td>
+                    <!--{eval $i=($k+2)}-->
+                    <td height="20" nowrap>$result[$i]["id"]</td>
+                    <td width="20%" align="left">$result[$i]["name"]</td>
+                </tr>
+                <!--{/if}-->
+                <!--{/loop}-->
+            </table>
+            <!--{/if}-->
+            <!--{if $series}-->
+            <table class="table2" border="0" cellpadding="0" cellspacing="0">
+                <tr style="color:red;">
+                    <th colspan="4" style="text-align: left;line-height:26px;"><h3>共有{eval echo count($series)}条 $temp</h3></th>
+                </tr>
+                <tr align="right"  class='th'>
+                    <th height="20" nowrap>ID</td>
+                    <th width="25%" >品牌</td>
+                    <th height="25%" nowrap>厂商</td>
+                    <th width="25%" >车系名称</td>
+                </tr>
+                <!--{loop $series $k $v}-->
+                <tr align="right"  class='th'>
+                    <td height="20" nowrap>$v["id"]</td>
+                    <td width="25%" >$v["brand_name"]</td>
+                    <td height="25%" nowrap>$v["factory_name"]</td>
+                    <td width="25%" >$v["series_name"]</td>
+                </tr>
+                <!--{/loop}-->
+            </table>
+            <!--{/if}-->
+        </div>
+        <div class="user_con2">
+            <img src="{$admin_path}images/conbt.gif" height="16" >
+        </div>
+    </div>
+</div>
+</body>
+</html>

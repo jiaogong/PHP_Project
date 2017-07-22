@@ -1,0 +1,30 @@
+<div class="column3_v1">
+    <div class="col_imgs"><img  src="images/xang_v2.png" /></div>
+    <div class="survey">
+        <table width="100%">
+            <tr>
+                <td class="sur_zi">在线投票调查</td>
+            </tr>
+            <tr>
+                <th>{$polldetail["title"]}</th>
+            </tr>
+           <!-- <tr>
+                <th>{$polldetail["content"]}</th>
+            </tr>-->
+            {if $polldetail["selecttype"]==1}
+            {loop $polldetail["polltype"] $key $value}
+            <tr>
+                <td><input type="radio" name="poll" value="$value['id']" style="-margin:-4px 0;" />{$value["name"]}</td>
+            </tr>
+            {/loop}
+            {else}
+            {loop $polldetail["polltype"] $key $value}
+            <tr>
+                <td><input type="checkbox" value="$value['id']" style="-margin:-4px 0;" />{$value["name"]}</td>
+            </tr>
+            {/loop}
+            {/if}
+        </table>
+        <a href="#"><img  src="images/survey_01.gif" /></a> </div>
+    <div class="col_imgs"><img  src="images/xang_v2.png" /></div>
+</div>

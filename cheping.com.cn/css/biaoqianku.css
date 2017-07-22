@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+.bq_nav{ margin-left:200px;margin-top:-50px;}
+.bq_nav li{ float:left; margin-left:45px; font-size:24px;}
+.bq_nav li a{color:#FFF;}
+.bq_main{ width:1180px; height:auto; margin:auto; margin-top:55px;}
+.bq_left{ width:225px; height:125px; margin-top:-2px;}
+.bq_zimu{ width:28px; height:28px; font-size:16px; text-align:center; line-height:28px; background-color:#feffff; border:1px solid #D7D7D7; margin-left:2px; float:left; margin-top:2px;}
+.bq_right{ width:941px; height:auto;margin-left:240px; margin-top:-125px;}
+.rbq_A{ width:940px; height:auto; background-color:#fff; border:1px solid #D7D7D7; margin-top:20px; padding-bottom:25px;}
+.b_A{ width:49px; height:49px; text-align:center; line-height:49px; font-size:40px; background-color:#e61a15; color:#fff;}
+.list_bq{ width:810px;height:auto; float:right;margin-right:30px; margin-top:-15px;}
+.list_bq a{display:block; float:right; width:135px; margin-top:5px;}
+.bq_zimu a:visited{ color:#bcbcbc;}

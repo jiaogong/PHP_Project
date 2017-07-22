@@ -1,0 +1,108 @@
+<extend name="Index/index" />
+<block name="con">
+
+    <div class="x_panel">
+    <div class="x_title"><extend name="Index/index" />
+<block name="title">
+后台管理--发邮件默认配置修改
+</block>
+<block name="con">
+
+    <div class="x_title">
+        <h2>网站配置<small>Click to validate</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li class="dropdown">
+                <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-wrench"></i></a>
+                <ul role="menu" class="dropdown-menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+
+        <!-- start form for validation -->
+        <form data-parsley-validate="" id="demo-form" novalidate="">
+                
+             <label for="fullname" class="fa fa-cog"s><h2>邮件服务配置* :A__CONTROLLER__/msegJAX鼠标点击修改，鼠标离开自动保存</h2></label><br/>
+            <i class="fa fa-cog">Host邮件主机&nbsp;:&nbsp;</i><input type="text" required="" name="Host" id="inputSuccess4" class="Host form-control has-feedback-left"data-parsley-id="9619"value="{:C('Host')}" >
+            <br style="margin-top:10px;">
+            <i class="fa fa-cog">Port发送邮件端口&nbsp;:&nbsp;</i><input type="text" required="" name="Port" id="inputSuccess4" class="Port form-control has-feedback-left" data-parsley-id="9619" value="{:C('Port')}" >
+            <br style="margin-top:10px;">
+            <i class="fa fa-cog">username邮箱名&nbsp;:&nbsp;</i><input type="text" required="" name="username" id="inputSuccess4" class="form-control has-feedback-left username"data-parsley-id="9619"value="{:C('username')}">
+            <br style="margin-top:10px;">
+            <i class="fa fa-cog">mailname邮件主题&nbsp;:&nbsp;</i><input type="text" required="" name="mailname" id="inputSuccess4" class="mailname form-control has-feedback-left" data-parsley-id="9619"value="{:C('mailname')}">
+            <br style="margin-top:10px;">
+            <i class="fa fa-cog">mailpwd邮件密码&nbsp;:&nbsp;</i><input type="text" required="" name="mailpwd" id="inputSuccess4" class="form-control has-feedback-left mailpwd" data-parsley-id="9619"value="{:C('mailpwd')}">
+            <br style="margin-top:10px;">
+            <i class="fa fa-cog">mailtitle邮件标题&nbsp;:&nbsp;</i><input type="text" required="" name="mailtitle" id="inputSuccess4" class="mailtitle form-control has-feedback-left"data-parsley-id="9619"value="{:C('mailtitle')}">
+            <br style="margin-top:14px;">
+
+            <!--ajax修改 数据库配置-->
+          
+            <script type="text/javascript">
+          $(function(){
+            $('.MESG_URL').blur(function(){
+                var database=$('.MESG_URL').val();
+                $.post('__CONTROLLER__/update',{MESG_URL:database},function(){alert('修改成功!');console.log(data);});
+            });
+            $('.WEB').blur(function(){
+                var database=$('.WEB').val();
+                $.post('__CONTROLLER__/update',{WEB:database},function(){alert('修改成功!');console.log(data);});
+           });
+             $('.CODE').blur(function(){
+                var database=$('.CODE').val();
+                $.post('__CONTROLLER__/update',{CODE:database},function(){alert('修改成功!');console.log(data);});
+           });
+            $('.NEW_RULE').blur(function(){
+                var database=$('.NEW_RULE').val();
+                $.post('__CONTROLLER__/update',{NEW_RULE:database},function(){alert('修改成功!');console.log(data);});
+          });
+            $('.Host').blur(function(){
+                var database=$('.Host').val();
+                $.post('__CONTROLLER__/update',{Host:database},function(){alert('修改成功!');console.log(data);});
+            });
+           
+            $('.Port').blur(function(){
+                var database=$('.Port').val();
+                $.post('__CONTROLLER__/update',{Port:database},function(){alert('修改成功!');console.log(data);});
+            });
+            $('.username').blur(function(){
+                var database=$('.username').val();
+                $.post('__CONTROLLER__/update',{username:database},function(){alert('修改成功!');console.log(data);});
+            });
+            $('.mailname').blur(function(){
+                var database=$('.mailname').val();
+                $.post('__CONTROLLER__/update',{mailname:database},function(){alert('修改成功!');console.log(data);});
+            });
+            $('.mailpwd').blur(function(){
+                var database=$('.mailpwd').val();
+                $.post('__CONTROLLER__/update',{mailpwd:database},function(){alert('修改成功!');console.log(data);});
+            });
+            $('.mailtitle').blur(function(){
+                var database=$('.mailtitle').val();
+                $.post('__CONTROLLER__/update',{mailtitle:database},function(){alert('修改成功!');console.log(data);});
+            });
+
+        });
+            </script>
+            <!--数据库修改完成-->   
+   </form>  
+ 
+    邮箱配置测试：
+    <form action="__CONTROLLER__/sendMail" method="post">
+            测试：请输入接收者:<input type="text" name="to" value="" placeholder="邮箱名">
+                                     <input type="text" name="title" value="" placeholder="标题">
+                                      <input type="text" name="content" value="" placeholder="输入内容">
+                                     
+                                     <input type="submit" value="点击发送测试" class="btn btn-round btn-success">
+    </form>                   
+</block>

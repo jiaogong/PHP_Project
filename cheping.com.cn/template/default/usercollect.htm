@@ -1,0 +1,81 @@
+{template user_header}
+<script>
+    $(function () {
+        $("ul > li").click(tab);
+
+        function tab() {
+            $(this).addClass("ll").siblings().removeClass("ll");
+            var tab = $(this).attr("title");
+            $("#" + tab).show().siblings().hide();
+        }
+        ;
+    });
+</script>
+<div class="geren-concent">
+    <div class="commentsay-con-left fl">
+        <div class="left-main1 ">
+            <span><img src="{if $users['avatar']}attach/$users['avatar']{else}images/touxiang.jpg{/if}" style="width:100px;height: 105px;"></span>
+            <div class="user-mation fr">
+                <span class="user-sp">{$users['username']}</span>
+                <div class="user-nav">
+                    <a>我的评论 <span class="number">({$reviewscount})</span></font></a>
+                    <a>我的收藏 <span class="number">({$collectcount})</span></a>
+                    <!--<a href="">系统消息 <span class="number">99</span></a>-->
+                </div>  
+            </div>
+        </div>
+        <div class="clear"></div>
+        <span class="sp-title">我的收藏</span>
+        <div  class="commentsay-main">
+            <div class="tab">
+                <ul>
+                    <li {if !$category_id}class="ll" style="color: #fff;"{/if}><a href="user.php?action=collect" {if !$category_id}style="color: #fff;"{/if}>全部{$allnum}</a></li>
+                    {loop $category $key $value}
+                    <li {if $category_id==$value[category_id]}class="ll" {/if}><a href="user.php?action=collect&category_id=$value['category_id']" {if $category_id==$value[category_id]}style="color: #fff;"{/if}>{$value[category_name]}{$value[total]}</a></li>
+                    {/loop}
+                </ul>
+            </div>
+            <div class="commentsay-tab-main">
+                <div id="d1">
+                    {loop $list $key $value}
+
+                    {if $value['type_id']==2}
+                    <div class="dl-collect-main2">
+                        <div class="dl-collect-small fl">
+                            <span class="spimg1 fl"><a href="video.php?action=ZuiZhong&id=9&ids=$value[caid]" target="_blank"><img src="attach/$value[pic]"  style=" width:101px; height:64px;" /></a></span>
+                            <span class="spimg2"><a href="video.php?action=ZuiZhong&id=9&ids=$value[caid]" target="_blank"><img src="images/play.png" /></a></span>
+                        </div>
+                        <span class="miaoshu fl"><a href="video.php?action=ZuiZhong&id=9&ids=$value[caid]" target="_blank">{$value['title']}</a></span>
+
+                        <span class="dcmsp fr"><p class="dcmp1">{eval echo round((time()-$value['created'])/3600/24,0);}天前</p><p class="dcmp2"><a href="user.php?action=updatecollect&id={$value[id]}">取消收藏</a></p></span>
+
+                        <div class="clear"></div>
+                    </div>
+
+
+                    {else}
+                    <div class="dl-collect-main">
+                        <span class="fl"><a href="/html/article/{eval echo date("Ym/d",$value["uptime"]);}/$value[caid].html" target="_blank"><img src="attach/$value[pic]" style="width:101px; height:64px;" /></a></span>
+                        <span class="width600 fl"><a href="/html/article/{eval echo date("Ym/d",$value["uptime"]);}/$value[caid].html" target="_blank">试驾法拉利488 GTB，涡旋+v8=没有比它更容易试驾的法拉利，涡旋+v8=没有比它更容易试驾的法拉利，</a></span>
+                        <span class="dcmsp fr"><p class="dcmp1">{eval echo round((time()-$value['created'])/3600/24,0);}天前</p><p class="dcmp2"><a href="user.php?action=updatecollect&id={$value[id]}">取消收藏</a></p></span>
+                        <div class="clear"></div>
+                    </div>
+                    {/if}
+                    {/loop}
+                    <div class="ep-pages">
+                        {$page_bar}
+                    </div>         
+                </div>
+                <!--                <div id="d2" style="display:none;">gnrkgkfhgm,sdmgbsd,gndngkashdgjsdbgbsm</div>-->
+            </div>
+
+        </div>
+
+    </div>
+    {template user_right}
+    <div class="clear"></div>       
+</div>    
+{template user_footer}
+</body>
+</html>
+

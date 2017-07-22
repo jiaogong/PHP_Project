@@ -1,0 +1,579 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<meta http-equiv="Content-Language" content="zh-CN">
+<title>结算页 - MCAKE-一直都是巴黎的味道</title>
+<meta name="Keywords" content="Mcake,M&#39;cake,蓝莓轻乳拿破仑,经典香草拿破仑,拿破仑莓恋,拿破仑，胡桃布拉吉，榛果摩卡布拉吉，魅影歌剧院，巧克力格调，天使巧克力，魔鬼巧克力，蒸清抹茶，蔓越莓红丝绒，沙布雷巴菲，巧克力狂想曲，卡法香缇，瑞可塔厚爱，法香奶油可丽，莓果青柠慕斯＂">
+<meta name="Description" content="Mcake把法国传统蛋糕文化带入中国，提供纯正的欧式味觉体验，同时也将欧洲的上好材质、经典工艺以及优雅的文艺气质，融入产品的每一个细节之中，带给客户更多的享受与愉悦。">
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<meta http-equiv="cache-control" content="max-age=1800">
+<link rel="shortcut icon" href="http://www.mcake.com/shop/theme/xth1//images/comm/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/mcake/Public/Orders/comm_header.css">
+<link rel="stylesheet" type="text/css" href="/mcake/Public/Orders/Landing_city.css">
+
+<link rel="stylesheet" type="text/css" href="/mcake/Public/Orders/ebsig.min.css">
+
+<link href="/mcake/Public/Orders/checkout.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+    ul.my_add li.picke p{
+        width:280px;
+    }
+    ul.my_add p samp{
+        width:180px;
+    }
+</style>
+</head>
+<body>
+
+
+
+<div class="header">
+    
+      <a name="top"></a>
+
+    <div class="header">
+        
+        <div class="header_top_box">
+            <div class="header_top">
+                <div style="width:100%; height:100px; background:#FFF; position:absolute; z-index:9;webkit-box-shadow: 3px 3px 3px #e1e1e1;-moz-box-shadow: 3px 3px 3px #e1e1e1;box-shadow: 3px 3px 3px #e1e1e1
+    ">
+                    <div style="width:100%; height:30px; border-bottom:1px solid #eaeaea">
+                        <div class="wallbox wall_top">
+                            <div id="scrollobj" style="position:absolute; left:50%;margin-left:-300px;top:0; width:560px; line-height:30px;white-space:nowrap;overflow:hidden; color:#F00"></div>
+        <script language="javascript" type="text/javascript">
+        $(function(){
+             E.ajax_post({
+                 action: 'activity',
+                 operFlg: 999,
+                 data:{
+                     config_code:'rolling_tips'
+                 },
+                call: function( o ) {
+                     if(o.code == 200){
+          $("#scrollobj").html('<span>'+ o.message+'</span>');
+          setInterval("scroll(document.getElementById('scrollobj'))",25);
+                     }
+                 }
+             });
+             if($("#activity_list")){
+                 E.ajax_get({
+                     action: 'content',
+                     operFlg: 3,
+                     call: function( o ) {
+          var html = '';
+          $.each(o.data,function(k, v){
+              html += '<li>';
+              html += '<a href="'+v.link+'" target="_blank">';
+              html += '<img src="/mcake/Public/Index/images/>';
+              html += '</a>';
+              html += '</li>';
+          });
+          if(html != ''){
+              $("#activity_list").html(html);
+          }
+                     }
+                 });
+             }
+                                });
+                                
+             function scroll(obj) {
+             var tmp = (obj.scrollLeft)++;
+             
+             if (obj.scrollLeft==tmp) obj.innerHTML += obj.innerHTML;
+             
+             if (obj.scrollLeft>=obj.firstChild.offsetWidth) obj.scrollLeft=0;
+                                }
+            </script>
+            <div class="logoer">
+                <a href="<?php echo U(Home/Index/index);?>">
+                    <img src="/mcake/Public/Index/images/logo/logo.png">
+                </a>
+            </div>
+            <ul class="navbar" id="welcome">
+                <li>
+                <?php if(isset($_SESSION['id'])): ?><a href="<?php echo u('Home/Members/center');?>" class="Gold">欢迎您<?php echo (session('usercount')); ?></a>
+                 &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo u('Home/Login/logout');?>" class="Gold" id="clearsession">[&nbsp;退出&nbsp;]</a>
+                <?php else: ?>
+                <a href="<?php echo u('Home/Login/dologin');?>" class="Gold">LOG IN 登录</a></li>
+                <li>
+                    <a href="<?php echo u('Home/Login/signin');?>" class="Gold">SIGN UP 注册</a>
+                </li><?php endif; ?>
+                
+                
+                
+            </ul>
+            <ul class="navbar">
+                <li class="m_mail" style="display: none;">
+                    <a href="http://www.mcake.com/shop/member_message.html" class="Gold" target="_blank"><i></i> <span id="msg_count">0</span>封</a>
+                </li>
+                <li class="m_cart">
+                   <a href="<?php echo U('Home/ShopCart/index');?>" class="Gold" target="_blank"><i></i> <span id="cart_amount">
+                    <!--判断件数 session['goodsnum']-->
+                    <?php if(isset($_SESSION['goodsnum'])&&isset($_SESSION['id'])): ?><!--<?php echo (session('goodsnum')); ?>-->
+                <?php else: ?>
+                    <!--判断件数 结束--><?php endif; ?>
+                </span></a>
+           </ul>
+            <div class="clear"></div>
+            </div>
+            </div>
+            <div class="wallbox">
+
+                <div class="header_right">
+                    <ul class="phone_delivery">
+                        <li class="phone">
+                            <span>4006-678-678</span><i></i>
+                        </li>
+                        <li class="delivery">
+                            <span>
+                                <a href="<?php echo U('Home/Article/express');?>" target="_blank" id="addresscity">北京配送范围内免费配送</a>
+                            </span><i></i>
+                        </li>
+                    </ul>
+                
+            </div>
+                <ul class="menu">
+                    <li>
+                        <a href="<?php echo U('Home/Index/index');?>" class="ebsig_all_goods" target="_blank"><samp>Nos Produits</samp><span>全部产品</span>
+                        </a>
+                    </li>
+                    <li>
+                                
+                        <a href="<?php echo U('Home/Napolen/napolen');?>" target="_blank"><samp>Napoléon</samp><span>拿破仑系列</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo U('Home/Active/index');?>" target="_blank"><samp>Nouveauté</samp><span>最新活动</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo U('Home/Members/center');?>" target="_blank">
+             <samp>Mon M'CAKE</samp>
+             <span>会员中心</span>
+                        </a>
+                    </li>
+                </ul>
+                    <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+<div id="page_mainer">
+<div class="user_box">
+<div class="user_title" style="border-bottom:none">
+    <p class="confirmation_t_img"><i></i><span>订单确认</span></p>
+</div>
+
+<div class="order_list">
+<ul class="buy_flow">
+    <li><p>我的购物车</p></li>
+    <li><span>&gt;</span></li>
+    <li class="cur"><p>填写订单信息</p></li>
+    <li class="cur"><span>&gt;</span></li>
+    <li><p>完成订单</p></li>
+</ul>
+
+<form action="<?php echo U('Home/Orders/sadd');?>" method="post">
+<input name="" value="<?php echo session('uid');?>" style="display:none">
+<ul class="address_box">
+    <li class="title"><span>选择收货地址</span></li>
+    <li style="position: relative">
+        <ul class="address_list">
+            <li class="noborder deliver-line-543979">
+                <input type="checkbox" name="" checked="">
+                <select id="invoice_content" name="id">
+                    <?php if(is_array($res)): foreach($res as $key=>$vo): ?><option value="<?php echo ($vo['id']); ?>" <?php if(($vo['status']) == "1"): ?>selected="selected"<?php endif; ?>><?php echo ($vo['linkman']); ?> 手机：<?php echo ($vo['phone']); ?> 地址：<?php echo ($vo['address']); ?></option><?php endforeach; endif; ?>
+                </select>
+
+                <div class="del_right">
+                    <a id="moren">设为默认地址</a>
+                    <a id="del">删除</a>
+                </div>
+            </li>
+            <li class="btn_li_box noborder">
+            收货人：<input type="text" names="linkman" value="" size="8">
+            电话：<input type="text" names="phone" value="" size="12">
+            地址：<input type="text" names="address" value="" size="38">
+                <input type="button" value="添加新地址" class="login_btn newAddress" onclick="checkout.deliver.alter.open(0)">
+                <input type="hidden" value="<?php echo $_SESSION['id']; ?>" name="userid">
+            </li>
+        </ul>
+    </li>
+
+    <!--选择收货地址 end-->
+
+    <!--配送时间-->
+    <li class="delivery_time_box" style="position:relative;overflow: inherit;">
+        <ul class="delivery_time">
+            <li><b>选择配送时间</b></li>
+            <li class="mytime">
+                <label for="delivery_time"></label>
+                <input name="sendtime" type="text" class="input_t delivery_time" value="" id="delivery_time">
+                <div class="clear"></div>
+            </li>
+            <li><span class="Gold">M‘CAKE 配送时间为10:00~22:00</span></li>
+        </ul>
+    </li>
+    <!--配送时间 end-->
+    <!--支付方式-->
+    <li class="delivery_pay_box">
+        <ul class="delivery_time">
+            <li><b>选择支付方式</b></li>
+            <!--在线支付  开始-->
+            <li class="Choice_pay">
+                <label><input type="radio" name="payway" value="在线支付" checked>
+                <samp class="Gold">在线支付</samp></label> （支付宝、银联在线、招商银行等...）
+                <div id="pay_online" style="display: block;"></div>
+                <div class="clear" style="display: block;"></div>
+            </li>
+            <!--在线支付 结束-->
+            <!---货到付款 开始-->
+            <li class="Choice_pay">
+                <label><input type="radio" name="payway" value="货到付款">
+                <samp class="Gold">货到付款</samp></label> （百联OK卡、银联卡、斯玛特卡等...)<span style="width: 450px;color: #a80230;margin-left: 10px;" id="pay_type_title"></span>
+            </li>
+            <!---货到付款 结束-->
+            <div class="clear"></div>
+        </ul>
+    </li>
+    <!--支付方式-->
+</ul>
+
+<ul class="view_list all_list">
+<li class="cur"><b>确认订单信息</b></li>
+<li class="cur">
+    <ul class="order_th buy_Cart">
+        <li class="order_pro">商品信息</li>
+        <li>规格</li>
+        <li>单价（元）</li>
+        <li>数量</li>
+        <li>金额</li>
+    </ul>
+    <ul class="order_td">
+        <li class="buy_car_list">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                    
+                    <tr id="line_goods_11359">
+                        <td class="pro_left">
+                            <input name="shopcartid" value="<?php echo ($result['gid']); ?>" style="display:none">
+                            <div class="buy_pro_img">
+                                <img src="/M.CAKE/Uploads/Admin/images/GoodsImg/<?php echo ($result['path']); ?>" width="114" height="114" alt="<?php echo ($result['cn_name']); ?>">
+                            </div>
+                            <div class="aleft">
+                                <a href="http://www.mcake.com/shop/goods-11359.html" class="Grey"><b><?php echo ($result['en_name']); ?></b>
+                                </a>
+                                <?php echo ($result['cn_name']); ?><br><br>
+                            <div class="goods_promotion_11359"></div>
+                            </div>
+                        </td>
+                        <td width="12%">
+                            <div class="cake_num" style="width: 100%;">
+                                <?php echo ($result['weight']); ?>磅
+                            </div>
+                        </td>
+                        <td width="11%">
+                            <span class="goods_price"><?php echo ($result['price']); ?>
+                            </span>
+                        <td width="10%"><div class="cake_num"><?php echo ($result['num']); ?></div>
+                        </td>
+                        <td width="11%">
+                            <span class="goods_total_price"><?php echo ($result['subtotal']); ?>
+                            </span>
+                        </td>
+                    </tr>                     
+                    <tr class="border_top" style="display: none;">
+                        <td colspan="7" class="pro_left">
+                            <span class="goods-bottom-left left"></span>
+                            <span class="goods-bottom-right right"></span>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </li>
+    </ul>
+</li>
+<li class="cur all_Total">
+    <ul>
+        <li class="note">
+            <b>配件信息</b>
+            <span>每套餐具标配1个盘子1把勺子及1片柠檬片<br>* 专享卡蛋糕不含柠檬片</span>
+        </li>       
+        <!--巧克力牌  start-->
+        <li class="goods_line" id="postID_11359" postid="11359" line="0" style="position: relative">
+        <ul class="other_list">
+            <li class="other_bs bs_em">
+                <p style="width: auto;float: left;height: 40px;line-height: 50px;">
+                    <input type="checkbox" checked="checked">
+                    <small img_link="/postsystem/docroot/images/system/20150413/2015041315353913962.jpg">赠送巧克力牌(可写祝福)</small>
+                </p>
+                <!---  MK-FUN-BK-005-巧克力牌&蜡烛图片优化 start add by 宋国焌 2015-04-09 ---->
+                <div style="width:67px; height:38px; border:1px solid rgb(219,219,219); margin-top:5px; margin-left:5px; margin-right:35px;" class="birthday_img cur">
+                    <img src="/mcake/Public/Orders/2015041315353913962.jpg" style="width:67px; height:38px;">
+                </div>
+                <!--- MK-FUN-BK-005-巧克力牌&蜡烛图片优化 end add by 宋国焌 2015-04-13 --->
+                    <div class="other_right cur">
+                        <div class="cur">
+                            <input type="text" name="zhufu" value="" class="input_t brand_txt birthday_card" id="input_11359_0">
+                        </div>
+                        <div style="height: 50px;line-height: 50px;color: #b0916a" class="cur">（可填写9个汉字或18个英文字母）</div>
+                    </div>
+                </li>
+            </ul>
+            
+            <!-- 生日牌图片 start -->
+            <div class="img_show"><img width="180" height="100" src=""></div>
+            <!-- 生日牌图片 end -->
+
+            <!-- 生日蜡烛 start -->
+            <ul class="other_list">
+                                                                                                                <li class="other_bs_candle bs_em"><p style="width: auto;float: left;height: 40px;line-height: 50px;">
+                    <input type="checkbox" checked>
+                    <small img_link="/postsystem/docroot/images/system/fittings/20150413/2015041315351317709.jpg"> 赠送生日蜡烛(暂不提供数字蜡烛)</small>
+                    </p>
+                    <!---  MK-FUN-BK-005-巧克力牌&蜡烛图片优化 start add by 宋国焌 2015-04-13 ---->
+                    <div style="width:67px; height:38px; border:1px solid rgb(219,219,219); margin-top:5px; margin-right:35px; margin-left:5px;" class="birthday_img">
+                         <img src="/mcake/Public/Orders/2015041315351317709.jpg" style="width:67px; height:38px;">
+                    </div>
+                    <div style="position: absolute; z-index: 9999; left: 350px; top: 0px; display: none;" class="big_img">
+                         <img src="/mcake/Public/Orders/2015041315351317709.jpg" style="width:360px; height:200px;">
+                    </div>
+                    <!--- MK-FUN-BK-005-巧克力牌&蜡烛图片优化 end add by 宋国焌 2015-04-13 --->
+                </li>
+                                                                            </ul>
+            <!-- 生日蜡烛 end -->
+
+            <!-- 额外配件 start -->
+            <ul class="other_list">
+                <li class="other_1 addTableware" fitid="52" price="1.00">
+                    <p>
+                        <small>增加额外餐具：￥1.00 /套</small>
+                    </p>
+                    <div class="other_right cur">
+                    <div class="other_right">
+                        <input name="canju" type="text" value="0" class="input_t other_num">
+                        套
+                    </div>
+                </li>
+                <li class="other_1 addTableware" fitid="55" price="2.00" style="margin-left:60px">
+                    <p>
+                        <small>增加额外生日蜡烛：￥2.00 /套</small>
+                    </p>
+                    <div class="other_right cur">
+                        <input name="lazhu" type="text" value="0" class="input_t other_num">
+                        套
+                    </div>
+                </li>
+            </ul>
+            <!-- 额外配件 end -->
+        </li>
+    </ul>
+</li>
+
+<li class="cur order_Total">
+    <ul class="order_Total_left">
+
+        <!--add by xuhongshun 发票功能移动 start-->
+        <li class="cur all_Total" style="margin-left: 5px;margin-top: -70px;">
+            <ul>
+                <li style="overflow:inherit">
+                    <ul class="other_list">
+                        <li class="other" style="overflow:inherit;position: relative;">
+                            <input type="checkbox">
+                            <ul class="Invoicebox" style="position: absolute;">
+                                <li style="display: inline;position: relative; top:-40px;left:15px"> 需要发票</li>
+                                <li style="display: inline;position: relative; top:-35px;color: rgb(176, 145, 106);font-size: inherit;" class="Invoicebox_ys"></li>
+                            </ul>
+                            <div class="Invoice" style="display: block;">
+                                <div style="margin: 2px 0px 10px 30px; display: block;"><font style="color: #A5002F" class="">开票金额：</font><font style="color: #A5002F" id="total_kaipiao_money">￥<?php echo ($total); ?></font></div>
+                                <div class="select_down f_txt" style="display: block;">
+                                <div class="tag_select tag_select_open" style="display: block;">食品</div><ul class="tag_options" style="display: none;"><li class="open_selected">食品</li><li class="">蛋糕</li></ul><ul class="tag_options" style="display: none;"><li class="open_selected">食品</li><li>蛋糕</li></ul><ul class="tag_options" style="display: none;"><li class="open_selected">食品</li><li>蛋糕</li></ul><ul class="tag_options" style="display: none;"><li class="open_selected">食品</li><li>蛋糕</li></ul><ul class="tag_options" style="display: none;"><li class="open_selected">食品</li><li>蛋糕</li></ul>
+                                </div>
+                                <p style="float: left;line-height: 45px;">
+                                    <font class="" invoice_title_type="1">个人</font> | <font invoice_title_type="2" class="Gold">公司</font>
+                                </p>
+                                <input type="text" value="" name="company" class="input_t cur" id="invoice_title" style="width: 215px; display: inline-block;">
+                            </div>
+                            <p class="clear"></p>
+                        </li>
+                        <p class="clear"></p>
+                    </ul>
+                    <p class="clear"></p>
+                </li>
+            </ul>
+        </li>
+        <!--add by xuhongshun 发票功能移动 end-->
+
+        <!-- 订单备注  start -->
+        <li class="Remarks" id="Remarks">
+            <span><input type="checkbox"></span>
+            <samp style="margin-left:10px"> 订单备注</samp>
+            <div class="remarks-input" style="display: block;">
+                <input type="text" value="" name="beizhu" id="remark" class="input_t brand_txt" style="width:700px">
+            </div>
+            <div class="re_err" style="color: rgb(176, 145, 106); display:block;">订单备注必须在50个汉字以内</div
+        </li>
+        <!-- 订单备注  start -->
+    </ul>
+    </form>
+
+    <div class="order_Total_right">
+        <ul>
+            <li style="display:block"><span>商品小计：</span> <samp id="bill_totalPaid">￥<?php echo ($total); ?></samp></li>
+            <li style="display:block"><span>配件费用：</span> <samp id="bill_accessories_money">0.00</samp></li>
+        </ul>
+        <div class="Total_bottom">
+            <input name="total" value="" style="display:none">
+            实付款：<b id="total_receivable_money">￥<?php echo ($total); ?></b><br>
+            <input type="submit" value="提交订单" class="login_btn" id="billSubmit"><br>
+            <a href="http://www.mcake.com/shop/cart.html" class="link_line">返回购物车</a>
+        </div>
+    </div>
+
+</li>
+
+</ul>
+
+<div class="clear"></div>
+
+</div>
+<div class="clear"></div>
+
+</div>
+<div class="clear"></div>
+
+</div>
+
+<div id="footer">
+        <div class="wallbox_1000">
+        <div class="m_copy">
+            <ul class="Share">
+                <li class="Swb"><a href="http://weibo.com/mcake1893" target="_blank"></a></li>
+                <li class="Twx"><a href="javascript:void(0);"></a></li><!--<li class="Tkj"><a href="#"></a></li>-->
+            </ul>
+            <div class="wxqr"><samp></samp></div>
+            <p>Copyright © 2012-2015            </p>
+            <p>上海卡法电子商务有限公司 版权所有</p>
+            <p class="icp_no">沪ICP备12022075号</p>
+            <p class="icp_no">地址：上海市普陀区同普路1130弄3号</p>
+            <p class="icp_no">客服热线：4006-678-678</p>
+            <p class="icp_no">客服邮箱：cs@mcake.com</p>
+        </div>
+        <div class="foot_nav_bar">
+                                    <dl>
+                    <dt><a href="http://www.mcake.com/shop/article-48.html">发现</a></dt>
+                                            <dd><a href="http://www.mcake.com/shop/article-48.html" target="_blank">配送服务</a></dd>
+                                            <dd><a href="http://weibo.com/mcake1893" target="_blank">微博</a></dd>
+                                    </dl>
+                            <dl>
+                    <dt><a href="http://www.mcake.com/shop/article-62.html">关于我们</a></dt>
+                                            <dd><a href="http://www.mcake.com/shop/article-62.html" target="_blank">媒体合作</a></dd>
+                                            <dd><a href="http://www.mcake.com/shop/article-61.html" target="_blank">招贤纳士</a></dd>
+                                            <dd><a href="http://www.mcake.com/shop/article-47.html" target="_blank">呼叫中心</a></dd>
+                                    </dl>
+                            <dl>
+                    <dt><a href="http://www.mcake.com/shop/article-59.html">帮助中心</a></dt>
+                                            <dd><a href="http://www.mcake.com/shop/article-59.html" target="_blank">会员权益</a></dd>
+                                            <dd><a href="http://www.mcake.com/shop/article-58.html" target="_blank">购物指南</a></dd>
+                                            <dd><a href="http://www.mcake.com/shop/article-57.html" target="_blank">支付类</a></dd>
+                                            <dd><a href="http://www.mcake.com/shop/article-56.html" target="_blank">订单相关</a></dd>
+                                    </dl>
+                            </div>
+        <div class="m_wb" style="text-align: center;"><img src="/mcake/Public/Orders/wx_icon.png" <="" div="">
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+</body>
+
+<script type="text/javascript" src="/mcake/Public/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    //餐具失去焦点获取总金额
+    $('input[name=canju]').blur(function(){
+        //获取值餐具和蜡烛数量，计算出价格
+        var canju=$(this).val()*1;
+        var lazhu=$('input[name=lazhu]').val()*2;
+        var length=$('#total_receivable_money').html().length;
+        var total=parseInt($('#total_receivable_money').html().substr(1,length));
+        total=total+canju+lazhu;
+        $('#total_kaipiao_money').html('￥'+ total);
+        $('#total_receivable_money').html('￥'+ total);
+        $('input[name=total]').val(total);
+    })
+
+    //蜡烛失去焦点获取总金额
+    $('input[name=lazhu]').blur(function(){
+        //获取餐具和蜡烛数量，并计算出价格
+        var lazhu=$(this).val()*2;
+        var canju=$('input[name=canju]').val()*1;
+        var length=$('#total_receivable_money').html().length;
+        var total=parseInt($('#total_receivable_money').html().substr(1,length));
+        total=total+canju+lazhu;
+        $('#total_kaipiao_money').html('￥'+ total);
+        $('#total_receivable_money').html('￥'+ total);
+        $('input[name=total]').val(total);
+    })
+
+    //提交页面时触发页面事件，防止刷新页面缓存导致的赠品价格没计算
+    $('input[type=submit]').submit(function(){
+        //触发一个即可
+        $('input[name=canju]').trigger('blur');
+    })
+
+    //为添加收货地址绑定单击事件
+    $('input[type=button]').click(function(){
+        //获取发送地址参数
+        var uid=$('input[name=userid]').val();
+        var linkman=$('input[names=linkman]').val();
+        var phone=$('input[names=phone]').val();
+        var address=$('input[names=address]').val();
+        //发送ajax请求，实现添加新地址
+        $.get("<?php echo U('Home/Orders/addressadd');?>",{uid:uid,linkman:linkman,phone:phone,address:address},function(data){
+            if(data){
+                //手动将新增地址插入页面下拉框
+                var t=$('<option value="'+data["id"]+'" selected="selected">'+data["linkman"]+' 手机：'+data["phone"]+' 地址：'+data["address"]+'</option>');
+                $('select[name=id]').prepend(t);               
+            }else{
+                alert('额哦~请重试！');
+            }
+        },'json')
+
+    })
+
+    //为修改默认地址绑定单击事件
+    $('#moren').click(function(){
+        //获取select的值（要修改的地址id）
+        var id=$('select').val();
+        //发送ajax请求，传递要修改为默认地址的地址id
+        $.get("<?php echo U('Home/Orders/addressedit');?>",{id:id},function(data){
+            if(data){
+                alert('哇哦~默认地址设置成功!');
+            }else{
+                alert('额哦~请重试！');
+            }
+        })
+    })
+
+    //为删除地址绑定单击事件
+    $('#del').click(function(){
+        //获取select的值（要修改的地址id）
+        var id=$('select').val();
+        //发送ajax请求，传递要删除的地址的地址id
+        $.get("<?php echo U('Home/Orders/addressdel');?>",{id:id},function(data){
+            if(data){
+                location.reload();
+            }else{
+                alert('额哦~请重试！');
+            }
+        })
+    })
+
+</script>
+</html>

@@ -1,0 +1,291 @@
+<extend name="Index/index" />
+<block name="con">
+    
+<div class="page-title">
+    <div class="title_left">
+        <h3>原料添加</h3>
+    </div>
+</div>
+<div class="x_panel">
+    <div class="x_title">
+        <h2>原料信息 <small>请认真填写</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+            	<a class="collapse-link">
+            		<i class="fa fa-chevron-up"></i>
+            	</a>
+            </li>
+            <li class="dropdown">
+                <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                	<i class="fa fa-wrench"></i>
+                </a>
+                <ul role="menu" class="dropdown-menu">
+                    <li>
+                    	<a href="#">Settings 1</a>
+                    </li>
+                    <li>
+                    	<a href="#">Settings 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+            	<a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+	<div class="x_content">
+	    <br>
+	    <form class="form-horizontal form-label-left" data-parsley-validate="" id="demo-form2" novalidate="" action="" method="post">
+
+	        <div class="form-group">
+	            <label for="first-name" class="control-label col-md-3 col-sm-3 col-xs-12">原料名称 <span class="required">*</span>
+	            </label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+	                <input type="text" name="name" class="form-control input_text2 col-md-7 col-xs-12" required="required" value="" id="first-name" data-parsley-id="4702">
+	            </div>
+	        </div>
+
+            <div class="form-group">
+                <label for="first-name" class="control-label col-md-3 col-sm-3 col-xs-12">来自国家 <span class="required">*</span><div style=""></div>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12" style="width:550px;">
+                	<!-- 点击出现国家层按钮  开始-->
+                    <div class="show_guojia" style="width:10px;height:10px;cursor:pointer;margin-left: -2px;margin-top: 8px;"><img class="show_guojia_but" width="18" style="opacity: 0.7;" src="__PUBLIC__/Admin/images/icons/icon_04.png" ss="__PUBLIC__/Admin/images/icons/icon_05.png"></div>
+                    <!-- 点击出现国家层按钮  结束-->
+
+                <!-- 点击出现国家层  默认隐藏  开始-->
+                 <div class="guojia_ceng" style="display:none;width:560px;height:440px;padding:40px;border:1px solid #ededed;">
+
+                 <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="0" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="0" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 法国<img src="__PUBLIC__/country/fg.jpg">&nbsp;&nbsp;&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="1" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="1" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 新西兰 <img src="__PUBLIC__/country/xxl.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="2" style="margin-right:15px;width: 100px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="2" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 比利时 <img src="__PUBLIC__/country/bls.jpg">&nbsp;&nbsp;&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="3" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="3" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 马来西亚 <img src="__PUBLIC__/country/mlxy.jpg">&nbsp;&nbsp;&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="4" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="4" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 波多黎各 <img src="__PUBLIC__/country/bdlg.jpg">
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">	
+                    <label class="guojia_list_but" guoid="5" style="margin-right:15px;width: 100px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="5" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 韩国 <img src="__PUBLIC__/country/hg.jpg">&nbsp;&nbsp;&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="6" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="6" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 云南 <img src="__PUBLIC__/country/yn.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="7" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="7" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 土耳其 <img src="__PUBLIC__/country/trq.jpg">&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="8" style="margin-right:15px;width: 100px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="8" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 也门 <img src="__PUBLIC__/country/ym.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="9" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="9" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 巴基斯坦 <img src="__PUBLIC__/country/bjst.jpg">
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="10" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="10" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 美国 <img src="__PUBLIC__/country/mg.jpg">&nbsp;&nbsp;&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="11" style="margin-right:15px;width: 130px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="11" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 马达加斯加 <img src="__PUBLIC__/country/mdjsj.jpg">&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="12" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="12" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 瑞士 <img src="__PUBLIC__/country/rs.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="13" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="13" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 伊朗 <img src="__PUBLIC__/country/yl.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="14" style="margin-right:15px;width: 100px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="14" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 爱尔兰 <img src="__PUBLIC__/country/arl.jpg">
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="15" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="15" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 意大利 <img src="__PUBLIC__/country/ydl.jpg">
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="16" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="16" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 墨西哥 <img src="__PUBLIC__/country/mxg.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="18" style="margin-right:15px;width: 120px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="18" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 澳大利亚 <img src="__PUBLIC__/country/adly.jpg">
+                    </label>
+                    </div>
+
+                    <div style="float:left;height: 55px;">
+                    <label class="guojia_list_but" guoid="17" style="margin-right:15px;width: 150px;margin-bottom: 40px;cursor:pointer;">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="17" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 甄选及其它 <img src="__PUBLIC__/country/zx.png">
+                    </label>
+                	</div>
+                <!-- 点击出现国家层  默认隐藏  结束-->
+
+
+
+                </div>
+            </div>
+	
+	        <div class="form-group">
+	            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+	                <button class="btn btn-success" type="submit">添加</button>
+	                <button class="btn btn-primary" type="reset">重置</button>
+	            </div>
+	        </div>
+
+	    </form>
+	</div>
+</div>
+<!-- 产地原材料 遮罩层 开始 -->
+<div class="zzz" style="display: none;position:absolute;left:180px;top:120px;">
+	<div class="zz" style="background-color: rgba(30,30,30,0.2);border-radius: 7px;width: 600px;height: 400px;box-shadow: 3px 3px 6px 1px #999;" >
+		<div style="opacity:none;color:#999;font-size: 20px;position: absolute;margin-left:10px;margin-top: 10px;width: 580px;height: 380px;background: #fff;border-radius: 5px;">
+			<div style="margin-top: 60px;margin-left: 50px;width: 550px;height:380px;">
+			<div class="close_x1" title="关闭" style="position:absolute;top: -12px;left: 550px;cursor:pointer;"> <img width="40" src="__PUBLIC__/Admin/images/icons/icon_03.png"></div>
+				<ul style="list-style: none; height: 235px;">
+					<foreach name="material" item="vo">
+						<label class="lists_chandi" style="cursor:pointer;">
+						<li  style="width:170px;height:50px;float: left;margin-right: 80px;font-weight: normal;font-size:17px;">
+							<div class="lists_chandi_dange" style="width:160px;height:50px;text-align: center;line-height: 50px;">
+								<img style="margin-right:10px;margin-top:-5px;opacity: 0.6;" src="__PUBLIC__/Admin/images/icons/icon_01.png"/><span class="mn">{$vo.name}</span>
+								<span class="chandi_id" style="display: none">{$vo.id}
+								</span>
+							</div>
+						</li>
+						</label>
+					</foreach>
+				</ul>
+				<div class="queren_but" style="margin-left: 180px;"><button type="button" style="width: 90px;" class="btn btn-danger">确 定</button></div>
+			</div>	
+		</div>
+	</div>
+</div>
+<!-- 产地原材料 遮罩层 结束 -->
+<button class="but">显示</button>
+<script type="text/javascript">
+
+	//声明一个收集原材料的变量
+	var mc = '';
+	//声明一个收集原产地材料字符串长度的变量
+	var mcl = 0;
+	//点击遮罩层产地原材料绑定样式
+	$('.lists_chandi').each(function(i){
+		$(this).click(function(){
+			if(!$(this).attr('d')){
+			$(this).children('li').children('.lists_chandi_dange').css('border','1.5px dashed #ddd').css('background','url(__PUBLIC__/Admin/images/icons/icon_02.png) no-repeat');
+			$(this).attr('d','d');
+			mc += $('.lists_chandi_dange').eq(i).children('.mn').html()+",";
+			//单个原材料的字串长度
+			mcla = ($('.lists_chandi_dange').eq(i).children('.mn').html()+",").length;
+			//计算多个原材料的长度相加
+			mcl += mcla;
+			}else{
+				$(this).children('li').children('.lists_chandi_dange').css('border','').css('background','');
+				$(this).removeAttr('d');
+				//获取字符串
+				var no_mc = $('.lists_chandi_dange').eq(i).children('.mn').html();
+				//获取字符串的长度
+				no_mc = no_mc.length+1;
+				//累减字符串长度
+				mcl -=no_mc;
+				//截取字符串
+				mc = mc.substring(0,mcl);
+			}
+		})
+	})
+	//点击遮罩层点击关闭按钮
+	$('.close_x1').click(function(){
+		$(this).parents('.zzz').fadeOut("slow");
+		$('.input_text2').val(mc);
+
+	})
+	//点击遮罩层确定事件
+	$('.queren_but').click(function(){
+		$(this).parents('.zzz').fadeOut("slow");
+		$('.input_text2').val(mc);
+	})
+
+	//点击显示国家
+	var src = $('.show_guojia_but').attr('src');
+	var ss = $('.show_guojia_but').attr('ss');
+	$('.show_guojia').click(function(){
+		if(!$(this).attr('d')){
+			$('.guojia_ceng').slideDown("slow");
+			$(this).attr('d','d');
+			//修改点击小图标的样式
+			$('.show_guojia_but').attr('src',ss);
+			$('.show_guojia_but').attr('width',22);
+		}else{
+			$('.guojia_ceng').slideUp("slow");
+			$(this).removeAttr('d');
+			//还原点击小图标的样式
+			$('.show_guojia_but').attr('src',src);
+			$('.show_guojia_but').attr('width',18);
+		}
+	})
+
+	//点击国家列表中的一个显示遮罩层 显示所属国家的原材料
+	$('.guojia_list_but').each(function(){
+		$(this).click(function(){
+			//显示所属国家的原材料
+			$('.zzz').css('display','block');
+			//获取国家相对应的id
+			var guoid = $(this).attr('guoid');
+
+		})
+	})
+</script>
+        
+       
+</block>

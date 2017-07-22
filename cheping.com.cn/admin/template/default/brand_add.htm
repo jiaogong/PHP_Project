@@ -1,0 +1,106 @@
+{template header} 
+<div class="user_wrap" style="width:800px">
+  <div class="module_con" style="width:800px">
+    <div class="module_con1" style="width:800px">
+    <form action="" method="post" enctype="multipart/form-data">
+      <table cellpadding="0" cellspacing="0" class="table2">
+          <tr> 
+            <td width="80" height="20" align="right">品牌名称:</td>
+            <td class="td_left">
+            <input type="text" name="brand_name" id="brand_name" size="20" value="<!--{$brand[brand_name]}-->">
+            </td>
+          </tr>
+          <tr> 
+            <td width="80" height="20" align="right">简&nbsp;&nbsp;&nbsp;&nbsp;称:</td>
+            <td class="td_left">
+            <input type="text" name="brand_alias" id="brand_alias" size="20" value="<!--{$brand[brand_alias]}-->">
+            </td>
+          </tr>
+          <tr> 
+            <td width="80" height="20" align="right">国&nbsp;&nbsp;&nbsp;&nbsp;别:</td>
+            <td class="td_left">
+            <select name="brand_import" id="brand_import">
+            <option value="">请选择国别</option>
+            <!--{loop $brand_import $k $v}-->
+              <!--{if $brand[brand_import] == $k}-->
+              <option value="$k" selected="selected">$v</option>
+              <!--{else}-->
+              <option value="$k">$v</option>
+              <!--{/if}-->
+            <!--{/loop}-->
+            </select>
+            </td>
+          </tr>
+          <tr> 
+            <td height="20" align="right">品牌拼音:</td>
+            <td class="td_left">
+              全拼<input type="text" name="full_pinyin" id="full_pinyin" size="20" value="<!--{$brand[full_pinyin]}-->">
+              缩写<input type="text" name="short_pinyin" id="short_pinyin" size="10" value="<!--{$brand[short_pinyin]}-->">
+            </td>
+          </tr>
+          
+          <tr> 
+            <td height="20" align="right" nowrap>品牌关键字：</td>
+            <td class="td_left">
+              <textarea name="keyword" cols="70" rows="5" id="keyword"><!--{$brand[keyword]}--></textarea>
+            </td>
+          </tr>
+          
+          <tr> 
+            <td height="20" align="right">厂&nbsp;&nbsp;&nbsp;&nbsp;商：</td>
+            <td class="td_left">
+              <input type="text" name="cardb_factory" id="cardb_factory" style="width: 300px;" value="<!--{$fact_val}-->">
+              <span style="color: #FF0000">多个厂商用;分隔</span>
+              
+              <input type="hidden" name="cardb_factory_id" id="cardb_factory_id" value="<!--{$fact_id}-->">
+              
+            </td>
+          </tr>
+          <tr> 
+            <td height="20" align="right">品牌LOGO：</td>
+            <td class="td_left">
+              <input type="file" name="brand_logo" id="brand_logo">
+              <!--{if $brand[brand_logo]}-->
+              <img src="{$relat_dir}attach/images/brand/{$brand[brand_logo]}" width="50" />
+              <!--{/if}-->
+            </td>
+          </tr>
+          
+          <tr> 
+            <td align="right" valign="top">品牌介绍：</td>
+            <td class="td_left"> 
+             <textarea cols="70" rows="10" name="brand_intro" id="brand_intro"><!--{$brand[brand_intro]}--></textarea>
+             </td>
+          </tr>
+          
+          <tr align="center"> 
+            <td height="20" colspan="2">&nbsp; 
+            <input type="hidden" name="brand_id" value="<!--{$brand[brand_id]}-->"> 
+            <input type="submit" value="保存数据" name="button_factory" class='submit'>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit" value="提交审核" name="toconfirm" class='submit'>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="关闭" name="cancel" class='submit' onclick="javascript:history.go('-1');window.close();">
+            &nbsp;&nbsp;&nbsp;
+            <input type="hidden" name="fatherId" value=""></td>
+          </tr>        
+      </table>
+      </form>
+    </div>
+  </div>
+</div>
+<script charset="utf-8" src="<!--{$relative_dir}-->vendor/editor/kindeditor.js"></script>
+<script type="text/javascript">
+var editor;
+KindEditor.ready(function(K){
+    editor = K.create('#brand_intro',{
+        imageUploadJson : '<!--{$admin_path}-->index.php?action=upload-brandcms',
+        urlType : 'domain',
+        allowUpload : true,
+        items : [
+              'undo', 'redo','cut', 'copy', 'paste','plainpaste', 'wordpaste', '|','fontname', 'fontsize', '|', 
+              'textcolor', 'bgcolor', 'bold', 'italic', 'underline','removeformat', '|', 'justifyleft', 
+              'justifycenter', 'justifyright','advtable', 'hr','image', 'link']
+    });
+});
+
+</script>
+{template footer} 

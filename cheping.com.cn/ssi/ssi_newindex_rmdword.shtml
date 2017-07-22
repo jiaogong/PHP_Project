@@ -1,0 +1,82 @@
+<div class="left_neirong">
+            <div class="left_neirong_left">
+        <h2 style=" height:35px; line-height:35px; text-align:center; font-size:18px; color:#fff; background-color:#ea1a14;" class="neirong_zi">
+            家用舒适        </h2>
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=0">城市代步</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=2&fi=2&pl=1&pl=2">超值合资</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=1&pr=2&fi=1&cs=2&pl=1&pl=2">自主三厢</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=4&cs=2&pl=2&ct=3&ct=4">大气有面</a>
+                    </p>        
+            </div>
+        <div class="left_neirong_left">
+        <h2 style=" height:35px; line-height:35px; text-align:center; font-size:18px; color:#fff; background-color:#ea1a14;" class="neirong_zi">
+            个性运动        </h2>
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=4&pr=5&pr=6&cs=1&fi=2&fi=3&jq=2">都市钢炮</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=7&pr=8&pr=9&pr=10&cs=7&cs=8">性能利器</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=6&pr=7&pr=8&pr=9&pr=10&cs=8&cs=3">时尚有型</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=6&pr=7&pr=8&st=1&dr=2&ct=4&pr=9&pr=10&pr=0">后驱操控</a>
+                    </p>        
+            </div>
+        <div class="left_neirong_left">
+        <h2 style=" height:35px; line-height:35px; text-align:center; font-size:18px; color:#fff; background-color:#ea1a14;" class="neirong_zi">
+            商务行政        </h2>
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&cs=2&fi=1&ct=4&ct=5">自主高端</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=3&pr=4&fi=2&ct=4">主流合资</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=5&pr=6&cs=2&fi=2&fi=3&ct=4&ct=5">宜商宜家</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=8&pr=9&pr=10&cs=2&ct=4&ct=5&ct=6">豪华行政</a>
+                    </p>        
+            </div>
+        <div class="left_neirong_left">
+        <h2 style=" height:35px; line-height:35px; text-align:center; font-size:18px; color:#fff; background-color:#ea1a14;" class="neirong_zi">
+            SUV/MPV        </h2>
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&cs=5&st=2">硬派越野</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=4&pr=5&cs=5&st=1">城市SUV</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&pr=7&pr=8&pr=9&pr=10&cs=5&pl=4&pl=5&pl=6&ct=10">豪华SUV</a>
+                    </p>        
+                                
+        <p class="neirong_zi">
+                        <a target="_blank" href="search.php?&cs=6">多能实用</a>
+                    </p>        
+            </div>
+    </div>

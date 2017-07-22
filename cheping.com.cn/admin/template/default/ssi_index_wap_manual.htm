@@ -1,0 +1,22 @@
+{loop $value $k $v}
+{if $k<20}
+{if $v[cname]=='article'}
+<li>
+    <div class="tupian">
+        <span><a href="{if $v[p_category_id]==10}/wenhua/{elseif $v[p_category_id]==7}/news/{elseif $v[p_category_id]==8}/pingce/{elseif $v[p_category_id]==9}/v/{/if}{eval echo date("Ym-d",$v["uptime"]);}-{$v[id]}.html"><img src="/attach/$v[pic1]" width="100%"  height="110px"/></a></span>
+        <p><a href="{if $v[p_category_id]==10}/wenhua/{elseif $v[p_category_id]==7}/news/{elseif $v[p_category_id]==8}/pingce/{elseif $v[p_category_id]==9}/v/{/if}{eval echo date("Ym-d",$v["uptime"]);}-{$v[id]}.html">{if strlen($v[title])>60}{eval echo dstring::substring($v[title],0,20),'...'}{else}{$v[title]}{/if}</a></p>
+    </div>     
+</li>
+{else}
+<li>
+    <div class="video">
+        <div class="video-img"> 
+            <span><a href="/v/{$v[id]}.html"><img src="/attach/$v[pic1]" width="100%" height='100px' /></a></span>
+            <span class="videoimg"><img src="/images/player.png" /></span>
+        </div>
+        <p><a href="/v/{$v[id]}.html">{if strlen($v[title])>60}{eval echo dstring::substring($v[title],0,20),'...'}{else}{$v[title]}{/if}</a></p>
+    </div>     
+</li>
+{/if}
+{/if}
+{/loop}

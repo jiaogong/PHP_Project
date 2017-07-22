@@ -1,0 +1,68 @@
+{template header}
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+            <li><a href="<!--{$php_self}-->" class="song">汽车图片抓取</a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            <form action="<!--{$php_self}-->pic" method="post" name="">
+                <table class="table2" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            品牌
+                            <select name="brand_id" id="brand_id">
+                                <option value="0">全部抓取</option>
+                                <!--{loop $brand $k $v}-->
+                                <option value="$v[brand_id]">$v[brand_name]</option>
+                                <!--{/loop}-->
+                            </select>
+                            </td><td>
+                            车系
+                            <select name="series_id" id="series_id">
+                                <option value="0">全部抓取</option>
+                            </select>
+                            </td><td>
+                            车款
+                            <select name="model_id" id="model_id">
+                                <option value="0">全部抓取</option>
+                            </select>
+                            <input type="submit" value="开始抓">
+                        </td>
+                    </tr>
+                    <tr><td><font color="red">*</font>不选择全站抓取</td></tr>
+                </table>
+            </form>
+        </div>
+        <div class="user_con2"><img src="{$admin_path}images/conbt.gif" height="16" ></div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $('#brand_id').change(function() {
+            var brand_id = $(this).val();
+            var url = "?action=series-json&t=brand&brand_id=" + brand_id;
+            $.getJSON(url, function(data) {
+                var option = '<option value="0">全部抓取</option>';
+                $.each(data, function(i, v){
+                    option += '<option value=" '+ v['series_id'] +'">' + v['series_name'] + "</option>\r\n";
+                });
+                $("#series_id").html(option);
+            });
+        });
+        $("#series_id").change(function(){
+            var series_id = $(this).val();
+            var url = "?action=model-json&sid=" + series_id;
+            $.getJSON(url, function(data){
+                var option = '<option value="0">全部抓取</option>';
+                $.each(data, function(i, v){
+                    option += '<option value=" '+ v['model_id'] +'">' + v['model_name'] + "</option>\r\n";
+                });
+                $("#model_id").html(option);
+            });
+        });
+    });
+</script>
+{template footer}

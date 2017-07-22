@@ -1,0 +1,421 @@
+{template header} 
+<div class="user">
+<div class="nav">
+    <ul id="nav">
+        <li><a href="index.php?action=dealer-list">经销商列表</a></li>
+        <li><a href="#" class="song"><!--{$type}-->经销商</a></li>
+        <li><a href="index.php?action=dealer-dealerapply">经销商加盟</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="admin_top">
+                 <input type="button" name="edit_submit" id="edit_sub" value="保存"/>
+                <input type="button" name="edit_cancel" id="edit_cancel" value="返回" onclick="javascript:history.go('-1');window.close();"/>
+     </div>
+        <div class="user_con1">
+    <form action="" method="post" enctype="multipart/form-data" id="dealer_form" name="dealer_form">
+      <table cellpadding="0" cellspacing="0" class="table2">
+					<tr> 
+            <td width="150" height="20" align="right">经销商状态:</td>
+            <td class="td_left">
+                <select id="state" name="state">
+                    <option value="1" <!--{if $list['state']=='1'}-->selected<!--{/if}-->>无效</option>
+                    <option value="2" <!--{if $list['state']=='2'}-->selected<!--{/if}-->>有效</option>
+                </select>
+								{if $list['state']=='1'}
+									&nbsp;&nbsp;&nbsp;&nbsp;无效理由:$list['state_content']
+								{/if}
+            </td>
+          </tr>
+					<tr> 
+            <td width="100" height="20" align="right">汽车之家经销商:</td>
+            <td class="td_left">
+				<input type="text" value="{if $list['src_id']}是{else}否{/if}" disabled>
+            </td>
+          </tr>
+          <tr> 
+            <td width="100" height="20" align="right"><span style="color:red;">*</span>省份:</td>
+            <td class="td_left">
+                <select id="province_id" name="province_id" onchange="changeProvince(this.value);">
+                    <option value="0">==选择省级地区==</option>
+                    <!--{loop $province $k $v}-->
+                        <option value="$v['id']" {if $list['province_id']==$v['id']}selected="selected"{/if}>$v['letter'] $v['name']</option>
+                    <!--{/loop}-->
+                </select>
+            </td>
+          </tr>
+         <tr> 
+            <td width="100" height="20" align="right"><span style="color:red;">*</span>城市:</td>
+            <td class="td_left">
+            <select id="city_id" name="city_id" onchange="changeCity(this.value);">
+                <option value="0">==选择地级地区==</option>
+                <!--{loop $city $k $v}-->
+                    <option value="<!--{$v['id']}-->" {if $list['city_id']==$v['id']}selected="selected"{/if}><!--{$v['letter']}--> <!--{$v['name']}--></option>
+                <!--{/loop}-->
+            </select>
+            </td>
+          </tr>
+         <tr> 
+            <td width="100" height="20" align="right"><span style="color:red;">*</span>城市:</td>
+            <td class="td_left">
+            <select id="county_id" name="county_id">
+                <option value="0">==选择县级地区==</option>
+                <!--{loop $county $k $v}-->
+                    <option value="<!--{$v['id']}-->" {if $list['county_id']==$v['id']}selected="selected"{/if}><!--{$v['letter']}--> <!--{$v['name']}--></option>
+                <!--{/loop}-->
+            </select>
+            </td>
+          </tr>           
+          <tr> 
+            <td width="100" height="20" align="right"><span style="color:red;">*</span> 经销商名称(冰狗):</td>
+            <td class="td_left">
+                <input type="text" name="dealer_name" id="dealer_name" size="30" value="<!--{$list['dealer_name']}-->">&nbsp;&nbsp;<input type="button" value="检查经销商" onclick="chk_dealername($list['dealer_id']);"/>
+            </td>
+          </tr>
+					<tr> 
+            <td width="100" height="20" align="right"><span style="color:red;">*</span> 经销商名称(汽车之家):</td>
+            <td class="td_left">
+                <input type="text" name="dealer_name2" id="dealer_name2" size="30" value="<!--{$list['dealer_name2']}-->">
+            </td>
+          </tr>					
+          <tr> 
+            <td width="100" height="20" align="right">经销商简称:</td>
+            <td class="td_left">
+            <input type="text" name="dealer_alias" id="dealer_alias" size="30" maxlength="10" value="<!--{$list['dealer_alias']}-->">&nbsp;&nbsp;<input type="button" value="检查简称" onclick="chk_dealer_alias($list['dealer_id']);"/>&nbsp;&nbsp;<span style="color: red;">字数不要超过10汉字</span>
+            </td>
+          </tr>   
+          <tr id='tr_username' <!--{if $list[state]==='2'}-->style="display:none;"<!--{/if}-->> 
+            <td width="100" height="20" align="right"><span style="color:red;">*</span> 用户名:</td>
+            <td class="td_left">
+            <input type="text" name="manage_user" id="manage_user" size="30" value="{$list['manage_user']}">&nbsp;&nbsp;<input type="button" value="检查用户名" onclick="chk_manage_user($list['dealer_id']);"/>&nbsp;&nbsp;<span style="color: red;"></span>
+            </td>
+          </tr> 
+          <tr id="tr_password" <!--{if $list[state]==='2'}-->style="display:none;"<!--{/if}-->> 
+            <td width="100" height="20" align="right"><span style="color:red;">*</span> 密码:</td>
+            <td class="td_left">
+            <input type="text" name="manage_pass" id="manage_pass" size="30" maxlength="12" value="{$list['manage_pass']}">&nbsp;&nbsp;<span style="color: red;">密码长度6-12位，请尽量使用数字、字母组合，字母区分大小写</span>
+            </td>
+          </tr>                             
+         <tr> 
+            <td width="100" height="20" align="right">地址:</td>
+            <td class="td_left">
+            <input type="text" name="dealer_area" id="dealer_area" size="30" value="<!--{$list['dealer_area']}-->">
+            </td>
+          </tr>    
+         <tr> 
+            <td width="100" height="20" align="right">联系人:</td>
+            <td class="td_left">
+            <input type="text" name="dealer_linkman" id="dealer_linkman" size="30" value="<!--{$list['dealer_linkman']}-->">
+            </td>
+          </tr>
+         <tr> 
+            <td width="100" height="20" align="right">联系电话:</td>
+            <td class="td_left">
+            <input type="text" name="dealer_tel" id="dealer_tel" size="30" value="<!--{$list['dealer_tel']}-->">
+            </td>
+          </tr>
+         <tr> 
+            <td width="100" height="20" align="right">渠道负责人:</td>
+            <td class="td_left">
+            <input type="text" name="link_man" id="link_man" size="30" maxlength="10" value="<!--{$list['link_man']}-->">
+            </td>
+          </tr>          
+         <tr> 
+            <td width="100" height="20" align="right">渠道负责人电话:</td>
+            <td class="td_left">
+            <input type="text" name="link_tel" id="link_tel" size="30" maxlength="11" value="<!--{$list['link_tel']}-->">
+            </td>
+          </tr>          
+         <tr> 
+            <td width="100" height="20" align="right">经销商图片:</td>
+            <td class="td_left">
+                <input type="file" name="pic1" />
+                <a id="vpic" class="jTip" name="经销商图片" href="/admin/index.php?action=dealer-pic&dealer_id=$list['dealer_id']&num=0">查看图片</a>&nbsp;&nbsp;&nbsp;默认标签<input type="text" name="pic_alt1" value="{if $list[pic_alt1]}$list[pic_alt1]{else}$list[dealer_name]{/if}"/>
+            </td>
+          </tr>
+          <tr> 
+            <td width="100" height="20" align="right">经销商图片:</td>
+            <td class="td_left">
+                <input type="file" name="pic2" />
+                <a id="vpic" class="jTip" name="经销商图片" href="/admin/index.php?action=dealer-pic&dealer_id=$list['dealer_id']&num=1">查看图片</a>&nbsp;&nbsp;&nbsp;默认标签<input type="text" name="pic_alt2" value="{if $list[pic_alt2]}$list[pic_alt2]{else}$list[dealer_name]{/if}"/>
+            </td>
+          </tr>
+            <tr> 
+            <td width="100" height="20" align="right">经销商图片:</td>
+            <td class="td_left">
+                <input type="file" name="pic3" />
+                <a id="vpic" class="jTip" name="经销商图片" href="/admin/index.php?action=dealer-pic&dealer_id=$list['dealer_id']&num=2">查看图片</a>&nbsp;&nbsp;&nbsp;默认标签<input type="text" name="pic_alt3" value="{if $list[pic_alt3]}$list[pic_alt3]{else}$list[dealer_name]{/if}"/>
+                <input type="hidden" name="old_pic" value="{$list['dealer_pic']}"; />
+            </td>
+          </tr>          
+          <tr> 
+            <td width="100" height="20" align="right">简介:</td>
+            <td class="td_left">
+            <textarea name="dealer_memo" id="dealer_memo" cols="70" rows="10"><!--{$list['dealer_memo']}--></textarea>
+            </td>
+          </tr>           
+         <tr> 
+            <td width="100" height="20" align="right"><span style="color:red;">*</span> 主营:<a href="javascript:apendService();">(增加)</a></td>
+            <!--{if $type == '增加'}-->
+            <td class="td_left"><input type="hidden" id="maxservice" name="maxservice" value="1"/>
+            <table id="serviceTab" name="serviceTab">
+                <tr id="serviceTr1" name="serviceTr1">
+                    <td>
+                      <select name="brand_id1" id="brand_id1" onchange="chgBrand(1)">
+                        <option value="0">==请选择品牌==</option>
+                        {loop $brand $k $v}
+                        <option value="$v[brand_id]">$v[brand_name]</option>
+                        {/loop}
+                      </select>   
+                      <select name="factory_id1" id="factory_id1" onchange="chgFactory(1)">
+                        <option value="0">==请选择厂商==</option>
+<!--                        {loop $factory $k $v}
+                        <option value="$v[factory_id]">$v[factory_name]</option>
+                        {/loop}-->
+                      </select>    
+                      <select name="series_id1" id="series_id1" onchange="selectAllSeries(1, this.value);">
+                        <option value="0">==请选择车系==</option>
+<!--                        {loop $series $k $v}
+                        <option value="$v[series_id]">$v[series_name]</option>
+                        {/loop}                        -->
+                      </select>             
+                      <a href="javascript:delService(1);">删除</a>                                              
+                    </td>
+                </tr>
+            </table>
+            </td>
+            <!--{else}-->
+            <td class="td_left"><input type="hidden" id="maxservice" name="maxservice" value="<!--{$maxservice}-->"/>
+            <table id="serviceTab" name="serviceTab">
+            <!--{loop $service $s $serv}-->            
+                <tr id="serviceTr<!--{$serv['service_id']}-->" name="serviceTr<!--{$serv['service_id']}-->">
+                    <td>  
+                      <input type="hidden" id="service_id[]" name="service_id[]" value="<!--{$serv['service_id']}-->"/>
+                      <select name="brand_id<!--{$serv['service_id']}-->" id="brand_id<!--{$serv['service_id']}-->" onchange="chgBrand(<!--{$serv['service_id']}-->)">
+                        <option value="0">==请选择品牌==</option>
+                        <!--{loop $autoconfig[$serv['service_id']]['brand'] $k $v}-->
+                        <option value="$v[brand_id]">$v[brand_name]</option>
+                        <!--{/loop}-->
+                      </select>   
+                      <select name="factory_id<!--{$serv['service_id']}-->" id="factory_id<!--{$serv['service_id']}-->" onchange="chgFactory(<!--{$serv['service_id']}-->)">
+                        <option value="0">==请选择厂商==</option>
+                        <!--{loop $autoconfig[$serv['service_id']]['factory'] $k $v}-->
+                        <option value="$v[factory_id]">$v[factory_name]</option>
+                        <!--{/loop}-->
+                      </select>       
+                      <select name="series_id<!--{$serv['service_id']}-->" id="series_id<!--{$serv['service_id']}-->">
+                        <option value="0">==请选择车系==</option>
+                        <!--{loop $autoconfig[$serv['service_id']]['series'] $k $v}-->
+                        <option value="$v[series_id]">$v[series_name]</option>
+                        <!--{/loop}-->                        
+                      </select> 
+                      <a href="javascript:delService(<!--{$serv['service_id']}-->);">删除</a>                                                                    
+                    </td>
+                </tr>
+                <script>
+                    $('#brand_id<!--{$serv['service_id']}--> option[value="<!--{$serv['brand_id']}-->"]').attr({selected:true});
+                    $('#factory_id<!--{$serv['service_id']}--> option[value="<!--{$serv['factory_id']}-->"]').attr({selected:true});
+                    $('#series_id<!--{$serv['service_id']}--> option[value="<!--{$serv['series_id']}-->"]').attr({selected:true});                
+                </script>
+            <!--{/loop}-->
+            </table>            
+            <!--{/if}-->
+          </tr>             
+          <tr> 
+            <td colspan="2">
+                <input type="hidden" name="dealer_id" value="{$list['dealer_id']}" />
+                <input type="submit" name="edit_submit" id="edit_submit" value="<!--{$type}-->"/>
+                <input type="button" name="edit_cancel" id="edit_cancel" value="返回" onclick="javascript:history.go('-1');window.close();"/>
+            </td>  
+          </tr>
+      </table>
+      </form>
+    </div>
+        <div class="user_con2">
+            <img src="{$admin_path}images/conbt.gif" height="16" >
+        </div>
+  </div>
+</div>
+<script charset="utf-8" src="<!--{$relative_dir}-->vendor/editor2/kindeditor.js"></script>
+<script type="text/javascript">
+KE.show({
+  id : 'dealer_memo',
+  urlType : 'domain',
+  allowUpload : true,
+  items : [
+        'undo', 'redo','cut', 'copy', 'paste','plainpaste', 'wordpaste', '|','fontname', 'fontsize', '|', 
+        'textcolor', 'bgcolor', 'bold', 'italic', 'underline','removeformat', '|', 'justifyleft', 
+        'justifycenter', 'justifyright','advtable', 'hr', 'link']
+});
+</script>
+
+<script type="text/javascript">
+    function changeProvince(pid) {
+      var option = '<option value="0">==请选择地级地区==</option>';
+      $.getJSON("index.php?action=dealer-City&pid=" + pid, function(data) {
+          for (var key in data) {
+              option += '<option value="' + data[key]['id'] + '|' + data[key]['name'] + '">' + data[key]['letter'] +'&nbsp;'+ data[key]['name'] + '</option>' + "\n";
+          }
+          $('#city_id').html(option);
+          $("#county_id").html('<option value="0">==请选择县级地区==</option>');
+      });
+    }
+    function changeCity(cid) {
+      var option = '<option value="0">==请选择县级地区==</option>';
+      $.getJSON("index.php?action=dealer-County&cid=" + cid, function(data) {
+          for (var key in data) {
+              option += '<option value="' + data[key]['id'] + '|' + data[key]['name'] + '">' + data[key]['letter'] +'&nbsp;'+ data[key]['name'] + '</option>' + "\n";
+          }
+          $('#county_id').html(option);
+      });
+    }
+    function chgBrand(num) {
+        var brand_id=$('#brand_id' + num).val();
+        var fact=$('#factory_id' + num)[0];
+        var facturl="?action=factory-json&brand_id="+brand_id;
+
+        $.getJSON(facturl, function(ret){
+          $('#factory_id' + num + ' option[value!="0"]').remove();
+          $('#series_id' + num + ' option[value!="0"]').remove();
+
+          $.each(ret, function(i,v){
+            fact.options.add(new Option(v['factory_name'], v['factory_id']));
+          });
+        });
+    }
+
+    function chgFactory(num) {
+        var fact_id = $('#factory_id' + num).val();
+        var ser=$('#series_id' + num)[0];
+        var serurl="?action=series-json&factory_id="+fact_id;
+        $.getJSON(serurl, function(ret){
+          $('#series_id' + num + ' option[value!="0"]').remove();
+          $('#model_id' + num + ' option[value!="0"]').remove();
+          ser.options.add(new Option('==全选==', 'all'));
+          $.each(ret, function(i,v){
+            ser.options.add(new Option(v['series_name'], v['series_id']));
+          });
+        });    
+    }  
+    function addService(service_id) {
+        var brand_id = $('#brand_id' + service_id).val();
+        var factory_id = $('#factory_id' + service_id).val();    
+        var obj = $("select[name^='series_id']");    
+        for(var key in obj) {
+            alert(obj[key].val());
+        }
+        return false;
+        $("select[name^='series_id']").each(function(i, v) {
+            alert(v);
+        });        
+        return false;
+        if(factory_id == 0) {
+            alert('请选择厂商!');
+            return false;
+        }
+        else {
+            var series_url = '?action=series-json&factory_id=' + factory_id;        
+            $.getJSON(series_url, function(json) {
+                $("select[name*='series_id']").val();
+            });
+        }
+    }
+function delService(id) {
+    $('#serviceTr' + id).remove();
+    $.get('index.php?action=dealer-delservice', {id:id});
+}
+function apendService() {
+    maxService = parseInt($('#maxservice').val()) + 1;
+    html = '<tr id="serviceTr' + maxService + '" name="serviceTr' + maxService + '"><td><input type="hidden" id="service_id[]" name="service_id[]" value="' + maxService + '"/><select name="brand_id' + maxService + '" id="brand_id' + maxService + '" onchange="chgBrand(' + maxService + ')"><option value="0">==请选择品牌==</option><!--{loop $brand $k $v}--><option value="$v[brand_id]">$v[brand_name]</option><!--{/loop}--></select>' + "\n" + '<select name="factory_id' + maxService + '" id="factory_id' + maxService + '" onchange="chgFactory(' + maxService + ')"><option value="0">==请选择厂商==</option></select>' + "\n" + '<select onchange="selectAllSeries(' + maxService + ', this.value);" name="series_id' + maxService + '" id="series_id' + maxService + '"><option value="0">==请选择车系==</option></select>' + "\n" + '<a href="javascript:delService(' + maxService + ')">删除</a></td></tr>';
+    $('#serviceTab').append(html);    
+    $('#maxservice').val(maxService);
+}
+function chk_dealername(dealer_id) {
+    var dealer_name = $('#dealer_name').val();
+    $.get('index.php?action=dealer-chkdname', {dealer_name:dealer_name,dealer_id:dealer_id}, function(ret) {
+        if(ret == 1){$('#dealer_name').val(''); alert('经销商名称已存在,请重新填写!');}
+        else alert('经销商名称可用!');
+    });
+}
+function chk_dealer_alias(dealer_id) {
+    var dealer_alias = $('#dealer_alias').val();
+    $.get('index.php?action=dealer-chkdalias', {dealer_alias:dealer_alias,dealer_id:dealer_id}, function(ret) {
+        if(ret == 1){$('#dealer_alias').val(''); alert('经销商简称已存在,请重新填写!');}
+        else alert('经销商简称可用!');
+    });
+}
+
+
+function chk_manage_user(dealer_id) {
+    var manage_user = $('#manage_user').val();
+    $.get('index.php?action=dealer-chkuname', {manage_user:manage_user,dealer_id:dealer_id}, function(ret) {
+        if(ret == 1) {$('#manage_user').val('');alert('用户名已存在,请重新填写!');}
+        else alert('用户名可用!');
+    });
+}
+$('#dealer_form').submit(function() {
+    if($('#province_id').val() == '0') {
+        alert('省份不能为空,请重新填写！');
+        return false;
+    }    
+    if($('#dealer_name').val() == '') {
+        alert('经销商名称不能为空,请重新填写！');
+        return false;
+    }
+    if($('#manage_user').val() == '' && $('#state')==0) {
+        alert('用户名不能为空,请重新填写！');
+        return false;
+    }
+    if($('#manage_pass').val() == '' && $('#state')==0) {
+        alert('密码不能为空,请重新填写！');
+        return false;
+    }
+    if(($('#manage_pass').val().length<6 || $('#manage_pass').val().length>12 )&& $('#state')==0) {
+        alert('密码长度不符合要求,请重新填写！');
+        return false;
+    }
+});
+function selectAllSeries(servid, value) {
+    if(value == 'all') {
+        var maxService = parseInt($('#maxservice').val());
+        var bid = $('#brand_id' + servid).val();
+        var fid = $('#factory_id' + servid).val();        
+        var brand_option = $('#brand_id' + maxService).html();
+        var factory_option = $('#factory_id' + maxService).html();
+        $('#series_id' + maxService + ' option[value="all"]').remove();
+        var series_option = $('#series_id' + maxService).html();                
+        $.each($('#series_id' + maxService + ' option'), function(i, v) {                
+            var optionValue = this.value;
+            if(optionValue > 0 && optionValue != 'all') {
+                id = maxService + i;
+                html = '<tr id="serviceTr' + id + '" name="serviceTr' + id + '"><td><input type="hidden" id="service_id[]" name="service_id[]" value="' + id + '"/><select name="brand_id' + id + '" id="brand_id' + id + '" onchange="chgBrand(' + id + ')">' + brand_option + '</select>' + "\n" + '<select name="factory_id' + id + '" id="factory_id' + id + '" onchange="chgFactory(' + id + ')">' + factory_option + '</select>' + "\n" + '<select name="series_id' + id + '" id="series_id' + id + '" onchange="selectAllSeries(' + id + ', this.value);">' + series_option + '</select>' + "\n" + '<a href="javascript:delService(' + id + ')">删除</a></td></tr>';            
+                $('#serviceTab').append(html);
+                $('#maxservice').val(id);
+                $('#brand_id' + id + ' option[value="' + bid + '"]').attr({selected:true});            
+                $('#factory_id' + id + ' option[value="' + fid + '"]').attr({selected:true});            
+                $('#series_id' + id + ' option[value="' + optionValue + '"]').attr({selected:true});
+            }            
+        });  
+        $('#serviceTr' + maxService).remove();                    
+    }         
+}
+
+function changeState(val){
+    if(val==2){
+        $('#tr_username').hide();
+        $('#tr_password').hide();
+    }else{
+        $('#tr_username').show();
+        $('#tr_password').show();
+    }
+}
+
+  $('#edit_sub').click(function(){
+       $('#dealer_form')[0].submit();
+ })
+
+
+</script>
+    </body>
+</html> 

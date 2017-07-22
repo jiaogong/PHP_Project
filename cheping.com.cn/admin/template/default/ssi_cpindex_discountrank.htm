@@ -1,0 +1,33 @@
+<div class="content_jjph">
+    <div class="content_jjph_title">降价排行榜</div>
+    <div class="content_jjph_cont">
+        <ul class="tab_tit" id="tab_tit1">
+            <li class="focus"><a class="focus_1" href="javascript:void(0);">5-10万</a></li>
+            <li class=""><a href="javascript:void(0);" class="">10-20万</a></li>
+            <li><a href="javascript:void(0);">20-30万</a></li>
+            <li><a href="javascript:void(0);">30万以上</a></li>
+        </ul>
+        {loop $rank $k $r}                
+        <div class="lintab_mid" id="lintab1{$k}" {if $k != 0}style="display: none;"{/if}>
+             <table width="318" border="0">
+                <tbody><tr class="pm_bg">
+                        <th width="28" scope="col">排名</th>
+                        <th width="157" scope="col">车型</th>
+                        <th width="53" scope="col">降价幅度</th>
+                        <th width="64" scope="col">促销价</th>
+                    </tr>
+                    {loop $r $kk $v}
+                    {eval $level = $kk + 1}
+                    <tr>
+                        <td {if $level < 4}class="first_01"{else}class="first_04"{/if}>{$level}</td>
+                        <td><div class="chexing"><a title="{$v['brand_name']} {$v['series_name']} {$v['model_name']}" href="modelinfo.php?modelid={$r['model_id']}">{$v['model_name']}</a></div></td>
+                        <td>{eval echo $v['model_price'] - $v['bingo_price']}万</td>
+                        <td>{$v['bingo_price']}万</td>
+                    </tr>
+                    {/loop}
+                </tbody>
+            </table>
+        </div>
+        {/loop}
+    </div>
+</div>

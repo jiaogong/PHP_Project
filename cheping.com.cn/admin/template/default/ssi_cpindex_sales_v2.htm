@@ -1,0 +1,16 @@
+<div class="pic_v1">
+    <div class="pic_h1">
+        <h1 class="pic_h1h">促销及活动</h1>
+        <h1 class="pic_h2h">市场快报</h1>
+    </div>
+    <ul class="Pic_left">
+        {loop $sales $k $v}
+        <li><a href="/html/article/{eval echo date('Ym/d', $v['created'])}/$v['id'].html" title="{$v['title']} {$v['title2']}" target="_blank"><span>【冰狗发布】</span>{eval echo string::get_str($v['title'].' '.$v['title2'],38);}</a></li>
+        {/loop}
+    </ul>
+    <ul class="Pic_left2t">
+        {loop $news $k $v}
+        <li><a href="/html/article/{eval echo date('Ym/d', $v['created'])}/$v['id'].html" title="{$v['title']} {$v['title2']}" target="_blank">{eval echo string::get_str($v['title'].' '.$v['title2'],50);}</a></li>
+        {/loop}
+    </ul>
+</div>

@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+.denglu_main{ width:1180px; height:auto; margin:auto; margin-top:80px;}
+.zc_main_t{ width:1180px; height:100px; }
+.zhuce_bt{ font-size:22px; height:100px; line-height:100px; font-weight:bold;}
+.zhuce_bt1{ margin-left:100px; margin-top:-50px;}
+.denglu{ float:right; margin-top:-20px; font-size:16px;}
+.denglu a{color:#333;}
+.form{width:1180px;height: auto; overflow:hidden;font-size: 16px;color: #1b1b1b;text-align: left; margin:auto;}
+
+.dl_main_b{ width:750px; height:400px; margin:auto;}
+.yonghuming{ padding-top:50px; font-size:14px;}
+.yhmtxt{ width:350px; height:30px; padding-left:10px;outline: none;}
+.yhmtxt:hover{width:350px; border:2px solid #E51A14;}
+.mima{ margin-top:10px;font-size:14px;}
+.password{ width:350px; height:30px;padding-left:10px;outline: none;}
+.password:hover{ border:2px solid #E51A14;}
+.zddl{ margin-top:15px;}
+.wangji{ margin-left:305px; margin-top:-15px;}
+.wangji a:hover{ text-decoration:underline;}
+.dl_anniu{ padding-top:30px;}
+.cuowu{ margin-left:150px; margin-top:-25px; color:#DF484F}
+.qitazhanghao{ margin-top:30px; color:#858786; padding-bottom:10px;}
+.zh{ line-height:30px; height:30px;}
+.zhz{ height:30px; line-height:30px; margin-left:35px; margin-top:-30px;}
+.zh1{ line-height:30px; height:30px; margin-left:110px; margin-top:-30px;}
+.zhz1{ height:30px; line-height:30px; margin-left:145px; margin-top:-30px;}
+.zh2{ line-height:30px; height:30px;margin-left:220px; margin-top:-30px;}
+.zhz2{ height:30px; line-height:30px; margin-left:255px; margin-top:-30px;}

@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+.dingzhi_main{ width:1024px; height:auto; margin:60px auto;}
+.dingdan_leixing{ margin-left:20px; font-size:18px; font-weight:bold; }
+.dingzhi_xuanze{ width:610px; height:auto; margin:30px auto; }
+.huadong_xk{ width:610px; height:100px; margin:25px auto; background-color:#fff; border-radius:10px; border:1px solid #EDEDED;}
+.huadong_xk:hover{ box-shadow:0px 0px 5px 0px #CCC;}
+.dingzhigg{ margin-top:18px; margin-left:180px;}
+.dd_hg_wz{ margin-left:320px; font-size:20px; font-weight:bold; margin-top:-40px;}
+.huadong_xk:hover .dd_hg_wz{color:#f77205;}
+
+.huadong_xk_n{ width:600px; height:90px; margin:5px auto; background-color:#fafafa; border-radius:10px; position:relative; top:0px;}

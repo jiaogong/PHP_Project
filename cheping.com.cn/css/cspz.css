@@ -1,0 +1,257 @@
+.para_info EM.black {
+	PADDING-LEFT: 20px; BACKGROUND: url(../images/black.png) no-repeat 0px center; _background: url(../images/black.gif) 0 center no-repeat
+}
+
+.para_info EM.white {
+	PADDING-LEFT: 20px; BACKGROUND: url(../images/white.png) no-repeat 0px center; _background: url(../images/white.gif) 0 center no-repeat
+}
+
+.para_info EM.black {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 0; MARGIN: 4px auto 0px; PADDING-LEFT: 0px; WIDTH: 15px; PADDING-RIGHT: 0px; DISPLAY: block; HEIGHT: 12px; FONT-SIZE: 0px; PADDING-TOP: 0px
+}
+.para_info EM.white {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 0; MARGIN: 4px auto 0px; PADDING-LEFT: 0px; WIDTH: 15px; PADDING-RIGHT: 0px; DISPLAY: block; HEIGHT: 12px; FONT-SIZE: 0px; PADDING-TOP: 0px
+}
+
+.tip {
+	ZOOM: 1; CLEAR: both; OVERFLOW: hidden
+}
+.tip LI {
+	WIDTH: 37px; DISPLAY: inline; FLOAT: left
+}
+.tip LI.black {
+	PADDING-LEFT: 20px; BACKGROUND: url(../images/black.png) no-repeat 0px center; _background: url(../images/black.gif) 0 center no-repeat
+}
+.tip LI.white {
+	PADDING-LEFT: 20px; BACKGROUND: url(../images/white.png) no-repeat 0px center; _background: url(../images/white.gif) 0 center no-repeat
+}
+.para_t {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 10px; WIDTH: 896px; PADDING-RIGHT: 10px; DISPLAY: inline; FLOAT: left; PADDING-TOP: 13px; height:24px; line-height:24px;
+}
+.para_t LI {
+	PADDING-BOTTOM: 5px; LINE-HEIGHT: normal; PADDING-RIGHT: 20px; ZOOM: 1;  float:left; width:auto; height:24px;
+}
+H3.para_title {
+	PADDING-LEFT: 10px; DISPLAY: inline; FLOAT: left; COLOR: #e61a15; FONT-SIZE: 14px; padding-top:10px;
+}
+.para_t LI EM {
+	FONT-STYLE: normal
+}
+.para_t LI INPUT {
+	FONT-STYLE: normal
+}
+.para_t LI LABEL {
+	FONT-STYLE: normal
+}
+.para_t LI INPUT {
+	MARGIN: 0px 5px; HEIGHT: 12px; VERTICAL-ALIGN:middle;
+}
+.para_t LI LABEL { COLOR: #000; VERTICAL-ALIGN:middle;
+}
+.para_t LI LABEL.label_t {
+	margin-right:10px; MARGIN-TOP:2px; DISPLAY: inline; FLOAT: left; COLOR: #000; VERTICAL-ALIGN:middle;
+}
+.para {
+	POSITION: relative
+}
+.para_wrap {
+	ZOOM: 1; CLEAR: both; OVERFLOW: hidden
+}
+.scan_btn {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; WIDTH: 96px; BORDER-TOP-STYLE: none; BACKGROUND: url(../images/scan.gif) no-repeat; FLOAT: right; HEIGHT: 22px; BORDER-LEFT-STYLE: none; CURSOR: pointer; MARGIN-RIGHT: 10px
+}
+.scan_btn_hover {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; WIDTH: 96px; BORDER-TOP-STYLE: none; BACKGROUND: url(../images/scan.gif) no-repeat; FLOAT: right; HEIGHT: 22px; BORDER-LEFT-STYLE: none; CURSOR: pointer; MARGIN-RIGHT: 10px
+}
+.scan_btn_click {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; WIDTH: 96px; BORDER-TOP-STYLE: none; BACKGROUND: url(../images/scan.gif) no-repeat; FLOAT: right; HEIGHT: 22px; BORDER-LEFT-STYLE: none; CURSOR: pointer; MARGIN-RIGHT: 10px
+}
+
+.scan_btn_hover {
+	BACKGROUND-POSITION: 0px -22px
+}
+.scan_btn_click {
+	BACKGROUND-POSITION: 0px -44px
+}
+
+.para_wrap1 {
+	Z-INDEX: 10; POSITION: relative; WIDTH: 963px; HEIGHT: 64px
+}
+.para_float {
+	Z-INDEX: 10;  WIDTH: 986px; ZOOM: 1; BACKGROUND: #fff; HEIGHT: 62px; CLEAR: both; OVERFLOW: hidden;  TOP: 0px; border:solid 1px #d7dfe4; border-left:none; border-right:none;
+}
+.para_l {
+	DISPLAY: inline; FLOAT: left; HEIGHT: 62px; OVERFLOW: hidden
+}
+.para_r {
+	DISPLAY: inline; FLOAT: left; HEIGHT: 62px; OVERFLOW: hidden
+}
+.para_l {
+	WIDTH: 161px; BORDER-RIGHT: #cdcdcd 1px solid
+}
+.para_l .tip {
+	BORDER-BOTTOM: #cbcbcb 1px dotted; PADDING-BOTTOM: 5px; PADDING-LEFT: 8px; PADDING-RIGHT: 0px; PADDING-TOP: 5px
+}
+.para_l UL.toggle {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 5px; 
+}
+.para_l UL.toggle A{ COLOR:#e61a15;}
+.para_l UL.toggle LI {
+	MARGIN: 0px 13px; DISPLAY: inline; WHITE-SPACE: nowrap
+}
+.para_r {
+	POSITION: relative; WIDTH: 824px
+}
+.para_pre {
+	Z-INDEX: 10; POSITION: absolute; WIDTH: 16px; DISPLAY: block; BACKGROUND: #fff; HEIGHT: 62px; TOP: 0px
+}
+.para_next {
+	Z-INDEX: 10; POSITION: absolute; WIDTH: 16px; DISPLAY: block; BACKGROUND: #fff; HEIGHT: 62px; TOP: 0px
+}
+.para_pre {
+	LEFT: 0px
+}
+.para_next {
+	RIGHT: 0px
+}
+.para_pre EM {
+	POSITION: absolute; LINE-HEIGHT: 0; WIDTH: 5px; DISPLAY: block; BACKGROUND: url(../images/arr.png) no-repeat; HEIGHT: 11px; FONT-SIZE: 0px; TOP: 24px; CURSOR: pointer; _background: url(../images/arr.gif) no-repeat
+}
+.para_next EM {
+	POSITION: absolute; LINE-HEIGHT: 0; WIDTH: 5px; DISPLAY: block; BACKGROUND: url(../images/arr.png) no-repeat; HEIGHT: 11px; FONT-SIZE: 0px; TOP: 24px; CURSOR: pointer; _background: url(../images/arr.gif) no-repeat
+}
+.para_pre EM {
+	BACKGROUND-POSITION: 0px 0px; LEFT: 4px
+}
+.para_next EM {
+	BACKGROUND-POSITION: 0px -15px; RIGHT: 4px
+}
+.para_pre_none EM {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.para_next_none EM {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.para_pre:hover {
+	BACKGROUND: #e9e9e9
+}
+.para_next:hover {
+	BACKGROUND: #e9e9e9
+}
+.para_pre_none {
+	CURSOR: default
+}
+.para_next_none {
+	CURSOR: default
+}
+.para_pre_none:hover {
+	BACKGROUND: #fff
+}
+.para_next_none:hover {
+	BACKGROUND: #fff
+}
+.para_r UL {
+	Z-INDEX: 5; POSITION: absolute; WIDTH: 824px; ZOOM: 1; HEIGHT: 62px; CLEAR: both; OVERFLOW: hidden; TOP: 0px; LEFT: 0px
+}
+.para_r UL LI {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; LINE-HEIGHT: normal; PADDING-LEFT: 18px; WIDTH: 127px; PADDING-RIGHT: 18px; DISPLAY: inline; FLOAT: left; HEIGHT: 52px; BORDER-RIGHT: #cbcbcb 1px solid; PADDING-TOP: 10px
+}
+.para_r UL LI A {
+	COLOR: #000; FONT-SIZE: 14px
+}
+.para_info {
+	BORDER-BOTTOM: #d7dfe4 0px solid;  PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 986px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.para_info TR {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 26px; PADDING-TOP: 0px
+}
+.para_info TH {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 26px; PADDING-TOP: 0px
+}
+.para_info TD {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; HEIGHT: 26px; PADDING-TOP: 0px
+}
+.para_info .title {
+	FONT-SIZE:14px;BORDER-BOTTOM: #cbcbcb 1px solid; BORDER-LEFT: #cbcbcb 0px solid; LINE-HEIGHT: 29px; PADDING-LEFT: 15px; ZOOM: 1; BACKGROUND: url(../images/para_t.gif) repeat-x; HEIGHT: 29px; COLOR: #65727b; CLEAR: both; OVERFLOW: hidden; BORDER-TOP: #cbcbcb 0px solid; CURSOR: pointer; FONT-WEIGHT: bold; BORDER-RIGHT: #cbcbcb 0px solid
+}
+.para_info .title EM {
+	LINE-HEIGHT: 0; MARGIN: 10px 10px 0px 0px; WIDTH: 7px; DISPLAY: inline; BACKGROUND: url(../images/arr.gif) no-repeat 0px -42px; FLOAT: left; HEIGHT: 8px; FONT-SIZE: 0px
+}
+.para_info .title EM.down {
+	BACKGROUND-POSITION: 0px -31px
+}
+.para_info TBODY TH {
+	TEXT-ALIGN: right; WIDTH: 146px; PADDING-RIGHT: 15px; COLOR: #232323; FONT-WEIGHT: normal; BORDER-RIGHT: #cdcdcd 1px solid
+}
+.para_info TBODY TR.odd TD {
+	BACKGROUND: #e8e9e8
+}
+.para_info TBODY TR.odd TH {
+	BACKGROUND: #e8e9e8
+}
+/*.para_info TBODY TR.para_hover TD {
+	BACKGROUND: #c6e1fd; CURSOR: pointer
+}
+.para_info TBODY TR.para_hover TH {
+	BACKGROUND: #c6e1fd; CURSOR: pointer
+}*/
+.para_info TBODY .para_table {
+	Z-INDEX: 0; POSITION: relative; LINE-HEIGHT: normal; WIDTH: 800px; HEIGHT: 30px; OVERFLOW: hidden
+}
+.para_info TBODY .para_table TABLE {
+	POSITION: absolute; TOP: 0px; LEFT: 0px
+}
+.para_info TBODY .para_table TD {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; WIDTH: 150px; PADDING-RIGHT: 5px; PADDING-TOP: 0px
+}
+.para_info TBODY TR.last_tr TD {
+	BORDER-BOTTOM: #cdcdcd 1px solid
+}
+.para_info TBODY TR.last_tr TH {
+	BORDER-BOTTOM: #cdcdcd 1px solid
+}
+.para_info TBODY TR.last_tr TABLE TD {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none
+}
+.para_info TBODY TR.last_tr TABLE TH {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none
+}
+
+.intr_car {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 987px; PADDING-RIGHT: 0px; BACKGROUND: url(../images/bg2_v1.png) repeat-x; HEIGHT: 102px; PADDING-TOP: 8px
+}
+.intr_car LI {
+	DISPLAY: inline; FLOAT: left
+}
+.intr_car LI.intr_car_img {
+	POSITION: relative; PADDING-LEFT: 54px
+}
+
+.car_btn {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; WIDTH: 110px; DISPLAY: block; BORDER-TOP-STYLE: none; MARGIN-BOTTOM: 10px; BACKGROUND: url(../images/choose_btn.gif) no-repeat; HEIGHT: 36px; BORDER-LEFT-STYLE: none; CURSOR: pointer
+}
+.car_btn_hover {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; WIDTH: 110px; DISPLAY: block; BORDER-TOP-STYLE: none; MARGIN-BOTTOM: 10px; BACKGROUND: url(../images/choose_btn.gif) no-repeat; HEIGHT: 36px; BORDER-LEFT-STYLE: none; CURSOR: pointer
+}
+.car_btn_click {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; WIDTH: 110px; DISPLAY: block; BORDER-TOP-STYLE: none; MARGIN-BOTTOM: 10px; BACKGROUND: url(../images/choose_btn.gif) no-repeat; HEIGHT: 36px; BORDER-LEFT-STYLE: none; CURSOR: pointer
+}
+.car_btn_hover {
+	BACKGROUND-POSITION: 0px -38px
+}
+.car_btn_click {
+	BACKGROUND-POSITION: 0px -76px
+}
+.intr_car .intr_car_price {
+	POSITION: absolute; COLOR: #747474; TOP: 0px; PADDING-TOP: 20px; LEFT: 340px
+}
+
+.wraps {
+	CLEAR: both;
+}
+
+.cspz_cont{ width:986px; margin:0 auto;border:solid 1px #d7dfe4; margin-top:22px; height:auto; position:relative; z-index:1;}
+/*.zkcx a{BACKGROUND: url(../images/zkcx_link.jpg) no-repeat; width:80px; height:22px; display:block; float:right;}*/
+.zkcx a:hover{BACKGROUND: url(../images/zkcx_hover.jpg) no-repeat; width:80px; height:22px; display:block;}
+.canshu_title{ background-color:#bc0000; font-size:14px; color:#fff; padding-left:15px; height:30px; line-height:30px;}
+

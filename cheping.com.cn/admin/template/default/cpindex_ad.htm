@@ -1,0 +1,110 @@
+{template header}
+        <div class="user">
+            <div class="nav">
+                <ul id="nav">
+                    <li><a href="<!--{$php_self}-->">静态化数据列表</a></li>
+                    <li><a href="<!--{$php_self}-->add">添加静态化数据</a></li>
+                    <li><a href="<!--{$php_self}-->hotcarlevel">首页关注车型</a></li>
+                    <li><a href="<!--{$php_self}-->focus">首页焦点图</a></li>
+                    <li><a href="<!--{$php_self}-->ad"  class="song">首页广告</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="user_con">
+                <div class="user_con1">
+                  <form action="" name="frm_ad" id="frm_ad" enctype="multipart/form-data" method="post">
+                  <table cellpadding="0" cellspacing="0" class="table2" border="0">
+                    <tr> 
+                      <td class="td_left blue" valign="top">
+                      右上方广告：
+                      </td>
+                      <td class="td_left">
+                      标 题：<input type="text" name="name_1" id="name_1" size="40"><br>
+                      链 接：<input type="text" name="link_1" id="link_1" size="40"><br>
+                      图片1：<input type="file" name="pic1_1"><br>
+                      图片2：<input type="file" name="pic2_1"><br>
+                      图片3：<input type="file" name="pic3_1"><br>
+                      简 介：<textarea cols="50" rows="3" name="memo_1" id="memo_1"></textarea>
+                      </td>
+                    </tr>
+                    
+                    <tr> 
+                      <td class="td_left blue" valign="top">
+                      搜车器下左：
+                      </td>
+                      <td class="td_left">
+                      标 题：<input type="text" name="name_2" id="name_2" size="40"><br>
+                      链 接：<input type="text" name="link_2" id="link_2" size="40"><br>
+                      图片1：<input type="file" name="pic1_2"><br>
+                      图片2：<input type="file" name="pic2_2"><br>
+                      图片3：<input type="file" name="pic3_2"><br>
+                      简 介：<textarea cols="50" rows="3" name="memo_2" id="memo_2"></textarea>
+                      </td>
+                    </tr>
+                    
+                    <tr> 
+                      <td class="td_left blue" valign="top">
+                      搜车器下右：
+                      </td>
+                      <td class="td_left">
+                      标 题：<input type="text" name="name_3" id="name_3" size="40"><br>
+                      链 接：<input type="text" name="link_3" id="link_3" size="40"><br>
+                      图片1：<input type="file" name="pic1_3"><br>
+                      图片2：<input type="file" name="pic2_3"><br>
+                      图片3：<input type="file" name="pic3_3"><br>
+                      简 介：<textarea cols="50" rows="3" name="memo_3" id="memo_3"></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <!--input type="button" value="  提  交  " name="btn_add" id="btn_add">&nbsp;&nbsp;-->
+                        <input type="submit" value="  提  交  " name="btn_adds" id="btn_adds">&nbsp;&nbsp;
+                        <input type="reset" value="  重  填  ">
+                      </td>
+                    </tr>
+                  </table>
+                  </form>
+               </div>
+               <div class="user_con2"><img src="<!--{$admin_path}-->images/conbt.gif"  height="16" /></div>
+            </div>
+            </div> 
+            <script type="text/javascript">
+            $().ready(function(){
+              
+              $('#btn_add').click(function(){
+                var rurl = "{$php_self}ad";
+                $.post(rurl, 
+                {
+                  <!--{for $i=1; $i<4; $i++}-->
+                    <!--{if $i>1}-->,<!--{/if}-->
+                    name_<!--{$i}-->: $('#name_{$i}').val(),
+                    link_<!--{$i}-->: $('#link_{$i}').val(),
+                    pic1_<!--{$i}-->: $('#pic1_{$i}').val(),
+                    pic2_<!--{$i}-->: $('#pic2_{$i}').val(),
+                    pic3_<!--{$i}-->: $('#pic3_{$i}').val(),
+                    memo_<!--{$i}-->: $('#memo_{$i}').val()        
+                  <!--{/for}-->
+                },
+                function(ret){
+                  if($.trim(ret) == 1){
+                    alert('添加成功！');
+                  }else{
+                    alert('添加失败！');
+                  }
+                });
+              });
+              
+              <!--{if $txt}-->
+              <!--{loop $txt $k $v}-->
+              $('#name_<!--{$k}-->').val('<!--{$v[name]}-->');
+              $('#link_<!--{$k}-->').val('<!--{$v[link]}-->');
+              $('#pic1_<!--{$k}-->').val('<!--{$v[pic1]}-->');
+              $('#pic2_<!--{$k}-->').val('<!--{$v[pic2]}-->');
+              $('#pic3_<!--{$k}-->').val('<!--{$v[pic3]}-->');
+              $('#memo_<!--{$k}-->').val('<!--{$v[memo]}-->');
+              <!--{/loop}-->
+              <!--{/if}-->  
+            });
+            </script>
+    </body>
+</html>

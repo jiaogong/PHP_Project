@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/login.css" />
+<script src="js/jquery.js"></script>
+<link rel="stylesheet" href="css/communal.css" />
+</head>
+
+<body>
+<div class="concent">
+    <!--头部-->
+       <div class="header"  id="heads">
+  <!--logo nav-->
+            <ul class="ull">
+              <li class="lil"><a href="#"><img src="images/logo.png" width="111" height="57" alt="logo" /></a></li>
+              <li class="lil"><a href="#" class="xuanze">首页</a></li>
+              <li class="lil"><a href="#">我要查找</a></li>
+            </ul>
+	<!--sousuo-->
+            <div class="sousuo">
+               <form action="#">
+                 <input type="text" placeholder="请输入要搜索的内容" class="sousuok" />
+                 <input type="submit" value="" class="sousuoa" />
+               </form>
+            </div>
+            <div class="wdlzc" style="display:none">
+               <a href="#">登录</a>&nbsp;/&nbsp;<a href="#">注册</a>
+            </div>
+            <div class="dlzck">
+            
+            <div class="dlzc">
+                <span><img id="tx" src="images/tx.png" width="44" height="44" style="vertical-align:middle;" /></span>
+                      <div id="tanchu">
+                           <ul>
+                              <li>用户名</li>
+                              <li>个人中心</li>
+                              <li>我的收藏</li>
+                              <li>我的关注</li>
+                              <li>我的作品</li>
+                              <li>我的订单</li>
+                              <li>我的交易</li>
+                              <li>我的个人页</li>
+                           </ul>
+                           <div class="tuichu">退出</div>
+                      </div>             
+	   </div>
+        <span class="dlzcld">
+        <img src="images/ld.png" width="44" height="44" style="vertical-align:middle;" />
+          <span class="xiaoxi">(2)</span>
+        </span>
+    </div>
+ </div>
+<!--头部结束-->
+   <div class="login-con">
+        <div class="login-con-left fl">
+        <span><img src="images/tutou.png" width="507px" height="435px"/></span>    
+        </div>
+        <div class="login-con-right fr">
+            <div class="tab right-title">
+               <ul>
+                   <li class="other"  title="zhu">用户注册</li>
+                   <li  title="deng">直接登录</li>
+               </ul>
+            </div>
+            <div class="nei">
+            <!--注册-->
+                <div class="zhu">
+                    <p class="zip">我是</p>
+                    <form>
+                       <div class="fl dis-frist dis">
+                         <input type="radio" id="nba" checked="checked" name="sport" value="nba">
+                             <label name="nba" class="checked" for="nba">厂商设置</label>
+                         
+                       </div>
+                       <div class="fl dis-second dis">
+                         <input type="radio" id="cba" name="sport" value="cba">
+                         <label name="cba" for="cba">个人设置</label>
+                       </div>
+                       <div class="fl dis-third dis">
+                       <input type="radio" id="cba" name="sport" value="cba">
+                       <label name="cba" for="cba">个人代理</label>
+                       </div>
+                       <div class="clear"></div>
+                         <input type="text" name=""  placeholder="用户名" class="ym"/><br />
+                         <input type="text" name=""  placeholder="邮箱" class="ym"/><br />
+                         <input type="text" name=""  placeholder="密码" class="ym"/><br />
+                         <input type="checkbox" style="vertical-align:middle; display:none;"/>
+                         <img src="images/checked.png" style=" vertical-align:middle;" onclick="javascript:mycheck(this);" />
+                         <span class="agree">同意条款服务</span><br />
+                         <button class="button">立即注册</button>
+                    </form>
+                </div>
+                 <!--注册end-->
+                  <!--登录-->
+                <div class="deng" style="display:none">
+                        <form>
+                           <input type="text" placeholder="用户名/邮箱地址"/>
+                           <input type="text" placeholder="密码"/>
+                           <span class="forget"><a href="">忘记密码</a></span>
+                           <button class="button">直接登录</button>
+                        </form>
+                </div>
+                <!--登录end-->
+            </div>
+        </div>
+        <div class="clear"></div>
+   </div>
+   
+        <div class="footer">
+                <div class="guanyv_lianxi">
+                <a href="#" target="_blank" class="ys">关于我们</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#" target="_blank" class="ys">联系我们</a>
+                </div>
+                <div class="banquan">
+                  版权所有:**********<br />
+                  Copyright:2006-2013&nbsp;www.justeasy.cn&nbsp;All&nbsp;rights&nbsp;reserved<br />
+                  南京设易网络科技有限公司&nbsp;登记序号：苏ICP备11003578号-2<br />
+                </div>
+        </div> 
+</div>
+<script>
+  $(function(){
+   $(".tab > ul > li").click(tab);
+    function tab(){
+			$(this).addClass('other').siblings().removeClass('other');
+			var $tab = $(this).attr('title')
+		$("." + $tab).show().siblings().hide();
+			}
+	   })
+	   
+	   
+	        function mycheck(obj)
+        {  var fn=obj.src;
+            fn=fn.substring(fn.lastIndexOf("/")+1);
+            if(fn=='checked.png'){
+                obj.src='images/checks.png';
+                obj.previousSibling.checked = false;
+            }else{
+                obj.src='images/checked.png';
+                obj.previousSibling.checked = true;
+            }
+        }
+
+</script>
+<script>
+   $(function() {
+  $('label').click(function(){
+    var radioId = $(this).attr('name');
+    $('label').removeAttr('class') && $(this).attr('class', 'checked');
+    $('input[type="radio"]').removeAttr('checked') && $('#' + radioId).attr('checked', 'checked');
+  });
+});
+</script>
+  
+</body>
+</html>

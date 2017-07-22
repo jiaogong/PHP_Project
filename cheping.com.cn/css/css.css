@@ -1,0 +1,67 @@
+@charset "utf-8";
+body{font-size:14px;font-family:"微软雅黑",Arial,sans-serif; color:#343434; background-color:#e4e4e4;}
+html,body,div,span,p,h1,h2,h3,h4,h5,h6,em,img,strong,sub,sup,tt,dd,dl,dt,form,label,table,caption,tbody, tfoot, thead,tr,th,td,ul,li,p,a{ margin:0;padding:0;}
+/*.cbody988{ margin:0 auto;width:988px; position:relative;}
+.cbody937{ margin:0 auto;width:937px; position:relative; padding-left:7px;}*/
+input,select,textarea,img{vertical-align:middle;}
+img{ border:0;}
+ul,li{list-style-type:none;}
+a:link,a:visited{text-decoration:none; color:#343434;}
+a:hover{text-decoration:underline; color:#0F6BD0;}
+.overhide{overflow:hidden;text-indent:-100em;}
+/*位置属性*/
+.marTop10{margin-top:10px;}
+.left, .fl{	float:left;}
+.right, .fr{	float:right;}
+.clear {clear: both;}
+.clearfix:after {clear: both;content: '';display: block;font-size: 0;line-height: 0;visibility: hidden;width: 0;height: 0;}
+.clearfix {display: +inline-block;}
+
+/*header*/
+/*#header{ border-bottom:1px solid #383838; height:46px; position:relative;  line-height:46px;color:#FFFFFF; }
+#header h1{font-size:12px; font-weight:normal; background:url(news.png) no-repeat 50px center; padding-left:163px;}
+#header span{ position:absolute; right:10px; top:0px;color:#9A9A9A;font-size:12px; font-weight:normal; }
+#header span a{ color:#9A9A9A; margin:0 3px;}*/
+.header1{width:100%; height:34px; background:#3f4952;}
+.header-con1{ width:500px; font-size:16px; line-height:34px;  }
+.header-con1 .header-sp1{font-weight:bold;padding-left:10px; color:#e4e4e4;}
+.header-con1 .header-sp2{padding-left:20px; color:#b3b9bc;}
+.header-con2{ width:236px; line-height:34px; font-size:12px;}
+.header-con2 .header-sp1{ background:#C90; background:url(../images/airpoint.png) no-repeat left; text-indent:30px;}
+.header-con2 .header-sp2{padding:0 20px 0 0;}
+.header-sp1 a, .header-sp2 a{ color:#b3b9bc;}
+.header-spl a:link{ color:white;}
+.header-spl a:visited{ color:white;}
+.header-spl a:hover{ color:white; text-decoration:none;}
+/*wrapper*/
+#wrapper{ width:90%; margin-top:34px;  }
+#picSlideWrap{  width:76%; margin:0 auto; background:#FFF;}
+/*.titleh3{ height:70px; line-height:70px; text-align:center; background:url(../images/ico/dot.gif) repeat-x left bottom; width:910px; margin:0 auto; font-size:26px; color:#000;}
+.titleh4{text-align:center; font-size:12px; color:#000; font-weight:normal; padding:10px 0 20px 0px;}
+10*/
+#content{    padding:0 2%;}
+#content p{ text-indent:2em; color:#333; line-height:19px;}
+#content .left{ width:5%; padding-top:2%; }
+#content .right{ width:94%; color:#666; line-height:25px; padding:2% 0;}
+
+#img{ padding:2% 2% 0 2%;}
+#img img{  display:none;}
+#front{ position:absolute; left:0px; top:0px; z-index:10; cursor:pointer;  width:394px; height:578px; background:url(../images/ico/blank.gif); }
+#front a{  position:absolute; left:20px; top:224px;display:block; background:url(../images/ico/imgSlideLeft.png) no-repeat; width:104px; height:104px; display:none;}
+#next{  position:absolute; right:0px; top:0px; z-index:10;cursor:pointer; width:394px; height:578px;  background:url(../images/ico/blank.gif);}
+#next a{  position:absolute; right:20px; top:224px; display:block; background:url(../images/ico/imgSlideRight.png) no-repeat; width:104px; height:104px; display:none;}
+
+#cbtn{background:white; position:absolute; width:148px; right:0px; border:1px solid #D6D9DC; top:34px;}
+#cbtn ul{ margin-top:5px; margin-left:6px;}
+#cbtn ul li{ cursor:pointer; width:140px;  }
+#cbtn ul li img{ width:124px; height:84px; display:block; padding:5px 0px 5px 7px; }
+/*#cbtn ul li tt{ background:#000; color:blue; position:absolute; right:4px; bottom:4px; z-index:20; font-family:"宋体" ;font-size:12px; line-height:16px; padding:0 5px;}*/
+#cbtn li.hov{ background:url(../images/change.png) no-repeat center left;}
+.ctrl div{ clear:both;}
+#cSlideUl{  }
+.picSildeLeft{cursor:pointer;  border-bottom:1px solid #CCC; width:100%; padding:8px 0; text-align:center;}
+.picSildeRight{cursor:pointer;  top:32px;  border-top:1px solid #CCC; width:100%; padding:8px 0; text-align:center;}
+.picSildeRight.hov{ background:url(../images/img-point.png) no-repeat)}
+
+
+

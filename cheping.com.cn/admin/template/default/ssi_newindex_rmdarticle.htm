@@ -1,0 +1,16 @@
+<div class="rr_right">
+    {eval $type = array('家用舒适', '个性运动', '商务行政', 'SUV/MPV');}
+    {for $i=0; $i<4; $i++}
+    <div class="rl_right">        
+        <div class="right_right">
+            <h3 class="r_r_title">近期热点<span style="color:#ff8f34; margin-left:5px; font-size:12px;">{eval echo $type[$i]}</span></h3>
+            {for $j=1; $j<7; $j++}
+            {eval $k = $i * 6 + $j}
+            <div class="r_r_news" {if $j == 6}style="background:none;"{/if}>
+                 <a target="_blank" href="/offers_{eval echo $result[$k]['model_id']}.html#shangqing_{eval echo $result[$k]['price_id']}" title="{eval echo $result[$k]['alias']}">{eval echo mb_substr($result[$k]['alias'],0, 18,'utf-8')}</a>
+            </div>
+            {/for}
+        </div>        
+    </div>
+    {/for}
+</div>

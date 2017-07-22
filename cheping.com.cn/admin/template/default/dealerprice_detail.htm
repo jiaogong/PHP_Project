@@ -1,0 +1,91 @@
+{template header} 
+<div class="user">
+<div class="nav">
+    <ul id="nav">
+        <li><a class="song" href="#">报价详情</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+      <table cellpadding="0" cellspacing="0" class="table2">
+          <tr> 
+            <td width="200" height="20" align="right">省份:</td>
+            <td class="td_left">{$list['province_name']}</td>
+          </tr>      
+         <tr> 
+            <td width="200" height="20" align="right">城市:</td>
+            <td class="td_left">{$list['city_name']}</td>
+          </tr>         
+          <tr> 
+            <td width="200" height="20" align="right">品牌:</td>
+            <td class="td_left">{$list['brand_name']}</td>
+          </tr>            
+          <tr> 
+            <td width="200" height="20" align="right">厂商:</td>
+            <td class="td_left">{$list['factory_name']}</td>
+          </tr>         
+          <tr> 
+            <td width="200" height="20" align="right">车系:</td>
+            <td class="td_left">{$list['series_name']}</td>
+          </tr>                  
+          <tr> 
+            <td width="200" height="20" align="right">车款:</td>
+            <td class="td_left">{$list['model_name']}</td>
+          </tr>    
+          <tr> 
+            <td width="200" height="20" align="right">经销商名称:</td>
+            <td class="td_left">{$list['dealer_name']}</td>
+          </tr>                            
+         <tr> 
+            <td width="200" height="20" align="right">价格(万元):</td>
+            <td class="td_left">{eval echo ($list['bingo_price'] > 0 ? $list['bingo_price'] : '暂无')}</td>
+          </tr>  
+         <tr> 
+            <td width="200" height="20" align="right">颜色:</td>
+            <td class="td_left">{$list['color']}</td>
+          </tr>  
+
+          <tr>
+            <td width="200" height="20" align="right">库存:</td>
+            <td class="td_left">{eval echo $inventory[$list['inventory'] - 1]}</td>
+          </tr>
+          <tr>
+            <td width="200" height="20" align="right">试驾车:</td>
+            <td class="td_left">{eval echo $drive[$list['drive'] - 1]}</td>
+        </tr>
+        <tr>
+            <td width="200" height="20" align="right">联系人:</td>
+            <td class="td_left">{$list['dealer_linkman']}</td>
+        </tr>
+        <tr>
+            <td width="200" height="20" align="right">联系电话:</td>
+            <td class="td_left">{$list['dealer_tel']}</td>
+        </tr>
+
+        <tr>
+            <td width="200" height="20" align="right">备注:</td>
+            <td class="td_left">{$list['remark']}</td>
+        </tr>                                         
+        <tr>
+            <td width="200" height="20" align="right">开始时间：</td>
+            <td class="td_left"><!--{eval echo $list['start_time'] ? date("Y-m-d", $list['start_time']) : ''}--></td>
+        </tr> 
+        <tr>
+            <td width="200" height="20" align="right">结束时间：</td>
+            <td class="td_left"><!--{eval echo $list['end_time'] ? date("Y-m-d", $list['end_time']) : ''}--></td>
+        </tr>                            
+          <tr> 
+            <td colspan="2">      
+                <input type="button" name="edit_cancel" id="edit_cancel" value="返回" onclick="javascript:history.go('-1');window.close();"/>
+            </td>  
+          </tr>
+      </table>
+    </div>
+        <div class="user_con2">
+            <img src="{$admin_path}images/conbt.gif" height="16" >
+        </div>
+  </div>
+</div>            
+    </body>
+</html> 

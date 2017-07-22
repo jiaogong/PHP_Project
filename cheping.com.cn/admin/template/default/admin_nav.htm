@@ -1,0 +1,9 @@
+<ul class="nav2">
+    {loop $nav $k $v}
+    {if $k == $_GET['action']}
+    	<li class="li1"><a href="javascript:void(0);">{$v}</a></li>
+    {else}
+    	<li><a href="?action={$_ENV['module']}-{$k}">{$v}</a></li>
+	{/if}
+    {/loop}
+</ul>    

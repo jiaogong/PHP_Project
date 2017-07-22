@@ -1,0 +1,36 @@
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<div id="upload_div" style="border:1px solid green;width:400px;"></div>
+
+<link rel="stylesheet" href="./css/jquery.jcuploadUI.css" />
+<script type="text/javascript" src="./js/jquery.js"></script>
+
+<div id="id_from_some_html_element"></div>
+<script type="text/javascript" src="./js/jquery.jcupload.js"></script>
+  <script type="text/javascript" src="./js/jquery.jcuploadUI.config.js"></script>
+  <script type="text/javascript" src="./js/jquery.jcuploadUI.js"></script>
+
+<script type="text/javascript">
+
+ var jcu;
+ $(document).ready(function() {
+         var conf= {
+                max_file_size:1024*1024*1024,
+                hide_file_after_finish_timeout:5,
+                extensions:["Slikovne datoteke (*.*)|*.*"],
+                box_height:200,
+                url: "upload.php?modelid=1",
+                callback: {
+                    init: function() { },
+                    queue_upload_end: function() {
+                        alert( "上传成功" );
+                        $(".jcu_file_container").html("");
+                    }
+                }
+            };
+
+		 jcu= $.jcuploadUI(conf);
+		 jcu.append_to("#upload_div");
+                 
+  });
+
+</script>

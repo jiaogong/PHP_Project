@@ -1,0 +1,17 @@
+<ul id="brand">
+    <!--{loop $brand $key $value}-->
+    <li class="out">
+        <a href="javascript:;" class="letter">$key</a>
+        <div class="arrows">
+            <div class="arrows_con">
+                <ul>
+                    <!--{loop $value $k $v}-->
+                    <li><a href="/search/search.html?&br=$v['brand_id']">$v["brand_name"]</a></li>
+                    <!--{/loop}-->
+                </ul>
+                <div class="arrows_r"></div>
+            </div>
+        </div>
+    </li>
+    <!--{/loop}-->
+</ul>

@@ -1,0 +1,54 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?>
+<script>
+    function submit_form(){
+        if($.trim($("#mobile").val())==""){
+            alert("请填写接收号码!");
+            return false;
+        }else if($.trim($("#content").val())==""){
+            alert("请填写内容!");
+            return false;
+        }
+        if(confirm('您确定短信内容及电话号码无误，要发送吗？点击确定按钮发送。')){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+<div class="navs">
+    <ul class="nav">
+        <li><a href="<?=$php_self?>">短信模板管理</a></li>
+        <li><a href="<?=$php_self?>add">添加模板</a></li>
+        <li><a class="song" href="<?=$php_self?>send">手动发送短信</a></li>
+        
+    </ul>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user-table">
+            <form method="post" action="<?=$php_self?>sendsms" onsubmit="return submit_form();">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="150" align=right height="50">接收手机号：</td>
+                        <td align=left>
+                            <input type="hidden" name="id" value="<?=$sms['id']?>">
+                            <input type="text" id="mobile" name="mobile" size="60"  style="margin-bottom:5px;"/><br>
+                            注：接收号码，如果为多个，请使用英文半角逗号“,”分隔，如：<font color=red>13012345678,15012345678,17012345678</font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=right>短信内容：</td>
+                        <td align=left><textarea name="content" id="content" style="margin-bottom: 10px;" cols="60" rows="5"><?=$sms['content']?></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="发  送" name="btn_sendsms">&nbsp;&nbsp;
+                            <input type="reset" value="重  填" name="btn_sendsms">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<? include $this->gettpl('footer');?> 

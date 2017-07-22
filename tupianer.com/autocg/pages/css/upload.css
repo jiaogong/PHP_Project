@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+/* 上传视频 */
+
+ .uploadvideo-con{ width:1024px; margin:0 auto; margin-top:26px; }
+ .upload-title{ width:1024px; height:42px; background:#f5f5f5; }
+ .upload-title ul li{ float:left; width:94px; line-height:42px; text-align:center;}
+ .upload-title ul li.uploadcss{ background:url(../images/upload.png); color:white; height:48px;}
+ .upload-title-con{ width:1024px; margin-top:20px;}
+ .inputpub{ padding:20px 0 20px 0px;  }
+ .inputpub input{ border:1px solid #c0c0c0; vertical-align:middle;}
+ .inputpub .wnip1{ width:612px; height:36px;}
+ .inputpub i{ color:#f88a46;}
+ .inputpub .padfr{  font-size:16px;  width:180px; text-align:right; margin-top:10px;  }
+ .inputpub .mar7{  padding-top:7px;}
+ .inputpub .padfl{ padding-left:10px;}
+ .inputpub .marlf{ margin-left:20px; }
+ .inputpub .marlf p{ margin-top:10px;}
+ .inputpub .marlf p label, .inputpub .marlf span label{ padding-right:5px;}
+ .inputpub .px10{ margin-left:10px; margin-top:10px; display:block; }
+ .inputpub .btn{ margin-left:10px;}
+ .chosepic ul li{ float:left;  }
+ .money table tr td{ padding:8px 0 0 8px; text-align:right;}
+ .money table tr td input{ width:80px; height:36px;}
+ .piccon .fujian{ margin-left:140px; margin-top:20px;}
+ .piccon .upchuan{ margin-left:200px; margin-top:10px;}
+ .piccon .fujian .kuang{ border:1px solid #c0c0c0; width:648px; height:196px; margin-left:20px;}
+ .piccon .fujian .kuang .tupian{ margin:70px 10px;}
+ .piccon .fujian .kuang .guige{ margin:80px 20px;}
+ .piccon .fujian .kuang .yuan{  }
+ .piccon .fujian .kuang .yuan input{ width:80px; height:36px; }
+ .piccon .fujian .kuang .yuan table td{ text-align:right; padding-top:6px;}
+ .piccon .fujian .kuang .yuan table td input{ padding:0 10x;}
+ .piccon .fujian .close{ margin-top:10px; margin-left:30px;}
+ .piccon .upfujian{ border:none; background:#f99c50; color:white; width:82px; height:38px; font-size:16px;}
+ .piccon .upchuan .upniu{border:none; background:#f99c50; color:white; font-size:16px; width:102px; height:38px; margin-top:10px;}
+ .piccon .upchuan .uppic{ margin-left:10px;}
+ .piccon .upchuan .uppic table tr td{ padding:5px 10px;}
+ .inputpub .videoinfor{ text-align:right;  width:180px; display:block; font-size:16px;}
+ .upload .inline{ height:1px; width:100%; background:#f0f0f0;}
+ .upload .workjj textarea{ width:612px;  overflow:hidden; border:1px solid #c0c0c0; height:114px; vertical-align:text-top;}
+ .upload .videodisc textarea{ width:612px;  overflow:hidden; border:1px solid #c0c0c0; height:65px;}
+ .upload .videodisc p{ text-align:right; margin-right:170px;}
+ .upload .videodisc p span{ color:#f77206;}
+ .inputpub .disblo{ display:block;}
+ 
+.seletop{ position:relative;}
+.select{ position:relative;}
+.seletop dt{ margin-top:10px;}
+.seletop input{ width:194px; height:34px;}
+.seleleft{ position:relative; float:left;}
+.select span{ padding-right:5px;}
+.select dt{height:34px;display:inline-block;border:1px solid #d2ccc4;line-height:34px;padding-left:10px;cursor:pointer; padding-right:6px;position:relative;z-index:99; font-size:14px;}
+.wid134 dt{ width:134px; background:url(../images/triangle.png) no-repeat 132px center;}
+.seleleft dt:hover,.seleleft dt.cur{border:1px solid #f77206;box-shadow:0 0 3px #f77206;}
+.seletop dd{position:absolute; left:0; top:45px; background:#fff; display:none; z-index:666;}
+.seleleft dd{ position:absolute; left:0; top:35px; background:#fff; display:none;}
+.seletop dd{border:1px solid #d2ccc4;}
+.seleleft dd{border:1px solid #f77206;}
+.select dd ul{padding:4px; max-height:190px;overflow:auto; }
+.wid134 dd ul{ width:142px;}
+.select dd ul li a{line-height:28px;display:block;padding:0 10px;}
+.seleleft dd ul li a:hover{background:#f77206;}
+
+
+
+.upload .custom input{ width:610px; height:36px; border:1px solid #c0c0c0;  }
+.upload .time input{ width:134px; height:36px; border:1px solid #c0c0c0;}
+.upload .videoinfor{ color:#f77206;}
+.upload .radiocss input[type="radio"]{ display:none;}
+.upload .radiocss label { padding-left: 20px; cursor: pointer; background:url(../images/radio.png) no-repeat left center; }
+.upload .radiocss label.checked { background: url(../images/uploadradio.png) no-repeat left center; }
+.upload .radiocss input{/* background:url(../images/radio.png);*/}
+.upload .dollar{ width:134px; height:36px; border:1px solid #c0c0c0;  }
+.upload .surface input{ width:546px; height:36px;}
+.upload .surface .flie{ width:68px; height:38px; background:#f99c50; color:white;}
+.upload .videobanquan{ margin-left:200px;}
+.upload .videobanquan input{vertical-align:middle; display:none; margin-left:10px;}
+.upload .videobanquan span{ color:#f77206; vertical-align:middle;}
+.upload .anniu{ padding:50px 276px 10px 276px;}
+.upload .anniu button{ background:#f99c50; color:white; width:204px; height:40px; font-size:16px; margin-left:20px;}

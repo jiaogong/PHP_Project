@@ -1,0 +1,78 @@
+{template header}
+        <div class="users-add">
+            <div class="nav">
+                <ul>
+                    <!--{if $type}-->
+                    <li><a href="?action=usergroup-list">修改、删除用户组</a></li>
+                    <li ><a href="?action=usergroup-add" class="song">
+                            <!--{if $edit}-->修改用户组<!--{else}-->添加用户组<!--{/if}-->  
+                        </a></li>
+                    <!--{else}-->
+                    <li ><a href="?action=usergroup-list" class="song">修改、删除用户组</a></li>
+                    <li><a href="?action=usergroup-add">添加用户组</a></li>
+                    <!--{/if}-->  
+                </ul>
+            </div> 
+            <div class="clear"></div>
+            <div class="users-add-con">
+                <form name="form1" method="post" action="?action=usergroup-add" onsubmit="return checkform()">
+                <div class="users-table1">
+                    <table style="">
+                        <tr>
+                            <td>组名称</td>
+                            <td><input type="text" name="group_name" value="<!--{$group[group_name]}-->"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="xian"></div>
+                <div class="users-table2">组权限<input type="password" name="password" id="password" size="20" value="<!--{$user['password']}-->" style="margin-left:5px;"></div>
+                <div class="xian"></div>
+                <div class="users-table3">
+                    <div class="users-radio">
+                            <table>
+                                {loop $allauth $k $auth}
+                                <tr>
+                                    <td>{$auth['module_name']}:</td>
+                                    <td>
+                                        {loop $auth_value $ak $av}
+                                        {if $groupauth[$auth[module_id]] == $ak}
+                                        <input name="m_{$auth['module_id']}" type="radio" value="{$ak}" checked="checked" style="margin-left: 15px;"/>
+                                        {else}
+                                        <input name="m_{$auth['module_id']}" type="radio" value="{$ak}" style="margin-left: 15px;"/>
+                                        {/if}
+                                        {$av}   
+                                        {/loop}
+                                    </td>   
+                                </tr>
+                                {/loop}
+                                <tr>
+                                    <td>备注</td>
+                                    <td><input name="memo" type="text" id="memo" size="50" value="<!--{$group[memo]}-->"/></td>
+                                </tr>
+
+                            </table>
+                            <div style=" margin:0 auto; width:300px;">
+                                <input type="hidden" name="gid" value="<!--{$gid}-->">
+                                    {if $edit}
+                                    <button type=" submit" style=" width:48px; height:30px;  background:url(images/button.png) no-repeat; border:none; margin-left:50px;">修改</button>
+                                    {else}
+                                    <button type=" submit" style=" width:48px;padding:2px 8px;font-family:'微软雅黑'; font-size:12px;background:url(images/button.png) no-repeat; border:none; margin-left:50px;">添加</button>
+                                    {/if}
+
+                                    <button type=" reset" style=" margin-left:100px;font-family:'微软雅黑'; width:48px;padding:2px 8px;font-size:12px; background:url(images/button.png) no-repeat; border:none;">重填</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <script>
+            function checkform() {
+                if ($('#group_name').val() == "") {
+                    alert("请填写组用户名称");
+                    return false;
+                }
+            }
+        </script>
+    </body>
+</html>

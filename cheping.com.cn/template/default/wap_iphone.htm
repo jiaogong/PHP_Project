@@ -1,0 +1,100 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <meta name="format-detection" content="telephone=no" />
+        <title>wap-更换手机号</title>
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/people.css"/>
+        <script src="js/jquery-1.8.3.min.js"></script>
+    </head>
+
+    <body>
+        <div class="header">
+            <span class="sp1">更换手机号</span>
+            <span class="fl hsp2" onclick="history.go(-1)" style="cursor:hand"> < </span> 
+        </div>       
+        <div class="con">
+            <p class="tishi">点击“获取验证码”，您的手机号:$iphone将收到验证信息</p>
+            <div class="number">
+                <span class="fl padtop"> 验证码 :</span>
+                <input type="text" placeholder="请输入验证码" class="telephone fl" id="code" name="code"/>
+                <span><input value="获取验证码" class="gain fr"  id="btnSendCode1" onclick="sendMessage()"/></span>
+                 <div class="clear"></div>
+                 <font id="code_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">您输入的验证码有误</font>
+               
+            </div>   
+            <p class="text-align"><input type="submit" class="tijiao" value="下一步" id="next"/></p> 
+        </div>
+        <script type="text/javascript">
+            var InterValObj; //timer变量，控制时间
+            var count = 60; //间隔函数，1秒执行
+            var curCount;//当前剩余秒数
+            var code = ""; //验证码
+            var codeLength = 4;//验证码长度
+            //发送验证码
+            function sendMessage() {
+                var mphone = '$mobile';
+                if (mphone) {
+                    //发送手机号码验证一下是否已经注册过
+                    $.getJSON('/wapuinfo.php?action=SendCode', "mobile=" + mphone, function (msg) {
+                    })
+                    $("#btnSendCode1").removeClass("yanBtn");
+                    $("#btnSendCode1").addClass("class2");
+                    curCount = count;
+                    //设置button效果，开始计时
+                    $("#btnSendCode1").attr("disabled", "true");
+                    $("#btnSendCode1").val(curCount + "秒后重新发送");
+                    InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+                    $("#mobile_error").hide();  
+                } 
+//              
+            }
+            //timer处理函数
+            function SetRemainTime() {
+                if (curCount == 0) {
+                    window.clearInterval(InterValObj);//停止计时器
+                    $("#btnSendCode1").removeClass("class2");
+                    $("#btnSendCode1").addClass("class3");
+                    $("#btnSendCode1").removeAttr("disabled");//启用按钮
+                    $("#btnSendCode1").val("重新发送验证码");
+                    code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效    
+                }
+                else {
+                    curCount--;
+                    $("#btnSendCode1").val(curCount + "秒后重新发送");
+                }
+            }
+            
+            $(function () {
+                //检验验证码问题
+                $("#code").blur(function () {
+                    var code = $(this).val();
+                    if (code) {
+                        $.getJSON('/wapuinfo.php?action=CheckCode', "code=" + code, function (msg) {
+                            if (msg == -4) {
+                                $("#code_error").show()
+                                $("#code_img").hide();
+                            } else {
+                                $("#code_error").hide();
+                                $("#code_img").show();
+                            }
+                        })
+                    } else {
+                    }
+                })
+            })
+            //下一步绑定的函数跳转带参数
+            $("#next").click(function () {
+                var code = $("#code").val();
+                if(code){
+                   location.href = "/wapuinfo.php?action=iphoneson";//location.href实现客户端页面的跳转 
+                }else{
+                    alert("请输入验证码");
+                }
+            })
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,163 @@
+{template header}
+<div class="user_wrap">
+<ul class="nav2">
+  <li ><a href="<!--{$php_self}-->setting">返回</a></li>
+  <li class="li1"><a href="javascript:void(0)">{$page_title}</a></li>
+</ul>
+<div class="user_con">
+<div class="user_con1">
+    {if $detail==1}
+     <div class="admin_top">
+    <input type="button" value="保存" id="btn_float_update" name="btn_float_update" class="adm_input">
+  </div>
+  <form action="<!--{$php_self}-->checkadd" id="frm_model_update" method="post"  name="frm_model_update">
+    <table class="table2" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <caption style="background-color: buttonface;height: 20px"><h4 style="color: blue;font-size: 14px;">车系名称：$series_name</h4></caption>
+      <tr class="th">
+        <th>id</th>
+        <th>参数id</th>
+        <th>配置名称</th>
+        <th>标配车款数</th>
+        <th>操作人</th>
+        <th>添加时间</th>
+        <th>修改时间</th>
+        <th>是否为亮点配置</th>
+      </tr>
+      <!--{loop $list $key $value}-->
+      <tr align="center">
+        <td>{eval echo $key+1}</td>
+        <td>$value['st_id']</td>
+        <td>$value['st_name']</td>
+        <td>$value[model_count]</td>
+        <td>$value[username]</td>
+        <td>{eval echo date("H-m-d",$value['created'])}</td>
+        <td>{eval echo date("H-m-d",$value['updated'])}</td>
+        {eval $num =$value[st_id].'-'.$value[model_count]}
+        <td><input type="checkbox" name="st_id[]" {if $value[state]==1}checked=checked{/if} value="$num"></td>
+      </tr>
+       <!--{/loop}-->
+      <tr class="page_bar_css"><td colspan="7" height="20"> <input type="hidden" name="series_id" value="$list[0][series_id]"><input type="submit" value="保存"  name="btn_float_save" ></td></tr>
+    </tbody>
+  </table>
+  </form>
+    {else}
+      <form action="<!--{$php_self}-->listcheck" method="post">
+  <table class="table2" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td>
+     
+      产品分类
+      <select name="category" id="category">
+        <option value="">请选择</option>
+        <!--{if $cate}-->
+        <!--{loop $cate $sk $sv}-->
+        <option value="$sv[id]">$sv[name]</option>
+        <!--{/loop}-->
+        <!--{/if}-->
+      </select>
+<!--       /* 产品名称
+      <select name="pcategory" id="pcategory">
+        <option value="">请选择</option>
+         {if $category_list}
+        {loop $category_list $ck $cv}
+        <option value="$cv[id]">$cv[name]</option>
+        {/loop}
+         {/if}
+      </select>
+       */&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <input type="hidden" name="series_id" value="$series_id">
+      <input type="submit" name="search" value=" 搜 索 ">
+      </td>
+    </tr>
+  </table>
+  </form>
+  <div class="admin_top">
+    <input type="button" value="保存" id="btn_float_save" name="btn_float_save" class="adm_input">
+  </div>
+  <form action="<!--{$php_self}-->checkadd" id="frm_model_add" method="post"  name="frm_model_add">
+  <table class="table2" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+       <caption style="background-color: buttonface;height: 20px"><h4 style="color: blue;font-size: 14px;">车系名称：$series_name</h4></caption>
+      <tr class="th">
+         <th>id</th>
+         <th>参数id</th>
+        <th>配置名称</th>
+        <th>全车款标配（是否）</th>
+        <th>全车款数量</th>
+        <th>标配车款数</th>
+        <th>是否为亮点配置</th>
+      </tr>
+      <!--{loop $list $key $value}-->
+      <!--{loop $value[list] $k $v}-->
+      <tr align="center">
+        <td>{eval echo $k+1}</td>
+        <td>$v['id']</td>
+        <td>$v['name']</td>
+        <td>{if $value[total]==$v[num]}是{else}否{/if}</td>
+        <td>$value['total']</td>
+        <td> $v[num] </td>
+        {eval $num =$v[id].'-'.$v[num]}
+        <td> <input type="checkbox" name="st_id[]" {if $v[state]==1}checked=checked{/if} value="$num"></td>
+      </tr>
+       <!--{/loop}-->
+      <!--{/loop}-->
+      <input type="hidden" name="series_id"  value="$list[0][series_id]">
+      <tr class="page_bar_css"><td colspan="6" height="20"> <input type="submit" value="保存"  name="btn_float_save" ></td></tr>
+    </tbody>
+  </table>
+    </form>
+    {/if}
+
+</div>
+
+</div>
+</div>
+<script type="text/javascript">
+    function checkname(m,n,i){
+   // window.location.href="?action=param-checkadd&id="+m+"&series_id="+n+"&nums="+i;
+        $.post("?action=param-checkadd",{id:m,series_id:n,num:i}, function(msg){
+             if(msg==1){
+                 alert("添加成功");
+             }else if(msg==2){
+                 alert("修改成功");
+             }else{
+                 alert("操作有误");
+             }
+        });
+    }
+  $().ready(function(){
+        $('#btn_float_save').click(function(){
+        $('#frm_model_add')[0].submit();
+       });
+
+   })
+ $().ready(function(){
+        $('#btn_float_update').click(function(){
+        $('#frm_model_update')[0].submit();
+       });
+   })
+$('#category').change(function(){
+    var cate = $('#pcategory')[0];
+    var pid = $(this).val();
+    var cateurl = "?action=param-json&pid="+pid;
+    if(!pid) {
+      $('#pcategory option[value!=""]').remove();
+    }else{
+      //alert(pid);
+      $.getJSON(cateurl, function(ret){
+        $('#pcategory option[value!=""]').remove();
+        $.each(ret, function(i,v){
+          cate.options.add(new Option(v['name'], v['id']));
+        });
+      });
+    }
+  });
+ <!--{if $category && empty($pcategory)}-->
+  $('#category option[value="<!--{$category}-->"]').attr({selected:true});
+  <!--{elseif $pcategory}-->
+  $('#category option[value="<!--{$category}-->"]').attr({selected:true});
+  $('#pcategory option[value="<!--{$pcategory}-->"]').attr({selected:true});
+  <!--{/if}-->
+</script>
+{template footer}

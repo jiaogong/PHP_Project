@@ -1,0 +1,87 @@
+{template header}
+<script>
+function series_select(obj, bid, sid) {
+    $.post('index.php?action=cpstatic-ajaxseries', {bid:bid}, function(data){
+        var js = '<option value="0">车系</option>';
+         var data = eval('(' + data + ')');
+        $.each(data, function(i, v) {
+            js += '<option value="' + v['series_id'] + '">' + v['series_name'] + '</option>\n';
+        });
+        obj.empty();
+        obj.html(js);
+        if(sid != 0) obj.val(sid);
+    });
+}    
+function model_select(obj, sid, mid) {
+    $.post('index.php?action=cpstatic-ajaxmodel', {sid:sid}, function(data){
+        var js = '<option value="0">车款</option>';
+         var data = eval('(' + data + ')');
+        $.each(data, function(i, v) {
+            js += '<option value="' + v['model_id'] + '">' + v['model_name'] + '</option>\n';
+        });
+        obj.empty();
+        obj.html(js);
+        if(mid != 0) obj.val(mid);
+    });
+}
+</script>
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+            <li><a href="<!--{$php_self}-->serieshotlist"  class="song">热门车系搜索</a></li>
+    
+        </ul>
+    </div>
+    <div class="clear"></div>
+<div class="user_con">
+    <div class="user_con1">
+      <form action="" name="frm_ad" id="frm_ad" enctype="multipart/form-data" method="post">
+      <table cellpadding="0" cellspacing="0" class="table2" border="0">
+        <!--{loop $recommendfocus $k $v}-->
+        <tr> 
+          <td class="td_left blue" valign="top">
+          热门搜索{$k}：
+          </td>
+          <td class="td_left">
+           车型{$k}：<select id="brand_id_{$k}" name="brand_id_{$k}" class="brand_select" onchange="series_select($('#series_id_{$k}'), this.value, 0);">
+                <option value="0">品牌</option>
+              <!--{loop $brand $b}-->
+              <option value="{$b['brand_id']}">{$b['letter']}   {$b['brand_name']}</option>
+              <!--{/loop}-->
+        </select>&nbsp;&nbsp;&nbsp;
+        <select id="series_id_{$k}" name="series_id_{$k}" class="series_select" onchange="model_select($('#model_id_{$k}'), this.value, 0);"><option value="0">车系</option></select>&nbsp;&nbsp;&nbsp;<br>
+       搜索名称{$k}：<input type="text" name="name_{$k}" value="$v[name]">
+       链接{$k}：<input type="text" name="link_{$k}" value="$v[link]">
+
+        <script>
+            {if $v['brand']}$('#brand_id_{$k}').val({$v['brand']});{/if}
+            {if $v['series']}
+              series_select($('#series_id_{$k}'), {$v['brand']}, {$v['series']});
+            {/if}
+
+        </script>
+        </td>
+      </tr>
+      <!--{/loop}-->
+         <tr>
+          <td colspan="2"><br>
+              注意：图片搜索跳转规则如下<br>如果不填链接默认跳到车系的链接，
+              如果不填搜索名称取车系名称<br><font style="color:red">如果车系名称过长，请务必填写搜索名称不要超过5个字，否则热门搜索可能换行
+              </font>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><br>
+            <input type="submit" value="  提  交  " name="btn_adds" id="btn_adds">&nbsp;&nbsp;
+            <input type="reset" value="  重  填  ">
+          </td>
+        </tr>
+      </table>
+      </form>
+   </div>
+   <div class="user_con2"><img src="<!--{$admin_path}-->images/conbt.gif"  height="16" /></div>
+   <p id="axx"></p>
+</div>
+</div>
+
+{template footer}

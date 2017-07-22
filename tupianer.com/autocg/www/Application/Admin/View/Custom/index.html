@@ -1,0 +1,274 @@
+<extend name="Public/base"/>
+
+<block name="style">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <style>
+        .fade {
+            opacity: 0;
+            -webkit-transition: opacity 0.15s linear;
+            -moz-transition: opacity 0.15s linear;
+            -o-transition: opacity 0.15s linear;
+            transition: opacity 0.15s linear;
+        }
+
+        .fade.in {
+            opacity: 1;
+        }
+
+        .collapse {
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            -webkit-transition: height 0.35s ease;
+            -moz-transition: height 0.35s ease;
+            -o-transition: height 0.35s ease;
+            transition: height 0.35s ease;
+        }
+
+        .collapse.in {
+            height: auto;
+        }
+
+        .close {
+            float: right;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 20px;
+            color: #000000;
+            text-shadow: 0 1px 0 #ffffff;
+            opacity: 0.2;
+            filter: alpha(opacity=20);
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000000;
+            text-decoration: none;
+            cursor: pointer;
+            opacity: 0.4;
+            filter: alpha(opacity=40);
+        }
+
+        button.close {
+            padding: 0;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            -webkit-appearance: none;
+        }
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1040;
+            background-color: #000000;
+        }
+
+        .modal-backdrop.fade {
+            opacity: 0;
+        }
+
+        .modal-backdrop,
+        .modal-backdrop.fade.in {
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+        }
+
+        .modal {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            z-index: 1050;
+            width: 560px;
+            margin-left: -280px;
+            background-color: #ffffff;
+            border: 1px solid #999;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            *border: 1px solid #999;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+            outline: none;
+            -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        .modal.fade {
+            top: -25%;
+            -webkit-transition: opacity 0.3s linear, top 0.3s ease-out;
+            -moz-transition: opacity 0.3s linear, top 0.3s ease-out;
+            -o-transition: opacity 0.3s linear, top 0.3s ease-out;
+            transition: opacity 0.3s linear, top 0.3s ease-out;
+        }
+
+        .modal.fade.in {
+            top: 10%;
+        }
+
+        .modal-header {
+            padding: 9px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header .close {
+            margin-top: 2px;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            line-height: 30px;
+        }
+
+        .modal-body {
+            position: relative;
+            max-height: 400px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .modal-form {
+            margin-bottom: 0;
+        }
+
+        .modal-footer {
+            padding: 14px 15px 15px;
+            margin-bottom: 0;
+            text-align: right;
+            background-color: #f5f5f5;
+            border-top: 1px solid #ddd;
+            -webkit-border-radius: 0 0 6px 6px;
+            -moz-border-radius: 0 0 6px 6px;
+            border-radius: 0 0 6px 6px;
+            *zoom: 1;
+            -webkit-box-shadow: inset 0 1px 0 #ffffff;
+            -moz-box-shadow: inset 0 1px 0 #ffffff;
+            box-shadow: inset 0 1px 0 #ffffff;
+        }
+
+        .modal-footer:before,
+        .modal-footer:after {
+            display: table;
+            line-height: 0;
+            content: "";
+        }
+
+        .modal-footer:after {
+            clear: both;
+        }
+
+        .modal-footer .btn + .btn {
+            margin-bottom: 0;
+            margin-left: 5px;
+        }
+
+        .modal-footer .btn-group .btn + .btn {
+            margin-left: -1px;
+        }
+
+        .modal-footer .btn-block + .btn-block {
+            margin-left: 0;
+        }
+    </style>
+</block>
+
+<block name="body">
+    <div class="main-title">
+        <h2>定制订单管理</h2>
+    </div>
+    <div class="tab-wrap">
+        <ul class="tab-nav nav">
+            <volist name="type" id="group">
+                <li <eq name="id" value="$key">class="current"</eq>><a href="{:U('?id='.$key)}">{$group}订单</a></li>
+            </volist>
+        </ul>
+        <div class="cf">
+            <a class="btn ajax-post confirm" url="{:U('del?type='.$id)}" target-form="ids">删 除</a>
+        </div>
+        <div class="tab-content">
+            <div class="data-table table-striped">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="row-selected">
+                                <input class="checkbox check-all" type="checkbox">
+                            </th>
+                            <th>ID</th>
+                            <th>订单号</th>
+                            <th>用户名</th>
+                            <th>订单名称</th>
+                            <th>进度状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <notempty name="list">
+                        <volist name="list" id="list">
+                            <tr>
+                                <td><input class="ids row-selected" type="checkbox" name="id[]" id="" value="{$list['id']}"> </td>
+                                <td>{$list.id}</td>
+                                <td>{$list.order_num}</td>
+                                <td>{$list.username}</td>
+                                <td>{$list.item_name}</td>
+                                <td>    
+                                    <switch name="list.state">
+                            <case value="1">待下单</case> 
+                            <case value="2">待确认</case>
+                            <case value="3">合同确认</case>
+                            <case value="4">待付款</case>
+                            <case value="5">首款已付</case>
+                            <case value="6">制作中</case>
+                            <case value="7">验收完毕</case>
+                            <case value="8">项目完成</case>
+                            <default />待下单
+                            </switch>
+                            </td>
+                            <td>
+                                <eq name="list.state" value="4"><a class="ajax-get" title="确认支付" href="{:U('type?id='.$list['id'].'&state=5&type='.$id)}">确认支付</a></eq>
+                                <eq name="list.state" value="5"><a class="ajax-get" title="制作" href="{:U('type?id='.$list['id'].'&state=6&type='.$id)}">制作</a></eq>
+                                <eq name="list.state" value="6">
+                                <a class="" title="上传附件" href="{:U('product?id='.$list['id'].'&type='.$id)}" data-toggle="modal" data-target="#myModal">上传附件</a>
+                                <a class="ajax-get" title="确认验收" href="{:U('type?id='.$list['id'].'&state=7&type='.$id)}">确认验收</a>
+                                </eq>
+                                <a title="订单详情" href="{:U('edit?id='.$list['id'].'&type='.$id)}">订单详情</a>
+                                <a class="confirm ajax-get" title="删除" href="{:U('del?id='.$list['id'].'&type='.$id)}">删除</a>
+                            </td>
+                            </tr>
+                        </volist>
+                        <else/>
+                        <td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td>
+                    </notempty>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">上传作品</h4>
+                </div>
+                <div class="modal-body">
+                    <span>这里是内容区</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript" src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        //导航高亮
+        highlight_subnav('{:U('Custom/index')}');
+    </script>
+</block>

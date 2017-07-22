@@ -1,0 +1,32 @@
+@charset "utf-8";
+*{ margin:0; padding:0; list-style:none}
+body{font-family:'微软雅黑'}
+.zhuce_main{ width:1180px; height:550px; margin:auto; margin-top:80px; _height:500px;}
+.zc_main_t{ width:1180px; height:100px; }
+.zhuce_bt{ font-size:22px; height:100px; line-height:100px; font-weight:bold;}
+.zhuce_bt1{ margin-left:100px; margin-top:-55px;}
+.denglu{ float:right; margin-top:-20px; font-size:16px;}
+.denglu a{color:#333;}
+.form{width:900px;height: 600px; overflow:hidden;font-size: 16px;color: #1b1b1b;text-align: left; margin:auto;}
+.form div{padding:5px 0;overflow: hidden;}
+.form label{width:auto;display: block;  }
+.form .infos1{width:350px;height: 30px;line-height: 30px;border:1px solid #BFBFBF;border-radius:4px;float: left; padding-left:10px; outline: none; }
+.form .infos1:hover{border: 1px solid #E56C71;}
+.form .infos{width:165px;height: 30px;line-height: 30px;border:1px solid #BFBFBF;border-radius:4px;float: left; padding-left:10px; outline: none;}
+.form .infos:hover{border: 1px solid #E56C71;}
+.form .div-ranks a.send1{height: 30px;text-decoration:none;line-height: 30px;padding:2px;width: 120px;background: #949494;font-family: '微软雅黑';color: #fff;font-size: 12px;text-align: center;display: block;float: left;border-radius:2px;margin-left:10px; -webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;}
+.form .div-ranks a.send1:hover{text-decoration: none;background: #949494;-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;}
+.form .div-ranks a.send0{height: 30px;text-decoration:none;line-height: 30px;padding:2px;width: 120px;background: #A1A1A1;font-family: '微软雅黑';color: #fff;font-size: 12px;text-align: center;display: block;float: left;border-radius:2px;margin-left:10px;}
+.form .div-ranks a.send0:hover{background: #949494;font-family: '微软雅黑';color: #fff;font-size: 12px;text-decoration: none;}
+.form span.error{height: 30px;line-height: 30px;width: 100px;color:red;padding-left:20px;display: block;float: left;margin-left:370px; margin-top:-30px;font-size: 12px;font-family: '微软雅黑';background: url(../images/error.png) no-repeat left center;}
+.form #phone{width: 350px;}
+.form .div-conform{padding-right:800px; padding-top:20px;}
+.form .div-conform a.conform{width: 120px;height: 35px;display: block;text-align: left;overflow: hidden;background: url(../images/zhuce.jpg) no-repeat;float: right;text-indent: -1000px;}
+.div-phone{/* margin-left:230px;*/}
+.div-ranks{/* margin-left:230px;*/ width:480px; }
+.div-phone1{/* margin-left:230px;*/}
+.div-phone2{ /* margin-left:230px;*/ width:500px; padding-top:20px; font-size:14px;}
+.yanBtn{width:120px;margin-left:10px;height:34px; line-height:32px;padding:0;color:#959595; background:#fff; cursor: pointer;border: solid 1px #949494;outline: none; float:left;}
+.class2{width:120px;margin-left:10px;height:34px; line-height:32px;padding:0;color:#959595; background:#fff; cursor: pointer;border: solid 1px #949494;outline: none;float:left;}
+.class3{width:120px;margin-left:10px;height:34px; line-height:32px;padding:0;color:#959595; background:#fff; cursor: pointer;border: solid 1px #949494;outline: none;float:left;}
+.tishijv{ font-size: 12px;}

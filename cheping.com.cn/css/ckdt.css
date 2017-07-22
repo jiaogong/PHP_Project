@@ -1,0 +1,56 @@
+.ckdt_title{ width:990px; height:30px; line-height:30px; border-bottom:2px solid #74A2DE; margin-top:5px; font-size:12px; color:#626265;}
+.ckdt_search{ margin-top:7px;}
+.ckdt_search li{ float:left;}
+.ckdt_search .peizhi{float:right;font-size:16px;color:#ea1a14;}
+.ckdt_search .peizhi a{padding:0 10px;color:#ea1a14;}
+.ckdt_search .peizhi img{ vertical-align:top;margin-right:1px;}
+.ckdt_search .peizhi a:hover{ background:#ea1a14;color:#fff; text-decoration:none;}
+
+.ckdt_ys{ padding-left:2px; padding-right:15px;}
+.ckdt_qita{ padding-right:15px; font-size:14px; color:#626265;}
+#qita{ color:#ea1a14;}
+#qita a{ text-decoration:underline; color:#ea1a14;}
+
+.ckdt_xx{ width:990px;}
+.ckdt_tit{ height:50px; line-height:50px;}
+.zi1{ font-size:16px; color:#7a7a7a; text-align:left; float:left; width:801px; display:block;}
+.zi_fanhui{ width:180px; display:block; float:right;font-size:12px;}
+
+.ckdt_lunbo{ clear:both;}
+
+#ckdt_datu{ float:left; width:802px; height:599px; position:relative; overflow:hidden;}
+.datu{ position: absolute;}
+.datu li{ float:left; width:802px; height:599px; position:relative; overflow:hidden;}
+.tu_left img{ position:absolute; top:305px; left:36px; z-index:999; float:left;}
+.tu_right img{ position:absolute; top:305px; right:33px; float:right; z-index:999;}
+.ckdt_shu{ float:right; width:178px; height:599px; border:1px solid #cbcbcb;overflow:hidden}
+.ckdt_s{ background:url(../images/ckdt_s.jpg) repeat-x; height:28px; width:177px; border-bottom:1px solid #cbcbcb;}
+.ckdt_s img{ margin-left:76px; margin-top:6px;}
+.ckdt_x{ width:177px; height:28px; background:url(../images/ckdt_s.jpg) repeat-x; border-top:1px solid #cbcbcb; margin-top:6px; z-index:100;}
+.ckdt_x img{margin-left:76px; margin-top:6px;}
+.ckdt_z{ width:164px; height:124px; border:1px solid #cbcbcb; margin-left:6px; margin-top:7px;}
+.ckdt_z img{ width:160px; height:120px; margin-left:2px; margin-top:2px;}
+.tu_list{ clear:both; height:50px; line-height:50px;}
+.list_l{ margin-left:655px;}
+.list_l a, .list_r a, .zi_fanhui a{ color:#ea1a14; text-decoration:underline;}
+.list_r{ margin-left:16px; color:#000;}
+
+.ckdt_likes{ clear:both; height:225px; width:990px; border:1px solid #d7dfe4;}
+.ckdt_like{ width:990px; height:40px; line-height:40px; background-color:#f5f7f8; border-bottom:1px solid #d7dfe4;}
+.like_zi{ color:#585858; font-size:18px; margin-left:8px;}
+
+.list_tu{ width:963px; margin-left:15px; margin-top:15px;}
+.list_tu li{ float:left;}
+.tu_a{ padding-right:32px;}
+.tu_img{ width:164px; height:124px; border:#cbcbcb 1px solid;}
+.tu_img img{ width:160px; height:120px; margin-left:2px; margin-top:2px;}
+.tu_zi{ width:164px; text-align:center; white-space:nowrap;}
+
+.focus{ border:#F00 1px solid;}
+
+
+
+
+
+
+

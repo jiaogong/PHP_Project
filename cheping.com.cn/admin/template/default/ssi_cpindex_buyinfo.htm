@@ -1,0 +1,6 @@
+<ul class="providers" style="overflow: hidden;height: 190px;-height: 176px;">
+    {loop $list $key $value}
+    {eval $date_id = substr($value["date_id"],2,2);}
+    <li><samp>{eval echo string::get_str($date_id."款".$value["factory_name"].$value["series_name"],20);}</samp><span class="carus_1">{eval echo string::get_str($value["name"],4);}***</span><small>{$value["trad_price"]}万</small></li>
+    {/loop}
+</ul>

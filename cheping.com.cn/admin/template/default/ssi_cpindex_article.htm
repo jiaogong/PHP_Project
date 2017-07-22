@@ -1,0 +1,20 @@
+<div class="left_v1">
+    <div class="column2_v1">
+        <div class="header1_v1">
+            <div class="title6_v1"></div>
+        </div>
+        <div class="new_v1">
+            <!--{if $result['top1']}-->
+            <a target="_blank" href="{$relat_dir}html/article/{eval echo date('Ym', $result['top1'][created]);}/{eval echo date('d', $result['top1'][created]);}/{$result['top1']['id']}.html"><img src="images/a.gif" imgsrc="attach/images/article/<!--{eval echo date('Ym', $result['top1']['created']);}-->/<!--{eval echo date('d', $result['top1']['created']);}-->/$result['top1']['pic']" onerror="this.src='images/pic3.gif'" width="180" height="100" /></a>
+            <h4><a target="_blank" href="{$relat_dir}html/article/{eval echo date('Ym', $result['top1'][created]);}/{eval echo date('d', $result['top1'][created]);}/{$result['top1']['id']}.html">$result['top1']['title']</a></h4>
+            <!--{/if}-->
+            <ul>
+                <!--{loop $result["top5"] $key $value}-->
+                <!--{if $value["id"]!=$result["top1"]["id"]}-->
+                <li><a target="_blank" title="$value['title']" href="{$relat_dir}html/article/{eval echo date('Ym', $value[created]);}/{eval echo date('d', $value[created]);}/{$value['id']}.html">$value["title"]</a></li>
+                <!--{/if}-->
+                <!--{/loop}-->
+            </ul>
+        </div>
+    </div>
+</div>

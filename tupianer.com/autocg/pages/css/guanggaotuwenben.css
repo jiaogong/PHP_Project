@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+.dzdd_biaoti{ margin-top:30px; font-size:20px; margin-left:30px;}
+.neirongkuai{ width:1024px; height:auto; border-bottom:1px solid #f5f5f5; padding-bottom:30px; font-size:16px; position:relative;}
+.xmmc{ float:right; margin-right:800px; margin-top:30px;font-size:16px;}
+.xmmcnr{ float:left;margin-top: -20px;margin-left: 230px; width:700px; font-size:16px;}
+.xmmcnr span{ margin-right:25px;}
+.zsnr{ margin-left:110px;}
+.zsnr span{ float:left; margin-top:30px; margin-right:25px;}
+.xiazai{ display:inline-table; background-color:#f77206; color:#fff; padding:5px 20px 5px 20px; margin-top:-5px;}
+.zhuyi{ font-size:12px;color:#F00; position:relative; left:85px; top:-18px;}
+.zhifu{ display:inline-table; padding:5px 20px 5px 20px; margin-left:450px;background-color:#f77206; color:#fff; margin-top:30px;}
+.dzdd_zibiaoti{ margin-top:30px; font-size:16px; margin-left:50px;}
+
+.moxinglie{ width:1024px; height:auto; position:relative;}
+.lie1{margin-left:80px; margin-top:25px; margin-bottom:30px;}
+.lie2{ position:absolute; left:260px; top:0px;}
+.lie2 span{ margin-left:20px;}
+.lie3{ position:absolute; left:500px; top:0px;}
+.lie3 span{ margin-left:20px;}
+.fgxt{ width:1024px; height:auto; border-bottom:1px solid #f5f5f5;}

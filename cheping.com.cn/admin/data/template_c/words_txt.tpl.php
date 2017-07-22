@@ -1,0 +1,30 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?>
+        <div class="user-add">
+            <div class="nav">
+                <ul>
+                    <li><a href="<?=$php_self?>wordslist">敏感词列表</a></li>
+                    <li><a href="<?=$php_self?>wordsadd">新增敏感词</a></li>
+                    <li ><a href="<?=$php_self?>wordstxt" class="song">导出/导入敏感词库</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="user-add-con">
+                <div style=" padding:0 10px;">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td><a href="index.php?action=review-wordsexce" onclick="return confirm('确定导出敏感词库')">导出敏感词库</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form enctype="multipart/form-data" method="POST" action="index.php?action=review-txt">导入敏感词库&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="txt"/>
+                                        <button type=" submit" name="add">提交</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table> 
+                </div>  
+            </div>
+        </div>  
+    </body>
+</html>

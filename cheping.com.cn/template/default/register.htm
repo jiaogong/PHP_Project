@@ -1,0 +1,252 @@
+{template index_header}
+<script type="text/javascript">
+    /*-------------------------------------------*/
+    var InterValObj; //timer变量，控制时间
+    var count = 60; //间隔函数，1秒执行
+    var curCount;//当前剩余秒数
+    var code = ""; //验证码
+    var codeLength = 4;//验证码长度
+    function sendMessage() {
+        var mphone_reg = /^(13|18|15|17)\d{9,}$/;
+        var mphone = $("#phone").val();
+        if (mphone_reg.test(mphone)) {
+            $.getJSON('register.php?action=ChkMoblie', "mobile=" + mphone, function (msg) {
+                if (msg != -4) {
+                    $("#phone").focus();
+                    $("#mobile_error").html("此手机号已注册");
+                    $("#mobile_error").show();
+                } else {
+                     $.getJSON('register.php?action=SendCode', "mobile=" + mphone, function (msg) {})
+                    $("#btnSendCode1").removeClass("yanBtn");
+                    $("#btnSendCode1").addClass("class2");
+                    curCount = count;
+
+                    //设置button效果，开始计时
+                    $("#btnSendCode1").attr("disabled", "true");
+                    $("#btnSendCode1").val(curCount + "秒后重新发送");
+                    InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+                    $("#mobile_error").hide();
+
+                }
+            })
+        } else {
+            $("#phone").focus();
+            $("#mobile_error").html("请填写有限的手机号接收验证码");
+            $("#mobile_error").show();
+        }
+
+    }
+    //timer处理函数
+    function SetRemainTime() {
+        if (curCount == 0) {
+            window.clearInterval(InterValObj);//停止计时器
+            $("#btnSendCode1").removeClass("class2");
+            $("#btnSendCode1").addClass("class3");
+            $("#btnSendCode1").removeAttr("disabled");//启用按钮
+            $("#btnSendCode1").val("重新发送验证码");
+            code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效    
+        }
+        else {
+            curCount--;
+            $("#btnSendCode1").val(curCount + "秒后重新发送");
+        }
+    }
+ 
+    $(function () {
+        $("#phone").blur(function () {
+            var mphone_reg = /^(13|18|15|17)\d{9,9}$/;
+            var mphone = $(this).val();
+            if(mphone){
+                      if (mphone_reg.test(mphone)) {
+                             $.getJSON('register.php?action=ChkMoblie', "mobile=" + mphone, function (msg) {
+                                if (msg != -4) {
+                                       $("#phone_error").html("此手机号已注册");
+                                       $("#phone_error").show();
+                                        $("#phone_error").next().hide();
+                                        } else {
+                                            $("#phone_error").hide();
+                                            $("#phone_error").next().show();
+                                        }
+                                    })
+                         } else {
+                                    $("#phone_error").html("手机号填写有误");
+                                    $("#phone_error").show();
+                                    $("#phone_error").next().hide();
+                        }
+            }else{
+                   $("#phone_error").html("请填写手机号");
+                   $("#phone_error").show();
+                   $("#phone_error").next().hide();
+            }
+      
+        })
+
+        $("#username").blur(function () {
+            var username_reg = /^[a-zA-Z0-9_\u4e00-\u9fa5]{3,20}[^_]$/;
+            var username = $(this).val();
+            if(username){
+                   if (username_reg.test(username)) {
+                        $.getJSON('register.php?action=ChkUsername', "username=" + username, function (msg) {
+                            if (msg != -4) {
+                                $("#username_error").html("此用户名已使用过");
+                                $("#username_error").show();
+                                $("#username_error").next().hide();
+                            } else {
+                                $("#username_error").hide();
+                                $("#username_error").next().show();
+                            }
+                        })
+                    } else {
+                        $("#username_error").html("用户名不符合规则");
+                        $("#username_error").show();
+                        $("#username_error").next().hide();
+                    }
+            }else{
+                 $("#username_error").html("请填写用户名");
+                 $("#username_error").show();
+                 $("#username_error").next().hide();
+            }
+         
+        })
+
+        $("#password").blur(function () {
+            var password_reg = /^.{6,18}$/;
+            var password = $(this).val();
+            if(password){
+                 if (password_reg.test(password)) {
+                        $("#password_error").hide();
+                          $("#password_error").next().show();
+                    } else {
+                         $("#password_error").html("密码长度不符合规则");
+                        $("#password_error").show();
+                         $("#password_error").next().hide();
+                    }
+            }else{
+                
+                 $("#password_error").html("请填写密码");
+                 $("#password_error").show();
+                 $("#password_error").next().hide();
+            }
+           
+        })
+        
+          $("#code").blur(function () {
+           
+            var code = $(this).val();
+            if(code){
+                   $.getJSON('register.php?action=CheckCode', "code=" + code, function (msg) {
+                        if (msg == -4) {
+                              $("#code_error").show();
+                              $("#code_img").hide();
+                        } else {
+                              $("#code_error").hide();
+                              $("#code_img").show();
+                        }
+                })
+            }else{
+                
+            }
+       
+            
+        })
+    })
+    function checkform(){
+
+        var arr = new Array("phone_error","username_error","password_error","code_error");
+        ii=0;
+        $.each(arr,function(i,n){
+             var str =  $("#"+n).css("display");
+             var str_name = n.split('_')[0];
+             var val =  $("#"+str_name).val();
+             if(str!='none'||!val){  
+                 $("#"+n).show();
+                // $("#"+str_name).focus();
+                 ii++;
+             }
+             
+        })
+
+       var cont =  $("#content").attr("checked");
+        if(!cont){
+            ii++;
+            $("#content_error").show()
+        }else{
+             $("#content_error").hide()
+        }
+        
+        if(ii){
+            return false;
+        }else{
+            $("#sub_form").submit();
+        }
+        
+    }
+</script>
+<div class="zhuce_main">
+    <div class="zc_main_t">
+        <div class="zhuce_bt">注册</div>
+        <div class="zhuce_bt1">每天推出精品车评资讯、视频等内容，定期为车评会员举办各种线下体验活动，还不赶快加入我们</div>
+        <div class="denglu"><a href="login.php">登录</a></div>
+    </div>
+    <hr color="#A2A2A2" style="margin-top:-20px;" />
+    <div style="margin-top:30px;"></div>
+    <form id="sub_form" method="post" enctype="multipart/form-data" action="register.php?action=subform">
+    <div class="form" >
+        <div class="div-phone">
+            <label for="phone">手机号</label><input type="text" name='mobile' id="phone" class="infos" placeholder="请输入手机号" /><font id="phone_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">&nbsp;&nbsp;&nbsp;请填写手机号</font><img src="images/gou.png" style="display:none; line-height:30px; height:30px; margin-left:10px;">
+            
+        </div>
+        <div class="div-phone1">
+            <label for="phone1">用户名</label><input type="text" name='username' id="username" class="infos1" placeholder="请输入用户名" /><font id="username_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">&nbsp;&nbsp;&nbsp;5-20个字符，可以使用英文、数字、下划线，提交后不可修改</font><img src="images/gou.png" style="display:none; line-height:30px; height:30px; margin-left:10px;">
+            
+        </div>
+        <p class="tishijv">5–20字符，可使用英文、数字、下划线，提交后不可修改</p>
+        <div class="div-phone1">
+            <label for="phone2">密码</label><input type="password" id="password" name="password" class="infos1" placeholder="请输入密码" /><font id="password_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">&nbsp;&nbsp;&nbsp;密码长度请控制在6-20个字符</font><img src="images/gou.png" style="line-height:30px;display:none;  height:30px; margin-left:10px;">
+        </div>
+        <p class="tishijv">密码长度请控制在6 - 20个字符</p>
+        <div class="div-ranks">
+            <label for="ranks">验证码</label><input type="text" name="code" id="code" class="infos" placeholder="请输入验证码"  />
+            <input id="btnSendCode1" type="button" style="position:relative; left: 0px;" class="yanBtn" value="获取验证码" onclick="sendMessage()" />
+            <font id="code_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;float:left;">您输入的验证码有误</font>
+            <div style="width:40px; height:28px; margin-left:5px; float:left;"> <img id="code_img" src="images/gou.png" style="display:none;  "></div>
+        </div>
+        <div class="div-phone2">
+            <input name="Fruit" id="content" checked="checked" type="checkbox" value="1"  /> 我接受“<a href="/fuwu.html" target="_blank">车评网用户服务条款</a>” 
+            <font id="content_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">请选择是否接受《车评网用户服务条款》</font>
+        </div>
+        <div class="div-conform">
+            <a href="javascript:;" class="conform" onclick="checkform()">提交</a>
+        </div> 
+    </div>
+    </form>
+</div>
+<div class="banquan" style="background-color:#141414; width:100%;height:auto; color:#999; text-align:center; padding-top:30px;padding-bottom:30px; font-size:14px;">
+京ICP备:05067646&nbsp;&nbsp;|&nbsp;&nbsp;京公网安备:1101055366&nbsp;&nbsp;|&nbsp;&nbsp;Copyright&copy; 2005-2015&nbsp;&nbsp;|&nbsp;&nbsp;www.cheping.com.cn,All Rights Reserved&nbsp;&nbsp;ams车评网&nbsp;&nbsp;版权所有
+</div>
+<script type="text/javascript">
+    //(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+//            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+//            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+//            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+//            ga('create', 'UA-65271533-1', 'auto');
+//            ga('send', 'pageview');
+//            
+//var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?dc8e773ec8ea678079073eb92e8dbe92";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  
+    //版权定位
+    var banquan = $('.banquan').offset().top;
+    var pingmu = $(window).height();
+    var position = pingmu-banquan-80;
+    position = parseInt(position)+"px";
+    $('.banquan').before('<div style="width:100%;height:'+position+';"></div>');
+})();
+
+</script>
+</body>
+</html>

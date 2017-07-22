@@ -1,0 +1,90 @@
+{template header}
+        <div class="user-add">
+            <div class="nav">
+                <ul>
+                    <li><a href="?action=module-">权限模块列表</a></li>
+                    <!--{if $edit}-->
+                    <li ><a href="?action=module-edit&id=<!--{$module[module_id]}-->" class="song">修改权限模块</a></li>
+                    <!--{else}-->
+                    <li ><a href="?action=module-add" class="song">添加权限模块</a></li>
+                    <!--{/if}--> 
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="user-add-con">
+                <div style=" padding:0 10px;">
+                    <form name="add_module" method="post" action="?action=module-add" onsubmit="return check_form()">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td class="right" >模块代码：</td>
+                                <td><input type="text" name="module_code" size="30" value="<!--{$module[module_code]}-->"></td>
+                            </tr>
+                            <tr>
+                                <td class="right" >模块名称：</td>
+                                <td><input type="text" name="module_name" size="30" value="<!--{$module[module_name]}-->" ></td>
+                            </tr>
+                            <tr>
+                                <td class="right" >模块链接：</td>
+                                <td><input type="text" name="module_link" size="20" value="<!--{$module[module_link]}-->" ></td>
+                            </tr>
+                            <tr>
+                                <td class="right" >备注：</td>
+                                <td><textarea rows="8" name="module_memo" id="module_memo" cols="65">{$module[module_memo]}</textarea></td>
+                            </tr>
+                            <tr>
+                                <td class="right" >
+                                    <button type=" submit">确定</button>
+                                </td>
+                                <td > 
+                                    <button type="reset"  name="cancel" class='submit' style=" margin-left:46px;" onclick="javascript:history.go('-1');window.close();">取消</button>
+                                    {if $edit}
+                                    <input type="hidden" name="module_id" value="<!--{$module[module_id]}-->">
+                                    {/if}
+                                </td>
+                            </tr>
+                        </table> 
+                    </form>
+                </div>  
+            </div>
+        </div>  
+        <script charset="utf-8" src="<!--{$relative_dir}-->vendor/editor/kindeditor.js"></script>
+        <script>
+        var editor;
+        KindEditor.ready(function(K){
+            editor = K.create('#module_memo',{
+                    imageUploadJson : '<!--{$admin_path}-->index.php?action=upload-pic&type=article&ret=json&sfid=imgFile',
+                    items : [
+                            'fontname', 'fontsize', '|', 'textcolor', 'bgcolor', 'bold', 'italic', 'underline',
+                            'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+                            'insertunorderedlist', '|', 'image', 'link'],
+                    allowPreviewEmoticons : false,
+                    afterCreate : function() {
+                        K.ctrl(document.body, 13, function() {
+                            K.sync('#module_memo');
+                            document.forms['add_module'].submit();
+                        });
+                        K.ctrl(this.edit.iframe.get(0).contentWindow.document, 13, function() {
+                            K.sync('#module_memo');
+                            document.forms['add_module'].submit();
+                        });
+                    }
+                });
+        });
+            
+        function check_form()
+        {
+            if (add_module.moduleCode.value == "")
+            {
+            alert("模块代码不能为空！");
+                    return false;
+            }
+            if (add_module.module_name.value == "")
+            {
+            alert("模块名称不能为空！");
+            return false;
+            }
+            //return true;
+        }
+        </script>
+    </body>
+</html>

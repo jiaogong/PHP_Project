@@ -1,0 +1,28 @@
+<div class="recent_v1 column2_v1">
+  <div class="header3_v1">
+    <div class="title5_v1"></div>
+    <a target="_blank" href="valueselect.php" class="more">查看更多</a>
+  </div>
+  <ul class="recent_con_v1">
+    <!--{loop $hotmodels $key $value}-->
+    <!--{eval $i=$key+1;}-->
+    <!--{if $value['qsale']==0}-->
+    <!--{eval $discount = round(($value['model']['dealer_price_low']/$value['model']['model_price'])*1000)/100}-->
+    <li>
+        <span class="point_v1">$discount折</span>
+        <a target="_blank" href="modelinfo.php?modelid=$value['model']['model_id']"><img src="images/a.gif" imgsrc="<!--{if $value['pic']}-->attach/images/$value['pic']<!--{elseif $value['model']['model_pic1']}-->attach/images/model/$value['model']['model_id']/180x100{$value['model']['model_pic1']}<!--{else}-->attach/images/model/$value['model']['model_id']/180x100{$value['model']['model_pic2']}<!--{/if}-->" onerror="this.src='images/pic3.gif'" width="180" height="100" /></a>
+        <p class="recent_t"><a target="_blank" href="modelinfo.php?modelid=$value['model']['model_id']">$value['model']['factory_name'] <!--{eval echo @preg_replace("/ /"," ".$value['model']['series_name']." ",$value['model']['model_name'],1);}--></a>&nbsp;<span>$value['title_'.$i]</span></p>
+        <div class="pre_order">
+            ￥$value['model']['dealer_price_low']万
+            <input type="button" onclick="window.open('cardemand.php?series_id=$value[model][series_id]&brand_id=$value[model][brand_id]&model_id=$value[model][model_id]')" class="pre_btn" />
+        </div>
+        <dl>
+            <dd>指导价<br />$value['model']['model_price']万</dd>
+            <dd>折扣<br /><span>$discount</span>折</dd>
+            <dd><!--{if $value['model']['model_price']!= $value['model']['dealer_price_low']}--><!--{if $value['model']['model_price'] > $value['model']['dealer_price_low']}-->已优惠<!--{else}-->加价<!--{/if}--><br /><span><!--{eval echo abs($value['model']['model_price']-$value['model']['dealer_price_low']);}--></span>万<!--{elseif $value['model']['model_price']=$value['model']['dealer_price_low']}-->无优惠<br /><span></span><!--{/if}--></dd>
+        </dl>
+    </li>
+    <!--{/if}-->
+    <!--{/loop}-->
+  </ul>
+</div>

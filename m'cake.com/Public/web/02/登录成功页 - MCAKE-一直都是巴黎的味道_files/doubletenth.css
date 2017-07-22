@@ -1,0 +1,394 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/****** Main ********/
+
+body {
+	
+	font-family:'Microsoft YaHei','微软雅黑','黑体','Tahoma''SimHei';
+
+}
+
+
+
+
+
+header {
+	padding-bottom:5em;
+}
+
+
+.panel {
+	height:100vh;
+	border-bottom:1px solid #666;
+}
+.inner {
+	width:990px;
+	margin:0 auto;
+	position:relative;
+}
+.home {
+	background:url(/shop/theme/xth1/images/activity/double_11/bg_inner_01.png);
+	text-align:center;
+	position:relative;
+}
+.Decoration{ background:url(/shop/theme/xth1/images/activity/double_11/top_Decoration.png) no-repeat;  height:81px; position:absolute; top:0; left:50%; margin-left:-642px; width:1285px;}
+
+ul.men_list{ width:1000px; height:520px; margin-top:-180px; top:50%; position:absolute; left:50%; margin-left:-500px;}
+
+ul.men_list li{ cursor:pointer;background:url(/shop/theme/xth1/images/activity/double_11/People_11.png) no-repeat; width:185px; position:relative; height:400px; margin:0 4px; float:left}
+ul.men_list li em{position:absolute;}
+ul.men_list li.men_01{ background-position:0 -413px;}
+ul.men_list li:hover.men_01{ background-position:0 0px;}
+ul.men_list li.men_01 em{background:url(/shop/theme/xth1/images/activity/double_11/Hat_01.png) no-repeat; width:189px; height:91px; display:block; top:35px; left:-10px;}
+ul.men_list li:hover.men_01 em{top:-60px;}
+ul.men_list li.men_02{ background-position:-185px -413px;}
+ul.men_list li:hover.men_02{background-position:-185px 0px;}
+ul.men_list li.men_02 em{background:url(/shop/theme/xth1/images/activity/double_11/Hat_02.png) no-repeat; width:102px; height:55px; display:block; top: 30px;
+left: 56px;}
+ul.men_list li:hover.men_02 em{ top:-30px}
+ul.men_list li.men_03{background-position:-370px -413px;}
+ul.men_list li:hover.men_03{background-position:-370px 0px;}
+ul.men_list li.men_03 em{background:url(/shop/theme/xth1/images/activity/double_11/Hat_03.png) no-repeat; width:105px; height:106px; display:block; top: -20px;
+left: 67px;}
+ul.men_list li:hover.men_03 em{top:-110px;}
+ul.men_list li.men_04{background-position:-580px -413px;}
+ul.men_list li:hover.men_04{background-position:-580px 0px;}
+ul.men_list li.men_04 em{background:url(/shop/theme/xth1/images/activity/double_11/Hat_04.png) no-repeat; width:161px; height:102px; display:block; top: 20px;
+left: 37px;}
+ul.men_list li:hover.men_04 em{ top:-70px; }
+
+
+
+ul.men_list li.Theme_txt{ background:none; width:200px; position:relative}
+ul.men_list li.Theme_txt img{ position:absolute; left:0; top:155px;}
+
+a.buy_btn{ position:absolute; width:300px; height:200px; }
+a.buy_btn span{ 
+    background:url(/shop/theme/xth1/images/activity/double_11/buy.png) center center no-repeat #60002d;
+	width:148px;
+	height:43px; 
+	display:block;
+	margin: 150px 0 0 50px;
+	cursor:pointer;
+}
+.pink {
+	background:url(/shop/theme/xth1/images/activity/double_11/bg_inner_02.png);
+	position:relative;
+}
+.pink .box_1000{
+	background:url(/shop/theme/xth1/images/activity/double_11/park.png) no-repeat 150px 50px;
+}
+.box_1000 p{
+	position:absolute;
+	font:normal;
+	font-size:12px;
+	line-height:14px;
+    color:#fff;
+}
+.box_1000 p b{
+	font-size:18px;
+	font-weight:normal;
+	display:block;
+	margin-bottom:10px;
+}
+
+.pink_box{
+	position:relative;
+}
+.pink_box p{
+	top: 345px;
+    left: 150px;
+	width:400px;
+}
+
+.pink_box a.buy_btn{
+	top: 180px;
+	left: 210px;
+}
+
+.Mangue {
+	background:url(/shop/theme/xth1/images/activity/double_11/bg_inner_03.png);
+	position:relative;
+}
+.Mangue .box_1000{
+	background:url(/shop/theme/xth1/images/activity/double_11/Mango.png) no-repeat 117px 88px;
+}
+.Mangue_box{
+	position:relative
+}
+.Mangue_box p{
+	top: 315px;
+    left: 395px;
+	width:450px;
+}
+.Mangue_box a.buy_btn{
+	top: 180px;
+	left: 540px;
+}
+.Mangue_box a.buy_btn span{
+margin: 155px 0 0 200px;
+}
+
+.Blueberry {
+	background:url(/shop/theme/xth1/images/activity/double_11/bg_inner_04.png);
+	position:relative;
+}
+.Blueberry .box_1000{
+	background:url(/shop/theme/xth1/images/activity/double_11/Blueberry.png) no-repeat 150px 70px;
+}
+.Blueberry_box{
+	position:relative
+}
+.Blueberry_box p{
+	top: 190px;
+	left: 440px;
+	width:450px;
+}
+.Blueberry_box a.buy_btn{
+	top: 275px;
+	left: 450px;
+	width: 400px;
+	height:160px;
+}
+.Blueberry_box a.buy_btn span{
+	margin: 23px 0 0 250px;
+}
+
+
+.Fromage {
+	background:url(/shop/theme/xth1/images/activity/double_11/bg_inner_05.png);
+	position:relative;
+}
+.Fromage .box_1000{
+	background:url(/shop/theme/xth1/images/activity/double_11/Sunny.png) no-repeat 130px 50px;
+}
+.Fromage_box{
+	position:relative
+}
+.Fromage_box p{
+	top: 225px;
+	left: 530px;
+	width:450px;
+}
+.Fromage_box a.buy_btn{
+	top: 290px;
+	left: 150px;
+}
+
+.Fromage_box a.buy_btn span{
+	margin: 25px 0 0 275px;
+}
+
+
+.Velour{
+	background:url(/shop/theme/xth1/images/activity/double_11/bg_inner_01.png);
+	position:relative;
+}
+.Velour .box_1000{
+	background:url(/shop/theme/xth1/images/activity/double_11/Velvet.png) no-repeat 200px 0px;
+}
+.Velour_box{
+	position:relative
+}
+.Velour_box p{
+	top: 150px;
+	left: 485px;
+	width:450px;
+}
+.Velour_box a.buy_btn{
+	top: 165px;
+	left: 270px;
+	width: 500px;
+	height: 160px;
+}
+
+.Velour_box a.buy_btn span{
+    margin: 75px 0 0 290px;
+}
+.view_btn{
+	width:279px;
+	height:69px;
+	border:3px #fff solid;
+	position:absolute;
+	top: 370px;
+	left: 380px;
+	background:url(/shop/theme/xth1/images/activity/double_11/click_on.png) no-repeat center center;
+	cursor:pointer;
+}
+.view_btn:hover{
+	border:3px #69b8b8 solid;
+}
+.Hat_04{ 
+    background:url(/shop/theme/xth1/images/activity/double_11/Hat.png) no-repeat;
+	width:185px; 
+	height:116px;
+	position:absolute;
+	top: 350px;
+	right: -40px;
+	display:none;
+}
+.hand{ 
+    background:url(/shop/theme/xth1/images/activity/double_11/Hand.png) no-repeat;
+	width:49px; 
+	height:32px;
+	position:absolute;
+	top: 390px;
+	left: 700px;
+}
+
+
+
+
+.box_1000{ width:1000px; left:50%; height:500px; margin-top:-250px; top:50%; margin-left:-500px; position:absolute;}
+
+
+
+
+.tc-con-111{ width:560px; height:390px;background:url(/shop/theme/xth1/images/activity/double_11/bg_inner_01.png); padding:0;margin:0 auto;
+    -webkit-box-shadow: 0px 0px 0px #999;
+	-moz-box-shadow: 0px 0px 0px #999;
+	box-shadow: 0px 0px 0px #999;
+	position:absolute;
+	z-index:99999; 
+	_position:absolute;
+	font-size:14px;
+	left:50%;/*FF IE7*/
+    top: 50%;/*FF IE7*/
+    margin-left:-280px!important;/*FF IE7 该值为本身宽的一半 */
+    margin-top:-195px!important;/*FF IE7 该值为本身高的一半*/
+    margin-top:0px;
+    position:fixed!important;/*FF IE7*/
+    position:absolute;/*IE6*/
+    _top: e­xpression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+
+}
+
+
+
+
+
+
+
+.tc-con-1{ height:100%; text-align:center;position:relative }
+.tc-con-1 p{ padding-top:40px;}
+.tc-cover{width:100%;height:100%;position:absolute;z-index:200;top:0px;left:0px;opacity:0.5;-moz-opacity:0.5;filter:alpha(opacity=50);background-color:#000}
+
+.close{width:30px; height:30px; display:block; position:absolute; top:0px; right:0px; background:url(/shop/theme/xth1/images/activity/double_11/close.png) no-repeat center center; text-indent:-9999px; z-index:10000;}
+.close_2{ background:url(/shop/theme/xth1/images/activity/fiveDiscount/close.png) no-repeat center center;}
+.change_btn{
+	width:180px;
+	height:48px;
+	border:3px #fff solid;
+	margin:auto;
+	margin-top:20px;
+	background:url(/shop/theme/xth1/images/activity/double_11/change_on.png) no-repeat center center;
+	cursor:pointer;
+}
+.change_btn:hover{
+	border:3px #69b8b8 solid;
+}
+
+/*快速登录*/
+ul.Remote_payment.quick_login{ width:290px; height:320px;margin: 20px;}
+.quick_login li.import{ position:relative}
+ul.Remote_payment li {
+    padding: 5px 0;
+    _padding: 2px 0;
+    position: relative;
+    overflow: hidden;
+}
+ul.Remote_payment li.quick_txt{border-bottom:1px #b0916a solid;color: #767676; text-align:left; padding:0 0 10px 0; margin-bottom:15px;}
+
+input.login_btn {
+    background: #b0916a;
+    padding: 0 65px;
+    _padding: 0 35px;
+    border: none;
+    margin: 2px;
+    height: 34px;
+    color: #FFF;
+    cursor: pointer;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+.quick_login li{overflow:hidden}
+.quick_login li.import label {
+    position: absolute;
+    line-height: 50px;
+    left: 50px;
+    top: 5px;
+    color: #c4c4c4;
+    cursor: text;
+    font-size: 14px;
+}
+.quick_login li input.input_txt {
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    font-size: 18px;
+    color: #767676;
+    margin: 0;
+    border: none;
+    width: 235px;
+    padding: 5px 10px 5px 45px;
+    background: url(/shop/theme/xth1/images/activity/double_11/icon.png) no-repeat #f0f0f0;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+.quick_login li input.input_txt.user_icon {
+    background-position: -350px -285px;
+}
+.quick_login li input.input_txt.password_icon {
+    background-position: -350px -335px;
+}
+.tc-con-1 p.warn{ text-align:center; color:#b0916a; padding:5px 0 20px 0; line-height:24px; font-size:14px}

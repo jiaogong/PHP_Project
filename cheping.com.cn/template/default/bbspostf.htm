@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <title>帖子内容</title>
+        <style>
+            body,html{ height:100%;}
+            html{color:#000;}
+            body {font: normal 100% Helvetica, Arial, sans-serif;
+                  padding: 0px; margin: 0px auto; 
+                  min-width:320px; background:#fff;  font-size:12px;
+            }
+            body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form, fieldset,input,textarea,p,blockquote,th,td { margin:0; padding:0; } 
+            address,caption,cite,code,dfn,em,strong,th,var { font-style:normal; font-weight:normal; } 
+            ol,ul { list-style:none; } caption,th { text-align:left; } 
+            h1,h2,h3,h4,h5,h6 { font-size:100%; font-weight:normal; } 
+            q:before,q:after { content:''; } abbr,acronym { border:0; } 
+            a{ cursor:pointer;}
+            a {text-decoration: none; color:#000;}
+            a:hover{ text-decoration:none !important;}
+            .clear{ clear:both} 
+            .fl{ float:left;}
+            .fr{ float:right;}
+            ul,li{ display:block;}
+            .cardcon{padding:3% 3%;}
+            .cardcon h2{ font-size:1.4em; line-height:1.4em;}
+            .card-tag{ margin:10px 0;}
+            .card-tag span{ padding:6px 10px; display:block; float:left; font-size:13pt; color:#fff; border-radius:6px;}
+            .card-tag span a{ color:#fff;}
+            .card-tag button{ border:none;  padding:8px 12px; color:#fff; border-radius:6px; font-size:13pt;}
+            .card-tag .colsp1{ background:#ea2a37; }
+            .card-tag .colsp2{ background:#e6960b; margin-left:10px;}
+            .card-tag .a-tag{ display:block; float:right; color:#ea2a37; font-size:14pt; padding:6px 0px;}
+            .usercon{ padding:10px 0px;}
+            .usercon .user-detali{padding:6px 10px; font-size:13pt }
+            .usercon .user-detali .user-time{ padding-top:16px; color:#999;}
+            .usercon .descript{ font-size:14px; padding:6px 0; color:#666; line-height:18px}
+            .inline{ height:1px; background:#ddd;}
+            .uploaddetail{ line-height:20px; font-size:14px; padding:5px 0px;}
+            .uploaddetail img{ width:100%;}
+            .uploaddetail p{ padding:10px 0px;}
+            .report{ float:right; color:#ea2a37; padding-top:10px; font-size:16px; width:50px; clear:both; text-align:center;}
+        </style>
+    </head>
+    <body>
+        <div class="cardcon">
+            <h2>{eval echo dstring::substring($list[subject],0,20),'...'}</h2> 
+            <div class="card-tag">
+                {if $list[toppost]}<span class="colsp1"><a href="javascritp:void(0);">置顶</a></span>{/if}
+                {if $list[digest]}<span class="colsp2"><a href="javascritp:void(0);">精华</a></span>{/if}
+                <a href="javascritp:void(0);" class="a-tag" onclick="buttonClick()">{$list[name]}>></a>
+            </div>
+            <div class="clear"></div>
+            <section class="usercon">
+                <div class="fl"><img src="{$list[avatars]}" width="70px" height="68px"/></div>
+                <div class="fl user-detali">
+                    <p>{$list[author]}</p> 
+                    <p class="user-time">{eval echo date('Y-m-d H:i',$list[dateline])}</p>
+                </div>
+                <div class="clear"></div> 
+                <p class="descript">{$list[usegps]}</p> 
+            </section>
+            <div class="inline"></div>
+            <section class="uploaddetail"> 
+                <p>{$list[message]}</p>   
+                <p class="report" onclick="button2Click()">举报</p>
+            </section>
+        </div>
+        <script>
+            function buttonClick()
+            {
+                jakilllog("1");
+            }
+            function button2Click()
+            {
+                jakilllog("2");
+            }
+        </script>
+    </body>
+</html>

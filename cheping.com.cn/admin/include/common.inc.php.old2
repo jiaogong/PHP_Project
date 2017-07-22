@@ -1,0 +1,54 @@
+<?php
+
+/**
+  * common include file
+  * $Id: common_na.inc.php 839 2011-07-27 07:47:27Z xiaodawei $
+  */
+  
+  require_once "config.php";
+  
+  require_once SITE_ROOT . 'lib/db.php';
+  require_once SITE_ROOT . 'lib/file.class.php';
+  require_once SITE_ROOT . 'lib/util.class.php';
+  require_once SITE_ROOT . 'lib/drequest.class.php';
+  #require_once SITE_ROOT . 'lib/httpfilter.class.php';
+  require_once SITE_ROOT . 'lib/dstring.class.php';
+  require_once SITE_ROOT . 'lib/template.class.php';
+  require_once SITE_ROOT . 'lib/dcache.class.php';
+  require_once SITE_ROOT . 'lib/object.class.php';
+  require_once SITE_ROOT . 'lib/model.class.php';
+  require_once SITE_ROOT . 'lib/action.class.php';
+  require_once SITE_ROOT . 'lib/imagemark.class.php';
+  require_once SITE_ROOT . 'include/global.func.php';
+  require_once SITE_ROOT . 'include/action_power.inc.php';
+  
+  if(!defined('DBNAME2')) define('DBNAME2', DBNAME);
+  
+  #init Cache
+  if(defined('CACHE_API'))
+  $_cache=& dcache::getInstance(CACHE_DSN);
+  
+  #user agent
+  if(strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox')){
+    $_ENV['browser'] = 'firefox';
+  }elseif(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')){
+    $_ENV['browser'] = 'msie';
+  }else{
+    $_ENV['browser'] = 'other';
+  }
+  
+  #os
+ if (DIRECTORY_SEPARATOR == '\\') {
+    $_ENV['os'] = 'win';
+  }else{
+    $_ENV['os'] = 'other';
+  }
+  class auth{  function checkauth(){  return true;  } }
+  $adminauth = new auth();
+  
+  $vars = $_GET['action'];
+  list($module, $action) = explode('-', $vars);
+
+  $_GET['action'] = $action;
+  $_ENV['module'] = $module;
+  $_ENV['PHP_SELF'] = $_SERVER['PHP_SELF'] . "?action=" . $_ENV['module'] . "-";

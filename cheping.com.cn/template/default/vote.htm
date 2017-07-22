@@ -1,0 +1,706 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>风云车投票-ams车评网</title>
+        <link rel="stylesheet" href="css/fengyunchefuxuan.css?v=0.1" />
+        <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+        <script src="js/global.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div class="zhuti">
+            <!--头部-->
+            <div class="header">
+                <div class="nav">
+                    <div class="nav_title">
+                        <ul class="title">
+                            <li><a href="/">首页</a></li>
+                            <li class="jv"><a href="video.php?action=Video&id=9">视频</a></li>
+                            <li class="jv"><a href="article.php?action=CarReview&id=8">评测</a></li>
+                            <li class="jv"><a href="article.php?action=CarReview&id=7">资讯</a></li>
+                            <li class="jv"><a href="article.php?action=CarReview&id=10">文化</a></li>
+                        </ul>
+                        <ul class="user">
+                            <ul id="header_login">
+                                <li class="zcdl"><a class="theme-login1" href="javascript:;">注册</a></li>
+                                <li class="zcdl"><a class="btn btn-primary btn-large login" href="javascript:;">登录</a></li>  
+                            </ul>
+                            <ul id='header_content' style="display: none">
+                                <li class="zcdl"><a href="javascript:void(0)" onclick='logout(0)'>退出</a></li>   
+                                <li class="zcdl"><a href="/user.php" id='header_username'></a></li>       
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="logo_banner">
+                    <div class="logo" style=" display:none;">
+                        <img src="images/logo.png" width="58" height="59" class="logo_img" />
+                    </div>
+
+                    <div class="banner">
+                        <a href="/vote.php?action=fybrand" target="_blank"><img src="images/logobanner1.png" width="100%"/></a>
+                    </div>
+                </div>
+            </div>
+            <!--头部 end-->
+            <!--页面主体-->
+            <form id="form">
+                <div class="fuxian_main">
+
+                    <div class="the_vote">请勾出您信赖的品牌名称<br /><span style="font-size:16px;">投票截止日期：2016年3月31日</span></div>
+                    <div class="xinxi">汽车零部件类</div>
+                    <div class="duoxuan">
+                        <div class="dx_wen">汽车音响</div>
+                        <div class="fuxuan">
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="阿尔派" />&nbsp;阿尔派</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="柏林之声" />&nbsp;柏林之声</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="B&O" />&nbsp;B&O </span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="博士" />&nbsp;博士</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="B&W" />&nbsp;B&W </span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="丹拿" />&nbsp;丹拿</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="歌乐" />&nbsp;歌乐</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="哈曼卡顿" />&nbsp;哈曼卡顿</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="JBL" />&nbsp;JBL</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="JVC" />&nbsp;JVC</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="健伍" />&nbsp;健伍</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="漫步者" />&nbsp;漫步者</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="索尼" />&nbsp;索尼</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="松下" />&nbsp;松下</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="先锋" />&nbsp;先锋</span>
+                            <span class="jianjv"><input name="audio[]" type="checkbox" value="英国之宝" />&nbsp;英国之宝</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="duoxuan">
+                        <div class="dx_wen">车载导航设备</div>
+                        <div class="fuxuan">
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="德赛西威" />&nbsp;德赛西威</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="E路航" />&nbsp;E路航</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="飞歌" />&nbsp;飞歌</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="佳明" />&nbsp;佳明</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="凯立德" />&nbsp;凯立德</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="路畅" />&nbsp;路畅</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="路特仕" />&nbsp;路特仕</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="纽曼" />&nbsp;纽曼</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="任我游" />&nbsp;任我游</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="神行者" />&nbsp;神行者</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="天之眼" />&nbsp;天之眼</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="新科" />&nbsp;新科</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="优路特" />&nbsp;优路特</span>
+                            <span class="jianjv"><input name="compass[]" type="checkbox" value="卡仕达" />&nbsp;卡仕达</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="duoxuan">
+                        <div class="dx_wen">轮胎</div>
+                        <div class="fuxuan">
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="倍耐力" />&nbsp;倍耐力</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="朝阳" />&nbsp;朝阳</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="邓禄普" />&nbsp;邓禄普</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="固铂" />&nbsp;固铂</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="固特异" />&nbsp;固特异</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="回力" />&nbsp;回力</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="韩泰" />&nbsp;韩泰</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="锦湖" />&nbsp;锦湖</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="佳通" />&nbsp;佳通</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="玲珑" />&nbsp;玲珑</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="玛吉斯" />&nbsp;玛吉斯</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="马牌" />&nbsp;马牌</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="米其林" />&nbsp;米其林</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="诺记" />&nbsp;诺记</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="耐克森" />&nbsp;耐克森</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="普利司通" />&nbsp;普利司通</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="万力" />&nbsp;万力</span>
+                            <span class="jianjv"><input name="tyre[]" type="checkbox" value="优科豪马" />&nbsp;优科豪马</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="duoxuan">
+                        <div class="dx_wen">儿童安全座椅</div>
+                        <div class="fuxuan">
+
+                            <span class="jianjv"><input name="seats[]" type="checkbox" value="宝得适" />&nbsp;宝得适</span>
+                            <span class="jianjv"><input name="seats[]" type="checkbox" value="葛莱" />&nbsp;葛莱</span>
+                            <span class="jianjv"><input name="seats[]" type="checkbox" value="好孩子" />&nbsp;好孩子</span>
+                            <span class="jianjv"><input name="seats[]" type="checkbox" value="奇蒂" />&nbsp;奇蒂</span>
+                            <span class="jianjv"><input name="seats[]" type="checkbox" value="瑞凯威" />&nbsp;瑞凯威</span>
+                            <span class="jianjv"><input name="seats[]" type="checkbox" value="斯蒂姆" />&nbsp;斯蒂姆</span>
+                            <span class="jianjv"><input name="seats[]" type="checkbox" value="协和" />&nbsp;协和</span>
+                            <span class="jianjv"><input name="seats[]" type="checkbox" value="智高" />&nbsp;智高</span>
+
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="duoxuan">
+                        <div class="dx_wen">润滑油</div>
+                        <div class="fuxuan">
+
+                            <span class="jianjv"><input name="lubricating[]" type="checkbox" value="埃尔夫" />&nbsp;埃尔夫</span>
+                            <span class="jianjv"><input name="lubricating[]" type="checkbox" value="长城" />&nbsp;长城</span>
+                            <span class="jianjv"><input name="lubricating[]" type="checkbox" value="道达尔" />&nbsp;道达尔</span>
+                            <span class="jianjv"><input name="lubricating[]" type="checkbox" value="福斯" />&nbsp;福斯</span>
+                            <span class="jianjv"><input name="lubricating[]" type="checkbox" value="嘉实多" />&nbsp;嘉实多</span>
+                            <span class="jianjv"><input name="lubricating[]" type="checkbox" value="昆仑" />&nbsp;昆仑</span>
+                            <span class="jianjv"><input name="lubricating[]" type="checkbox" value="康普顿" />&nbsp;康普顿</span>
+                            <span class="jianjv"><input name="lubricating[]" type="checkbox" value="美孚" />&nbsp;美孚</span>
+                            <span class="jianjv"><input name="lubricating[]" type="checkbox" value="壳牌" />&nbsp;壳牌</span>
+                            <span class="jianjv"><input name="lubricating[]" type="checkbox" value="威力狮" />&nbsp;威力狮</span>
+                            <span class="jianjv"><input name="lubricating[]" type="checkbox" value="新加坡石油" />&nbsp;新加坡石油</span>
+
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="xinxi">二手车交易认证服务类</div>
+                    <div class="duoxuan">
+                        <div class="dx_wenxia">二手车交易服务平台</div>
+                        <div class="fuxuanxia">
+
+                            <span class="jianjv"><input name="platform[]" type="checkbox" value="车猫" />&nbsp;车猫</span>
+                            <span class="jianjv"><input name="platform[]" type="checkbox" value="车101" />&nbsp;车101</span>
+                            <span class="jianjv"><input name="platform[]" type="checkbox" value="车易拍" />&nbsp;车易拍</span>
+                              <span class="jianjv"><input name="platform[]" type="checkbox" value="车置宝" />&nbsp;车置宝</span>
+                              <span class="jianjv"><input name="platform[]" type="checkbox" value="大搜车" />&nbsp;大搜车</span>
+                              <span class="jianjv"><input name="platform[]" type="checkbox" value="瓜子二手车" />&nbsp;瓜子二手车</span>
+                              <span class="jianjv"><input name="platform[]" type="checkbox" value="好车无忧" />&nbsp;好车无忧</span>
+                              <span class="jianjv"><input name="platform[]" type="checkbox" value="人人车" />&nbsp;人人车</span>
+                              <span class="jianjv"><input name="platform[]" type="checkbox" value="优车诚品" />&nbsp;优车诚品</span>
+                              <span class="jianjv"><input name="platform[]" type="checkbox" value="优信拍" />&nbsp;优信拍</span>
+
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="duoxuan">
+                        <div class="dx_wenxia">二手车认证</div>
+                        <div class="fuxuanxia">
+
+                            <span class="jianjv"><input name="certification[]" type="checkbox" value="车300" />&nbsp;车300</span>
+                          <span class="jianjv"><input name="certification[]" type="checkbox" value="车鉴定" />&nbsp;车鉴定</span>
+                          <span class="jianjv"><input name="certification[]" type="checkbox" value="好车伯乐" />&nbsp;好车伯乐</span>
+                          <span class="jianjv"><input name="certification[]" type="checkbox" value="检车无忧" />&nbsp;检车无忧</span>
+                          <span class="jianjv"><input name="certification[]" type="checkbox" value="师傅看车" />&nbsp;师傅看车</span>
+                          <span class="jianjv"><input name="certification[]" type="checkbox" value="行认证" />&nbsp;行认证</span>
+                          <span class="jianjv"><input name="certification[]" type="checkbox" value="UC认证" />&nbsp;UC认证</span>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="xinxi">出行服务类</div>
+                    <div class="clear"></div>
+                    <div class="duoxuan">
+                        <div class="dx_wenxia">代步服务类</div>
+                        <div class="fuxuanxia">
+
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="打车小秘" />&nbsp;打车小秘</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="滴滴出行" />&nbsp;滴滴出行</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="嘀嗒拼车" />&nbsp;嘀嗒拼车</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="嗨的哥" />&nbsp;嗨的哥</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="拼车生活" />&nbsp;拼车生活</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="神州专车" />&nbsp;神州专车</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="微拼车" />&nbsp;微拼车</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="优步" />&nbsp;优步</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="易打车" />&nbsp;易打车</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="易到用车" />&nbsp;易到用车</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="一号专车" />&nbsp;一号专车</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="摇摇招车" />&nbsp;摇摇招车</span>
+                            <span class="jianjv"><input name="travel[]" type="checkbox" value="出租通" />&nbsp;出租通</span>
+                          <span class="jianjv"><input name="travel[]" type="checkbox" value="滴滴打车" />&nbsp;滴滴打车</span>
+
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="duoxuan">
+                        <div class="dx_wenxia">租车服务类</div>
+                        <div class="fuxuanxia">
+
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="AA租车" />&nbsp;AA租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="安飞士租车" />&nbsp;安飞士租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="车速递租车" />&nbsp;车速递租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="大方租车" />&nbsp;大方租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="第一租车" />&nbsp;第一租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="赫兹租车" />&nbsp;赫兹租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="凹凸租车" />&nbsp;凹凸租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="PP租车" />&nbsp;PP租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="一嗨租车" />&nbsp;一嗨租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="远航租车" />&nbsp;远航租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="周到租车" />&nbsp;周到租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="尊行租车" />&nbsp;尊行租车</span>
+                            <span class="jianjv"><input name="rental[]" type="checkbox" value="神州租车" />&nbsp;神州租车</span>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="duoxuan">
+                        <div class="dx_wenxia">手机实用汽车工具</div>
+                        <div class="fuxuanxia">
+
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="百度导航" />&nbsp;百度导航</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="车位管家" />&nbsp;车位管家</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="查违章" />&nbsp;查违章</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="车友记" />&nbsp;车友记</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="e代驾" />&nbsp;e代驾</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="高德导航" />&nbsp;高德导航</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="路况电台" />&nbsp;路况电台</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="路况交通眼" />&nbsp;路况交通眼</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="PP停车" />&nbsp;PP停车</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="汽车助手" />&nbsp;汽车助手</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="停车助手" />&nbsp;停车助手</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="违章查询助手" />&nbsp;违章查询助手</span>
+                            <span class="jianjv"><input name="tools[]" type="checkbox" value="小熊油耗" />&nbsp;小熊油耗</span>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="xinxi">金融保险服务类</div>
+                    <div class="duoxuan">
+                        <div class="dx_wen">汽车金融服务</div>
+                        <div class="fuxuan">
+
+                            <span class="jianjv"><input name="fmcc[]" type="checkbox" value="宝马汽车金融服务" />&nbsp;宝马汽车金融服务</span>
+                            <span class="jianjv"><input name="fmcc[]" type="checkbox" value="大众汽车金融服务" />&nbsp;大众汽车金融服务</span>
+                            <span class="jianjv"><input name="fmcc[]" type="checkbox" value="福特汽车金融服务" />&nbsp;福特汽车金融服务</span>
+                          <span class="jianjv"><input name="fmcc[]" type="checkbox" value="东风标致雪铁龙汽车金融服务" />&nbsp;东风标致雪铁龙汽车金融服务</span>
+                          <span class="jianjv"><input name="fmcc[]" type="checkbox" value="丰田汽车金融服务" />&nbsp;丰田汽车金融服务</span>
+                          <span class="jianjv"><input name="fmcc[]" type="checkbox" value="上海通用汽车金融服务" />&nbsp;上海通用汽车金融服务</span>
+                          <span class="jianjv"><input name="fmcc[]" type="checkbox" value="梅赛德斯-奔驰汽车金融服务" />&nbsp;梅赛德斯-奔驰汽车金融服务</span>
+                          <span class="jianjv"><input name="fmcc[]" type="checkbox" value="沃尔沃汽车金融服务" />&nbsp;沃尔沃汽车金融服务</span>
+                            <span class="jianjv"><input name="fmcc[]" type="checkbox" value="东风日产汽车金融服务" />&nbsp;东风日产汽车金融服务</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="duoxuan">
+                        <div class="dx_wen">汽车保险公司</div>
+                        <div class="fuxuan">
+
+                            <span class="jianjv"><input name="motors[]" type="checkbox" value="中国人民保险" />&nbsp;中国人民保险</span>
+                          <span class="jianjv"><input name="motors[]" type="checkbox" value="中国平安" />&nbsp;中国平安</span>
+                          <span class="jianjv"><input name="motors[]" type="checkbox" value="太平洋保险" />&nbsp;太平洋保险</span>
+                          <span class="jianjv"><input name="motors[]" type="checkbox" value="中华联合保险" />&nbsp;中华联合保险</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="xinxi">您对上述品类感兴趣程度如何？</div>
+                    <div class="xignqv">
+                        <input type="radio" name="interest" value="1" checked="checked" />&nbsp;特别
+                        <input type="radio" name="interest" value="2" style=" margin-left:50px;" />&nbsp;还可以
+                        <input type="radio" name="interest" value="3" style=" margin-left:50px;" />&nbsp;几乎没有
+                    </div>
+                    <input type="submit" class="tijiao" value="确认提交"/>
+                </div>
+            </form>
+            <input type="hidden" id="vvv" value="1">
+                <input type="hidden" id="alert" value="0">
+                <div class="banquan">
+                    <div class="yllx">友情链接请联系: QQ 171479684</div>
+                    京ICP备:05067646&nbsp;&nbsp;|&nbsp;&nbsp;京公网安备:1101055366&nbsp;&nbsp;|&nbsp;&nbsp;Copyright&copy; 2005-2015&nbsp;&nbsp;|&nbsp;&nbsp;www.cheping.com.cn,All Rights Reserved&nbsp;&nbsp;ams车评网&nbsp;&nbsp;版权所有
+                </div>
+
+                <!--登陆弹框-->
+                <div class="denglu">
+                    <div class="theme-popover">
+                        <div class="theme-poptit">
+                            <br /><a href="javascript:;" title="关闭" class="close">×</a>
+                        </div>
+
+                        <div class="tc_denglu"><font style="font-size:24px;">登陆</font>&nbsp;&nbsp;&nbsp;&nbsp;未注册账号，请 <a href="#" class="theme-login1">注册</a></div>
+                        <hr>
+                            <div class="fanweik">
+                                <p>用户名/手机号</p>
+                                <p><input type="text" id="ajax_name" name="name"/></p>
+                                <p>密码</p>
+                                <p><input type="password" id="ajax_password" name="password"/></p>
+                                <div class="jizhu"><input type="checkbox" id="ajax_type" type="checkbox" value=""/>&nbsp;下次自动登录</div>
+                                <div  class="wangji_1"><a href="/login.php?action=getpassword">忘记密码？</a></div>
+                                <div class="dl_anniu_1">
+                                    <a href="javascript:void(0)" onclick="ajaxlogin()"><img src="images/denglu.jpg"></a>
+                                </div>
+                                <div class="cuowu_1" id="ajax_show" style="display:none;">您输入的用户名/密码有误</div>
+                            </div>
+                    </div>
+                </div>
+                <div class="theme-popover-mask"></div>
+                <!--弹框结束-->
+
+                <!--注册弹框-->
+
+                <div class="denglu1">
+                    <div class="theme-popover1">
+                        <div class="theme-poptit1">
+                            <br /><a href="javascript:;" title="关闭" class="close1">×</a>
+                        </div>
+                        <div class="tc_denglu"><font style="font-size:24px;">注册</font>&nbsp;&nbsp;&nbsp;&nbsp;如有账号，请 <a href="#" class="login">登录</a></div>
+                        <hr>
+                            <div class="fanweik">
+                                <div class="form">
+                                    <div class="div-phone">
+                                        <label for="phone">手机号</label><input type="text" id="phone" name=""mobile class="infos" placeholder="请输入手机号" />
+                                        <font id="phone_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">&nbsp;&nbsp;&nbsp;此手机号已注册</font><img src="images/gou.png" style="display:none; line-height:30px; height:30px; margin-left:10px;">
+                                    </div>
+                                    <div class="div-phone1">
+                                        <label for="phone1">用户名</label><input type="text" id="username" class="infos1" name="username" placeholder="请输入用户名" />
+                                        <font id="username_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">&nbsp;&nbsp;&nbsp;5-20个字符，可以使用英文、数字、下划线，提交后不可修改</font><img src="images/gou.png" style="display:none; line-height:30px; height:30px; margin-left:10px;">
+                                    </div>
+                                    <div class="div-phone1">
+                                        <label for="phone2">密码</label><input type="password" id="password" class="infos1" name="password" placeholder="请输入密码" />
+                                        <font id="password_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">&nbsp;&nbsp;&nbsp;密码长度请控制在6-20个字符</font><img src="images/gou.png" style="line-height:30px;display:none;  height:30px; margin-left:10px;">
+                                    </div>
+                                    <div class="div-ranks">
+                                        <label for="ranks">验证码</label><input type="text"  name="code" id="code" class="infos" placeholder="请输入验证码"  />
+                                        <input id="btnSendCode1" type="button" class="yanBtn" value="获取验证码" onclick="sendMessage()"  />
+                                        <font id="code_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">您输入的验证码有误</font><img src="images/gou.png" style="display:none; line-height:30px; height:30px; margin-left:10px;">
+                                    </div>
+                                    <div class="div-phone2">
+                                        <label><input name="Fruit" id="content" checked="checked" type="checkbox" value="1" />&nbsp;&nbsp;我接受“<a href="/fuwu.html" target="_blank">车评网用户服务条款</a>” </label> 
+                                        <font id="content_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">请选择是否接受《车评网用户服务条款》</font>
+                                    </div>
+                                    <div class="div-conform">
+                                        <a href="javascript:;" class="conform" onclick="checkform()">提交</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="theme-popover-mask1"></div>
+                <!--弹框结束-->
+
+                <!--投票成功-->
+
+                <div class="toupiao" style="display:none;">
+                    <div class="tpbg"></div>
+                    <div class="toupiaocg">
+                        <div class="toupiaoguan">
+                            <br /><a href="javascript:;" title="关闭" class="close111">×</a>
+                        </div>
+                        <div class="tc_denglu"><font style="font-size:24px;">投票成功</font></div>
+                        <p class="tp_sm">投票成功！登陆或注册并完善资料，即可参加抽奖！</p>
+                        <div class="anniu">
+                            <input type="submit" value="注册" class="tijiaoanniu theme-login1" /><input type="submit" value="登录" class="zhuceanniu login" />
+                        </div>
+                    </div>
+                </div>
+                <!--投票成功 end-->
+                <script>
+                    $(function () {
+                        $('.toupiaoguan .close111').click(function () {
+                            $('.theme-popover-mask1').fadeOut(100);
+                            $('.toupiao').slideUp(200);
+                        });
+                    
+                        //触发登录
+                        jQuery(document).ready(function ($) {
+                            $('.login').click(function () {
+                                $('.theme-popover-mask').fadeIn(100);
+                                $('.theme-popover').slideDown(200);
+                            })
+                            $('.theme-poptit .close').click(function () {
+                                $('.theme-popover-mask').fadeOut(100);
+                                $('.theme-popover').slideUp(200);
+                            })
+
+                        })
+
+                        //触发注册
+                        jQuery(document).ready(function ($) {
+                            $('.theme-login1').click(function () {
+                                $('.theme-popover-mask1').fadeIn(100);
+                                $('.theme-popover1').slideDown(200);
+                            })
+                            $('.theme-poptit1 .close1').click(function () {
+                                $('.theme-popover-mask1').fadeOut(100);
+                                $('.theme-popover1').slideUp(200);
+                            })
+
+                        })
+
+                        //ajax提交表单
+                        $('.tijiao').click(function () {
+                            $('form').submit(function () {
+                                var audio = 0;
+                                $("input[name='audio[]']:checkbox").each(function () {
+                                    if ($(this).attr("checked")) {
+                                        audio = 1;
+                                        return false;
+                                    }
+                                });
+                                var compass = 0;
+                                $("input[name='compass[]']:checkbox").each(function () {
+                                    if ($(this).attr("checked")) {
+                                        compass = 1;
+                                        return false;
+                                    }
+                                })
+                                var tyre = 0;
+                                $("input[name='tyre[]']:checkbox").each(function () {
+                                    if ($(this).attr("checked")) {
+                                        tyre = 1;
+                                        return false;
+                                    }
+                                })
+                                if (audio == 0 || compass == 0 || tyre == 0){
+                                    if($('#alert').val() == 0){
+                                        alert('至少选择3组');
+                                        $('#alert').attr('value',1);
+                                        return false;
+                                    }
+                                }else{
+                                    $.ajax({
+                                        type: 'post', // 提交方式 get/post
+                                        url: '/vote.php', // 需要提交的 url
+                                        data: $('form').serialize(),
+                                        success: function (data) { // data 保存提交后返回的数据，一般为 json 数据
+                                            // 此处可对 data 作相关处理
+                                            if (data == 1) {
+                                                $('.toupiao').show();
+                                                $('#vvv').attr('value', '{eval echo session('toupiao'); }');
+                                            } else {
+                                                location.href = data;
+                                            }
+                                        }
+                                    });
+                                }
+                                
+                                return false; // 阻止表单自动提交事件
+                            });
+
+                        });
+
+                        //注册验证
+                        $("#phone").blur(function () {
+                            var mphone_reg = /^(13|18|15|17)\d{9,9}$/;
+                            var mphone = $(this).val();
+                            if (mphone) {
+                                if (mphone_reg.test(mphone)) {
+                                    $.getJSON('register.php?action=ChkMoblie', "mobile=" + mphone, function (msg) {
+                                        if (msg != -4) {
+                                            $("#phone_error").html("此手机号已注册");
+                                            $("#phone_error").show();
+                                            $("#phone_error").next().hide();
+                                        } else {
+                                            $("#phone_error").hide();
+                                            $("#phone_error").next().show();
+                                        }
+                                    })
+                                } else {
+                                    $("#phone_error").html("手机号填写有误");
+                                    $("#phone_error").show();
+                                    $("#phone_error").next().hide();
+                                }
+                            } else {
+                                $("#phone_error").html("请填写手机号");
+                                $("#phone_error").show();
+                                $("#phone_error").next().hide();
+                            }
+
+                        });
+
+                        $("#username").blur(function () {
+                            var username_reg = /^[A-Za-z0-9_-]*$/g;
+                            var username = $(this).val();
+                            if (username) {
+                                if (username_reg.test(username)) {
+                                    $.getJSON('register.php?action=ChkUsername', "username=" + username, function (msg) {
+                                        if (msg != -4) {
+                                            $("#username_error").html("此用户名已使用过");
+                                            $("#username_error").show();
+                                            $("#username_error").next().hide();
+                                        } else {
+                                            $("#username_error").hide();
+                                            $("#username_error").next().show();
+                                        }
+                                    })
+                                } else {
+                                    $("#username_error").html("用户名不符合规则");
+                                    $("#username_error").show();
+                                    $("#username_error").next().hide();
+                                }
+                            } else {
+                                $("#username_error").html("请填写用户名");
+                                $("#username_error").show();
+                                $("#username_error").next().hide();
+                            }
+
+                        });
+
+                        $("#password").blur(function () {
+                            var password_reg = /^.{6,18}$/;
+                            var password = $(this).val();
+                            if (password) {
+                                if (password_reg.test(password)) {
+                                    $("#password_error").hide();
+                                    $("#password_error").next().show();
+                                } else {
+                                    $("#password_error").html("密码长度不符合规则");
+                                    $("#password_error").show();
+                                    $("#password_error").next().hide();
+                                }
+                            } else {
+
+                                $("#password_error").html("请填写密码");
+                                $("#password_error").show();
+                                $("#password_error").next().hide();
+                            }
+
+                        });
+
+                        $("#code").blur(function () {
+
+                            var code = $(this).val();
+                            if (code) {
+                                $.getJSON('register.php?action=CheckCode', "code=" + code, function (msg) {
+                                    if (msg == -4) {
+                                        $("#code_error").show();
+                                        $("#code_img").hide();
+                                    } else {
+                                        $("#code_error").hide();
+                                        $("#code_img").show();
+                                    }
+                                })
+                            } else {
+
+                            }
+
+
+                        });
+                        /*-------------------------------------------*/
+
+                    });
+
+                    function ajaxlogin() {
+                        var name = $("#ajax_name").val();
+                        var pd = $("#ajax_password").val();
+                        var type = $("#ajax_type").val();
+                        var status = $("#vvv").val();
+                        if (name || pd) {
+                            $("#ajax_show").hide();
+                            $.post("/login.php?action=ajaxlogin", {"name": name, "password": pd, "type": type}, function (msg) {
+                                if (msg == -4) {
+                                    $("#ajax_show").show();
+                                } else {
+                                    if (status == 1) {
+                                        window.location.reload();//刷新当前页面.
+                                    } else {
+                                        window.location.href = "/vote.php?action=draw&id=" + status;
+                                    }
+
+                                }
+                            })
+                        } else {
+                            $("#ajax_show").show();
+
+                        }
+
+                    }
+                    ;
+
+                    //验证码
+                    var InterValObj; //timer变量，控制时间
+                    var count = 60; //间隔函数，1秒执行
+                    var curCount;//当前剩余秒数
+                    var code = ""; //验证码
+                    var codeLength = 4;//验证码长度
+                    function sendMessage() {
+                        var mphone_reg = /^(13|18|15|17)\d{9,}$/;
+                        var mphone = $("#phone").val();
+                        if (mphone_reg.test(mphone)) {
+                            $.getJSON('register.php?action=ChkMoblie', "mobile=" + mphone, function (msg) {
+                                if (msg != -4) {
+                                    $("#phone").focus();
+                                    $("#mobile_error").html("此手机号已注册");
+                                    $("#mobile_error").show();
+                                } else {
+                                    $.getJSON('register.php?action=SendCode', "mobile=" + mphone, function (msg) {
+                                    })
+                                    $("#btnSendCode1").removeClass("yanBtn");
+                                    $("#btnSendCode1").addClass("class2");
+                                    curCount = count;
+
+                                    //设置button效果，开始计时
+                                    $("#btnSendCode1").attr("disabled", "true");
+                                    $("#btnSendCode1").val(curCount + "秒后重新发送");
+                                    InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+                                    $("#mobile_error").hide();
+
+                                }
+                            })
+                        } else {
+                            $("#phone").focus();
+                            $("#mobile_error").html("请填写有限的手机号接收验证码");
+                            $("#mobile_error").show();
+                        }
+
+                    }
+                    ;
+
+                    function SetRemainTime() {
+                        if (curCount == 0) {
+                            window.clearInterval(InterValObj);//停止计时器
+                            $("#btnSendCode1").removeClass("class2");
+                            $("#btnSendCode1").addClass("class3");
+                            $("#btnSendCode1").removeAttr("disabled");//启用按钮
+                            $("#btnSendCode1").val("重新发送验证码");
+                            code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效    
+                        }
+                        else {
+                            curCount--;
+                            $("#btnSendCode1").val(curCount + "秒后重新发送");
+                        }
+                    }
+                    ;
+
+                    function checkform() {
+                        var arr = new Array("phone_error", "username_error", "password_error", "code_error");
+                        ii = 0;
+                        $.each(arr, function (i, n) {
+                            var str = $("#" + n).css("display");
+                            var str_name = n.split('_')[0];
+                            var val = $("#" + str_name).val();
+                            if (str != 'none' || !val) {
+                                $("#" + n).show();
+                                // $("#"+str_name).focus();
+                                ii++;
+                            }
+                        });
+                        var cont = $("#content").attr("checked");
+                        if (!cont) {
+                            ii++;
+                            $("#content_error").show()
+                        } else {
+                            $("#content_error").hide()
+                        }
+                        if (ii) {
+                            return false;
+                        } else {
+                            var username = $("#username").val();
+                            var mobile = $("#phone").val();
+                            var code = $("#code").val();
+                            var password = $("#password").val();
+                            var status = $("#vvv").val();
+                            if (username && mobile && code && password) {
+                                $.post("/vote.php?action=subform", {"username": username, "mobile": mobile, "code": code, "password": password}, function (msg) {
+                                    if (msg == -4) {
+                                        alert('注册失败');
+                                    } else {
+                                        if (status == 1) {
+                                            window.location.reload();//刷新当前页面.
+                                        } else {
+                                            window.location.href = "/vote.php?action=draw&id=" + status;
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    }
+                </script>
+        </div>
+    </body>
+</html>

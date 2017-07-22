@@ -1,0 +1,25 @@
+drop table if exists admin_user;
+create table admin_user (
+  user_id int(10) unique not null auto_increment primary key comment '用户id',
+  user_name varchar(150) not null default '' comment '用户名',
+  password varchar(200) not null default '' comment '用户密码',
+  phone varchar(20) unique not null default '' comment'手机号',
+  email varchar(120) not null default '' comment '邮箱',
+  lock_pwd varchar(200) not null default '' comment '锁屏密码',
+  avatar varchar(200) not null default '' comment '用户头像',
+  salt char(6) not null default '' comment '密码盐',
+  created_at int(11) default '0' comment '创建时间',
+  updated_at int(11) default '0' comment '更新时间'
+) engine=innodb default charset=utf8 comment '后台用户表';
+
+drop table if exists admin_user_function;
+create table admin_user_function(
+	id int(11) not null unique auto_increment primary key comment 'id',
+	user_id int(10) not null unique comment '用户id',
+	function_name varchar(200) not null default '' comment '职能名称',
+	function_type tinyint(3) not null default 0 comment '职能类型 0:管理员 1:普通用户',
+	created_at int(11) not null default 0 comment '创建时间',
+	updated_at int(11) not null default 0 comment '修改时间'
+)engine=innodb default charset=utf8 comment '后台用户职能表';
+
+

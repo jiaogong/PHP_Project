@@ -1,0 +1,22 @@
+<div class="price_v1">
+    <table>
+        <thead>
+            <tr>
+                <th>厂商</th>
+                <th>车型名称</th>
+                <th>冰狗参考价</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--{eval $count=count($models)-1;}-->
+            <!--{loop $models $key $value}-->
+            <tr class="<!--{if $key==$count}-->last<!--{/if}-->">
+                <td>[{$value['factory_name']}]</td>
+                <td align="center"><a target="_blank" href="modelinfo.php?modelid=$value['model_id']">{$value['series_name']}&nbsp;&nbsp;{$value['model_name']}</a></td>
+                <td align="center"><!--{$value['bingo_price']}-->万</td>
+            </tr>
+            <!--{/loop}-->
+            
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,45 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?> 
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+        <li><a href="<?=$php_self?>allModelList">信息预览</a></li>
+        <li><a href="<?=$php_self?>oldModelList">历史信息</a></li>
+        <li><a href="javascript:void(0);" class="song">数据分析</a></li>
+        <li><a href="<?=$php_self?>hotcarNotice&act=allmodel">逻辑说明</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">           
+            <div style=" width: 930px; overflow: auto;">
+                <table cellpadding="0" cellspacing="0" border="0" class="table2">                
+                <tr>
+                    <td>模块名称</td>
+                    <td>当年车系</td>
+                    <td>当月车系</td>
+                    <td>点击访问计数</td>
+                </tr>
+                <? foreach((array)$allModel as $k=>$v) {?>
+                <tr>
+                    <td><?=$v?></td>
+                    <td><? echo $monthCount[$k] ?></td>
+                    <td><? echo $yearCount[$k] ?></td>
+                    <td>xx</td>
+                </tr>
+                <?}?>
+                <tr>
+                    <td colspan="4" style="height:45px;">
+                        <input type="button" value="导出当月车系统计" onclick="javascript:location.href='<?=$php_self?>exportModelCount&date=m'"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" value="导出当年车系统计" onclick="javascript:location.href='<?=$php_self?>exportModelCount&date=y'"/>
+                    </td>
+                </tr>
+            </table>
+            </div>
+        </div>
+        <div class="user_con2"><img src="<?=$admin_path?>images/conbt.gif"  height="16" /></div>
+    </div>
+</div>
+    </body>
+</html>

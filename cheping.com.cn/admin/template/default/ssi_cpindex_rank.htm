@@ -1,0 +1,45 @@
+<div class="content_rem">
+    <div class="i-tabs">
+        <div class="i-tabs-nav"> <span class="i-tabs-item i-tabs-item-active"> SUV </span> <span class="i-tabs-item"> 小型 </span> <span class="i-tabs-item"> 紧凑</span> <span class="i-tabs-item"> 中型</span> <span class="i-tabs-item"> 豪华</span> <span class="i-tabs-item"> MPV </span></div>
+        <div class="i-tabs-container">
+            {eval $q = 0}
+            {loop $rank $k $r}
+            {eval $q += 1}
+            <div class="i-tabs-content {if $q == 1}i-tabs-content-active{/if}">
+                <div class="tabs-news-module">
+                    <table border="0" width="318">
+                        <tbody>
+                            <tr class="pm_bg">
+                                <th width="80" scope="col">点击排名</th>
+                                <th width="120" scope="col">车型</th>
+                                <th width="2" scope="col"></th>
+                                <th width="100" class="syg_hot2" scope="col">排名趋势</th>
+                            </tr>         
+                            {eval $j = 0}
+                            {loop $r $kk $rr}
+                            {eval $j += 1}
+                            <tr>
+                                <td {if $j < 4}class="first_01"{else}class="first_04"{/if}>{$j}</td>
+                                <td><div class="chexing"><a href="modelinfo_{$rr['model_id']}.html" target="_blank" title="{$rr['model_name']}">{$rr['short_name']}</a></div></td>
+                                <td class="hs">&nbsp;</td>
+                                <td>
+                                    <div class="syg_hot{if $j > 3}2{/if}">
+                                    {if $rr['trend'] == 'up'}
+                                    <img src="images/ck_sjfd.jpg">
+                                    {elseif $rr['trend'] == 'down'}
+                                    <img src="images/cky_jgx.jpg">
+                                    {else}
+                                    <img src="images/ckyx_h.jpg">
+                                    {/if}                                
+                                    </div>
+                                </td>
+                            </tr>
+                            {/loop}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {/loop}
+        </div>
+    </div>
+</div>

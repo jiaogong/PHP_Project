@@ -1,0 +1,25 @@
+<div class="s_right_shang">
+    <div class="i-tabs">
+        <div class="i-tabs-nav" style="cursor: pointer;">
+            {loop $pr $k $v}
+            <span class="i-tabs-item {if $k == 1}i-tabs-item-active{/if}" ><a target="_blank" href="{if $k == 10}/search.php?action=index&pr=9&pr=10{else}/search.php?action=index&pr={eval echo $k-1}{/if}">{$v}</a></span>
+            {/loop}
+        </div>   
+        <div class="i-tabs-container">
+            {for $i=0; $i<10; $i++}
+            <div class="i-tabs-content {if $i == 0}i-tabs-content-active{/if}">
+                <div class="tabs-news-module">
+                    {for $j=1; $j<4; $j++}
+                    <ul {if $j == 3}style="background:none;"{/if}>
+                        {for $k=1; $k<11; $k++}
+                        {eval $key = $j + ($k - 1) * 3}
+                        <li><a target="_blank" href="/modelinfo_s{eval echo $result[$i][$key]['series_id']}.html">{eval echo $result[$i][$key]['alias']}</a></li>
+                        {/for}
+                    </ul>
+                    {/for}
+                </div>
+            </div>
+            {/for}
+        </div>
+    </div>
+</div>

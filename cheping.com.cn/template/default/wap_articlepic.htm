@@ -1,0 +1,37 @@
+{template wap_header}
+<body>
+    <!-- 代码 开始 -->
+    <ul>
+        {loop $list $k $v}
+        <li>
+            <div id="blackcover">
+                <!--开始-->
+                <div class="biaoti">
+                    <div class="fh_a">
+                        <a href="javascript:history.back(-1)">&laquo;&nbsp;返回</a>
+                        <div>{eval echo dstring::substring($list[0][title],0,8),'...'}</div>
+                    </div>
+                </div>
+                <table>
+                    <tr>
+                        <td><img src="/attach/images/article/{eval echo date("Y/m/d",$v["created"]);}/{$v[name]}" class="dutu_img"  "  width="100%"/></td>
+                    </tr>
+                </table>
+                <div class="img_wenzi">
+                    <div class="fl"><font style="color:red; font-size:16px; line-height:30px;">{eval echo $k+1;}</font>/{$total}</div>
+
+                    <div class="img_wz fl">
+                        {$v[memo]}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!--结束-->	
+        </li>
+        {/loop} 
+    </ul>
+    <!-- 代码 结束 -->
+    <script src='/js/counter.php?cname=waparticlepic&c1=$list[0][caid]&c2=&c3='></script>
+{template wap_countjs}
+</body>
+</html>

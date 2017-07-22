@@ -1,0 +1,36 @@
+<block name="style">
+
+</block>
+
+<div class="index_focus">
+    <a href="javascript:;" class="index_focus_pre" title="上一张">上一张</a>
+    <a href="javascript:;" class="index_focus_next" title="下一张">下一张</a>
+    <div class="bd">
+        <ul>
+            <volist name="addons_info" id="SilderInfo">
+            <li>
+                <a href="{$SilderInfo.jumplink}" class="pic" <if condition="$SilderInfo.jumptype eq 2">target="_blank"</if> >
+                    <div class="index_focus_info">
+                        <p class="text">{$SilderInfo.sildertext}</p>
+                    </div>
+                    <img class="pic" src="{$SilderInfo.path}" width="1024" height="370" alt="{$SilderInfo.title}">
+                </a>
+            </li>
+            </volist>
+        </ul>
+    </div>
+    <div class="slide_nav">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+<block name="footer">
+
+</block>
+

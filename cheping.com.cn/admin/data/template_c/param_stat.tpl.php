@@ -1,0 +1,106 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#isv").change(function(){
+            if($(this).val()==2){
+                $("#k").hide();
+            }else{
+                $("#k").show();
+            }
+        });
+        $("#form").submit(function(){
+            if($("#param").val()==""){
+                alert("请选择参数项!");
+                return false;
+            }
+            if($("#isv").val()==1&&$("#keyword").val().length<1){
+                alert("请填写参数值");
+                return false;
+            }
+            if($("#isv").val()==2){
+                $("#keyword").val("");
+            }
+        });
+    });
+</script>
+<div class="user_wrap">
+    <div class="user_con">
+        <div class="user_con1">
+            <form action="<?=$php_self?>paramstatdate" method="post" id="form">
+                <table class="table2" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <th colspan="4"><h2 style="color:blue;">车款参数统计查询</h2><th/>
+                        <tr/>
+                        <tr>
+                            <td width="35%">
+                                参数项：
+                                <select style="width:120px;" id="param" name="param">
+                                    <option value="">请选择参数项</option>
+                                    <? foreach((array)$par as $k=>$v) {?>
+                                    <option value="<?=$k?>" <? if ($param==$k) { ?>selected=true<? } ?>><?=$v?></option>
+                                    <?}?>
+                                </select>
+                            </td>
+                            <td width="20%">
+                                是否有值：
+                                <select style="width:50px;" name="isv" id="isv">
+                                    <option value="1" <? if ($isv!=2) { ?>selected=ture<? } ?>>有</option>
+                                    <option value="2" <? if ($isv==2) { ?>selected=ture<? } ?>>空</option>
+                                </select>
+                            </td>
+                            <td width="25%">  
+                                <span id="k" style="display:<? if ($isv==2) { ?>none<? } ?>;">
+                                参数值：
+                                <input size="12" name="keyword" id="keyword" value="<?=$keyword?>">
+                                </span>
+                            </td>
+                            <td width="25%">
+                                <input type="submit" name="search" value=" 搜 索 ">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+                <table id="content" class="table2" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th width="15%">编号(ID)</th>
+                        <th width="20%">车款名称</th>
+                        <th width="20%">厂商</th>
+                        <th width="20%">车系名称</th>
+                        <th width="15%">价格</th>
+                        <th width="10%"></th>
+                    </tr>
+                    <? if ($modellist) { ?>
+                        <? foreach((array)$modellist as $key=>$value) {?>
+                        <tr>
+                            <td ><?=$value["model_id"]?></td>
+                            <td ><?=$value["model_name"]?></td>
+                            <td ><?=$value["factory_name"]?></td>
+                            <td ><?=$value["series_name"]?></td>
+                            <td ><? if ($value["model_price"]) { ?><?=$value["model_price"]?> 万<? } else { ?>空<? } ?></td>
+                            <td ><a target="_blank" href="<?=$admin?>index.php?action=model-edit&model_id=<?=$value['model_id']?>&fatherId=<?=$value['series_id']?>">详细</a></td>
+                        </tr>
+                        <?}?>
+                    <? } ?>
+
+                    <? if ($page_bar) { ?>
+                    <tr>
+                        <th colspan="6"  class="page_bar_css">
+                            <?=$page_bar?>
+                        </th>
+                    </tr>
+                    <? } ?>
+                    <? if ($param&&empty($modellist)) { ?>
+                    <tr>
+                        <th colspan="6"  class="page_bar_css">
+                            <h3 style="color:red;">暂无相关数据</h3>
+                        </th>
+                    </tr>
+                    <? } ?>
+                </table>
+        </div>
+    </div>
+</div>
+<? include $this->gettpl('footer');?>

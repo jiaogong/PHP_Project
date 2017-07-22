@@ -1,0 +1,193 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?>
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+            <li><a href="<?=$php_self?>" class="song">测试数据列表</a></li>
+            <li><a href="<?=$php_self?>add">添加测试数据</a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            <form action="<?=$php_self?>TestDataCNList" method="post" id="form_model">
+                <table class="table2" border="0" style="margin-left:20px;"  cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <select name="brand_id" id="brand_id">
+                                <option value="">请选择品牌</option>
+                                <? foreach((array)$brand as $k=>$v) {?>
+                                <option value="<?=$v[brand_id]?>" <? if ($s[brand_id]==$v[brand_id]) { ?>selected="selected"<? } ?>><?=$v[brand_name]?></option>
+                                <?}?>
+                            </select>
+                            <select name="factory_id" id="factory_id">
+                                <? if ($s[factory_name]) { ?>
+                                <option value="<?=$s[factory_id]?>"><?=$s[factory_name]?></option>
+                                <? } ?>
+                                <option value="">请选择厂商</option>
+                            </select>
+                            <select name="series_id" id="series_id">
+                                <? if ($s[series_name]) { ?>
+                                <option value="<?=$s[series_id]?>"><?=$s[series_name]?></option>
+                                <? } ?>
+                                <option value="">请选择车系</option>
+                            </select>
+                            <select name="model_id" id="model_id">
+                                <? if ($s[model_name]) { ?>
+                                <option value="<?=$s[model_id]?>"><?=$s[model_name]?></option>
+                                <? } ?>
+                                <option value="">请选择车款</option>
+                                <option value="">选择手动填写</option>
+                            </select>
+                            <span style="display:none;" id="manually_model"><input type="text" style="width:220px; border:1px solid #cdcdcd;  background:none; margin-left:10px;" name="model_name_m" id="model_name_m" size="40" value="" /></span>
+                            <span style="margin-left:20px;">id:<input type="text" name="id" id="id_val" style="width:60px;" value="<? if ($s[id]) { ?><?=$s[id]?><? } ?>" /></span>
+                            <input type="hidden" id="brand_name" name="brand_name" value="<?=$s[brand_name]?>"/>
+                            <input type="hidden" id="factory_name" name="factory_name" value="<?=$s[factory_name]?>"/>
+                            <input type="hidden" id="series_name" name="series_name" value="<?=$s[series_name]?>"/>
+                            <input type="hidden" id="model_name" name="model_name" value="<?=$s[model_name]?>"/>
+                            <input type="button" id="s_model_but" name="search" value=" 搜 索 ">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <table class="table2" border="0" style="margin-left:20px;" cellpadding="0" cellspacing="0">
+                <tr align="right" class='th'>
+                    <th height="20" nowrap>ID</th>
+                    <th width="25%" align="left">车款名称</th>
+                    <th width="20%">地点</th>
+                    <th width="20%">测试员</th>
+                    <th width="10%">测试日期</th>
+                    <th width="20%">录入时间</th>
+                    <th width="10%">状态</th>
+                    <th nowrap>操作</th>
+                </tr>
+
+                <? foreach((array)$list as $k=>$v) {?>
+                <tr align="right">
+                    <td height="20" nowrap align="center"><?=$v[id]?></td>
+                    <td><?=$v[model_name]?></td>
+                    <td>
+                        <?=$v[address]?>
+                    </td>
+                    <td>
+                        <?=$v[tester]?>
+                    </td>
+                    <td>
+                        <?=$v[date_ymd]?>
+                    </td>
+                    <td>
+                        <? echo date("Y-m-d H:i:s", $v[created]) ?>
+                    </td>
+                    <td>
+                        <? if ($v['state']==1) { ?>
+                        正常
+                        <? } else { ?>
+                        关闭
+                        <? } ?>
+                    </td>
+                    <td nowrap align="left">
+                        <a href="<?=$php_self?>add&id=<?=$v[id]?>">修改</a>
+                    </td>
+                </tr>
+                <?}?>
+            </table>
+            <? if ($page_bar) { ?>
+            <div>
+                <div class="ep-pages">
+                    <?=$page_bar?>
+                </div>
+            </div>
+            <? } ?>
+        </div>
+        <div class="user_con2"><img src="<?=$admin_path?>images/conbt.gif" height="16"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    $().ready(function () {
+
+        $('#brand_id').change(function () {
+            var brand_id = $(this).val();
+            var fact = $('#factory_id')[0];
+            var facturl = "?action=factory-allStateJson&brand_id=" + brand_id;
+            var sel = $(this)[0];
+            $('#brand_name').val(sel.options[sel.selectedIndex].text);
+
+            $.getJSON(facturl, function (ret) {
+                $('#factory_id option[value!=""]').remove();
+                $('#series_id option[value!=""]').remove();
+                $('#model_id option[value!=""]').remove();
+
+                $.each(ret, function (i, v) {
+                    fact.options.add(new Option(v['factory_name'], v['factory_id']));
+                });
+            });
+        });
+
+        $('#factory_id').change(function(){
+            var fact_id=$(this).val();
+            var ser=$('#series_id')[0];
+            var serurl="?action=series-allStateJson&factory_id="+fact_id;
+            var sel=$(this)[0];
+            $('#factory_name').val(sel.options[sel.selectedIndex].text);
+
+            $.getJSON(serurl, function(ret){
+                $('#series_id option[value!=""]').remove();
+                $('#model_id option[value!=""]').remove();
+
+                $.each(ret, function(i,v){
+                    ser.options.add(new Option(v['series_name'], v['series_id']));
+                });
+            });
+        });
+
+        $('#series_id').change(function(){
+            var seri_id=$(this).val();
+            var ser=$('#model_id')[0];
+            var serurl="?action=model-allStateJson&sid="+seri_id;
+            var sel=$(this)[0];
+            $('#series_name').val(sel.options[sel.selectedIndex].text);
+
+            $.getJSON(serurl, function(ret){
+                $('#model_id option[value!=""]').remove();
+
+                $.each(ret, function(i,v){
+                    ser.options.add(new Option(v['model_name'], v['model_id']));
+                });
+            });
+        });
+
+        $('#model_id').change(function(){
+            var model_val=$(this).val();
+            var model_name=$(this).children('option:selected').text();
+            if(!model_val){
+                $('#manually_model').show();
+                $('#model_name').val('');
+            }else{
+                $('#manually_model').hide();
+                $('#model_name').val(model_name);
+            }
+        });
+        //搜索按钮 提交表单事件
+        $('#s_model_but').click(function(){
+            var model_name = $('#model_name').val();
+            var model_name_m = $('#model_name_m').val();
+            var id_val = $('#id_val').val();
+            if(!model_name && !model_name_m && !id_val){
+                alert('搜索条件没有填写！\n');
+            }else{
+                $('#form_model').submit();
+            }
+        });
+        <? if ($model_id) { ?>
+        $('#brand_id option[value="<?=$brand_id?>"]').attr({selected:true});
+        $('#factory_id option[value="<?=$factory_id?>"]').attr({selected:true});
+        $('#series_id option[value="<?=$series_id?>"]').attr({selected:true});
+        $('#model_id option[value="<?=$model_id?>"]').attr({selected:true});
+        <? } ?>
+
+    });
+
+</script>
+</body>
+</html>

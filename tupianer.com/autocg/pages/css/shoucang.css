@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+.shoucang_main{ width:1024px; height:auto; margin-top:30px;}
+.shoucang_right{ float:right; width:770px; height:auto;}
+.wo_shoucang{ font-size:18px; font-weight:bold;}
+.leibie_k{ width:770px; height:45px; border-bottom:1px solid #e8e8e8; line-height:45px;}
+.lbxx{ font-size:18px; font-weight:bold; padding-left:10px;}
+.dao{ margin-left:15px; font-size:14px;}
+.lbnr{ margin-left:60px; mragin-top:-25px;}
+.feng{ margin-left:20px; font-size:14px; font-weight:bold;}
+.fenlei_k{ width:770px; height:45px; border-bottom:1px solid #e8e8e8; line-height:45px;}
+.pubuliu{width:770px; height:auto; margin-top:30px; -webkit-column-count: 3; -moz-column-count: 3; column-count: 3; moz-column-gap:5px; -webkit-column-gap:5px;column-gap: 5px;
+column-gap:10px;}
+/*.biaoqian{ float:left;  width:234px; height:auto; background-color:#9FF; border:1px solid #e8e8e8; box-shadow:0.5px 1px 0.5px 0.5px #ededed; margin:15px 15px 15px 15px;}*/
+.scbq{ width:210px; height:35px; margin:0 auto; line-height:35px; border-bottom:1px solid #e8e8e8;}
+.biaoqian_xz{background-color: #f77206;height:25px;padding: 0 5px;margin: 5px 0px 5px 10px;line-height: 25px;color: #fff; display:inline-table; border-radius:3px; font-size:14px;}
+.biaoqian_xzf{background-color: #f5f5f5;height:25px;padding: 0 5px;margin: 5px 0px 5px 10px;line-height: 25px;color: #000; display:inline-table; border-radius:3px; font-size:14px;}
+.pubuliu{ position:relative; top:0px;}
+/*.pubuliu_list{ float:left;width:234px; height:auto; border:1px solid #e8e8e8; box-shadow:0.5px 1px 0.5px 0.5px #ededed; margin:9px;}*/
+.pubuliu_list{width:234px; height:auto; position:absolute; top:20px; border:1px solid #e8e8e8;box-shadow:0.5px 1px 0.5px 0.5px #ededed; margin-left:10px; border-radius:3px;}
+.pbltp{ margin:10px 10px 10px 10px; }
+.pblnr{ width:152px; height:auto;}
+.pblbt{ width:152px; border-bottom:1px solid #e8e8e8; margin-left:10px; height:auto;}
+.sc_jq{ color:#f8801e; font-size:14px;}
+.sc_money{ font-size:18px; color:#f8801e;}
+.pblxq{ width:152px; margin-left:10px;}
+.jianjv{ margin-left:15px;}
+.sjs_tx{ float:right; margin-right:10px; margin-top:-45px; margin-bottom:10px;}
+

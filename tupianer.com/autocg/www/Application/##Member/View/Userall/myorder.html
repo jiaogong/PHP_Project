@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<include file="Public/head"/>
+
+<body>
+<div class="concent">
+    <include file="Public/header"/>
+    <!--头部结束-->
+    <!--内容开始-->
+    <div class="order-main">
+        <!--左侧内容开始-->
+        <div class="people-left fl">
+            <div class="people-left-top">
+                <dl>
+                    <dt class="fl"><img src="images/peoplelefttu.png" /></dt>
+                    <dd>
+                        <a href="#">
+                            <img src="images/peopletou.png" style=" vertical-align:middle;"/>
+                            <span style=" vertical-align:middle;">修改头像</span>
+                        </a>
+                        <a href="#"><b>2000</b>积分</a>
+                        <a href="#" class="bornone">
+                            <img src="images/author.png" style=" vertical-align:middle;"/>
+                            <span style=" vertical-align:middle;">作者简介</span>
+                        </a>
+                    </dd>
+
+                </dl>
+                <div class="clear"></div>
+            </div>
+            <include file="Public/left"/>
+        </div>
+        <!--左侧内容结束-->
+        <div class="order-right fr">
+            <h3 style="color:#333">我的交易</h3>
+            <div class="order-right-con">
+                <div class="order-right-title tab">
+                    <ul>
+                        <li class="trade">交易内容</li>
+                        <li class="orderactive" title="ordfirst">视频</li>
+                        <li title="ordsecond">图片</li>
+                        <li title="ordthird">模型</li>
+                    </ul>
+                </div>
+                <div class="order-con">
+                    <div class="ordfirst">
+                        <div class="ordfirst-con">
+                            <div class="form-biaoti">
+                                <form>
+                                    <span style="font-size:22px; padding-left:10px;">下单时间</span>
+                                    <input type="text"  style=" vertical-align:middle; margin-left:25px;"/>
+                                    <span style="font-size:14px; "> 到</span> <input type="text" />
+                                    <button>导出excel</button>
+                                </form>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="detailtable">
+                                <table>
+                                    <tr>
+                                        <td style="width:120px;"><img src="images/ordertable1.png" /></td>
+                                        <td>用户订单</td>
+                                        <td>视频</td>
+                                        <td>2015-12-10<br />10:30</td>
+                                        <td>￥1020</td>
+                                        <td>已完成</td>
+                                        <td><a href="">查看</a></td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td style="width:120px;"><img src="images/ordertable1.png" /></td>
+                                        <td>用户订单</td>
+                                        <td>视频</td>
+                                        <td>2015-12-10<br />10:30</td>
+                                        <td>￥1020</td>
+                                        <td>已完成</td>
+                                        <td><a href="">查看</a></td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td style="width:120px;"><img src="images/ordertable1.png" /></td>
+                                        <td>用户订单</td>
+                                        <td>视频</td>
+                                        <td>2015-12-10<br />10:30</td>
+                                        <td>￥1020</td>
+                                        <td>已完成</td>
+                                        <td><a href="">查看</a></td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td style="width:120px;"><img src="images/ordertable1.png" /></td>
+                                        <td>用户订单</td>
+                                        <td>视频</td>
+                                        <td>2015-12-10<br />10:30</td>
+                                        <td>￥1020</td>
+                                        <td>已完成</td>
+                                        <td><a href="">查看</a></td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td style="width:120px;"><img src="images/ordertable1.png" /></td>
+                                        <td>用户订单</td>
+                                        <td>视频</td>
+                                        <td>2015-12-10<br />10:30</td>
+                                        <td>￥1020</td>
+                                        <td>已完成</td>
+                                        <td><a href="">查看</a></td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
+                                        <td style="width:120px;"><img src="images/ordertable1.png" /></td>
+                                        <td>用户订单</td>
+                                        <td>视频</td>
+                                        <td>2015-12-10<br />10:30</td>
+                                        <td>￥1020</td>
+                                        <td>已完成</td>
+                                        <td><a href="">查看</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ordsecond" style="display:none;">erteryreyrt</div>
+                    <div class="ordthird" style="display:none;">bnvbnvbn</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--内容结束-->
+    <div class="clear"></div>
+    <include file="Public/footer"/>
+</div>
+</div>
+<script>
+    $(function(){
+        $(".tab ul li:not(.trade)").click(function(){
+
+            $(this).addClass('orderactive').siblings().removeClass('orderactive');
+            var $tab = $(this).attr('title');
+            $("." + $tab).show().siblings().hide();
+        })
+    })
+</script>
+</body>
+</html>

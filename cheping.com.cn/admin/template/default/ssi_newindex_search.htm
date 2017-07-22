@@ -1,0 +1,23 @@
+<ul>
+    {loop $result $k $v}
+        {if {$v['alias']}}
+        {eval $url = 'search.php?action=index'}
+        {loop $v['option_key'] $key $value}
+            {if $value}
+                {if $value == 'pr' && $v['option_value'][$key] == 9}
+                    {eval $url .= '&pr=9&pr=10'}
+                {elseif $value == 'sp'}
+                    {eval $url .= '&' . $v['option_value'][$key] . '=1'}
+                {else}
+                    {eval $url .= '&' . $value . '=' . $v['option_value'][$key]}
+                {/if}
+            {/if}
+        {/loop}
+        <li>
+            <a href="/{$url}" target="_blank">
+                {$v['alias']}
+            </a>
+        </li>
+        {/if}
+    {/loop}
+</ul>

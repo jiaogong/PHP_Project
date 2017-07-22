@@ -1,0 +1,156 @@
+<script>
+$(document).ready(function(){
+    $("#sel_btn").click(function(){
+       return goto_carpage_art('search_series');
+    }).focus(function(){
+        $(this).blur();
+    });
+
+});
+    function model_selected(obj, series_id){
+      if(series_id>0){
+          $.ajax({
+                type:"POST",
+                url:"{$relat_dir}ajax.php?action=models",
+                data:{
+                    series_id:series_id
+                },
+                error:function(){
+                    alert("网络异常，请求失败！！");
+                },
+                success:function(data){
+                    if(data==-4){
+                        alert("系统错误，请联系管理员!!");
+                        return false;
+                    }else{
+                        var models=eval("("+data+")");
+                        if(models){
+                            obj.empty();
+                            var js;
+                            if(obj.attr("id")=="model_id1"){
+                                js="<option value='0'>配置不详</option>";
+                            }else{
+                                js="<option value='0'>选择配置</option>";
+                            }
+                            $.each(models, function(i,n){
+                                if(n.firstpic){
+                                    js+="<option rel='"+n.firstpic+"' value='"+n.model_id+"'>"+n.model_name+"</option>\n";
+                                }else{
+                                    js+="<option value='"+n.model_id+"'>"+n.model_name+"</option>\n";
+                                }
+
+                            });
+                            obj.append(js);
+                            obj.attr({
+                                disabled:false
+                            });
+                        }
+                    }
+                }
+            });
+        }else{
+            obj.empty().attr({disabled:true});
+        }
+}
+function goto_carpage_art(form_name){
+  var brand=$('#'+form_name+' #brand_id');
+  var series=$('#'+form_name+' #series_id');
+  var model=$('#'+form_name+' #model_id');
+  if(model.val()>0){
+    $('#'+form_name).attr({
+      action:'{$relat_dir}modelinfo.php?modelid='+model.val(),
+      target:'_blank',
+      method:'get'
+    });
+    if($('#modelid').length){
+      $('#modelid').val(model.val());
+    }else{
+      $('#'+form_name).append('<input type="hidden" id="modelid" name="modelid" value="'+model.val()+'">');
+    }
+  }else if(series.val()>0){
+    $('#'+form_name).attr({
+      action:'{$relat_dir}series.php?seriesid='+series.val(),
+      target:'_blank',
+      method:'get'
+    });
+    if($('#seriesid').length){
+      $('#seriesid').val(series.val());
+    }else{
+      $('#'+form_name).append('<input type="hidden" id="seriesid" name="seriesid" value="'+series.val()+'">');
+    }
+  }else if(brand.val()>0){
+    $('#'+form_name).attr({
+      action:'{$relat_dir}brand.php?brandid='+brand.val(),
+      target:'_blank',
+      method:'get'
+    });
+    if($('#brandid').length){
+      $('#brandid').val(brand.val());
+    }else{
+      $('#'+form_name).append('<input type="hidden" id="brandid" name="brandid" value="'+brand.val()+'">');
+    }
+  }else{
+    alert('请选择要查看的配置！');
+    return false;
+  }
+  $('#'+form_name)[0].submit();
+  return false;
+}
+</script>
+<div class="small_top">
+    <div class="small_mid">
+        <div class="car_search cover2">
+            <div class="title">
+                <h2><img src="images/font_car.png"/></h2>
+            </div>
+            <form action="" id="search_series" method="post">
+                <select id="brand_id" class="sel_common1" onchange="javascript:series_select($('#series_id'), this.value);">
+                    <option value="0">选择品牌</option>
+                    <script>brand_select($('#brand_id'));</script>
+                </select>
+                <select id="series_id" class="sel_common2" disabled="disabled" onchange="javascript:model_selected($('#model_id'), this.value);">
+                </select>
+                <select id="model_id" class="sel_common" disabled="disabled">
+                </select>
+                <input id="sel_btn" type="button" class="new_but"/>
+            </form>
+
+        </div>
+    </div>
+    <div class="small_foot"></div>
+</div>
+<!--{if $popcar}-->
+<div class="small_top">
+    <div class="small_mid">
+        <div class="pop_type cover2">
+            <div class="title1">
+                <h3><img src="images/car_$series['type_id'].png" /></h3>
+            </div>
+            <ol class="item item_other">
+                <!--{loop $popcar["hotcar"] $key $value}-->
+                <!--{if $key<=4}-->
+                <li class="<!--{if $key==0}-->item1<!--{/if}-->">
+                    <div class="preview"><span><!--{eval echo $key+1;}--></span><a href="series.php?seriesid=$value['series_id']">$value['series_name']</a></div>
+                    <div class="wrap_item">
+                        <div class="real"> <a href="series.php?seriesid=$value['series_id']" class="real_img"><img src="attach/images/series/{$value[series_id]}/130x73{$value[pic_name]}" onerror='this.src="images/nopic130.gif"' width="120" height="68" /></a>
+                            <dl class="real_dl">
+                                <dd>厂商指导价</dd>
+                                <dd>{$value[min_price]} - {$value[max_price]}万元</dd>
+                                <dd><span class="point">平均分</span>
+                                    <div class="stars" style="background-position:0 -{eval echo (intval($value['avgscore']['s1'])*15)+43;}px"></div>
+                                </dd>
+                                <dd><span>(<a href="comment.php?action=seriescomment&seriesid={$value['series_id']}"><!--{if $value['avgscore']["s7"]}-->{$value['avgscore']["s7"]}<!--{else}-->0<!--{/if}-->条新评论</a>)</span>&nbsp;&nbsp;&nbsp;<a href="comment.php?action=seriescomment&seriesid={$value['series_id']}#series_comment">写评论</a></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </li>
+                <!--{/if}-->
+                <!--{/loop}-->
+            </ol>
+        </div>
+    </div>
+    <div class="small_foot"></div>
+</div>
+<!--{/if}-->
+
+<!--#include virtual="/ssi/new_red_models.shtml"-->

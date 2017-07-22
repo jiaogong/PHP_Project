@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>风云车投票-ams车评网</title>
+        <link rel="stylesheet" href="css/fengyunche.css" />
+        <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/jquery.dateSelector.js"></script>
+        <script src="js/global.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div class="zhuti">
+            <!--头部-->
+            <div class="header">
+                <div class="nav">
+                    <div class="nav_title">
+                        <ul class="title">
+                            <li><a href="/">首页</a></li>
+                            <li class="jv"><a href="video.php?action=Video&id=9">视频</a></li>
+                            <li class="jv"><a href="article.php?action=CarReview&id=8">评测</a></li>
+                            <li class="jv"><a href="article.php?action=CarReview&id=7">资讯</a></li>
+                            <li class="jv"><a href="article.php?action=CarReview&id=10">文化</a></li>
+                        </ul>
+                        <ul class="user">
+                            <ul id="header_login">
+                                <li class="zcdl"><a class="theme-login1" href="javascript:;">注册</a></li>
+                                <li class="zcdl"><a class="btn btn-primary btn-large login" href="javascript:;">登录</a></li>  
+                            </ul>
+                            <ul id='header_content' style="display: none">
+                                <li class="zcdl"><a href="javascript:void(0)" onclick='logout(0)'>退出</a></li>   
+                                <li class="zcdl"><a href="/user.php" id='header_username'></a></li>       
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="logo_banner">
+                    <div class="logo" style=" display:none;">
+                        <img src="images/logo.png" width="58" height="59" class="logo_img" />
+                    </div>
+
+                    <div class="banner">
+                        <a href="/vote.php?action=fybrand" target="_blank"><img src="images/logobanner1.png" width="100%"/></a>
+                    </div>
+                </div>
+            </div>
+            <!--头部 end-->
+
+            <div class="main">
+                <div class="the_vote">投票成功</div>
+                <div class="leading">感谢您参与“风云品牌”投票！完善下方资料，即有机会获得精美礼品一份！</div>
+                <form id="formAddHandlingFee'" method="post" action="">
+                    <div class="xinxi">个人信息</div>
+                    <div class="xinxi_text">
+                        <div class="xinxi_wen"><div>姓名<span>*</span>：</div></div>
+                        <input name="realname" type="text" class="text" required="required"/>
+                    </div>
+
+                    <div class="xinxi_text">
+                        <div class="xinxi_wen"><div>性别<span></span>：</div></div>
+                        <span class="danxuan">
+                            <input type="radio"  name="gender" value="1" checked="checked" />&nbsp;&nbsp;男
+                            <input type="radio" name="gender" value="0" style=" margin-left:50px;" />&nbsp;&nbsp;女
+                        </span>
+                    </div>
+
+                    <div class="xinxi_text">
+                        <div class="xinxi_wen"><div>出生日期<span>*</span>：</div></div>
+                        <input name="selectAdate1" id="selectAdate1" class="time" type="text" value="2016-3-1"/>
+                    </div>
+
+                    <div class="xinxi_text">
+                        <div class="xinxi_wen"><div>手机号<span>*</span>：</div></div>
+                        <input name="mobile" type="text" class="text" required="required"/>
+                    </div>
+
+                    <div class="xinxi_text">
+                        <div class="xinxi_wen"><div>电子邮箱<span>*</span>：</div></div>
+                        <input name="email" type="email" class="text" required="required"/>
+                    </div>
+
+                    <div class="xinxi_text">
+                        <div class="xinxi_wen"><div>地址<span></span>：</div></div>
+                        <input name="address" type="text" class="text" />
+                    </div>
+
+                    <div class="xinxi_text">
+                        <div class="xinxi_wen"><div>邮编<span></span>：</div></div>
+                        <input name="zipcode" type="text" class="text" />
+                    </div>
+
+                    <div class="xinxi_text">
+                        <div class="xinxi_wen"><div>身份证号码<span></span>：</div></div>
+                        <input name="number" type="text" class="text" />
+                    </div>
+
+                    <div class="xinxi">一个小小的调查</div>
+                    <div class="xiaobiaoti">您的身份</div>
+                    <div class="fuxuan">
+
+                        <span class="jianjv"><input name="identity[]" type="checkbox" id="aa" value="我在汽车行业内工作" />&nbsp;&nbsp;我在汽车行业内工作</span>
+                        <span class="jianjv"><input class="jianjv" name="identity[]" type="checkbox" id="aa" value="ams车评杂志读者" />&nbsp;&nbsp;ams 车评杂志读者</span>
+                        <span class="jianjv"><input class="jianjv" name="identity[]" type="checkbox" id="aa" value="ams车评微博微信粉丝" />&nbsp;&nbsp;ams 车评微博微信粉丝</span>
+                        <span class="jianjv"><input class="jianjv" name="identity[]" type="checkbox" id="aa" value="车评网或车评APP用户" />&nbsp;&nbsp;车评网或车评 APP 用户</span>
+
+                    </div>
+                    <div class="clear"></div>
+                    <div class="xiaobiaoti">我每年开车的里程数约&nbsp;<input name="mileage" type="text" class="licheng" />&nbsp;万公里</div>
+                    <div class="xiaobiaoti">我阅读《ams车评汽车博览》</div>
+                    <div class="yuedu">
+                        <input type="radio"  name="read" value="每期必读" checked="checked" />&nbsp;&nbsp;每期必读
+                        <input type="radio" name="read" value="几乎每期读" style=" margin-left:50px;" />&nbsp;&nbsp;几乎每期读
+                        <input type="radio" name="read" value="经常读" style=" margin-left:50px;" />&nbsp;&nbsp;经常读
+                        <input type="radio" name="read" value="有时读" style=" margin-left:50px;" />&nbsp;&nbsp;有时读
+                        <input type="radio" name="read" value="很少读" style=" margin-left:50px;" />&nbsp;&nbsp;很少读
+                    </div>
+                    <div class="clear"></div>
+                    <div class="xiaobiaoti">您下一步准备买什么车</div>
+                    <div class="gouche">
+                        <input id="buzhidao1" type="radio"  name="buy" value="新车" checked="checked" />&nbsp;&nbsp;新车
+                        <input id="buzhidao2" type="radio" name="buy" value="二手车" style=" margin-left:50px;" />&nbsp;&nbsp;二手车，约&nbsp;<input name="num" type="text" class="nian" />&nbsp;年的车
+                        <input id="buzhidao3" type="radio" name="buy" value="不知道" style=" margin-left:50px;" />&nbsp;&nbsp;不知道
+
+                    </div>
+                    <div class="clear"></div>
+                    <div id="cc" class="xiaobiaowen">品牌&nbsp;&nbsp;
+                        <select class="time" name="brand" id="brand_id1" onchange="chgBrand(1)">
+                            <option>请选择</option>
+                            {loop $brand $k $v}
+                            <option value="$v[brand_name]">$v[brand_name]</option>
+                            {/loop}
+                        </select>
+                    </div>
+                    <div id="cc1" class="xiaobiaowen1">车系&nbsp;&nbsp;
+                        <select class="time" id="series_id1" name="audi">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="xiaobiaoti">除上述准备买的车型外，还会考虑其他车型吗?</div>
+                    <div class="yixiangchexing">
+                        <input id="buzhidao4" type="radio" name="yixiang" value="考虑" checked="checked" />&nbsp;&nbsp;考虑
+                        <input id="buzhidao5" type="radio" name="yixiang" value="不考虑"  />&nbsp;&nbsp;不考虑
+                        <input id="buzhidao6" type="radio" name="yixiang" value="不知道" style=" margin-left:50px;" />&nbsp;&nbsp;不知道
+
+                    </div>
+                    <div class="clear"></div>
+                    <div id="cc2" class="xiaobiaowen">品牌&nbsp;&nbsp;
+                        <select class="time" name="brands" id="brand_id2" onchange="chgBrand(2)">
+                            <option>请选择</option>
+                            {loop $brand $k $v}
+                            <option value="$v[brand_name]">$v[brand_name]</option>
+                            {/loop}
+                        </select>
+                    </div>
+                    <div id="cc22" class="xiaobiaowen1">车系&nbsp;&nbsp;
+                        <select class="time" id="series_id2"  name="audis">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="xiaobiaoti">您计划何时购置您的下一辆车？</div>
+                    <div class="nextcar">
+                        <span style=" margin-right:43px;"><input type="radio" name="plan" value="刚刚买了" checked="checked" />&nbsp;刚刚买了</span>
+                        <span style=" margin-right:43px;"><input type="radio" name="plan" value="2016上半年" />&nbsp;2016上半年</span>
+                        <span style=" margin-right:43px;"><input type="radio" name="plan" value="2016下半年" />&nbsp;2016下半年</span>
+                        <span style=" margin-right:43px;"><input type="radio" name="plan" value="2017上半年" />&nbsp;2017上半年</span>
+                        <span style=" margin-right:43px;"><input type="radio" name="plan" value="2017下半年" />&nbsp;2017下半年</span>
+                        <span style=" margin-right:43px;"><input type="radio" name="plan" value="2017以后" />&nbsp;2017以后</span>
+                        <span style=" margin-right:43px;"><input type="radio" name="plan" value="不知道" />&nbsp;不知道</span>
+                    </div>
+                    <div class="clear"></div>
+                    <input type="submit" class="tijiao" value="确认提交"/>
+                </form>
+            </div>
+            <div class="toupiao" style="display:none;">
+                <div class="tpbg"></div>
+                <div class="toupiaocg">
+                    <div class="theme-poptit1">
+                        <br /><a href="javascript:;" title="关闭" class="close1">×</a>
+                    </div>
+                    <div class="tc_denglu"><font style="font-size:24px;">投票成功</font></div>
+                    <p class="tp_sm">投票已成功</p>
+                    <div class="anniu">
+                        <a href="/">返回首页</a>
+                    </div>
+                </div>
+            </div>
+            <div class="banquan">
+                    <div class="yllx">友情链接请联系: QQ 171479684</div>
+                    京ICP备:05067646&nbsp;&nbsp;|&nbsp;&nbsp;京公网安备:1101055366&nbsp;&nbsp;|&nbsp;&nbsp;Copyright&copy; 2005-2015&nbsp;&nbsp;|&nbsp;&nbsp;www.cheping.com.cn,All Rights Reserved&nbsp;&nbsp;ams车评网&nbsp;&nbsp;版权所有
+                </div>
+            <script>
+                $(function () {
+                    $('.denglu').hide();
+                    $('#buzhidao1').click(function () {
+                        $('#cc').show();
+                        $('#cc1').show();
+                    });
+                    $('#buzhidao2').click(function () {
+                        $('#cc').show();
+                        $('#cc1').show();
+                    });
+                    $('#buzhidao3').click(function () {
+                        $('#cc').hide();
+                        $('#cc1').hide();
+                    });
+                    $('#buzhidao4').click(function () {
+                        $('#cc2').show();
+                        $('#cc22').show();
+                    });
+                    $('#buzhidao5').click(function () {
+                        $('#cc2').hide();
+                        $('#cc22').hide();
+                    });
+                    $('#buzhidao6').click(function () {
+                        $('#cc2').hide();
+                        $('#cc22').hide();
+                    });
+                    $("#selectAdate1").dateSelector();
+                    $("#selectAdate1_selectYear").attr('class','time');
+                    $("#selectAdate1_selectMonth").attr('class','time');
+                    $("#selectAdate1_selectDay").attr('class','time');
+                });
+                function chgBrand(num) {
+                    var brand_id = $('#brand_id' + num).val();
+                    var fact = $('#series_id' + num)[0];
+                    var facturl = "/vote.php?action=series&brand_name=" + brand_id;
+                    $.getJSON(facturl, function (ret) {
+                        $('#series_id' + num + ' option[value!="0"]').remove();
+                        $.each(ret, function (i, v) {
+                            fact.options.add(new Option(v['series_name'], v['series_name']));
+                        });
+                    });
+                }
+            </script>
+        </div>
+    </body>
+</html>

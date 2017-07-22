@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+body{ background-color:#e4e4e4;}
+body,ul,li { margin:0; padding:0;list-style-type:none; display:block; }
+*{margin:0;padding:0; font-family:"微软雅黑"; }
+a,img{border:0;}
+a{ text-decoration:none;}
+.clear{overflow: hidden;font-size:0;line-height:0;width:100%;clear:both;}
+.fl{ float:left;}
+.fr{ float:right;}
+/* 文章读图首页 */
+.header{width:100%; background:#3f4952; margin-top:-23px;}
+.header-con-index{ color:#e4e4e4;font-size:0.875em; line-height:34px; text-indent:14px;}
+.index-con{ width:90%; margin:0 auto; margin-top:45px;}
+.index-con ul{ margin-left:3.5%;}
+.index-con ul li{ width:22%; padding:0 3% 3% 0; float:left; }
+.index-con ul li .img-zi{ width:100%;  position:relative; height:200px; }
+.index-con ul li .index-con-sp1{ display:block; position:relative; }
+.index-con ul li .index-con-sp2{ position:absolute; /*top:84%; left:80%;*/ right:1%; bottom:2%;  background:url(../images/png.png); color:white; font-size:0.875em; /*width:20%; height:16%;*/ padding:2% 4%; text-align:center; }
+.index-con ul li .index-p{ width:100%;}
+.index-con ul li .index-p .index-con-sp3{ display:block;  color:#333; margin-top:10px; font-size:0.875em; line-height:20px;}
+.index-con ul li .index-p .index-con-sp3 a{ color:#333;}
+/* 分页 */
+.ep-pages{padding:23px 0 28px 12px;clear:both;text-align:center;font-size:13px;vertical-align:top; color:#3f4952; } 
+.ep-pages a{color:#3f4952; }
+.ep-pages span{height:23px;line-height:23px; border:1px solid #e5e5e5; background:#fff; padding:5px 12px;}
+.ep-pages ol li{ display:inline-block;   border:1px solid #e5e5e5; background:#FFF; }
+.ep-pages ol li a {display:inline-block; padding:4px 11px;}
+.ep-pages ol li.song{background:#333;}
+.song a{color:White;}
+
+ 

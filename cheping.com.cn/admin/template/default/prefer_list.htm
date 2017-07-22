@@ -1,0 +1,100 @@
+{template header}
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+        <li><a href="<!--{$php_self}-->preferlist"  class="song">数据列表</a></li>
+        <li><a href="<!--{$php_self}-->prefererrorlog">错误日志</a></li>
+        <li ><a href="<!--{$php_self}-->preferadd">数据导入</a></li>
+        <li ><a href="<!--{$php_self}-->preferupdate">数据添加</a></li>
+        <li ><a href="<!--{$php_self}-->getprefer">抓取最新的补贴数据</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+             <form action="<!--{$php_self}-->preferlist" method="post" name="form2">
+                <table class="table2" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td>
+                           厂商名称 <input type="text" name="factory_name" value="{$factory_name}" size="15">
+                           车系名称 <input type="text" name="series_name" value="{$series_name}" >
+                           车款名称 <input type="text" name="model_name" value="{$model_name}" >
+                         <br>
+                         厂商指导价 <select name="model_price" id="model_price">
+                            <option value="">请选择</option>
+                            
+                            <option value="10" {if $model_price=='10'}selected{/if}>10万以下</option>
+                            <option value="10-20" {if $model_price=='10-20'}selected{/if}>10万-20万</option>
+                            <option value="20-30" {if $model_price=='20-30'}selected{/if}>20万-30万</option>
+                            <option value="30" {if $model_price=='30'}selected{/if}>30万以上</option>
+                           
+                          </select>
+                          奖励金额<select name="car_prize" id="model_price">
+                            <option value="">请选择</option>
+                           <option value="1600-2000" {if $car_prize=='1600-2000'}selected{/if}>1600-2000</option>
+                           <option value="2000-4000" {if $car_prize=='2000-4000'}selected{/if}>2000-4000</option>
+                           <option value="4000-4800" {if $car_prize=='4000-4800'}selected{/if}>4000-4800</option>
+                           <option value="5000-6000" {if $car_prize=='5000-6000'}selected{/if}>5000-6000</option>
+                           <option value="6000-7200" {if $car_prize=='6000-7200'}selected{/if}>6000-7200</option>
+                           <option value="10000-12000" {if $car_prize=='10000-12000'}selected{/if}>10000-12000</option>
+                            
+                          </select>
+                       
+                             <input type="submit" name="search" value=" 搜 索 ">
+                         </td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+            </form>
+  
+            <table class="table2" border="0" cellpadding="0" cellspacing="0">
+            
+                <tr align="right"  class='th'>
+                    <th height="5" nowrap>ID</th>
+                    <th height="5" nowrap>车款ID</th>
+                    <th width="10%" >厂商名称</th>
+                    <th height="10%" nowrap>车系名称</th>
+                    <th height="15%" nowrap>车款配置</th>
+                    <th height="10%" nowrap>厂商指导价</th>
+                    <th height="10%" nowrap>奖励金额</th>
+                    <th height="15%" nowrap>有效时间</th>  
+                    <th height="10%" nowrap>修改时间</th>  
+                    <th height="10%" nowrap>添加时间</th>  
+                    <th height="5%" nowrap>操作</th>
+                    
+
+                </tr>
+                <!--{loop $list $k $v}-->
+                <tr align="right"  class='th'>
+                    <th height="5" nowrap>$v["id"]</th>
+                    <th height="5" nowrap>$v["model_id"]</th>
+                    <th width="10%" >$v["factory_name"]</th>
+                    <th height="10%" nowrap>{$v[series_name]}</th>
+                    <th height="15%" nowrap>{$v['model_name']}</th>
+                    <th height="10%" nowrap>{$v['model_price']}万元</th>
+                    <th height="10%" nowrap>{$v['car_prize']}元</th>
+                    <th height="10%" nowrap>{eval echo date('Y-m-d',$v['start_date'])}<br>{eval echo date('Y-m-d',$v['end_date'])}</th>
+                    <th height="10%" nowrap>{if $v['updated']}{eval echo date('Y-m-d',$v['updated'])}{/if}</th>
+                    <th height="10%" nowrap>{if $v['created']}{eval echo date('Y-m-d',$v['created'])}{/if}</th>
+                    <th height="5%" nowrap><a href="<!--{$php_self}-->preferupdate&id=$v[id]&url=$extra">修改</a></th>
+
+                </tr>
+                <!--{/loop}-->
+            </table>
+            <!--{if $page_bar}-->
+            <div>
+                <div class="ep-pages">
+                    {$page_bar}
+                </div>
+            </div>
+            <!--{/if}-->
+        </div>
+        <div class="user_con2">
+            <img src="{$admin_path}images/conbt.gif" height="16" >
+        </div>
+    </div>
+</div>
+</body>
+</html>

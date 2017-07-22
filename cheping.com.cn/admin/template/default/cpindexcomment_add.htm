@@ -1,0 +1,181 @@
+{template header}
+      <script>
+      function getPriceInfo(mid) {
+          $.get('index.php?action=static-ajaxgetprice', {mid:mid}, function(data) {
+              $('#price_info').html(data);
+          });
+      }    
+      </script>
+        <div class="user">
+            <div class="nav">
+                <ul id="nav">
+                    <li><a href="?action=comment-indexcomment">首页评论列表</a></li>
+                    <li><a href="?action=comment-addcomment" class="song">编辑评论</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+       <div class="user_con">
+          <div class="user_con1">
+            <form id="comment_form" action="index.php?action=comment-addcomment" method="post" enctype="multipart/form-data">
+            <table cellpadding="0" cellspacing="0" class="table2" border="0">
+              <tr>
+                <td class="td_right" width="100px">车款：</td>
+                <td class="td_left"  width="600px">
+                  <select name="brand_id" id="brand_id">
+                      <option value="">==请选择品牌==</option>
+                      <!--{loop $brand $k $v}-->
+                      <option value="$v[brand_id]">{$v[brand_name]}</option>
+                      <!--{/loop}-->
+                  </select>
+                  <select name="factory_id" id="factory_id">
+                      <option value="">==请选择厂商==</option>
+                      <!--{loop $factory $k $v}-->
+                      <option value="$v[factory_id]">{$v[factory_name]}</option>
+                      <!--{/loop}-->
+                  </select>
+                  <select name="series_id" id="series_id">
+                      <option value="">==请选择车系==</option>
+                      <!--{loop $series $k $v}-->
+                      <option value="$v[series_id]">{$v[series_name]}</option>
+                      <!--{/loop}-->
+                  </select>
+                  <select name="model_id" id="model_id" style="width:160px" onchange="getPriceInfo(this.value);">
+                      <option value="">==请选择车款==</option>
+                      <!--{loop $model $k $v}-->
+                      <option value="$v[model_id]">{$v[model_name]}</option>
+                      <!--{/loop}-->
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                  <td colspan="2" id="price_info" name="price_info"></td>            
+                  <script>getPriceInfo({$comment['model_id']});</script>
+              </tr>        
+              <tr>
+                <td class="td_right">成交价：</td>
+                <td class="td_left">
+                    <input type="text" name="s10" id="s10" size="10" value="{$comment['s10']}">万
+                </td>
+              </tr>
+              <tr>
+                <td class="td_right">网站评价：</td>
+                <td class="td_left">
+                    <textarea name="pros" id="pros" rows="5" cols="50" >{$comment['pros']}</textarea>
+                    <br/>
+                </td>
+              </tr>
+                <td class="td_right">经销商评价：</td>
+                <td class="td_left">
+                    <textarea name="cons" id="cons" rows="5" cols="50">{$comment['cons']}</textarea>
+                </td>
+              </tr>
+              <tr>
+                <td class="td_right">用户名：</td>
+                <td class="td_left">
+                    <input type="text" id="uname" name="uname" value="{$comment['uname']}"/>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                <input type="hidden" name="id" id="id" value="{$comment[id]}">
+                <input id="comment_btn" type="button" value="  提  交  ">&nbsp;&nbsp;&nbsp;
+                <input type="reset" id="reset" value="  重  填  ">
+                </td>
+              </tr>
+            </table>
+            </form>
+         </div>
+         <div class="user_con2"><img src="<!--{$admin_path}-->images/conbt.gif" width="760" height="16" /></div>
+      </div>
+      </div> 
+      <script charset="utf-8" src="<!--{$relative_dir}-->vendor/editor/kindeditor.js"></script>
+      <script type="text/javascript"></script>
+      <script>
+      var bid = '<!--{$comment['brand_id']}-->';
+      var fid = '<!--{$comment['factory_id']}-->';
+      var sid = '<!--{$comment['series_id']}-->';
+      var mid = '<!--{$comment['model_id']}-->';
+      $('#brand_id option[value="' + bid + '"]').attr({selected:true});
+      $('#factory_id option[value="' + fid + '"]').attr({selected:true});
+      $('#series_id option[value="' + sid + '"]').attr({selected:true});
+      $('#model_id option[value="' + mid + '"]').attr({selected:true});
+      $(document).ready(function() {
+          $('#brand_id').change(function(){
+              var brand_id=$(this).val();
+              var fact=$('#factory_id')[0];
+              var facturl="?action=factory-json&brand_id="+brand_id;
+              var sel=$(this)[0];
+              $('#brand_name').val(sel.options[sel.selectedIndex].text)
+
+              $.getJSON(facturl, function(ret){
+                  $('#factory_id option[value!=""]').remove();
+                  $('#series_id option[value!=""]').remove();
+                  $('#model_id option[value!=""]').remove();
+
+                  $.each(ret, function(i,v){
+                      fact.options.add(new Option(v['factory_name'], v['factory_id']));
+                  });
+              });
+          });
+        
+          $('#factory_id').change(function(){
+              var fact_id=$(this).val();
+              var ser=$('#series_id')[0];
+              var serurl="?action=series-json&factory_id="+fact_id;
+              var sel=$(this)[0];
+              $('#factory_name').val(sel.options[sel.selectedIndex].text)
+
+              $.getJSON(serurl, function(ret){
+                  $('#series_id option[value!=""]').remove();
+                  $('#model_id option[value!=""]').remove();
+
+                  $.each(ret, function(i,v){
+                      ser.options.add(new Option(v['series_name'], v['series_id']));
+                  });
+              });
+          });
+        
+          $('#series_id').change(function(){
+              var sel=$(this)[0];
+              $('#series_name').val(sel.options[sel.selectedIndex].text)
+
+              var sid=$(this).val();
+              var mod=$('#model_id')[0];
+              var modurl="?action=model-json&sid="+sid;
+              $.getJSON(modurl, function(ret){
+                  $('#model_id option[value!=""]').remove();
+                  $.each(ret, function(i,v){
+                      mod.options.add(new Option(v['model_name'], v['model_id']));
+                  });
+              });
+          });
+        
+          $('#model_id').change(function(){
+              var mod=$(this)[0];
+              $('#model_name').val(mod.options[mod.selectedIndex].text)
+          });
+
+
+
+
+      });
+
+      $('#comment_btn').click(function(){
+          if($('#brand_id').val() == '') {alert('请选择品牌!');return false;}
+          else if($('#factory_id').val() == '') {alert('请选择厂商!');return false;}
+          else if($('#series_id').val() == '') {alert('请选择车系!');return false;}
+          else if($('#model_id').val() == '') {alert('请选择车款!');return false;}
+          else if($('#s10').val() == '') {alert('成交价不能为空！');return false;}
+          else if(isNaN($('#s10').val())) {alert('成交价格填写不正确！');return false;}
+          else if($('#pros').val() == '') {alert('网站评论不能为空!');return false;}
+          else if($('#cons').val() == '') {alert('经销商评论不能为空!');return false;}
+          else if($('#uname').val() == '') {alert('用户名不能为空!');return false;
+          }else{$('#comment_form').submit();}
+      });
+
+      $('#reset').click(function(){
+          $('#comment_form').val('');
+      });
+      </script>
+    </body>
+</html>     

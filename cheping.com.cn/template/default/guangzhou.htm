@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>【2015广州车展新车|时间|地址|广州国际车展视频】{if $titlePageNum}第{$titlePageNum}页{/if}-ams车评网</title>
+        {if !$titlePageNum}
+        <meta name="keywords" content="2015广州车展,广州国际车展视频,广州车展时间,广州车展新车,广州车展地址" />
+        <meta name="description" content="ams车评网为您提供2015广州车展资讯及视频，包括2015广州国际车展时间、2015广州车展新车图片、门票、地址等内容，更多2015广州车展动态尽在 ams车评网。" />
+        {/if}
+        <link rel="stylesheet" href="css/guangzhouchezhan.css" />
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <SCRIPT language=javascript src="js/Designer.js"></SCRIPT>
+        <script src="js/jquery-1.8.3.min.js"></script> 
+        <script src="js/slider.js"></script>
+        <script type="text/javascript" src="js/global.js"></script>
+    </head>
+
+    <body>
+        <!--头部-->
+        <div class="header">
+            <div class="yetou">
+                <div class="ytneirong" id="ytneirong">
+                    <div class=""><a href="http://www.cheping.com.cn/" target="_blank">ams车评网首页</a></div>
+                    <div class="zc_dl ">
+                        <ul id="header_login"><span class="zc zcdl" ><a href="/register.php" target="_blank">注册</a></span>|<span class="dl zcdl" ><input type="hidden"  id="uid" value="{$uid}"/><a href="/login.php&url=gz" class="btn-large" target="_blank">登录</a></span></ul>
+                        <ul id='header_content' style="display: none;">
+                            <span class="zc zcdl"><a href="/user.php" id='header_username'> </a></span> 
+                            <span class="zc zcdl"><a href="javascript:void(0)" onclick='logout({$uid})'>退出</a></span>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="banner"><img src="images/images-guangzhou/chezhan_banner.jpg" width="100%" height="auto" /></div>
+        </div>
+        <!--头部结束-->
+        <!--页面主体-->
+        <div class="main" id="gundong">   
+            <div class="main_lb_nr">
+                <div id="zhengti">
+                    <div class="lb_img_list">
+                        <ul>
+                            {loop $listTopBanner $k $v}
+                            <li><a href="{$v[url]}" target="_blank"><img src="{if $v[pic]}/attach/$v[pic]{else}images/images-guangzhou/lb1.jpg{/if}" alt="{$v[title]}"></a></li>
+                            {/loop}
+                        </ul>
+                    </div>
+                    <div class="lb_btn_list">
+                        <ul>   
+                        </ul>
+                    </div>
+                    <div class="lb_img_intro">
+                        <div class="text"><a href="#" target="_blank"></a></div>
+                        <div class="lb_img_intro_bg"></div>            
+                    </div>
+
+                </div>
+                <!--文章块-->
+                <div class="wenzhang">
+                    <div class="biaoti">
+                    {loop $listHeadline $k $v}
+                    {if $v[state]==1}
+                    <div class="red_biaoti"><a href="{$v[url]}"  target="_blank">{$v[title]}</a></div>
+                    {/if}
+                    {/loop}
+                    {loop $listHeadline $k $v}
+                    {if $v[state]==0}
+                    <div class="zi_biaoti"><a href="{$v[url]}"  target="_blank">{$v[title]}</a></div>
+                    {/if}
+                    {/loop}
+                    </div>
+                    <div class="fgx"></div>
+                    <div class="jieshao">2015 广州车展介绍</div>
+                    <div class="fgx_nr">时间：2015年11月20日--11月29日</div>
+                    <div class="fgx_nr">地点：广州 中国进出口商品交易会展馆</div>
+                    <div class="fgx_nr">门票：专业观众票 100元 11月21-29日</div>
+                    <div class="pt_menpiao">普通观众票 50元 11月23-29日</div>
+                </div>
+            </div>
+
+            <!--广州车展精彩视频-->
+            {if $chezhanvideo}
+            <div style="width:1000px;">
+                <div class="jc_video" ><h3 class="jc_video">2015 广州车展精彩视频</h3></div>
+                <div class="jc_sp"><a href="/video.php?action=Video&id=9" target="_blank">精彩视频>></a></div>
+            </div>
+            <div class="clear"></div>
+            <!--精彩视频-->
+            <div class="h_tonglan xiant">
+
+                <ul class="h218px">
+                    <table width="1000" height="200" align="center" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <th width="43" valign="top"><img src="images/images-guangzhou/left.jpg" class="pointer" id="arrLeft" border="0" /></th>
+                            <td width="1000" valign="top">
+                                <div id="scrollbox">
+                                    <ul>
+                                        
+                                        {loop $chezhanvideo $k $v}
+                                        <li>
+                                            <a href="{$v[url]}" target="_blank" ><img src="{UPLOAD_DIR}{$v[pic]}" border="0" ><br /></a>
+                                            <div class="sp_bt">{$v[title]}</div><br />
+                                            <div class="video_tags">
+                                            {loop $video_tags_num[$k] $kt $vt}
+                                            {if $video_tags_list[$k][$vt]!='no'}
+                                            <span class="video_tags_num" style="display: none;">{$vt}</span><a href="javascript:void(0);"><span class="sp_bq">$video_tags_list[$k][$vt]</span></a>
+                                            {/if}
+                                            {/loop}
+                                            </div>
+                                        </li>
+                                        {/loop}
+                                    </ul>
+                                </div>
+                            </td>
+                            <th width="43" valign="top"><img src="images/images-guangzhou/right.jpg" class="pointer" id="arrRight" border="0" /></th>
+                        </tr>
+                    </table>
+
+                </ul>
+            </div>
+            {/if}
+            <div class="guanggaoweib" style="display: none;"><a href="#"><img src="images/images-guangzhou/ggw.jpg" /></a></div><!--大广告位-->
+            <div class="cz_ht" id="remen"><h5 class="cz_ht">2015 广州车展热门话题</h5></div>
+            <div class="main_bottom">
+                <!--right-->
+                <div class="main_right">
+                    <div class="xggw" style="display: none;"><img src="images/images-guangzhou/ggwx1.jpg" width="300" height="170" /></div>
+                    <div class="kuang">
+                        <div style="border-bottom:3px solid #000; margin-top:30px;"></div>
+                        <div class="xc_bt">2015 广州车展热门新车</div>
+
+                        <div class="slider">
+                            <div class="slider-container">
+                                <div class="slider-wrapper">
+                                    {if $remenxinche_page_num}
+                                    {loop $remenxinche_page_num $key $value}
+                                    <div class="slide">
+                                        {loop $value $k  $v}
+                                        <div class="list1">
+                                            <a href="{$v[url]}"  target="_blank"><img src="{UPLOAD_DIR}{$v[pic]}" width="104" height="78" /></a>
+                                            <div class="list_sm"><a href="{$v[url]}"  target="_blank">{$v[title]}</a></div>
+                                        </div>
+                                        {/loop}
+                                    </div>
+                                    {/loop}
+                                    {/if}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--广告位3-->
+                    <div class="ggw3" style="display: none;"><img src="images/images-guangzhou/ggwxx.jpg"></div>
+                    <div class="ggw3" style="display: none;"><img src="images/images-guangzhou/ggwxx.jpg"></div>
+
+                </div>
+
+
+                <!--list-->
+                <!--left-->
+                <div class="main_left">
+                    {loop $remenhuati $k $v}
+                    <div style="height:200px; margin-top:30px;">
+                        <div class="wz_list"><a href="{$v[url]}"  target="_blank"><img src="{UPLOAD_DIR}{$v[pic]}" /></a></div>
+                        <div class="wenzhangnr">
+                            <div class="list_bt"><a href="{$v[url]}"  target="_blank"><h5 class="list_bt">{$v[title]}</h5></a></div>
+                            <div class="list_nr">{$v[chief]}</div>
+                            <div class="list_bq">
+                                {loop $remenhuati_tags_num[$k] $kt $vt}
+                                {if $remenhuati_tags_list[$k][$vt]!='no' && $remenhuati_tags_list[$k][$vt]!='' }
+                                <span class="remenhuati_tags_num" style="display: none;">{$vt}</span><a href="javascript:void(0)"><span class="L_bq">$remenhuati_tags_list[$k][$vt]</span></a>
+                                {/if}
+                                {/loop}
+                            </div>
+
+                        </div>
+                    </div>
+                    {/loop}
+                    <!--分页样式-->
+                    <div class="ep-pages">
+                        {$remenhuati_page_bar}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="footer">
+            <div style="width:1000px; margin:0 auto;">
+                <div class="hezuo"></div>
+                <div class="youlian">
+                    <span><a href="http://v.autohome.com.cn/u/20057952#pvareaid=106548">之家ams车评网频道</a></span>
+                    <span><a href="http://i.youku.com/u/UMTg4ODk3ODIyOA==">优酷ams车评网频道</a></span>
+                    <span><a href="http://v.bitauto.com">易车视频</a></span>
+                    <span><a href="http://www.yidianzixun.com/home?page=channel&keyword=ams车评">一点资讯ams车评网频道</a></span>              
+                </div>
+            </div>
+            <div class="banquan">京ICP备:05067646&nbsp;&nbsp;京公网安备:1101055366&nbsp;&nbsp;Copyright&nbsp;&nbsp;2005-2015&copy;&nbsp;&nbsp;<a href="www.cheping.com.cn">www.cheping.com.cn</a>&nbsp;&nbsp;,All Rights Reserved&nbsp;&nbsp;车评网版权所有</div>   
+        </div>
+
+        <div class="piaofu">
+            <a href="#ytneirong"><div class="fanhui">返回顶部</div></a>
+            <a href="#gundong"><div class="gundong">滚动报道</div></a>
+            <a href="#remen"><div class="remen">热门新车</div></a>
+            <div class="guanzhu">
+                <div class="guanzhu_wenzi">关注&nbsp;ams车评网</div>
+                <div class="tanchu"><img src="images/images-guangzhou/ewm.jpg" width="104" height="100"/></div>
+            </div>
+        </div>
+        <!--页面主体结束-->
+        <!--别忘了这儿的js-->
+        <script type="text/javascript" src="js/chezhan_lunbo.js"></script>
+        {if $chezhanvideo_num>=4}
+        <SCRIPT language=javascript type=text/javascript>
+                        var scrollPic_02 = new ScrollPic();
+                        scrollPic_02.scrollContId = "scrollbox"; //内容容器ID
+                        scrollPic_02.arrLeftId = "arrLeft";//左箭头ID
+                        scrollPic_02.arrRightId = "arrRight"; //右箭头ID
+                        scrollPic_02.frameWidth = 900;//显示框宽度
+                        scrollPic_02.pageWidth = 900; //翻页宽度
+                        scrollPic_02.speed = 8; //移动速度(单位毫秒，越小越快)
+                        scrollPic_02.space = 8; //每次移动像素(单位px，越大越快)
+                        scrollPic_02.autoPlay = false; //自动播放
+                        scrollPic_02.autoPlayTime = 3; //自动播放间隔时间(秒)
+                        scrollPic_02.initialize(); //初始化
+        </SCRIPT>
+        {/if}
+        <script type="text/javascript">
+            (function () {
+                Slider.init({
+                    target: $('.slider'),
+                    time: 1000*3600*24
+                });
+            })();
+            
+            $().ready(function () {
+                $('.shangxia').children('a').css('color', '#FFF');
+            })
+            $('.shangxia').each(function () {
+                $(this).click(function () {
+                    $(this).children('a').css('color', '#FFF');
+                })
+            })
+            $('.sp_bq').click(function(){
+                var tagname = $(this).text();
+                $.post("/guangzhou.php?action=tagAjax",{"tagname":tagname},function(msg){
+                    if(msg!=-1){
+                        window.location.href= 'article.php?action=ActiveList&id='+msg;
+                    }
+                })
+                return false;
+            })
+            $('.L_bq').click(function(){
+                var tagname = $(this).text();
+                $.post("/guangzhou.php?action=tagAjax",{"tagname":tagname},function(msg){
+                    if(msg!=-1){
+                       window.location.href= 'article.php?action=ActiveList&id='+msg;
+                    }
+                })
+                return false;
+            })
+        </script>
+    </body>
+</html>

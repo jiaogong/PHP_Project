@@ -1,0 +1,345 @@
+{template user_header}
+<script type="text/javascript">
+    $(function () {
+        $("ul > li").click(tab);
+
+        function tab() {
+            $(this).addClass("ll").siblings().removeClass("ll");
+            var tab = $(this).attr("title");
+            $("#" + tab).show().siblings().hide();
+               
+        }
+
+       
+        $("#code_os").blur(function () {
+            var code = $(this).val();
+            $.getJSON('user.php?action=CheckCodes', "code=" + code, function (msg) {
+                if (msg == 0) {
+                    $(".code_error").show();
+                    $(".code_error").next().hide();
+                    $('.butt').attr({"disabled":"disabled"});
+                    
+                } else {
+                    $(".code_error").hide();
+                    $(".code_error").next().show();
+                    $('.butt').removeAttr("disabled");
+                    
+                }
+            })
+        })
+
+        $("#code_oss").blur(function () {
+            var code = $(this).val();
+
+            $.getJSON('user.php?action=CheckCodess', "code=" + code, function (msg) {
+                if (msg == 0) {
+                    $(".code_error").show();
+                    $(".code_error").next().hide();
+                    $('.butt').attr({"disabled":"disabled"});
+                   
+                    
+                } else {
+                    $(".code_error").hide();
+                    $(".code_error").next().show();
+                    $('.butt').removeAttr("disabled");
+                    
+                }
+                
+            })
+        })
+
+        $("#code_o").blur(function () {
+            var code = $(this).val();
+            $.getJSON('user.php?action=CheckCode', "code=" + code, function (msg) {
+                if (msg == 0) {
+                    $(".code_error").show();
+                    $(".code_error").next().hide();
+                    $('.butt').attr({"disabled":"disabled"});
+                    
+                } else {
+                    $(".code_error").hide();
+                    $(".code_error").next().show();
+                    $('.butt').removeAttr("disabled");
+                    
+                }
+            })
+        })
+        
+        $("#password").blur(function () {
+            var password_reg = /^.{6,18}$/;
+            var password = $(this).val();
+
+                 if (password_reg.test(password)) {
+                        $(".password_error").hide();
+                          $(".password_error").next().show();
+                    } else {
+                         $(".password_error").html("密码长度不符合规则");
+                        $(".password_error").show();
+                         $(".password_error").next().hide();
+                    }
+           
+        })
+    });
+    
+    
+    
+          function one(){
+               var pass = document.getElementById("password");
+               if(pass.value.length=='0'||pass.value.length<6||pass.value.length>20){
+                    return false;       
+               }
+//           
+               if(document.getElementById('code_os').value.length=='0'){
+                   return false;
+                }else{
+                    var code = $("#code_os").val();
+                    $.getJSON('user.php?action=CheckCodes', "code=" + code, function (msg) {
+                        if (msg == 0) {
+                            $(".code_error").show();
+                            $(".code_error").next().hide();
+                            $('.butt').attr({"disabled":"disabled"});
+                             return false;
+                        } else {
+                            $(".code_error").hide();
+                            $(".code_error").next().show();
+                            $('.butt').removeAttr("disabled");
+                            return ture;   
+                        }
+                    })
+                    
+                    
+                }
+      }
+      
+      function one1(){
+
+               if(document.getElementById('code_oss').value.length=='0'){
+                   return false;
+                }else{
+                    var code = $("#code_os").val();
+                    $.getJSON('user.php?action=CheckCodess', "code=" + code, function (msg) {
+                        if (msg == 0) {
+                            $(".code_error").show();
+                            $(".code_error").next().hide();
+                            $('.butt').attr({"disabled":"disabled"});
+                             return false;
+                        } else {
+                            $(".code_error").hide();
+                            $(".code_error").next().show();
+                            $('.butt').removeAttr("disabled");
+                            return ture;   
+                        }
+                    })
+                }
+      }
+      
+      function one2(){
+               var mobile = document.getElementById("mobile_o");
+               if(pass.value.length=='0'){
+                    return false;       
+               }else{
+                    var mobile_reg = /^(13|18|15|17)\d{9}$/;
+                    if (!mobile_reg.test(mobile)) {
+                        $('#mobile_o').val('');
+                        $('#mobile_o').focus;
+                        return false;
+                    }
+               }
+//           
+               if(document.getElementById('code_o').value.length=='0'){
+                   return false;
+                }else{
+                    var code = $("#code_o").val();
+                    $.getJSON('user.php?action=CheckCode', "code=" + code, function (msg) {
+                        if (msg == 0) {
+                            $(".code_error").show();
+                            $(".code_error").next().hide();
+                            $('.butt').attr({"disabled":"disabled"});
+                             return false;
+                        } else {
+                            $(".code_error").hide();
+                            $(".code_error").next().show();
+                            $('.butt').removeAttr("disabled");
+                            return ture;   
+                        }
+                    })
+                }
+      }
+    $(document).ready(function(){
+       
+        $('.anniu').click(function(){
+            if($('haiwai').val()=='1'){
+                $('haiwai').parents().siblings('select').hide();         
+            }      
+        });       
+    })
+</script>
+
+<style>
+    /*新搜索*/
+    #searchSuggest{width:425px;height:39px;background-color:#FFF;border-radius:4px; float:right;}
+    #suggest_input{width:350px;height:39px;padding:0 10px;margin:0px;border: 0;outline:none;border-radius:4px;}
+    #suggest_ul{width:425px;max-height:198px;margin:0px;padding:0px;list-style-type:none; background-color:#FFF; position: relative; z-index: 10;}
+    #suggest_ul li{padding-left:10px;line-height:22px;font-size:13px;width:415px;height:22px;cursor:default; }
+    #suggest_submit{width:39px;height:39px;background: url(../images/sousuo.png) no-repeat center center;width: 39px;background-color: #fff;height: 39px;cursor: pointer;float: right;border:1px solid #FFF;border-radius:4px;}
+    .cc img{max-width:255px; max-height:255px; scale:expression((this.offsetWidth > this.offsetHeight)?(this.style.width = this.offsetWidth >= 255 ? "255px" : "auto"):(this.style.height = this.offsetHeight >= 255 ? "255px" : "auto")); display:inline;}
+</style>
+<div class="geren-concent">
+    <div class="index-con-left"><!--左侧内容开始-->
+        <div class="geren_ziliao" style="">
+            <img src="{if $users['avatar']}attach/$users['avatar']{else}images/touxiang.jpg{/if}" style="width:100px;height: 105px;">
+            <div class="jiben_xinxi">
+                <div class="yonghuming">{$users[username]}</div>
+                <div class="zhuangtai">
+                    <span>我的评论 &nbsp;<font style="color:#E51A14">({$reviewscount})</font></span>
+                    <span style="margin-left:30px;">我的收藏 &nbsp;<font style="color:#E51A14">({$collectcount})</font></span>
+                    <!--<span style="margin-left:30px;">系统消息 &nbsp;<font style="color:#E51A14">99</font></span>-->
+                </div>
+            </div>
+        </div>
+<!--        <div class="gr_bt">个人信息</div>-->
+        <div style="margin-top:60px;">
+            <div class="tab">
+                <ul> 
+                    <li {if !$code}class="ll"{/if} title="d1">基本信息</li> 
+                    <li {if $code}class="ll" {/if} title="d2">更改手机</li> 
+                    <li title="d3">修改头像</li> 
+                    <li title="d4">修改密码</li> 
+                </ul> 
+            </div>          
+            <div class="con"> 
+                <div id="d1"  style="width:882px;{if $code}display:none{/if}" >
+                    <div class="xinxi_1">
+                        <p>用户名&nbsp;:&nbsp;{$user['username']}</p>
+                        <p>用户ID&nbsp;:&nbsp;{$user['id']}</p>
+                        <p>手机号&nbsp;:&nbsp;{$user[mobiles]}   <span title="d2" onclick="showorhide()">更换手机号</span></p>
+
+                    </div>
+                    <div class="xiangxi_xinxi">
+                        <div class="xx_xinxi">详细信息</div>
+                        <div class="xx-sm">真实有效的个人信息会极大方便您参加车评线下活动和收取活动奖励，车评网会严格保密用户信息。</div>
+                        
+                        <div class="xinagxi_xx" id="list_info">
+                            <div class="ming">真实姓名：{$user['realname']}</div>
+                            <div class="sex">性别：$genderArray[$user[gender]] </div>
+                            <div class="sr">出生日期：{$userinfo['birthday']}</div>
+                            <div class="szd">所在地：$countryArray[$userinfo['country']] &nbsp;&nbsp; {if $userinfo['country']==1}{else}{if $userinfo['provinces']!="请选择"}$userinfo['provinces']{/if}&nbsp;&nbsp; {if $userinfo['citys']!="请选择"}$userinfo['citys']{/if}{/if}</div>
+                            <div class="xxdz">详细地址：{$userinfo['address']}</div>
+                            <div class="yb">邮编：{$userinfo['zipcode']}</div>
+                            <div class="qq">QQ：{$userinfo['qq']}</div>
+                            <button class="anniu" onclick="listinfo()" value="">修&nbsp;&nbsp;改</button>
+                        </div>
+                        <div class="xinagxi_xx" id="sumbit_info" style="display: none;">
+                            <form method="post" name="info_form" id="info_form" action="user.php?action=userinfo" enctype="multipart/form-data">
+                                <div class="ming">真实姓名：<input type="text" class="wbkg" name="realname" value="{$user['realname']}"></div>
+                                <div class="sex">性别：<input type="radio" style="margin-left:10px;" name="gender" value="0" {if $user[gender]==0}checked="checked"{/if}>女<input type="radio" name="gender" value="1" style="margin-left: 20px;" {if $user[gender]==1}checked="checked"{/if}>男</div>
+                                <div class="sr">出生日期：<input type="date" name="birthday" value="{$userinfo['birthday']}" class="wbkg"></div>
+                                <div class="szd">所在地：
+                                    {if $userinfo[country]!==NULL}
+                                    <select name="country" id="country" onchange="province_se()">
+                                        <option value="0" {if $userinfo[country]==0}selected="selected"{/if}>中国</option>
+                                        <option value="1" id="haiwai" {if $userinfo[country]==1}selected="selected"{/if}>海外</option>
+                                    </select>
+                                    
+                                    <select name="province" id="province" onchange="city_se()">
+                                        {loop $province $key $value}
+                                        <option value="{$value['id']}" {if $userinfo[province]==$value[id]}selected="selected"{/if}>{$value['name']}</option>
+                                        {/loop}
+                                    </select>
+                                    <select name="city" id="city">
+                                        {loop $city $key $value}
+                                        <option value="{$value['id']}" {if $userinfo[city]==$value[id]}selected="selected"{/if}>{$value['name']}</option>
+                                        {/loop}
+                                    </select>
+                                    
+                                    {else}
+                                    <select name="country" id="country" onchange="province_se()">
+                                        <option selected="selected">请选择</option>
+                                        <option value="0">中国</option>
+                                        <option value="1" >海外</option>
+                                    </select>
+                                    <select name="province" id="province" onchange="city_se()">
+                                        <option>请选择</option>
+                                    </select>
+                                    <select name="city" id="city">
+                                        <option>请选择</option>
+                                    </select>
+                                    {/if}
+                                </div>
+                                <div class="xxdz">详细地址：<input type="text" name='address' value="{$userinfo['address']}" class="wbkg"></div>
+                                <div class="yb">邮编：<input type="text" name="zipcode" value="{$userinfo['zipcode']}" class="wbkg"></div>
+                                <div class="qq">QQ：<input type="text" name="qq" value="{$userinfo['qq']}" class="wbkg"></div>
+                                <button class="anniu" type="button" onclick="sumbitinfo()">确&nbsp;&nbsp;认</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div> 
+                <div id="d2" {if $code}{else}style="display:none"{/if} >
+                     {if $code}
+                     <div class="xiugaishouji_1" >新手机验证
+                        <div class="xyz_sm">请填写新的手机号并完成验证</div>
+                        <form method="post" name="info_form" id="info_form" action="user.php?action=mobile&type=2" enctype="multipart/form-data" onsubmit="return checkReg();">
+                            <input type="hidden" name="id" id="uid3" value="{$user[id]}">
+                            <div class="shoujihao">手机号：<input type="text" name="mobile" id="mobile_o" class="sjhk"></div>
+                            <div class="yanzhengma">验证码：<input type="text" id="code_o" class="yzmyanBtn1k"><input id="btnSendCode1" type="button" class="yanBtn1" value="获取验证码" onclick="sendcode1()"  /><font class="code_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">您输入的验证码有误</font><img src="images/gou.png" style="display:none; line-height:30px; height:30px; margin-left:10px;"></div>
+
+                            <button type="submit" style=" background:none; border:none;  " class="butt"><img src="images/baocun.jpg" width="131" height="33" class="baocun_1" /></button>
+                        </form>
+                    </div>
+                    {else}
+                    <div class="xiugaishouji_1">
+                        <div class="xyz_sm">点击获取验证码，系统将向您手机号 {$user[mobiles]} 发送验证信息，完成验证后可更换新手机号</div>
+                        <form method="post" name="info_form" id="info_form1" action="user.php?action=mobile&type=1" enctype="multipart/form-data"onsubmit="return one1();">
+                            <input type="hidden" name="id" id="uid2" value="{$user[id]}">
+                            <input type="hidden" name="mobile" id="mobile" value="{$user[mobile]}">
+                            <div class="yanzhengma">验证码：<input type="text" name="code" id="code_oss" class="yzmk"><input id="btnSendCode2" type="button" class="yanBtn2" value="获取验证码" onclick="sendMessage2()"  /><font class="code_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">您输入的验证码有误</font><img src="images/gou.png" style="display:none; line-height:30px; height:30px; margin-left:10px;"></div>
+                            <button type="submit" class="anniu butt" style="margin-left:60px;" value="">确认修改</button>
+                        </form>
+                    </div>
+                    {/if}
+                </div> 
+                <div id="d3" style="display:none">
+                    <div class="xiugaishouji_1"><!--更改验证-->
+                        <div class="xyz_sm">请从本地上传您的头像文件<br />文件格式为JPG、JEPG、BMP文件，文件大小不超过400K</div>
+                        <div class="shuangshuan">
+                                <input type="text" id="txt" name="txt" class="input" value="" disabled="disabled" />
+                                <input type="button" onMouseMove="f.style.pixelLeft = event.x - 60;
+                                        f.style.pixelTop = this.offsetTop;" value="请选择图片" size="30" onClick="f.click()" class="liulan">
+                                <input type="file" id="f" onChange="txt.value = this.value" name="f" style="height:26px;" class="files"  size="1"><br />
+                                <input type="hidden" id="upload_f" value="avatar"/>
+                                <button class="shangchuant"  onclick="uploadimg()">上传图片</button>	
+<!--                            </form>-->
+                            <form name="from1" id="from1" method="post" action="user.php?action=Uploads"  enctype="multipart/form-data">
+                            <div class="cc" style="margin-top:40px"><img id="avatar" src="images/yvshe.jpg" /></div>
+                            <input id="avatar1" name="imgsrc" type="hidden" id="upload_f" value=""/>
+                            <div style="margin-top:30px;">
+                            <button type="submit" class="baocun" style="margin-bottom:20px;">保存</button><button type="reset" class="qvxiao" style="margin-bottom:20px;">取消</button>
+                            </div>
+                            </form>
+                            </div> 
+                    </div>
+                </div> 
+                <div id="d4" style="display:none">
+                    <div class="xiugaishouji_1"><!--更改密码-->
+                        <div class="xyz_sm">点击获取验证码，系统将向您手机号{$user[mobiles]}发送验证信息</div>
+                        <form method="post" name="info_form" id="info_form" action="user.php?action=password" enctype="multipart/form-data" onsubmit="return one();">
+                            <input type="hidden" name="id" id="uid3" value="{$user[id]}">
+                            <input type="hidden" name="mobile" id="mobile" value="{$user[mobile]}">
+                            <div class="yanzhengma">验证码：<input type="text" id="code_os" class="yzmk"><input id="btnSendCode3" type="button" class="yanBtn3" value="获取验证码" onclick="sendMessage3()"  /><font class="code_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;">您输入的验证码有误</font><img src="images/gou.png" style="display:none; line-height:30px; height:30px; margin-left:10px;"></div>
+                            <div class="xinmima">新密码：<input type="password" id="password" name="password" class="sjhk"><font class="password_error" style=" display:none; margin-left:10px; color:#F00; line-height:30px; font-size:12px;"></font><p style=" margin-left:60px;">密码长度请控制在6-20个字符</p><img src="images/gou.png" style="line-height:30px;display:none;  height:30px; margin-left:10px;"></div>
+
+                            <button type="submit" id="submitcc" class="anniu butt" style="margin-left:55px;" value="">确认修改</button>
+                        </form>
+                    </div>
+
+                </div> 
+            </div> 
+        </div>
+    </div><!--右侧内容结束-->
+    {template user_right}
+</div>
+<div class="clear"></div>
+{template user_footer}
+</body>
+</html>

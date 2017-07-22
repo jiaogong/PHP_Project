@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+
+<title>{if $list[title]}{$list[title]}{else}{$list[title2]}{/if}-ams车评网</title>
+<link rel="stylesheet" href="{$static_domain}/css/wap/wenzhang_yejian.css">
+<style>
+  .allview{max-width: 280px;max-height: 186px;} 
+  .allcc{max-width: 280px;max-height: 186px;} 
+</style>
+</head>
+
+<body>
+<div class="zt_border">
+<div class="biaoti">{if $list[title]}{$list[title]}{else}{$list[title2]}{/if}<!--<img src="images/sx.png" style=" width:20px; height:14px;">--></div>
+<div class="xinxi"><span>ams车评网</span>
+<span class="xx_jv">编辑：{$list[author]}</span>{if $list[photor]}　<span class="xx_jv">摄影：{$list[photor]}</span>{/if}
+<div class="time">{$list[uptime]}</div>
+
+</div>
+<hr />
+
+<div class="daoyv"><span>导语</span>     {$list[chief]}</div>
+<hr />
+<div class="wap_wenzi2">{$list[content]}</div>
+{if $list[editor]}<div style=" margin-top:15px;">特约编辑：{$list[editor]}</div>{/if}
+{if $tui}
+<div class="qita_wenzhang">
+<div class="xgwz">相关文章</div>
+<div style="height:30px;"></div>
+{loop $tui $key $val}
+<div class="wenzhangk">
+   <div class="wap_bt"><a href="/app.php?action=Final&aid={$val[id]}" target="_blank">{if $val[title]}{$val[title]}{else}{$val[title2]}{/if}</a></div>
+   <div class="wap_time">{eval echo date("Y-m-d",$val["uptime"]);}</div>
+</div>
+{/loop}
+</div><br /><br /><br />
+{/if}
+</div>
+
+</body>
+</html>

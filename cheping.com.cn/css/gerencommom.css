@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{ background-color:#f8f8f8;}
+body,ul,li { margin:0; padding:0; font-size:12px;}
+*{margin:0;padding:0;list-style-type:none; font-family:"微软雅黑"; color:#333;}
+a,img{border:0;}
+a{ text-decoration:none;}
+.fl{ float:left;}
+.fr{ float:right;}
+/*头部*/
+.clear{overflow: hidden;font-size:0;line-height:0;width:100%;clear:both;}
+.header{ width:100%; height:auto; background-color:#3F4952;}
+.nav_xf{ position:fixed; top:0px; z-index:10000; margin:auto; width:100%; background-color:#3F4952;}
+.nav{ width:1180px; height:35px; margin:auto; background-color:#3F4952;}
+.nav ul li{ float:left; line-height:35px; font-size:14px; }
+.jv{ margin-left:35px;}
+.nav ul li a{ color:#ccc;}
+.nav ul li a:hover{ color:#FFF;}
+.denglu_zhuce ul li{ float:right; line-height:35px; font-size:14px;}
+.zcdl{ margin-right:35px;}
+.LOGO_sousuo{ margin-top:18px; width:100%; height:80px; background-color:#E51A14;}
+.kongxi{ width:100%; height:9px; background-color:#f2f2f2; border-bottom:1px solid #eaeaea;}
+.logo{ width:1180px; margin:auto; }
+.sousuo{ width:1180px; margin:auto; margin-top:-70px;}
+.sousuo input{ display:inline; height:32px;margin:0px;}
+.sousuo .text{ width: 300px; height:17px;padding: 10px 9px 10px 7px; line-height:17px;/*border:1px solid #fff;*/ border: 0px; outline: none; float:left; border-radius: 5px 0px 0px 5px; padding-left:10px;}
+.sousuo .submit{ background:url(../images/sousuo.png) no-repeat center center; width: 40px; background-color:#fff; *width:65px; height:39px; color:#bc0000;cursor:pointer; float:right;border:none; padding-left:25px; border-radius: 0px 5px 5px 0px; border: 0px; outline: none;}
+/*地部*/
+.footer{ background-image:url(../images/footer_bg.jpg);width:100%; height:120px; clear:bold; }
+.footer_center{ width:940px; height:120px; margin:auto;}
+.L1{width:203px; height:17px; padding-top:20px; }
+.l_tu{background-image:url(../images/f_bg.jpg); width:5px; height:17px; }
+.l_zi{margin-top:-17px; line-height:17px; margin-left:15px;  color:#fff;}
+.L2{ width:200px; height:17px; margin-left:200px; margin-top:-17px;}
+.L3{ width:200px; height:17px; margin-left:400px; margin-top:-17px;}
+.L4{ width:200px; height:17px; margin-left:600px; margin-top:-17px;}
+.L5{ width:200px; height:17px; margin-left:800px; margin-top:-17px;}
+.banquan{width:1180px; margin:auto; text-align:center; margin-top:-40px; color:#fff;}
+
+/*右侧内容*/
+.geren-concent{ width:1182px; height:auto; margin:0 auto; margin-top:75px; }
+.geren-concent .concent-right{ width:282px; }
+.geren-concent .concent-right .concent-right-top{ width:282px; background:#fff; border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-left:1px solid #e4e4e4;}
+.geren-concent .concent-right .concent-right-top ul li{ line-height:57px; font-size:18px; color:#333; text-indent:120px; border-bottom:1px solid #e4e4e4; }
+.airtle{ background:#FFF; border:1px solid #e4e4e4; width:282px; margin-top:20px; }
+.airtle .airtle-hot{ padding:20px 0 0 22px;font-size:14px;}
+.airtle .point{margin-left:260px; margin-top:-15px;}
+.airtle .point a{ color:#a4aab6;}
+.airtle .list_sp{ width:255px; height:auto; margin:auto; margin:15px auto 15px auto;}
+.airtle-span{ width:108px; font-size:14px; line-height:20px;}
+.airtle-span .p4{ color:#666;}
+.airtle-span .p5{ padding:15px 0 0 0; color:#989ead;}
+/*分页*/
+.ep-pages-system{clear:both;text-align:center;font-size:13px;vertical-align:top; color:#3f4952;}
+.ep-pages-system{padding:48px 0 48px 12px;clear:both;text-align:center;font-size:13px;vertical-align:top; color:#3f4952; } 
+.ep-pages-system a{color:#3f4952; }
+.ep-pages-system span{ border:1px solid #e5e5e5; background:#efefef; padding:6px 14px;}
+.ep-pages-system ol li{ display:inline-block;   border:1px solid #e5e5e5; background:#efefef; padding:2px 2px; }
+.ep-pages-system ol li a {display:inline-block; padding:4px 11px;}
+.ep-pages-system ol li.song{background:#333;}
+.song a{color:White;}
+
+.ep-pages{padding:48px 0 48px 12px;clear:both;text-align:center;font-size:13px;vertical-align:top; color:#3f4952; } 
+.ep-pages a{color:#3f4952; }
+.ep-pages span{ border:1px solid #e5e5e5; background:#efefef; padding:6px 14px;}
+.ep-pages ol li{ display:inline-block;   border:1px solid #e5e5e5; background:#efefef; padding:2px 2px; }
+.ep-pages ol li a {display:inline-block; padding:4px 11px;}
+.ep-pages ol li.song{background:#333;}
+.song a{color:White;}

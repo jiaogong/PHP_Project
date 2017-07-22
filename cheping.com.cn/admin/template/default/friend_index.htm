@@ -1,0 +1,79 @@
+{template header}
+<div class="user">
+    <div class="navs">
+        <ul class="nav">
+
+            <li><a href="<!--{$php_self}-->friends&a=0"{if $a==0}class="song"{/if} >首页列表页</a></li>
+            {loop $category_id $k $v}
+            <li><a href="<!--{$php_self}-->friends&a={$v[id]}" {if $v[id]==$a}class="song"{/if} >{$v[category_name]}列表页</a></li>
+            {/loop}
+            <li><a href="?action=friend-add">添加友链页</a></li>
+
+
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user-con">
+        <div class="user-table">
+            {$title}
+            <table border="0" cellspacing="0" cellpadding="0">
+                {if $a==0}
+                <tr>
+                    <td >
+                        <input type="button" class="sbt" style="padding:0px 6px;margin-top:10px; margin-left:50px; color:#333; font-family:'微软雅黑';  " onclick="make()" value="生成"/>
+                    </td>
+                    <td><span style="color:#999;margin-left:0px;">首页页脚链接数据必须生成，才能生效!</span></td>
+                    <td colspan="3"></td>
+                </tr>
+                {/if}
+                <tr>
+                    <td style=" padding-top:20px;">ID号</td>
+                    <td style=" padding-top:20px;">名称</td>
+                    <td style=" padding-top:20px;">排序</td>
+                    <td style=" padding-top:20px;">URL</td>
+                    <td style=" padding-top:20px;">操作</td>
+                </tr>
+                <tbody>
+                    {loop $friend $k $v}
+                    <tr>
+                        <td>{$v[id]}</td>
+                        <td>{$v[title]}</td>
+                        <td>{$v[seq]}</td>
+                        <td>{$v[url]}</td>
+                        <td>
+                            <span><i style=" padding-top:2px; padding-left:4px;"><img src="images/shanchu.png" /></i><a href="#" class="click_pop_dialog" mt='1' icon='warnning' tourl='?action=friend-DelFriend&id={$v[id]}'>删除</a></span>
+                            <span><i style=" padding-top:3px;"><img src="images/bi.png" /></i><a href='?action=friend-edit&id={$v[id]}'>修改信息</a></span>
+
+                        </td>
+                    </tr>  
+                    {/loop}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div class="ep-pages">
+                {$page_bar}
+            </div>
+        </div>
+    </div>
+</div>
+<script language="javascript">
+    $(document).ready(function () {
+        $('.click_pop_dialog').live('click', function () {
+            pop_window($(this), {message: '您确定要删除该条信息吗？', pos: [200, 150]});
+        });
+    });
+    
+    //生成ssi静态页面
+    function make() {
+        $.get("<!--{$php_self}-->make",{},function(msg){
+            if(msg==1){
+                alert("生成成功");
+            }else{
+                alert("生成失败");
+            }
+        })
+   }
+</script>
+</body>
+</html>

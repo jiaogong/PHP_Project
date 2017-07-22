@@ -1,0 +1,383 @@
+{template index_header}
+ <script type="text/javascript">
+//点击图片三角形显示与隐藏的效果
+function dis(my,id){
+	var img_url1 = "/images/arrow_up.png";
+	var img_url2 = "/images/arrow_down.png";
+	if($('#'+id).css("display") == "none"){
+		$('#'+id).css({display:"block"});
+		$(my).css({"background-image":"url("+img_url2+")"});
+	}else{
+		$('#'+id).css({display:"none"});
+		$(my).css({"background-image":"url("+img_url1+")"});
+	}
+}
+var modelsid=[];
+<!--{loop $newmodelsid $key $value}-->
+modelsid.push($value);
+<!--{/loop}-->
+$(document).ready(function(){
+    <!--{if $brand_id}-->
+    $('#brand_id_change').val($brand_id);
+    series_select($('#series_id_change'), $brand_id);
+    <!--{/if}-->
+    <!--{if $series_id}-->
+    $('#series_id_change').val($series_id);
+    model_select($('#model_id_change'), $series_id);
+    <!--{/if}-->
+    $(".remove_compare").click(function(){
+        var id=$(this).attr("name");
+        var tempstr="";
+        var j=0;
+        $.each(modelsid, function(i,n){
+            if(id!=n){
+                if(j==0){
+                    tempstr=n;
+                }else{
+                    tempstr+="_"+n;
+                }
+                j++;
+            }
+        })
+        var nav = {$nav};
+        if(nav == 1){
+				nav = "abstract";
+        }else{
+				nav = "param";
+         }        
+        window.location.href="compare_"+tempstr+"d"+nav+".html";
+        return false;
+    });
+    //收起所有
+    $(".close_all").click(function(){
+		openOrCloseAll(false);
+    });
+    //打开所有
+    $(".dis_all").click(function(){
+    	openOrCloseAll(true);
+    });
+    //打开对手车型 
+    $('.first1 a').click(function(){
+        var li_index=$(this).parents('.compare_item li').index();
+    	$(this).toggleClass('pk_on');
+    	if($(this).attr('class')=="pk_on"){
+          $('.jzcx').hide();
+    	  $('.jzcx').eq(li_index).show();
+    	  $('.first1 a').not($(this)).removeClass('pk_on');
+    	}else{
+    	  $('.jzcx').hide();
+    	}
+      })
+
+});
+//对比 选择
+function changeModel(obj){
+    if(obj.val()>0){
+        var id=obj.val();
+        var j=0;
+        $.each(modelsid, function(i,n){
+            if(id==n){
+                j=1;diff
+                return false;
+            }
+        })
+        if(j==1){
+            alert("该车已在对比中！！");
+            obj.children("option").eq(0).attr("selected", "selected");
+            return false;
+        }else{
+        	{eval $change_id = $change_id ? $change_id : "1000000000"}
+            var change_id = {$change_id};
+            var te = modelsid;
+            if(change_id!="1000000000"){
+				$.each(modelsid, function(k,v){
+					if(v==change_id){
+						modelsid.splice(k,1,id);
+						return false;
+					}
+				});
+            }else{
+                modelsid.push(id);
+            }
+           var nav = {$nav};
+           if(nav == 1){
+				nav = "abstract";
+           }else{
+				nav = "param";
+            }
+           window.location="compare_"+modelsid.join("_")+"d"+nav+".html";
+        }  
+    }
+}
+function openOrCloseAll(flag){
+	var img_url1 = "/images/arrow_up.png";
+	var img_url2 = "/images/arrow_down.png";
+	if(flag){
+		$('tbody').show();
+		$('.compare_info h2').css({"background-image":"url("+img_url2+")"});
+	}else{
+		 $('tbody').hide();
+		 $('.compare_info h2').css({"background-image":"url("+img_url1+")"});
+	}
+}
+        //高亮显示颜色
+        var color1 = "#F55E00";
+        var color2 = "#495E70";   
+        function sa(val){
+  //          alert(12122);
+                var ss = $('table tbody tr');
+                $.each(ss, function(k,v){
+                        if(val==1){
+                                $(v).css({color:color2});
+                                return;
+                        }
+                        var td = $(v).children();
+                        var ar = new Array();
+                        $.each(td, function(kk, vv) {
+                                ar[kk] = $(vv).html();
+                        });
+                        for(var i=1;i<ar.length-1;i++){
+                                for(var j=i;j<ar.length-1;j++){
+                                        if(ar[i]!=ar[j+1] && ar[i]!="" && ar[j+1]!=""){
+                                                $(v).css({color:color1});
+                                                return;
+                                        }
+                                }
+                        }
+                });
+        }
+function joinCompare(id){
+	var otherId_xj = $("#get_modelid").val();
+	var go_xj = $("#get_do").val();
+	if(otherId_xj.split("_").length==4) alert('一次只能对比4辆车哦！');
+	else window.location.href="/compare_"+otherId_xj+"_"+id+"d"+go_xj+".html";
+
+}
+$(function(){
+        $('.denglu').hide();
+　　}); 
+</script>
+
+<div class="wraps">
+    <p style="font-size:16px; height:30px; line-height:30px; padding-left:10px;color:#3e4248;">车型对比</p>
+    <div class="sx_border"></div>
+    <div class="top01">
+        <div class="mid01">
+            <div class="getprice cover2">
+                <div class="float_wrap">
+                    <div class="float">
+                        <div class="com_intr">
+                            <h2 style="font-size:14px;">高亮显示车辆差异</h2>
+                            <ul class="choose">
+                                <li>
+                                    <label>
+                                        <input id="diff" type="radio" name="choice" value="2" onclick="sa(this.value)" />
+                                        是</label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input id="un_diff" checked type="radio" name="choice" value="1" onclick="sa(this.value)" />
+                                        否</label>
+                                </li>
+                            </ul>
+                            <ul class="toggle">
+                                <li><a class="close_all" href="javascript:void(-1);">收起所有</a> </li>
+                                <li><a class="dis_all" href="javascript:void(-1);">打开所有</a> </li>
+                            </ul>
+                            <ul class="tip">
+                                <li class="black">标配 </li>
+                                <li class="white">选配 </li>
+                                <li>---无 </li>
+                            </ul>
+                            <ul class="dsxc">
+                                <!--{if $models[0]}-->
+                                <li>点击“ <a href="javascript:void(0);"> 对手车型</a>”可查</li>
+                                看每款车的常见对比车型
+                                <!--{/if}-->
+                            </ul>
+                        </div>
+                        <!--//隐藏表单保存对比项do-->
+                        <input type="hidden" id="get_do" value="<!--{$get_do}-->">
+                        <input type="hidden" id="get_modelid" value="<!--{$model_id_info}-->">
+                        <ul class="compare_item">
+                            <!--{for $i=0;$i<4;$i++}-->
+                            <li><em class="pointer"></em>
+                                <div class="top06">
+                                    {if !empty($models[$i])}
+                                    <!--{if $attrchangekey===$i}-->
+                                    <div class="mid06">
+                                        <div class="title"></div>
+                                        <div class="compare_select">
+                                            <div class="photo"><img src="images/120x68.jpg" width="120" height="68"/></div>
+                                            <div class="compare_intr1">                                            
+                                                <select id="brand_id_change" class="sel_common1" onchange="javascript:series_select($('#series_id_change'), this.value);">
+                                                    <option value="0">选择品牌</option>
+                                                    <script>
+                                                        brand_select($('#brand_id_change'));
+                                                    </script>
+                                                </select>  
+                                                <select id="series_id_change" class="sel_common2" disabled="disabled" onchange="javascript:model_select($('#model_id_change'), this.value);">
+                                                    <option value="0">选择车型</option>
+                                                </select>                
+                                                <select id="model_id_change" modelid="$models[$i]['model_id']" class="sel_common" disabled="disabled" onchange="javascript:changeModel($('#model_id_change'));">
+                                                    <option value="0">选择车款</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {else}
+                                    <div class="mid06">
+                                        <div class="title"><em class="num01"><a class="remove_compare" href="javascript:void(0);" name="$models[$i]['model_id']"><img src="images/num.gif" /></a></em></div>
+                                        <div class="compare_select">
+                                            <div class="photo"><img src="$models[$i]['firstpic']" onerror="this.src='images/120x68.jpg'" width="120" height="68"  /></div>
+                                            <div class="compare_intr1">
+                                                <ul class="cx_f1">
+                                                    <li>$models[$i]["date_id"] $models[$i]["series_name"]</li>
+                                                    <li><a title="$models[$i]['model_name']" href="modelinfo_$models[$i]['model_id'].html"  target="_blank">{eval echo dstring::substring($models[$i]["model_name"],0,24)}</a></li>
+                                                    <li><span>指导价&nbsp;&nbsp;<!--{if $models[$i]["model_price"]}-->$models[$i]["model_price"]万<!--{else}-->暂无<!--{/if}--></span></li>
+                                                </ul>
+                                                <ul class="dsxc2">
+                                                    <li class="first1"><!--{if $models[$i]["others"]}--><a href="javascript:void(0);">对手车型</a><!--{else}--><span title="抱歉，该车目前没有对比车型" style="color: #495E70;">对手车型</span><!--{/if}--></li>
+                                                    <li class="first2"><a href="compare_{$modelsidstr}c{eval echo $models[$i]['model_id']}<!--{if $get_do}-->d{$get_do}<!--{/if}-->.html">换一辆车</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>                                     
+                                    {/if}
+                                    {else}
+                                    {if $ii < 1}
+                                    <div class="mid06">
+                                        <div class="title"></div>
+                                        <div class="compare_select">
+                                            <div class="photo"><img src="images/120x68.jpg" width="120" height="68"/></div>
+                                            <div class="compare_intr1">
+                                                <select id="brand_id" class="sel_common1" onchange="javascript:series_select($('#series_id'), this.value);">
+                                                    <option value="0">选择品牌</option>
+                                                    <script>brand_select($('#brand_id'));</script>
+                                                </select>
+                                                <select id="series_id" class="sel_common2" disabled="disabled" onchange="javascript:model_select($('#model_id'), this.value);">
+                                                    <option value="0">选择车型</option>
+                                                </select>
+                                                <select id="model_id" class="sel_common" onchange="javascript:changeModel($('#model_id'));" disabled="disabled">
+                                                    <option value="0">选择车款</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    {eval $ii++}
+                                    {else}
+                                    <div class="mid06">
+                                        <div class="title"></div>
+                                        <div class="compare_select">
+                                            <div class="photo"><img src="images/120x68.jpg" width="120" height="68"/></div>
+                                            <div class="compare_intr1">
+                                                <select class="sel_common1" disabled="disabled"><option value="0">选择品牌</option></select>
+                                                <select class="sel_common2" disabled="disabled"><option value="0">选择车型</option></select>
+                                                <select class="sel_common" disabled="disabled"><option value="0">选择车款</option></select>
+                                            </div>
+                                        </div>
+                                    </div>                                      
+                                    {/if}
+                                    {/if}
+                                </div>
+                            </li>
+                            <!--{/for}-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="clear"></div>
+    <!--{for $i=0;$i<$sum_attr;$i++}-->
+	<div class="jzcx" style="display:none">
+        <p style="font-size:16px; color:#3e4248; margin-bottom:10px;">竞争车型</p>
+        {loop $models[$i]['others'] $k $v}
+        <div class="jzcx_modle" style="width:306px; float:left;"><dl style="margin: 0px;">
+            <dt><img src="$v['firstpic']" width="120" height="68" onerror="this.src='/images/120x68.jpg'" /></dt>
+            <dd><span>$v['date_id'] $v['series_name']</span>
+                <div style="height: 40px;"><a href="modelinfo_$v['model_id'].html" title="$v['model_name']" target="_blank">{eval echo dstring::substring($v['model_name'],0,24)}</a></div>
+                <span>厂商指导价 $v['model_price']万</span>
+            </dd>
+         </dl>
+            <p class="jzcx_compare"><input type="button" style="margin-left:30px;margin-top:82px;line-height: 21px;height: 21px;padding-bottom: 3px;text-align: center;" onclick="joinCompare($v['model_id'])" value="加入对比" onfocus="this.blur()"/>
+         </div>
+        {/loop}
+    </div>
+    <!--{/for}-->
+    <div class="gaishu" id="tabs1">
+        <div class="menu1box">
+            <ul id="menu1">
+                <li class="{eval echo $nav==1 ? 'hover liduan' : 'lilang'}" ><a href="compare_{$model_id_info}dabstract.html">概述</a></li>
+                <li class="{eval echo $nav==2 ? 'hover liduan' : 'lilang'}"><a href="compare_{$model_id_info}dparam.html">技术参数</a></li>
+            </ul>
+        </div>
+        <div class="main1box">
+            <div class="main" id="main1">
+                <ul class="block">
+                    <li>
+                        <DIV class="top04">
+                            <DIV class="mid04">
+                                <DIV class="com_result cover04">
+                                    <DIV class="top05">
+                                        <DIV class="mid05">
+                                            <TABLE class="compare_info">
+                                                <!--{if !empty($attr)}-->
+                                                <!--{eval $j=0;}-->
+                                                <!-- {eval $flag=0;} -->
+                                                <!--{loop $attr $key $value}-->                                                
+                                                <THEAD>
+                                                    <TR>
+                                                        <TD colSpan=5><DIV class="title first_tt">
+                                                                <H2 {if $flag==0 or $key=='重要信息'}class="down"{else}class="on"{/if} onclick="dis(this,'dis{$flag}')">{$key}</H2>
+                                                            </DIV></TD>
+                                                    </TR>
+                                                </THEAD>                                              
+                                                <TBODY id="dis{$flag}" {if $flag==0 or $key=='重要信息'}style="display:block"{else}style="display:none"{/if}>
+                                                <!-- {eval ++$flag;} -->
+                                                	<!--{eval $i=1;}-->                                                  
+                                                    <!--{loop $value $k $v}-->                                                    
+                                                    <TR class="<!--{if $i%2!=0}-->odd<!--{/if}-->">
+                                                        <th>$k</th>
+                                                        <!--{eval $ii=0;}-->
+                                                        <!--{for $j=0;$j<4;$j++}-->
+                                                        <!--{if $ii>$sum_attr||$attrchangekey===$j}-->
+                                                        <td></td>
+                                                        <!--{else}-->
+                                                        <td class="unique">$v[$j]</td>
+                                                        <!--{/if}-->
+                                                        <!--{eval $ii=$ii+1;}-->
+                                                        <!--{/for}-->
+                                                        <!--{eval $i=$i+1;}-->
+                                                    </TR>
+                                                    <!--{/loop}-->
+                                                    <tr>
+                                                        <td><div style="margin-bottom:5px;"></div></td>
+                                                    </tr>
+                                                </TBODY>
+                                                <!--{eval $j++;}-->
+                                                <!--{/loop}-->
+                                                <!--{/if}-->                                                                                                
+                                            </TABLE>
+                                        </DIV>
+                                    </DIV>
+                                </DIV>
+                            </DIV>
+                        </DIV>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<!--#include virtual="/ssi/ssi_footer.shtml"-->
+{template index_footer}
+<script>
+    (function() {
+        var bct = document.createElement("script");
+        bct.src = "/js/counter.php?cname=compareattr&c1={$_GET[modelid]}";
+        bct.src += "&df="+document.referrer;
+        document.getElementsByTagName('head')[0].appendChild(bct);
+    })();
+</script>

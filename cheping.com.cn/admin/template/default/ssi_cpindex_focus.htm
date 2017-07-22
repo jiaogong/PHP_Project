@@ -1,0 +1,24 @@
+<div class="picshow">
+    <div class="picdis_v1">
+        <!--{loop $focus $key $value}-->
+        {if $value["pic"]}
+        <a target="_blank" href="$value['link']">
+        <!--{if $key==1}-->
+        <img alt="{$value['title']}" src="{if $value['pic']}attach/images/$value['pic']{else}images/images/pic1.jpg{/if}" width="676" height="292"/>
+        <!--{else}-->
+        <img alt="{$value['title']}" src="images/a.gif" imgsrc="{if $value['pic']}attach/images/$value['pic']{else}images/images/pic1.jpg{/if}" width="676" height="292"/>
+        <!--{/if}-->
+        </a>
+        {/if}
+        <!--{/loop}-->
+
+    </div>
+    <ul class="show_tt_v1">
+        <!--{loop $focus $key $value}-->
+        {if $value["pic"]}
+        <li><a target="_blank" href="$value['link']">$value['title']</a></li>
+        {/if}
+        <!--{/loop}-->
+        
+    </ul>
+</div>

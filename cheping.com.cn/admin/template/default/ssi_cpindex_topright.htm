@@ -1,0 +1,25 @@
+<div class="columntab">
+    <div class="columntab_menu">
+        <ul>
+            <li ><span></span ><samp class="cou1 cou3"></samp></li>
+            <li ><span></span ><samp class="cou2 cou4"></samp></li>
+        </ul>
+    </div>
+    <div class="columntab_box">
+        <div class="hide">
+            <ul >
+                <li>注册送币：注册赠送1000铜币</li>
+                <li>购车返币：<font id="rentun_coin">0</font>铜币升级为金币</li>
+                <li>当前换礼：<font id="000">暂无</font></li>
+            </ul>
+        </div>
+        <div>
+            <ul style="padding: 12px 10px 0px 20px;">
+                {loop $article $key $value}
+                <li style="width: 230px;overflow: hidden;"><a target="_blank" href="/html/article/{eval echo date('Ym/d', $value['created'])}/$value['id'].html" title="{$value['title']} {$value['title2']}">$value["title"]</a></li>
+                {/loop}
+            </ul>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,10 @@
+<div class="provider_v1">
+    <ul class="ul_title">
+        <li>经销商名称<span>厂商</span></li>
+    </ul>
+    <ul class="providers">
+        <!--{loop $newdealer $key $value}-->
+        <li>$value["dealer_alias"]<span>[{$value["factory_name"]}]</span></li>
+        <!--{/loop}-->
+    </ul>
+</div>

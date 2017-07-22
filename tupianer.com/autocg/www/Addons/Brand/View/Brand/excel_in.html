@@ -1,0 +1,23 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title cf">
+        <h2>excel导入品牌</h2>
+    </div>
+
+    <!-- 表单 -->
+    <form action="{:addons_url('Brand://Brand/excel_in')}" enctype="multipart/form-data" method="post" class="form-horizontal">
+
+        <div class="form-item cf">
+            <label class="item-label">Excel表格<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="file" name="excel"/>
+            </div>
+        </div>
+        
+        <div class="form-item cf">
+            <button class="btn submit-btn" type="submit" target-form="form-horizontal">确 定</button>
+        </div>
+    </form>
+
+</block>

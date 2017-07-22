@@ -1,0 +1,17 @@
+<!--//{print_r($pricelow);}-->
+<div class="pic_v1">
+    <h1><img src="images/pich1.png"/></h1>
+    <ul class="Pic_left">
+        {loop $pricelow $key $value}
+        {eval $i = $key+1;}
+        {if $i%5==0}
+        <li><a target="_blank" title='$value["title_".$i]' href="{$relat_dir}modelinfo.php?modelid={$value['model']['model_id']}"><span>[{$value["model"]["brand_name"]}] </span>$value["title_".$i]</a><samp style="color:red;">&nbsp;$value["model"]["dealer_price_low"]万</samp></li>
+        </ul>
+        <div class="pic_imgs"><img src="images/pichr.png"/></div>
+        <ul class="Pic_left2t">
+        {else}
+        <li><a target="_blank" title='$value["title_".$i]' href="{$relat_dir}modelinfo.php?modelid={$value['model']['model_id']}"><span>[{$value["model"]["brand_name"]}] </span>$value["title_".$i]</a><samp style="color:red;">&nbsp;$value["model"]["dealer_price_low"]万</samp></li>
+        {/if}
+        {/loop}
+    </ul>
+</div>

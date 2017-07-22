@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+body,ul,li { margin:0; padding:0; font-size:12px; font-family:'微软雅黑';}
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+.fl{float:left}
+.fr{float:right}
+.clear{clear:both;}
+body{ background:#d3d3d3;}
+.wapper,.top,.upload2-main ul li textarea,.upload2-main ul li input{border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
+.wapper{width:80%; border:2px solid #c1c2c2; background:#fff; margin:0 auto; position:absolute; left:10%; top:12%; }
+.top{ background:#f3f3f3; height:24px; width:100%;}
+.top .top-left{ padding:5px 10px; color:#d3d3d3; font-weight:bold;}
+.top .top-right{ padding:4px 86px;}
+.upload1-main{  padding:20% 44% 24% 44%;}
+.upload1-main input{ border:none; color:white; width:157px; height:38px; background:url(../images/upload1.png) no-repeat; text-indent:32px; font-size:18px; line-height:40px;}
+.upload1-main .zi p{ width:300px; margin-left:-20px; padding-top:10px; color:#c1c2c2; font-weight:bold;}
+.clean{  background:#f3f3f3; border:1px solid #c1c2c2; width:117px; height:27px; line-height:27px; text-align:center; margin:10px 18px;}
+.clean span{ font-size:14px; color:#333; }
+.upload2-main{ margin:0 18px; border:1px solid #c1c2c2; border-radius:8px; -webkit-border-radius:8px; -moz-border-radius:8px; }
+.upload2-main ul li{ width:16%; border:1px solid #c1c2c2; float:left; margin:16px 0 16px 16px; border-radius:2px; -webkit-border-radius:2px; -moz-border-radius:2px; position:relative; overflow:hidden;}
+.upload2-main ul li span{ display:block;   width:90%; padding:5% 5% 0 5%;}
+.upload2-main ul li textarea,.upload2-main ul li input{  width:89%; border:1px solid #c1c2c2; color:#d3d3d3; line-height:20px; margin:2% 5%; text-indent:6px;}
+.upload2-main ul li textarea{height:80px;  font-family:'微软雅黑';   }
+.upload2-main ul li input{ height:26px;}
+.upload2-main ul li button{ border:1px solid #c1c2c2; background:#f3f3f3; padding:4px 12px; color:#333; }
+.upload2-main ul li .close{ position:absolute;top:5px; right:3px;}
+.bnt1{ padding:6px 16px; border:1px solid #b8b8b8; margin:1% 40%； background:#f3f3f3; font-size:14px; color:#333; font-family:'微软雅黑';}

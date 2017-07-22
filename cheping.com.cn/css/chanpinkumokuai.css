@@ -1,0 +1,108 @@
+@charset "utf-8";
+/* CSS Document */
+a:hover{ text-decoration:none;}
+
+/*车型大全*/
+body,ul,li { margin:0; padding:0; font-size:12px;}
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+.cp_head_03{ width:100%;  margin:0 auto;}
+.cp_head_03_cont{ width:1180px; margin:0 auto;}
+.cp_head_03_left{ width:120px; float:left; margin-top:35px; }
+.cp_head_03_left_cont{ width:120px;  margin:0 auto; position:relative; left:-80px; z-index:2;}
+.cp_head_03_right{ width:970px; float:right; height:370px;}
+/**/
+.sy_ss{ width:110px; height:24px;margin:0px auto; line-height:24px; position:relative;}
+.sy_ss input{ border:none; background:none; margin:0px auto; line-height:24px; padding-top:5px; width:120px; color:#fff; padding-left:5px; }
+.red_sanjiao{ position:absolute; right:-9px; top:17px; cursor:pointer;}
+
+.spzc_content{height:390px; background-color:#fff; position:absolute; z-index:1002; margin:0 auto; margin-left:5px;display:none}
+.spzc_content2{ width:190px; height:390px;  border:solid 1px #afafaf;  margin:0 auto;}
+.select_second{overflow-y:scroll; background-color:#fff;position:absolute; z-index:1005; height:390px; left:25px;}
+.spzc_content li{ clear:both; line-height:18px; width:25px; text-align:center;}
+.spzc_content ul{ padding-top:5px; width:25px; float:left;/*border-right:solid 1px #afafaf;*/ height:385px;}
+.spzc_content li a{ width:18px; height:18px; display:block; color:#f25454; margin:0 auto;}
+.spzc_content li a:hover{ width:18px; height:18px; display:block; background-color:#fb7f7f; color:#fff;}
+.select_second{ width:155px; float:right; padding:0px 3px; border-left:solid 1px #afafaf; min-height:385px;}
+.select_second dl{ height:20px; padding:18px 0px 18px  0px; border-bottom:solid 1px #afafaf;}
+.select_second3{ position:relative; z-index:1;}
+
+
+.select_second dt{ width:20px; float:left; padding-left:8px;}
+.select_second dd{ width:100px; float:right; line-height:20px;}
+.select_second dl:hover{ background-color:#dbdbdb;}
+.select_first{ width:235px; height:380px; overflow-y:scroll; background-color:#fff; border:solid 1px #f25454; padding:5px;}
+.select_first dt{ width:120px; float:left}
+.select_first dd{ width:70px; float:right; padding:20px 5px;}
+.select_first dl{ padding:5px; width:208px; height:80px;}
+.select_first dl:hover{ background-color:#dbdbdb;}
+/*车型大全*/
+
+.chexing{ width:1180px; height:54px; margin:0 auto; margin-top:50px;}
+.chexing ul li{ border:1px solid #f8f8f8;}
+.chexing ul li:hover{border:1px solid #ea1a14; /*border-bottom:1px solid #ea1a14; border-top:1px solid #ea1a14; border-left:1px solid #ea1a14; border-right:1px solid #ea1a14;*/}
+.chexinglei{width:125px; margin-left:4px; float:left;}
+.chexingzi{position:relative;top:-13px;}
+/*新增*/
+.chexinglei{width:125px; margin-left:4px; float:left; }
+.span1_cx{ background:url(../images/cx.png) no-repeat; width:80px; height:38px; display:block;float:left; }
+.span2_cx{ background:url(../images/cx.png); background-position:328px 0px; width:80px; height:38px;display:block;float:left;}
+.span3_cx{ background:url(../images/cx.png); background-position:248px 0px; width:82px; height:38px;display:block;float:left;}
+.span4_cx{ background:url(../images/cx.png); background-position:164px 0px; width:80px; height:38px;display:block;float:left;}
+.span5_cx{ background:url(../images/cx.png); background-position:80px 0px; width:80px; height:38px;display:block;float:left;}
+.span6_cx{ background:url(../images/cx.png); background-position:0px 40px; width:80px; height:38px;display:block;float:left;}
+.span7_cx{ background:url(../images/cx.png); background-position:328px 40px; width:80px; height:38px;display:block;float:left;}
+.span8_cx{ background:url(../images/cx.png); background-position:248px 40px; width:80px; height:38px;display:block;float:left;}
+.span9_cx{ background:url(../images/cx.png); background-position:164px 40px; width:80px; height:38px;display:block;float:left;}
+.chexingzi{position:relative;top:17px; left:3px;}
+
+/*价格区间*/
+.s_right_shang{ width:878px; height:165px; border:1px solid #D7DFE4; float:left;}
+
+.s_right_shang .i-tabs-nav {height: 44px;line-height: 45px;border-bottom: 1px solid #D7DFE4;}
+.s_right_shang .i-tabs-item-active {border-top: 6px solid #FF8F34;background-color: #f8f8f8;z-index: 5; color: #ff8f34;border-right: 1px solid #D7DFE4;border-left: 1px solid #D7DFE4; border-bottom:1px solid #f8f8f8;padding: 9px 15px 16px;}
+.s_right_shang .i-tabs-item {padding: 9px 17px 13px;width: 85px;background-color: #f8f8f8;}
+.s_right_shang .i-tabs-content {display: none;}
+.s_right_shang .i-tabs-content-active {display: block;}
+
+.s_right_shang .i-tabs-content ul {margin-left: 8px;width: 840px;height: 40px;background: url(../images/souyexian.jpg) repeat-x bottom;}
+.s_right_shang .i-tabs-content ul li {float: left;height: 40px;line-height: 40px;width: 80px;text-align: center;font-size: 14px;}
+.tabs-news-module ul li a:hover{color:#ea1a14;}
+/*轻松选车*/
+.xuanche{ width:280px; height:165px; border:1px solid #D7DFE4; float:right;}
+.xuanchebt{ font-size:16px; padding-top:15px; margin-left:15px; font-weight:bold;}
+.cheleixing{ width:260px; height:120px; margin:0 auto;}
+.cheleixing a:hover{color:#ea1a14;}
+.leixingmx{ width:65px; text-align:center; float:left; line-height:30px; font-size:14px;}
+/*新车上市*/
+.xin_che{ clear:both; height:233px; border:1px solid #D7DFE4; margin-top:15px; background-color:#fff;}
+.xin_title{height:30px; line-height:30px; background-color:#fff; padding-left:15px;color:#000; font-size:16px; font-weight:bold;}
+.xin_che_content {padding: 7px;}
+.xcc_top {background:url(../images/souyexian.jpg) repeat-x bottom;clear: both;height: 125px;width: 270px;}
+.xcc_top dl {float: left; margin-left: 9px;}
+.xcc_top dd { height: 21px;line-height: 21px;overflow: hidden; white-space: nowrap; width: 122px; margin-top:5px\0;}
+@media not all {.xcc_top dd {line-height: 28px;}}
+.xcc_top dd a { padding-left: 8px; text-align: left;}
+.xcc_top dd a:hover { text-decoration:none; color:#ea1a14;}
+.xcc_bottom { padding-top: 3px;}
+
+.xcc_bottom ul li {float: left;line-height: 22px;text-align: left;width: 120px;padding-left: 9px;height: 22px;overflow: hidden;}
+.xcc_bottom ul li a:hover{color:#ea1a14;}
+.new_car{ height:220px; border:1px solid #D7DFE4; margin-top:10px;}
+.car_title{ height:30px; line-height:30px; background-color:#f5f7f8;}
+.title_right{ float:right; margin-right:7px;}
+.have_xian{ background:url(../images/souyexian.jpg) repeat-x bottom; height:25px; font-size:14px; margin:0px 7px; color:#3E4248;}
+.have_xian li{ float:left; text-align:center; height:25px; line-height:25px;}
+/*车型PK*/
+.baojia_right {width: 285px;height: 258px; border: 1px solid #D7DFE4; background-color:#fff; margin-top:15px;}
+.PK{ margin:1px; width:285px; height:225px;}
+.pk1{ width:280px; height:27px; margin:2px 3px; background-color:#fff;}
+.pk1 ul li{ float:left; font-size:14px; text-align:center; height:27px; line-height:27px;}
+
+.pk1_hover{ width:268px; height:95px; border:8px solid #ed5050;}
+.pk1_left{ float:left; width:103px; height:92px; margin:1px; position:relative;}
+.pk1_zhong{ float:left; width:56px; height:30px; padding:20px 0;}
+.pk1_zhong div{ padding-left:2px;}
+.pk1_zhong img{ padding-left:0px;}
+.pk1_zhong a{ height:19px; width:50px; display:block; padding:15px 3px;}
+.pk1_right{ float:right; width:103px; height:92px; margin:1px; position:relative;}

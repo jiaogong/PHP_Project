@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>个人设计师页</title>
+        <link rel="stylesheet" href="__CSS__/communal.css" />
+        <link rel="stylesheet" href="__CSS__/person.css" />
+        <script src="__JS__/jquery.js"></script>
+        <script src="__JS__/jquery.masonry.min.js"></script>
+    </head>
+
+    <body>
+        <div class="concent">
+            <div class="header"  id="heads">
+                <!--logo nav-->
+                <ul class="ull">
+                    <li class="lil"><a href="#"><img src="__IMG__/logo.png" width="111" height="57" alt="logo" /></a></li>
+                    <li class="lil"><a href="#" class="xuanze">首页</a></li>
+                    <li class="lil"><a href="#">我要查找</a></li>
+                </ul>
+                <!--sousuo-->
+                <div class="sousuo">
+                    <form action="#">
+                        <input type="text" placeholder="请输入要搜索的内容" class="sousuok" />
+                        <input type="submit" value="" class="sousuoa" />
+                    </form>
+                </div>
+                <div class="wdlzc" style="display:none">
+                    <a href="#">登录</a>&nbsp;/&nbsp;<a href="#">注册</a>
+                </div>
+                <div class="dlzck">
+
+                    <div class="dlzc">
+                        <span><img id="tx" src="__IMG__/tx.png" width="44" height="44" style="vertical-align:middle;" /></span>
+                        <div id="tanchu">
+                            <ul>
+                                <li>用户名</li>
+                                <li>个人中心</li>
+                                <li>我的收藏</li>
+                                <li>我的关注</li>
+                                <li>我的作品</li>
+                                <li>我的订单</li>
+                                <li>我的交易</li>
+                                <li>我的个人页</li>
+                            </ul>
+                            <div class="tuichu">退出</div>
+                        </div>             
+                    </div>
+                    <span class="dlzcld">
+                        <img src="__IMG__/ld.png" width="44" height="44" style="vertical-align:middle;" />
+                        <span class="xiaoxi">(2)</span>
+                    </span>
+                </div>   
+            </div>
+            <!--头部结束-->
+            <div class="person-main">
+                <div class="person-top"><!--上半部-->
+                    <div class="person-left fl"><!--左侧开始-->
+                        <div class="person-left-top">
+                            <dl> 
+                                <dt><img src="/Uploads/Userinfo/2015-12-29/{$avatar}" width="140px" /></dt>
+                                <dd>{$username}</dd>
+                                <dd><eq name="user_type" value="3">设计师</eq></dd>
+                                <dd class="bornone">
+                                    <img src="__IMG__/personjia.png" style=" vertical-align:middle;" /> 
+                                    <span class="zi">加关注</span>
+                                </dd>
+                            </dl> 
+                            <div class="clear"></div>
+                        </div>
+                        <div class="person-left-bottom">
+                            <ul>
+                                <li><img src="__IMG__/personpoint1.png" style=" vertical-align:middle;"/> <span class="zi"> {$score} 积分</span></li>
+                                <li><img src="__IMG__/personpoint2.png" style=" vertical-align:middle;"/> <span class="zi"> {$popularity} 人气</span></li>
+                                <li><img src="__IMG__/personpoint3.png" style=" vertical-align:middle;"/> <span class="zi"> {$focus} 关注</span></li>
+                                <li class="lihov"> 
+                                    <span class="profile_min">个人简介：{$profile}</span>
+                                    <span class="discripion" style="display: none;"><p>{$profile}</p> </span>
+                                </li>
+                            </ul>
+                        </div> 
+                    </div><!--左侧结束-->
+                    <div class="person-right fr"><img src="/Uploads/Userinfo/2015-12-29/{$banner}" height="360px" /></div>        
+                </div><!--上半部分结束-->
+                <div class="clear"></div> 
+                <div class="person-bottom"><!--下半部分-->
+                    <h3>作品展示</h3>
+                    <div class="bottom-title tab">
+                        <ul>
+                            <li <if condition="$tags eq ''">class="work"</if> <eq name='tags' value='1'>class="work"</eq> title="persontotal" ><a href="{:U('',array('tags'=>1))}">全部作品</a></li>
+                            <li title="personmodel" <eq name='tags' value='2'>class="work"</eq> ><a href="{:U('',array('tags'=>2))}">模型作品</a></li>
+                            <li title="personpic" <eq name='tags' value='3'>class="work"</eq> ><a href="{:U('',array('tags'=>3))}">图片作品</a></li>
+                            <li title="personvideo" <eq name='tags' value='4'>class="work"</eq> ><a href="{:U('',array('tags'=>4))}">视频作品</a></li>
+                        </ul> 
+                    </div> 
+                    <div class="bottom-title-con">
+                        <div class="persontotal pubuliu" id="container">
+                            
+                            <notempty name="all_opus_list">
+                                <volist name="all_opus_list" id="all_opus">
+                                    <div class="jiazai item">
+                                        <span class="jiazaisp spimg"><img src="/Uploads/Attachment/Pic/2015-12-29/{$all_opus.covers}" /> </span>
+                                        <span class="jiazaisp bor">标签名：{$all_opus.tags}</span>
+                                        <span class="jiazaisp">
+                                            <span>￥{$all_opus.price}起</span>
+                                            <span><img src="__IMG__/xing.png" style="vertical-align:middle;"/> <b style="color:#333; vertical-align:middle;">{$all_opus.praise}</b></span>
+                                            <span style="text-align: center;">
+                                                <if condition="$all_opus.material eq 0">其它</if>
+                                                <if condition="$all_opus.material eq 1">成品广告图</if>
+                                                <if condition="$all_opus.material eq 2">背景图素</if>
+                                                <if condition="$all_opus.material eq 3">视频</if>
+                                                <if condition="$all_opus.material eq 5">模型</if>
+                                            </span>
+                                        </span> 
+                                    </div>
+                                </volist>
+                            </notempty>
+                           
+                    </div>
+                        <!--暂无数据-->
+                        <empty name="all_opus_list">
+                            <div style="margin-top:30px;width:100%;text-align: center;">
+                                <span>暂无数据！</span>
+                            </div>
+                        </empty>
+                        <!--没有数据了-->
+                        <div id="hint_data" style="margin-top:30px;width:100%;text-align: center;display:none;">
+                            <span>没有数据了.....</span>
+                        </div>
+                </div><!--下半部分结束-->
+
+            <div class="footer" style="margin-left: -20px;">
+                <div class="guanyv_lianxi">
+                    <a href="#" target="_blank" class="ys">关于我们</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="#" target="_blank" class="ys">联系我们</a>
+                </div>
+                <div class="banquan">
+                    版权所有:**********<br />
+                    Copyright:2006-2013&nbsp;www.justeasy.cn&nbsp;All&nbsp;rights&nbsp;reserved<br />
+                    南京设易网络科技有限公司&nbsp;登记序号：苏ICP备11003578号-2<br />
+                </div>
+            </div>
+        </div>
+        <div class="gjl">
+            <a href=""><div class="gjl_1"></div></a>
+            <a href=""><div class="gjl_2"></div></a>
+            <a href=""><div class="gjl_3"></div></a>
+            <a href=""><div class="gjl_4"></div></a>
+            <a href=""><div class="gjl_5"></div></a>
+            <a href="#heads"><div class="gjl_6"></div></a>
+        </div>
+<script>
+    $(function(){
+		$(".lihov").mouseover(function(){
+			  $('.discripion').show()
+			});
+			$('.lihov').mouseout(function(){
+				$('.discripion').hide();
+				});
+				
+		   $('.tab ul li').click(function(){
+			     $(this).addClass('work').siblings().removeClass('work');
+				 var $tab = $(this).attr('title');
+				 $("." + $tab).show().siblings().hide();
+			   })
+			   
+			  
+		});
+function getarraykey(s, v) {for(k in s) {if(s[k] == v) {return k;}}}
+window.onload = function() {liuxiaofan();};
+window.onresize = function() {liuxiaofan();};
+
+ </script>
+        <script>
+            
+            var $container = $('#container');
+            var t;
+            var currentAjax = null; //
+	  $container.masonry({
+	    itemSelector : '.item',//要加载的图片的选择器
+            gutterWidth : 14, //每个图片的列间隙
+            insert_type:1,//单元格插入方式，1为插入最短那列，2为按序轮流插入
+            fadein:true,//是否渐显载入
+            fadein_speed:600,//渐显速率，单位毫秒
+	    isAnimated: true, //使用jquery的布局变化,默认true
+            getResource:function(index){ }  //获取动态资源函数,必须返回一个砖块元素集合,传入参数为加载的次数
+	  });
+          
+            $(function(){
+            var falls_all_num = 1;
+                    $(window).scroll(function(){
+                        if($(document).height() - $(window).height() - $(document).scrollTop()<1) {
+                            t =setTimeout(function () { 
+                             $.post("{:U('ajax_all_opus',array('tags'=>$tags,'uid'=>$uid))}",{'falls_all':falls_all_num},function(data){
+                                 falls_all_num++;
+                                 if(data != ""){
+                                 var html='';
+                                     $.each(data,function(index,val){
+                                            html = '<div class="jiazai item"><span class="jiazaisp spimg"><img src="/Uploads/Attachment/Pic/2015-12-29/'+val.covers+'" /> </span><span class="jiazaisp bor">标签名：'+val.tags+'</span><span class="jiazaisp"><span>￥'+val.price+'起</span><span><img src="__IMG__/xing.png" style="vertical-align:middle;"/> <b style="color:#333; vertical-align:middle;">'+val.praise+'</b></span><span style="text-align: center;"></span><span></span></div>';
+                                            var $newElems = $(html).appendTo($container);
+                                            $newElems.imagesLoaded(function(){
+                                                $newElems.animate({ opacity: 1});
+                                                $newElems.css({ marginTop:14});
+                                                $container.masonry( 'appended', $newElems, true );  
+    
+                                            })
+				        });
+                                 }else{
+                                        $('#hint_data').show();//没有数据了
+                                         return false;  
+                                }
+                            });
+                            }, 260);
+                         }else{
+                            window.clearTimeout(t); 
+                         }
+                          
+                     });  
+               
+           });
+           
+        </script>
+    </body>
+</html>

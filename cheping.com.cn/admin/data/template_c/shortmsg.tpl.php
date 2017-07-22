@@ -1,0 +1,105 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?>
+<div class="user_wrap">
+    <ul class="nav2">
+        <li class="li1"><a href="#">短信列表</a></li>
+    </ul>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            <form id="search_form" name="search_form" method="post" action="?action=shortmsg">
+            <table class="table2" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                      <select name="step" id="step">
+                        <option value="">==操作==</option>
+                        <? foreach((array)$select_step as $k=>$v) {?>
+                            <? if ($k != 0) { ?><option value="<?=$k?>"><?=$v?></option><? } ?>
+                        <?}?> 
+                      </select>    
+                      <select name="state" id="state">
+                        <option value="">==短信状态==</option>
+                        <option value="2">成功</option>
+                        <option value="1">失败</option>
+                      </select>
+                      <input type="text" id="mobile" name="mobile" value="手机号" size="11" maxlength="11"/>
+                      <input type="text" id="ip" name="ip" value="" placeholder="ip" size="16" maxlength="16"/>
+                        <input id="search_btn"  type="submit" value="搜索" />
+                    </td>
+                </tr>
+            </table>
+            </form>
+            <table class="table2" border="0" cellpadding="0" cellspacing="0" style="table-layout:auto;word-wrap: break-word; text-align:center;">
+                <tr   class='th'>
+                    <td width="15%">手机</td>
+                    <td width="10%">操作</td>                    
+                    <td width="30%">内容</td>
+                    <td width="10%">状态</td>
+                    <td width="10%">ip</td>
+                    <td width="10%">时间</td>
+                    <td width="10%">重新发送</td>
+                    <td width="5%">删除</td>
+                </tr>
+                <? foreach((array)$msglist as $k=>$v) {?>
+                <tr class='th'>
+                    <td><div style="height:25px; overflow:hidden;cursor: pointer;" title="<?=$v['mobile']?>"><?=$v['mobile']?></div></td>
+                    <td><? echo $select_step[$v['step']] ?></td>
+                    <td><span style="cursor: pointer;" title='<?=$v['content']?>'><? echo dstring::substring($v['content'], 0, 60) ?></span></td>
+                    <td>
+                    <? if ($v['state'] == 2) { ?>
+                        成功
+                    <? } else { ?>
+                        失败
+                    <? } ?>
+                    </td>  
+                    <td><?=$v['ip']?></td>
+                    <td><? echo date('Y-m-d H:i:s', $v['sendtime']); ?></td>
+                    <td><input type="button" id="sendmsg" name="sendmsg" value="重发" onclick="resend(<?=$v['id']?>)"/></td>
+                    <td><a href="?action=shortmsg-Smslogdel&id=<?=$v[id]?>">删除</a></td>
+                </tr>
+                <?}?>
+                <tr class='page_bar_css'>
+                    <td colspan="6">
+                        <div class="ep-pages"><?=$page_bar?></div>
+                    </td>
+                </tr>
+            </table>
+            <div style="height:40px;"></div>
+        </div>
+    </div>
+</div>
+<script>
+function resend(id) {
+    if(confirm('确定要重新发送吗？')) {
+        $.get('?action=shortmsg-resendmsg', {mid:id}, function(ret) {
+            if($.trim(ret) == 'success') {
+                alert('发送成功!');            
+                location.href = "index.php?action=shortmsg";
+            }
+            else alert('发送失败,请与管理员联系!');
+        });        
+    }
+} 
+$('#search_form').submit(function() {
+    if($('#mobile').val() == '手机号') $('#mobile').val('');    
+});
+$("#mobile").blur(function(){
+    if($(this).val().length<1){
+       $(this).val("手机号");
+    }
+}).focus(function(){
+    if($(this).val()=="手机号"){
+       $(this).val("");
+    }
+});
+$("#ip").blur(function(){
+    if($(this).val().length<1){
+       $(this).val("ip");
+    }
+}).focus(function(){
+    if($(this).val()=="ip"){
+       $(this).val("");
+    }
+});
+</script>
+<? include $this->gettpl('footer');?>

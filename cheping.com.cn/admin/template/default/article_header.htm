@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="{$static_domain}/css/index.css">
+<link rel="stylesheet" href="{$static_domain}/css/wenzhangzuizhong.css">
+<script type="text/javascript" src="{$static_domain}/js/jquery-1.8.3.min.js"></script> 
+<script type="text/javascript" src="{$static_domain}/js/global.js"></script>
+<script type="text/javascript" src="{$static_domain}/js/jquery_lazyload.js"></script>
+<script type="text/javascript" src="{$static_domain}/js/searchSuggest.js"></script>
+<script type="text/javascript"> 
+$(function() { 
+    $("ul > li").click(tab); 
+}); 
+function tab() { 
+    $(this).addClass("ll").siblings().removeClass("ll"); 
+    var tab = $(this).attr("title"); 
+    $("#" + tab).show().siblings().hide(); 
+}
+</script> 
+</head>
+
+<body id="tou">
+    <div class="header">
+        <div class="nav_xf">
+            <div class="navmain">
+            <div class="nav">  
+             <ul>
+                        <li><a href="/">首页</a></li>
+                        <li class="jv"><a href="video.php?action=Video&id=9">视频</a></li>
+                        <li class="jv"><a href="article.php?action=CarReview&id=8">评测</a></li>
+                        <li class="jv"><a href="article.php?action=CarReview&id=7">资讯</a></li>
+                        <li class="jv"><a href="article.php?action=CarReview&id=10">文化</a></li>
+                        <li class="jv"><a href="search.php?action=index">选车</a></li>
+            </ul>
+            </div>
+            <div class="denglu_zhuce">
+                        <ul id="header_login">
+                            <li class="zcdl"><a class="btn btn-primary btn-large"  href="/login.php">登录</a></li>  
+                            <li class="zcdl"><a href="/register.php">注册</a></li>
+                        </ul>
+                        <ul id='header_content' style="display: none">
+                            <li class="zcdl"><a href="javascript:void(0)" onclick='logout(0)'>退出</a></li>
+                            <li class="zcdl"><a href="/user.php" id='header_username'></a></li>  
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div class="logoo">
+            <div class="logo">
+             <div class="logo_top"></div>
+             <div class="logo_foot"></div>
+            </div>
+            <div class="logo_main">
+            <div class="logo_con">
+                <div class="logo_img fl"><a href="/"><img src="/images/logo.png" alt="ams车评网" /></a></div>
+             <div id="searchSuggest">
+               <form action="www.cheping.com.cn/search.php" method="get" id="suggest_form">
+               <input type="text" name="keywords" id="suggest_input" autocomplete="off" placeholder="搜索车型" />
+               <input type="submit" value="" id="suggest_submit" />
+               </form>
+	         <ul id="suggest_ul">
+	         </ul>
+        </div>
+         </div>  
+     </div>
+</div>   

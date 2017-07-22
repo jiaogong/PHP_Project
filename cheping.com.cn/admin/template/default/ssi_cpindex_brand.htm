@@ -1,0 +1,19 @@
+<div class="wraps">
+    <dl class="parameters">
+        <dd>
+        <ul id="mainNav2" class="letter">        
+            {loop $brands $key $row}
+            <li class="letter_li"><a class="first_a" href="javascript:void(0);">{$key}</a>            
+            <div class="brand_type li_focus_<!--{eval echo strtolower($key)}-->">
+                <ul>
+                {loop $row $value}
+                    <li><a href="javascript:void(0);">{$value['brand_name']}</a></li>
+                {/loop}
+                </ul>            
+            </div>
+            </li>
+            {/loop}
+        </ul>
+        </dd>
+    </dl>
+</div>

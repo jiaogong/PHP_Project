@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.login-con{ width:1027px; height:690px;  margin:0 auto;}
+.login-con-left{ width:507px; height:435px;  margin:126px 20px; }
+.login-con-right{width:355px; height:480px;  margin:96px 20px; }
+.login-con-right .right-title{ width:355px; height:42px; background:#f5f5f5;}
+.login-con-right .right-title ul li{  padding:0 10px; float:left; line-height:44px; color:#333333; cursor:pointer;}
+.login-con-right .right-title ul li.other{ background:url(../images/libg.png); color:#FFF; height:48px;}
+.nei{ margin-top:8px;}
+/*注册样式*/
+.zhu{ color:#333333;}
+.zhu .dis-first{ margin-left:10px; }
+.zhu .dis-second{ margin-left:30px;}
+.zhu .dis-third{ margin-left:30px; }
+.zhu .dis  input[type="radio"] { display: none;}
+.zhu .dis label {
+  padding-left: 20px;
+  cursor: pointer;
+  background:url(../images/radio.png) no-repeat left center;
+  
+}
+.zhu .dis label.checked { 
+   background: url(../images/radios.png) no-repeat left top; 
+}
+.zhu .dis input{ background:url(../images/radio.png);}
+.zhu .ym{ width:312px; height:42px; border:1px solid #e0e0e0; margin:20px 0; text-indent:10px;}
+.zhu .check{ color:#828282; }
+.zhu .zip{ color:#333333; font-size:16px; padding:10px 0px;}
+.zhu .agree{ font-size:12px; padding:0 5px; color:#969696; vertical-align:middle;}
+.zhu .button{ width:355px; background:#f99c50; border:none; height:54px; color:#FFF; font-size:16px; margin:20px 0;}
+/*登录样式*/
+.deng form{ margin-top:10px;}
+.deng input{ width:312px;  border:1px solid #e0e0e0; margin:30px 0 0 10px; height:40px; text-indent:10px;}
+.deng .forget{ display:block; float:right; margin-right:30px; margin-top:5px;}
+.deng .forget a{color:#f77206; font-size:13px; }
+.deng .button{ width:355px; background:#f99c50; border:none; height:54px; color:#FFF; font-size:16px; margin:20px 0px;}
+.top-nav{ width:1027px; margin:0 auto; height:30px; background:#999; }
+.top-nav .top-nav-con{ width:200px; margin:0 auto;}
+.top-nav .top-nav-con a{ display:block; float:left; font-size:12px; width:99px; height:17px; line-height:17px; color:#dedede; margin-top:6px; text-align:center;}
+.top-nav .top-nav-con .a1{border-right:1px solid #333;}
+.buttom{ width:1027px; margin:0 auto; height:120px; background:#666;}
+/*找回密码样式*/
+.password-con{ width:1027px; margin:0 auto; height:558px;  }
+.password-nei{ width:542px; height:280px; margin:120px auto; }
+.password-nei h4{color:#666;}
+.passw-top-title{ padding-left:80px; padding-top:20px;  height:30px; font-size:14px;}
+.passw-top-title ul li{ padding:0px 10px; float:left; color:#333; cursor:pointer;}
+.passw-top-title ul li.passactive{ color:#f77206; }
+.pass-con{width:542px; margin-top:5px; }
+.pass-con .zhang{ color:#b6b6b6; padding-left:40px; }
+.pass-con .zhang .zinput1{ width:312px; height:40px; border:1px solid #e0e0e0; margin-top:20px; text-indent:10px; }
+.yan{ margin-top:26px; display:block;}
+.yan .zinput2{width:203px; height:39px; border:1px solid #e0e0e0; vertical-align:middle; text-indent:10px;}
+.yan img{ vertical-align:middle; border:1px solid #e0e0e0; background:#edf4f9;}
+.yan label a{ font-size:12px; color:#f77206;}
+.yan{margin-left:18px; }
+.zhang .button{ width:315px; background:#f99c50; border:none; height:42px; color:#FFF; font-size:16px; margin:30px 92px;}
+.email h3{color:#666; margin-left:125px; margin-top:20px;}
+.email .emailp{ width:280px; display:block; margin-left:160px; margin-top:20px; line-height:22px; }
+.email .code{ display:block; margin-left:50px; color:#b6b6b6; padding:20px 0;}
+.email .code input{ width:202px; height:42px; border:1px solid #e0e0e0; }
+.email .code .button{ width:103px; height:42px; border:1px solid #e0e0e0; background:none; color:#8c8c8c; font-size:16px; }
+.email .bnt{ width:318px; background:#f99c50; border:none; height:42px; color:#FFF; font-size:16px; margin:5px 120px;}
+.passw h3{color:#666; margin-left:200px;}
+.passw input{  margin-left:130px; width:312px; height:40px; border:1px solid #e0e0e0; margin-top:30px; text-indent:10px;}
+.passw .button{ width:315px; background:#f99c50; border:none; height:42px; color:#FFF; font-size:16px; margin:28px 0 0 130px;  }
+.scuess h3{color:#666; margin:100px 0 100px 230px;}
+.scuess .return{display:block; width:312px; height:40px; color:#FFF; font-size:16px; border:none; background:#f99c50; margin-left:130px; line-height:40px; text-align:center;}

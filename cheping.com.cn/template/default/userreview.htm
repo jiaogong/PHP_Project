@@ -1,0 +1,108 @@
+{template user_header}
+<script>
+    $(function () {
+        $("ul > li").click(tab);
+
+        function tab() {
+            $(this).addClass("ll").siblings().removeClass("ll");
+            var tab = $(this).attr("title");
+            $("#" + tab).show().siblings().hide();
+        }
+        ;
+    });
+</script>
+
+<div class="geren-concent">
+    <div class="commentsay-con-left fl">
+        <div class="left-main1 ">
+            <span><img src="{if $users['avatar']}attach/$users['avatar']{else}images/touxiang.jpg{/if}" style="width:100px;height: 105px;"></span>
+            <div class="user-mation fr">
+                <span class="user-sp">{$users['username']}</span>
+                <div class="user-nav">
+                    <a>我的评论 <span class="number">({$reviewscount})</span></font></a>
+                    <a>我的收藏 <span class="number">({$collectcount})</span></a>
+                    <!--<a href="">系统消息 <span class="number">99</span></a>-->
+                </div>  
+            </div>
+        </div>
+        <div class="clear"></div>
+        <span class="sp-title">我的评论</span>
+        <div  class="commentsay-main">
+            <div class="tab">
+                <ul>  
+                    <style>
+                        li a:hover{text-decoration: none;}
+                        .ll a{color:#fff;}
+                        .ll a:hover{text-decoration: none;}
+                    </style>
+                    <li {if $type==1}class="ll"{/if} ><a href="/user.php?action=review&type=1">发出的评论{$reviewscount}</a></li>
+                    <li {if $type==2}class="ll"{/if}><a href="/user.php?action=review&type=2">评论回复{$downlistcount}</a></li>
+
+                </ul>
+            </div>
+            <div class="commentsay-tab-main">
+                {if {$type}==1}
+                <div id="d1">
+                    {loop $list $key $value}
+                    <div class="collect-main">
+                        <span  class="fl"><img src="{if $users['avatar']}attach/$users['avatar']{else}images/user3.jpg{/if}" style="width:50px;height: 51px;"/></span>
+                        <div class="wenzi fl">
+                            <span class="wenzisp"> {if $value['state']==0}(您的评论未通过审核){elseif $value['state']==1}{$value['content']}(您的评论已经通过审核){else}(正在审核中){/if}</span> 
+                            {if $value[type_id]==1}
+                            <p class="wenzip"><span class="colr1">评论文章：</span><span class="colr2"><a href="/html/article/{eval echo date("Ym/d",$value["uptime"]);}/$value[caid].html" target="_blank">{$value['title']}</a></span></p>
+                            {else}
+                            <p class="wenzip"><span class="colr1">评论文章：</span><span class="colr2"><a href="video.php?action=ZuiZhong&id=9&ids=$value[caid]" target="_blank">{$value['title']}</a></span></p>
+                            {/if}
+                        </div>
+                        <div class="time fr">
+                            <p class="timep1">{$value['time']}</p>
+                            <p class="timep2"><a href="/user.php?action=delreview&id={$value[crid]}&type=1">删除</a></p> 
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    {/loop}
+                    <div class="ep-pages">
+                        {$page_bar}
+                    </div>
+                </div>
+                {/if}
+                {if {$type}==2}
+                <div id="d1">
+                    {loop $lists $key $value}
+                    <div class="collect-main">
+                        <span  class="fl"><img src="{if $users['avatar']}attach/$users['avatar']{else}images/user3.jpg{/if}"  style="width:50px;height: 51px;"/></span>
+                        <div class="wenzi fl">
+                            <p><span class="psp">用户名：</span><span class="psp">{$value['uname']}</span><span class="psp1">回复我</span></p>
+                            <span class="wenzisp">{$value['content']}</span> 
+                            {if $value[type_id]==1}
+                            <p class="wenzip"><span class="colr1">评论文章：</span><span class="colr2"><a href="/html/article/{eval echo date("Ym/d",$value["uptime"]);}/$value[caid].html" target="_blank">{$value['title']}</a></span></p>
+                            {else}
+                            <p class="wenzip"><span class="colr1">评论文章：</span><span class="colr2"><a href="video.php?action=ZuiZhong&id=9&ids=$value[caid]" target="_blank">{$value['title']}</a></span></p>
+                            {/if}
+                        </div>
+                        <div class="time fr">
+                            <p class="timep1">{$value['time']}</p>
+                            <p class="timep2"><a href="/user.php?action=delreview&id={$value[creid]}&type=2">删除</a></p> 
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    {/loop}
+
+                    <div class="ep-pages">
+                        {$page_bar}
+                    </div>
+
+                </div>
+                {/if}
+            </div>
+
+        </div>
+
+    </div>
+    {template user_right}
+    <div class="clear"></div>       
+</div>    
+</div>
+{template user_footer}
+</body>
+</html>

@@ -1,0 +1,114 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+
+    <div class="main-title cf">
+        <h2><if condition="$_GET['_action'] eq 'add'">新增<else/>编辑</if>幻灯片</h2>
+    </div>
+
+    <!-- 表单 -->
+    <form id="form" action="{:addons_url('Silder://Silder/update')}" method="post" class="form-horizontal">
+
+        <div class="form-item cf">
+            <label class="item-label">幻灯片名称<span class="check-tips">（用于区分编辑）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="title" value="{$info['title']}">
+            </div>
+        </div>
+
+        <div class="form-item cf" id="type1" >
+            <label class="item-label">图片<span class="check-tips">（请上传幻灯片图片）</span></label>
+            <div class="controls">
+                <input type="file" id="upload_picture_advspic">
+                <input type="hidden" name="silderpic" id="cover_id_silderpic" value="{$info['silderpic']}"/>
+                <div class="upload-img-box">
+                    <notempty name="info['silderpic']"><div class="upload-pre-item"><img src="__ROOT__{$info.path}"/></div></notempty>
+                </div>
+            </div>
+            <script type="text/javascript">
+                        //上传图片
+                        /* 初始化上传插件 */
+                        $("#upload_picture_advspic").uploadify({
+                "height"          : 30,
+                        "swf"             : "__STATIC__/uploadify/uploadify.swf",
+                        "fileObjName"     : "download",
+                        "buttonText"      : "上传图片",
+                        "uploader"        : "{:U('File/uploadPicture',array('session_id'=>session_id()))}",
+                        "width"           : 120,
+                        'removeTimeout'	  : 1,
+                        'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
+                        "onUploadSuccess" : uploadPicture{$field.name},
+                        'onFallback' : function() {
+                        alert('未检测到兼容版本的Flash.');
+                        }
+                });
+                        function uploadPicture{$field.name}(file, data){
+                var data = $.parseJSON(data);
+                        var src = '';
+                        if (data.status){
+                $("#cover_id_silderpic").val(data.id);
+                        src = data.url || data.path
+                        $("#cover_id_silderpic").parent().find('.upload-img-box').html(
+                        '<div class="upload-pre-item"><img src="__ROOT__' + src + '"/></div>'
+                        );
+                } else {
+                updateAlert(data.info);
+                        setTimeout(function(){
+                        $('#top-alert').find('button').click();
+                                $(that).removeClass('disabled').prop('disabled', false);
+                        }, 1500);
+                }
+                }
+            </script>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">说明<span class="check-tips">（将显示在图片下方）</span></label>
+            <div class="controls">
+                <textarea rows="3" cols="54" name="sildertext">{$info.sildertext}</textarea>
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">链接<span class="check-tips">（点击图片后跳转）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="jumplink" value="{$info.jumplink}">
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">跳转<span class="check-tips">（链接的打开方式）</span></label>
+            <div class="controls">
+                <if condition="$info.jumptype eq 2">
+                    <label class="radio"><input type="radio" value="1" name="jumptype">当前页</label>
+                    <label class="radio"><input type="radio" value="2" name="jumptype"checked>新标签</label>
+                    <else />
+                    <label class="radio"><input type="radio" value="1" name="jumptype" checked>当前页</label>
+                    <label class="radio"><input type="radio" value="2" name="jumptype">新标签</label>
+                </if>
+
+            </div>
+        </div>
+
+        <div class="form-item cf">
+            <label class="item-label">优先级<span class="check-tips">（数字0-9，0的优先级最高）</span></label>
+            <div class="controls">
+                <if condition="$info.priorityr neq ''">
+                    <input type="text" class="text input-large" name="priorityr" maxlength="1" value="{$info.priorityr}">
+                    <else />
+                    <input type="text" class="text input-large" name="priorityr" maxlength="1" value="0">
+                </if>
+            </div>
+        </div>
+
+        <input type="hidden" name="id" value="{$info.id}"/>
+
+        <div class="form-item cf">
+            <button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <input class="btn btn-return" type="reset" value="重置" />
+        </div>
+
+    </form>
+
+</block>

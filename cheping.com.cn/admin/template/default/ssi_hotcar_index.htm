@@ -1,0 +1,58 @@
+        <div class="pop_type cover">
+            <div class="title">
+              <h3><img src="images/font4.png"/><a href="popcar.php" class="more_t">更多</a></h3>
+              <div class="titlenav">
+                <!--{loop $hotcar $k $v}-->
+                {if $v['hotcar'][0][series_id]}
+                <p>$v[title]</p>
+                {/if}
+                <!--{/loop}-->
+                <div class="switch" id="switch">
+                  <div class="switch_point">
+                    <!--{loop $hotcar $k $v}-->
+                      {if $v['hotcar'][0][series_id]}
+                      <a href="#"<!--{if !$k}--> class="selected"<!--{/if}-->>$v['hotcar'][0][series_id]</a>
+                      {/if}
+                    <!--{/loop}-->
+                  </div>
+                  <div class="switch_button"><a href="#" class="pre"></a><a href="javascript:void(0);" class="next"></a></div>
+                </div>
+              </div>
+            </div>
+            <!--{loop $hotcar $k $v}-->
+            {if $v['hotcar'][0][series_id]} 
+            <ol class="item">
+              <!--{loop $v[hotcar] $kk $vv}-->
+              {if $kk>4}{eval break;}{/if}
+              <li<!--{if !$kk}--> class="item1"<!--{/if}-->>
+                <div class="preview"><span><!--{eval echo $kk+1;}--></span>
+                <a href="{$relat_dir}series.php?seriesid={$vv['series_id']}">{$vv[series_name]}</a></div>
+                <div class="wrap_item">
+                  <div class="real"> <a href="{$relat_dir}series.php?seriesid={$vv['series_id']}" class="real_img">
+                  <img src="{$relat_dir}attach/images/series/{$vv[series_id]}/130x73{$vv[pic_name]}" onerror='this.src="images/nopic130.gif"' width="120" height="68" />
+                  </a>
+                    <dl class="real_dl">
+                      <dd>厂商指导价</dd>
+                      <dd>{$vv[min_price]} - {$vv[max_price]}万元</dd>
+                      <dd><span class="point">平均分</span>
+                        <div class="stars" style="background-position:0 -{eval echo (intval($vv['avgscore']['s1'])*15)+43;}px"></div>
+                      </dd>
+                      <dd><span>(<a href="{$relat_dir}comment.php?action=seriescomment&seriesid={$vv['series_id']}"><!--{if $vv['avgscore']["s7"]}-->{$vv['avgscore']["s7"]}<!--{else}-->0<!--{/if}-->条新评论</a>)</span>&nbsp;&nbsp;&nbsp;<a href="series.php?seriesid={$vv['series_id']}&t=coment">写评论</a></dd>
+                    </dl>
+                </div>
+                <!--{if !empty($vv['comment'])}-->
+                <div class="talk">
+                    {eval echo string::get_str($vv['comment']['comment'], 60);}……
+                    <a href="{$relat_dir}comment.php?action=seriescomment&seriesid={$vv['series_id']}">更多</a>
+                </div>
+                <div class="per_talk"> <span>{$vv['comment']['uname']}</span><img src="images/unonline.gif" onerror='this.src="images/unonline.gif"' width="25" height="25" />
+                </div>
+                <!--{/if}-->
+                </div>
+              </li>
+              <!--{/loop}-->
+              
+            </ol>
+            {/if} 
+            <!--{/loop}-->
+          </div>

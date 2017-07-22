@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin:0; padding:0; font-size:16px; color:#333; font-family:"微软雅黑"; background-color:#F4F4F4;}
+.top_bg{ width:100%; height:60px; background-color:#E51A14;}
+.top_bg2{ width:100%; height:20px; background-color:#F2F2F2; border-bottom:1px solid #E9E9E9;}
+.logo{ margin-top:-80px; margin-left:5%;}
+.biaoti{ width:100%; color:#333; font-size:28px; margin:0 auto;}
+.xinxi{width:100%; color:#333; font-size:15px; margin:0 auto; margin-top:15px;}
+.xinxi jianjv{ margin-left:15px;}
+.xx_jv{ margin-left:40px;}
+.time{ margin-top:10px;}
+.zt_border{width:85%; margin:0 auto}
+.zt_border img{width:100%;}
+.daoyv{ width:92%; margin:0 auto;background-color:#FFF; padding:10px 10px 10px 10px; margin-top:10px;}
+.daoyv span{background-color:red; color:#fff; font-size:18px; padding:0 10px; border-radius:4px;}
+.wap_wenzhang_tu1{ width:100%; height:auto; margin:0 auto; margin-top:30px;}
+.wap_wenzi2{ width:100%; margin:auto; margin-bottom:20px; margin-top:20px; }
+.wap_wenzi3{ width:100%; margin:auto; margin-top:0px;}
+.wap_wenzi4{ width:100%; margin:auto; margin-top:0px; }
+.wap_shipin{ width:100%; height:auto; margin:0 auto; margin-top:10px;}
+.wap_video{ position:relative;}
+.wap_video2{ position:absolute; left:42%; top:45%;}
+.shipinan{ position:relative; top:; left:0%;}
+.qita_wenzhang{ width:100%; height:auto; border:1px solid #E2E2E2; background-color:#FFF; margin:0 auto; margin-top:20px; font-size:12px;}
+.wenzhangk{ border-bottom:1px solid #E2E2E2;}
+.wap_bt{ padding-left:20px; font-size:14px; line-height:25px; margin-top:10px;}
+.wap_time{ padding-left:20px; font-size:12px; line-height:25px; margin-bottom:10px;}
+.xgwz{ width:100px; height:30px; line-height:30px; background-color:#E51A14; color:#FFF; position:relative; top:20px; text-align:center;}

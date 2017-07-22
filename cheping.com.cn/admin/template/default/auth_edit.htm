@@ -1,0 +1,81 @@
+{template header} 
+        <div class="users-add">
+            <div class="nav">
+                <ul>
+                    <li><a href="?action=user-userlist">正式用户</a></li>
+                    <li><a href="?action=user-userlist&type=sideline">兼职用户</a></li>
+                    <li><a href="?action=user-add">添加用户</a></li>
+                </ul>
+            </div> 
+            <div class="clear"></div>
+            <form name="queryForm" id="queryForm" method="post" action="?action=auth-authedit">
+                <div class="users-add-con">
+                    <div class="users-table1">
+                        <table style="">
+                            <tr class=menu_space>
+                                <td height=25 align=right>复制<!--{$userinfo[username]}--> 的权限 给
+                                    <select name="to_uid">
+                                        <!--{loop $alluser $uk $uv}-->
+                                        <!--{if $uv[uid]!= $userinfo[uid]}-->
+                                        <option value="<!--{$uv[uid]}-->">$uv[username]</option>
+                                        <!--{/if}-->
+                                        <!--{/loop}-->
+                                    </select>&nbsp;
+                                    <input type=button name='to_user' value="开始复制" class=button onclick="javascript:copy_auth();">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                                            </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">用户：<!--{$userinfo[username]}--> 的系统模块权限：</td>
+                                            </tr>
+                                            </table>
+                                            </div>
+                                            <div class="xian"></div>
+                                            <div class="users-table3">
+                                                <div class="users-radio">
+                                                    <table>
+                                                        <!--{loop $allauth $k $v}-->
+                                                        <tr>
+                                                            <td><!--{$v[module_name]}-->:
+                                                                <input type=hidden name="module_<!--{$k}-->" value="<!--{$v[module_id]}-->"/>
+                                                            </td>
+                                                            <!--{loop $auth_value $ak $av}-->
+                                                            <td>
+                                                                <!--{if $userauth[$v[module_id]] == $ak}-->
+                                                                <input type='radio' name="m_radio_<!--{$k}-->" value="<!--{$ak}-->" checked="checked"/>
+                                                                <!--{else}-->
+                                                                <input type='radio' name="m_radio_<!--{$k}-->" value="<!--{$ak}-->"/>
+                                                                <!--{/if}-->
+                                                                <!--{$av}-->
+                                                            </td> 
+                                                            <!--{/loop}-->
+                                                        </tr>
+                                                        <!--{/loop}-->
+                                                    </table>
+                                                    <div style=" margin:0 auto; width:400px;">
+                                                        <input type=hidden name="mod_rights" value="1"/>
+                                                        <input type=hidden name="uid" value="<!--{$userinfo[uid]}-->"/>
+                                                        <button type=" submit" name=b1 class=button style=" width:48px; height:30px; background:url(images/button.png) no-repeat; border:none; margin-left:50px;">保 存</button>
+                                                        <button type=button name=b1 class=button  onclick="javascript:history.go(-1);
+                                                            window.close();" style=" width:48px; height:30px; background:url(images/button.png) no-repeat; border:none; margin-left:50px;">返 回</button>
+                                                        <input type=button name=b1 class=button value=" 设置产品权限 " onclick="javascript:add_productauth();" style=" margin-left:80px; width:88px; height:28px; border:none;"/>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            </div>  
+                                            </form>
+                                            </div>
+                                            <script language="javascript">
+                                                function copy_auth() {
+                                                    $('#queryForm').attr('action', '?action=auth-copyauth');
+                                                    $('#queryForm')[0].submit();
+                                                }
+
+                                                function add_productauth() {
+                                                    var auth_url = "?action=auth-carauth&uid=<!--{$userinfo[uid]}-->";
+                                                    location.href = auth_url;
+                                                }
+                                            </script>
+                                            </body>
+                                            </html>

@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*tab切换*/
+ul,li{ margin:0px; padding:0px; list-style:none;}
+.tab {width:1180px; height:40px;}
+.tab ul li{ background:#efefef; float:left; width:85px; height:30px; margin-left:5px; line-height:30px; text-align:center;}
+ .con{width:1180px;}
+.tab ul li.ll{ background:#333; color:#f8f8f8;} 
+.xinxi_1{ width:300px; height:100px; background-color:#f8f8f8; margin-top:45px; margin-left:60px}
+.xinxi_1 p{ line-height:30px; font-size:14px;}
+.xinxi_1 p span{ margin-left:20px;}
+.xinxi_1 p span a{color:#5289A7}
+.xx_xinxi{ font-size:16px; margin-top:30px;}
+.xx-sm{ margin-left:90px; margin-top:-18px; color:#999;}
+
+
+/*tab切换结束*/
+/*右侧内容*/
+
+
+
+
+.geren-concent .concent-right{ width:282px; float:right; }
+.geren-concent .concent-right .concent-right-top{ width:282px; background:#fff; border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-left:1px solid #e4e4e4;}
+.geren-concent .concent-right .concent-right-top ul li{ line-height:57px; font-size:18px; color:#333; text-indent:120px; border-bottom:1px solid #e4e4e4; }
+.airtle{ background:#FFF; border:1px solid #e4e4e4; width:282px; margin-top:20px; }
+.airtle .airtle-hot{ padding:20px 0 0 22px;font-size:14px;}
+.airtle .point{margin-left:260px; margin-top:-15px;}
+.airtle .point a{ color:#a4aab6;}
+.airtle .list_sp{ width:255px; height:auto; margin:auto; margin:15px auto 15px auto;}
+.airtle-span{ width:108px; font-size:14px; line-height:20px;}
+.airtle-span .p4{ color:#666;}
+.airtle-span .p5{ padding:15px 0 0 0; color:#989ead;}
+
+.xinagxi_xx{ width:500px; height:auto; margin-left:50px; font-size:14px; line-height:30px; margin-top:20px;}
+.sex{ margin-left:28px;}
+.szd{margin-left:14px;}
+.yb{ margin-left:28px;}
+.qq{ margin-left:35px;}
+.xiugai_lj{ margin-left:100px; margin-top:50px;}
+.xiugaishouji_1{margin-left:50px; margin-top:30px;}
+.xyz_sm{ font-size:14px; color:#333;}
+.shoujihao{ font-size:14px; color:#333;margin-top:30px;}
+.yanzhengma{font-size:14px; color:#333; margin-top:30px;}
+.sjhk{ width:310px; height:35px; border-radius:3px; border:1px solid #C6C6C6; outline:none; padding-left:10px; font-size:14px;}
+.sjhk:hover{border:1px solid #F0908E;}
+
+.yzmk{ width:165px; height:35px; border-radius:3px; border:1px solid #C6C6C6; outline:none; padding-left:10px; font-size:14px;}
+.yzmk:hover{border:1px solid #F0908E;}
+
+.yanBtn1{width:130px; height:35px;margin-left:15px;height:34px; line-height:32px;padding:0;color:#f8f8f8; background:#949494; cursor: pointer;border: solid 1px #C6C6C6;outline: none;}
+.yanBtn2{width:130px; height:35px;margin-left:15px;height:34px; line-height:32px;padding:0;color:#f8f8f8; background:#949494; cursor: pointer;border: solid 1px #C6C6C6;outline: none;}
+.yanBtn3{width:130px; height:35px;margin-left:15px;height:34px; line-height:32px;padding:0;color:#f8f8f8; background:#949494; cursor: pointer;border: solid 1px #C6C6C6;outline: none;}
+.class1_2{width:130px; height:35px;margin-left:15px;height:34px; line-height:32px;padding:0;color:#959595; background:#fff; cursor: pointer;border: solid 1px #C6C6C6;outline: none;}
+.class1_3{width:130px; height:35px;margin-left:15px;height:34px; line-height:32px;padding:0;color:#959595; background:#fff; cursor: pointer;border: solid 1px #C6C6C6;outline: none;}
+.class2_2{width:130px; height:35px;margin-left:15px;height:34px; line-height:32px;padding:0;color:#959595; background:#fff; cursor: pointer;border: solid 1px #C6C6C6;outline: none;}
+.class2_3{width:130px; height:35px;margin-left:15px;height:34px; line-height:32px;padding:0;color:#959595; background:#fff; cursor: pointer;border: solid 1px #C6C6C6;outline: none;}
+.class3_2{width:130px; height:35px;margin-left:15px;height:34px; line-height:32px;padding:0;color:#959595; background:#fff; cursor: pointer;border: solid 1px #C6C6C6;outline: none;}
+.class3_3{width:130px; height:35px;margin-left:15px;height:34px; line-height:32px;padding:0;color:#959595; background:#fff; cursor: pointer;border: solid 1px #C6C6C6;outline: none;}
+.baocun_1{ margin-top:50px; margin-left:55px;}
+.xinmima{font-size:14px; margin-top:30px;}

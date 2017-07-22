@@ -1,0 +1,96 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('index_header');?>
+
+<div class="search-con">
+    <div class="search-con-left fl">
+        <div class="search-title" style="margin-top: 40px;">
+            <p><a href="/">车评首页</a> > "<?=$keywords?>"的搜索结果</p> 
+            <? if ($list) { ?><p class="pcolor">根据您的搜索，您是不是要查看这些相关的内容 :<? foreach((array)$list as $k=>$v) {?><span><a href="article.php?action=ActiveList&id=<?=$v[id]?>"><?=$v[tag_name]?></a></span><?}?></p> <? } ?>
+        </div>
+        <div class="search-change">
+
+            <? if ($listc) { ?>
+            <div class="search-change-main"> 
+                <div id="d1">
+                    <? foreach((array)$listc as $k=>$v) {?>
+                    <? if ($v['type_id']==1) { ?>
+                    <div class="change-main1">
+                        <span class="fl imgsp1"><a href="<?=$v[url]?>" target="_blank"><img class="lazyimg" data-original="/attach/<?=$v[pic]?>" src="../images/loading_img/loading280x185.png" alt="<?=$v[title]?>" width="280px" height="186px"/></a></span>
+                        <div class="descript fr">
+                            <p class="size22px"><a href="<?=$v[url]?>" target="_blank"><?=$v[title]?></a></p> 
+                            <p class="margin14px"><? echo dstring::substring($v[chief],0,450) ?></p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <? } else { ?>
+                    <div class="search-main-video">
+                        <div class="search-video">
+                            <span class="fl imgda"><a href="<?=$v[url]?>" target="_blank"><img class="lazyimg" data-original="/attach/<?=$v[pic]?>" src="../images/loading_img/loading280x185.png" alt="<?=$v[title]?>" width="280px" height="186px"></a></span> 
+                            <span class="imgimg"><a href="<?=$v[url]?>" target="_blank"><img src="images/player.png"></a></span>
+                        </div>
+                        <div class="des fr" >
+                            <p class="size22px"><a href="<?=$v[url]?>" target="_blank"><?=$v[title]?></a></p>
+                            <p class="margin14px"><? echo dstring::substring($v[chief],0,450) ?></p>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <? } ?>
+                    <?}?>
+
+
+
+
+                    <div class="ep-pages">
+                        <?=$page_bar?>
+                    </div>
+                </div> 
+
+            </div>   
+
+            <? } else { ?>
+            <div class="search-change-main"> 
+                <div id="d1">
+                    <div class="xianshi">
+                        <p class="p1">很抱歉，没有找到"<span class="p-sp"><?=$keywords?></span>"相关的结果</p>
+                        <p class="p2">请检查您输入的文字是否有误：</p>
+                        <p class="p3">请更改分类选项或尝试其他搜索关键词：</p>
+                    </div>
+                </div> 
+            </div> 
+            <? } ?>
+
+        </div>
+
+    </div>
+    <script src='/js/counter.php?cname=search&c1=<?=$id?>&c2=<?=$ids?>&c3='></script>
+    <div class="search-con-right fr">
+        <!--#include virtual="/ssi/ssi_index_article.shtml"-->
+
+        <div class="erwei">
+            <span class="erwei-img fl"><img src="images/erweima.jpg" /></span>
+            <div class="erwei-descript fr">
+                <span>车评网</span>
+                <span>官方微信公众号</span>
+                <span style=" color:#ff0d0c;">amscheping</span>
+                <span style="font-size: 18px; text-align: center; padding-top: 12px; ">专业车评天天看</span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<? if (!$listc) { ?>
+<div style="bottom:0px; left:0px; height:25.5%; width:100%;"></div>
+<? } ?>
+<script type="text/javascript">
+    $(function(){
+        //定位搜索框的位置
+        var not_content = $('.xianshi');
+        var zero =$('.p-sp').text();
+        if(not_content.length > 0 && zero!=0){
+            $('.logoo').css('top','18px')
+        }  
+    });
+</script>
+<? include $this->gettpl('article_footer');?>

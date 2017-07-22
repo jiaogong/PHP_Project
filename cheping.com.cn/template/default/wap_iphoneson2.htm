@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+        <meta name="format-detection" content="telephone=no" />
+        <title>wap-更换手机号</title>
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/people.css"/>
+        <script src="js/jquery-1.8.3.min.js"></script>
+    </head>
+
+    <body>
+        <div class="header">
+            <span class="sp1">更换手机号</span>
+            <span class="fl hsp2" onclick='location.href="/wapuinfo.php?action=Person"' style="cursor:hand"> < </span> 
+        </div>
+        <div class="con">
+
+            <div class="number">
+                <span class="fl padtop fontsi">请输入验证码:</span>
+                <input type="text" class="telephone fl" id="code"/>
+                <p class="" id="codes" style="margin-top: 15px;"></p>
+                <div class="clear"></div>
+            </div>  
+            <p class="text-align"><input type="submit" class="tijiao" value="下一步"  id="next"/></p> 
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                //检验验证码问题
+                $("#code").blur(function () {
+                    var code = $(this).val();
+                    if (code) {
+                        $.getJSON('/wapuinfo.php?action=CheckCode', "code=" + code, function (msg) {
+                            if (msg == -4) {
+                                $("#code_error").show();
+                                $("#code_img").hide();
+                            } else {
+                                $("#code_error").hide();
+                                $("#code_img").show();
+                            }
+                        })
+                    } else {
+                        $("#codes").html("请输入验证码");
+                        return false;
+                    }
+                })
+            })
+            //下一步绑定的函数跳转带参数  写入数据库
+            $("#next").click(function () {
+                var code = $("#code").val();//发送ajax  如果验证码正确就插入数据库
+                if (code) {
+                    $.post("/wapuinfo.php?action=iphoneson2", {"code": code}, function (msg) {
+                        if (msg == 1) {
+                            alert("修改成功");
+                            location.href = "/wapuinfo.php?action=Person";
+                        }
+                    })
+                } else {
+                    $("#codes").html("验证码不能为空!");
+                }
+            })
+        </script>  
+    </body>
+</html>

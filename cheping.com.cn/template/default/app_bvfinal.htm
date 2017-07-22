@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<title>{$list[title]}-ams车评网</title>
+<link rel="stylesheet" href="{$static_domain}/css/wapindex.css" />
+<link rel="stylesheet" href="{$static_domain}/css/reset.css" />
+
+</head>
+
+<body style=" background:#222227;">
+  
+  <div class="title1-black">{$list[title]}</div>
+  <div class="zitu-black">
+          <div class="banner">
+          <span class="bannersp">
+          {if $type==1}
+          <script id="autoJs{$vu}" type="text/javascript">var pNode=document.getElementById("autoJs{$vu}").parentNode,pt,pb,dWidth = pNode.clientWidth,pHeight = pNode.clientHeight,dHeight = ReCallHeight(pHeight, dWidth,pNode);function ReCallHeight(h, w,a) {try{pt = window.getComputedStyle(a,null).paddingTop;pb = window.getComputedStyle(a,null).paddingBottom;}catch(e){pt = a.currentStyle.paddingTop;pb = a.currentStyle.paddingBottom;}h = h- parseInt(pt)- parseInt(pb);if(h && (typeof h == "number") && h==h && h>0){return h;}else{var ua = navigator.userAgent.toLowerCase();var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),isAndroid = ua.match(/(Android)\s+([\d.]+)/),isMobile = isIphone || isAndroid;if(isMobile){return w*9/16;}else{return (w*9/16)+36;}}} var letvcloud_player_conf =  {"uu":"{$uu}","vu":"{$vu}","auto_play":1,"gpcflag":1,"width": dWidth,"height": dHeight};</script>
+          <script type="text/javascript" src="http://yuntv.letv.com/bcloud.js"></script>
+          {else}
+          <iframe src="{$list[source]}" scrolling="no" frameborder="0"></iframe>
+          {/if}
+          </span>
+
+          </div>
+          <div class="descript">
+          <span>{$list[chief]}</span>
+          </div>
+    
+  </div>
+  <div class="xialacon-black">
+      <div class="title2">
+         <span class="fl sp1-black">精彩视频</span>
+         <span class="fl spline-black"></span>
+         <div class="clear"></div>
+      </div>
+      <div class="imgcon">
+       <ul>
+       {loop $video $k $v}
+       {if $k<6}
+          <li>
+            <div class="img1"><a href="/app.php?action=VideoFinal&aid={$v[c3]}"><img src="/attach/{$v[pic]}" /></a></div>
+            <div class="play"><a href="/app.php?action=VideoFinal&aid={$v[c3]}"><img src="/images/play.png" /></a></div>
+          </li>
+        {/if}
+       {/loop}
+            <div class="clear"></div>
+         </ul>
+      </div>
+  </div>
+</body>
+</html>

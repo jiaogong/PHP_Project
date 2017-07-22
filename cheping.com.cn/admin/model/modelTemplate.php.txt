@@ -1,0 +1,23 @@
+<?php
+  /**
+  * factory
+  * $Id: modelTemplate.php.txt 2 2015-06-03 04:39:17Z xiaodawei $
+  */
+  
+  class factory extends model{
+    function __construct(){
+      parent::__construct();
+      $this->table_name = "cardb_factory";
+    }
+    
+    function getFactory($id){
+      $this->fields = "*";
+      $this->where = "factory_id='{$id}' and state=3";
+      return $this->getResult();
+    }
+    
+    function getAllFactory(){
+      return $this->getResult(2);
+    }
+  }
+?>

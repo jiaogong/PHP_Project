@@ -1,0 +1,45 @@
+<div class="baojia_left">
+    <h3 class="baojia_left_title">新闻中心</h3>
+    <div class="baojia_left_content">
+        <div class="table_left">
+            <div class="xinwen_title"><span style="float:left; font-size:14px;"><a href="more_news.html" target="_blank">汽车导购</a></span><span style="float:right;"><a href="more_news.html" target="_blank">更多</a></span></div>
+            <div class="xinwen_list">
+                {if !empty($article['dynamic'])}                        
+                {loop $article['dynamic'] $art}
+                <ul>
+                    <li style=" width:87px;">[ {eval echo $type[$art['channel_id']]} ]</li>
+                    <li style=" width:235px;">
+                        <a title="{$art['title']} {$art['title2']}" href="html/article/{eval echo date('Ym', $art['created'])}/{eval echo date('d', $art['created'])}/{$art['id']}.html" target="_blank">
+                            {eval echo mb_substr($art['short_title'],0,18,'utf-8')}
+                        </a>
+                    </li>
+                    {if $art['created']}
+                    <li style=" color:#b9b9b9;">{eval echo date('Y-m-d', $art['created'])}</li>
+                    {/if}
+                </ul>
+                {/loop}
+                {/if}
+            </div>
+        </div>
+        <div class="table_right">
+            <div class="xinwen_title"><span style="float:left; font-size:14px;"><a href="more_active_news.html" target="_blank">汽车资讯</a></span><span style="float:right;"><a href="more_active_news.html" target="_blank">更多</a></span></div>
+            <div class="xinwen_list">
+                {if !empty($article['market'])}
+                {loop $article['market'] $art}
+                <ul>
+                    <li style=" width:87px;">[ {eval echo $type[$art['channel_id']]} ]</li>
+                    <li style=" width:235px;">
+                        <a title="{$art['title']} {$art['title2']}" href="html/article/{eval echo date('Ym', $art['created'])}/{eval echo date('d', $art['created'])}/{$art['id']}.html" target="_blank">
+                            {eval echo mb_substr($art['short_title'],0,18,'utf-8')}
+                        </a>
+                    </li>
+                    {if $art['created']}
+                    <li style=" color:#b9b9b9;">{eval echo date('Y-m-d', $art['created'])}</li>
+                    {/if}
+                </ul>
+                {/loop}
+                {/if}
+            </div>
+        </div>
+    </div>
+</div>

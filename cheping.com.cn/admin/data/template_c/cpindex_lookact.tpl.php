@@ -1,0 +1,131 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?> 
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+            <li><a href="<?=$php_self?>lookList">信息预览</a></li>
+            <li><a href="javascript:void(0);" class="song">操作</a></li>
+            <li><a href="<?=$php_self?>hotcarNotice&act=look">逻辑说明</a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            <? foreach((array)$lookact as $key=>$val) {?>
+            <form method="post" action="<?=$php_self?>addLook" enctype="multipart/form-data" id="form<?=$key?>">
+                <table cellpadding="0" cellspacing="0" class="table2" border="0">
+                    <tr>
+                        <td><?=$key?></td>
+                        <td><input type="text" value="<? if ($val!='') { ?><?=$val['alias']?><? } ?>" name="alias" /><input type="hidden" value="<? if ($val!='') { ?><?=$val['alias']?><? } ?>" class="alias<?=$key?>" /></td>
+                        <td>
+                            <select name="brand_id" class="brand_id" id="brand_id<?=$key?>">
+                                <option value="">==请选择品牌==</option>
+                                <? foreach((array)$brand as $k=>$v) {?>
+                                <option value="<?=$v['brand_id']?>"><?=$v['letter']?> <?=$v['brand_name']?></option>
+                                <?}?>
+                                <? if ($val['brand_id']) { ?>
+                                <script type="text/javascript">
+                                    $("#brand_id<?=$key?>").val(<?=$val['brand_id']?>);
+                                </script>
+                                <? } ?>
+                            </select>
+                            <input type="hidden" value="<?=$val['brand_id']?>" class="brand_id<?=$key?>" />
+                        </td>
+                        <td>
+                            <select name="factory_id" class="factory_id" id="factory_id<?=$key?>">
+                                <option value="">==请选择厂商==</option>
+                                <? if ($val['factory']) { ?>
+                                <? foreach((array)$val['factory'] as $k=>$v) {?>
+                                <option value="<?=$v['factory_id']?>"><?=$v['factory_name']?></option>
+                                <?}?>
+                                <script type="text/javascript">
+                                    $("#factory_id<?=$key?>").val(<?=$val['factory_id']?>);
+                                </script>
+                                <? } ?>
+                            </select>
+                            <input type="hidden" value="<?=$val['factory_id']?>" class="factory_id<?=$key?>" />
+                        </td>
+                        <td>
+                            <select name="series_id" class="series_id" id="series<?=$key?>">
+                                <option value="">==请选择车系==</option>
+                                <? if ($val['series']) { ?>
+                                <? foreach((array)$val['series'] as $k=>$v) {?>
+                                <option value="<?=$v['series_id']?>"><?=$v['series_name']?></option>
+                                <?}?>
+                                <script type="text/javascript">
+                                    $("#series<?=$key?>").val(<?=$val['series_id']?>);
+                                </script>
+                                <? } ?>
+                            </select>
+                            <input type="hidden" value="<?=$val['series_id']?>" class="series_id<?=$key?>" />
+                        </td>
+                        <td>
+                            <a class="jTip" href="<? if ($val) { ?><?=$php_self?>pic&pic=<?=$val['pic']?>&sid=<?=$val['series_id']?><? } ?><? if ($val=='') { ?>1.jpg<? } ?>" id='look_jtip<?=$key?>'>查看图片</a>
+                            <input type="hidden" value="" name="pic" />
+                        </td>
+                        <td><input type="hidden" value="<?=$key?>" name="num" /><input type="hidden" value="<?=$val['series_id']?>" name="series_id1" /><input type="button" value="提交" onclick="checkForm(<?=$key?>)" />&nbsp;&nbsp;
+                            <a href="">取消操作</a></td>
+                    </tr>
+                </table>
+            </form>
+            <br/>
+            <?}?>
+        </div>
+        <div class="user_con2"><img src="<?=$admin_path?>images/conbt.gif"  height="16" /></div>
+    </div>
+</div>
+<? include $this->gettpl('footer');?>
+<script type="text/javascript">
+    $(function () {
+        $('.brand_id').change(function () {
+            var brand_id = $(this).val();
+            var facturl = "?action=factory-json&brand_id=" + brand_id;
+            var sel = this;
+            //$('#brand_name').val(sel.options[sel.selectedIndex].text)
+
+            $.getJSON(facturl, function (ret) {
+                $(sel).parent().next().find("select option[value!='']").remove();
+                $(sel).parent().next().next().find("select option[value!='']").remove();
+                $.each(ret, function (i, v) {
+                    $(sel).parent().next().find('select').append('<option value=' + v['factory_id'] + '>' + v['factory_name'] + '</option>');
+                })
+            })
+        })
+
+        $('.factory_id').change(function () {
+            var fact_id = $(this).val();
+            var serurl = "?action=series-json&factory_id=" + fact_id;
+            var sel = this;
+
+            $.getJSON(serurl, function (ret) {
+                $(sel).parent().next().find("select option[value!='']").remove();
+                $.each(ret, function (i, v) {
+                    $(sel).parent().next().find('select').append('<option value=' + v['series_id'] + '>' + v['series_name'] + '</option>');
+                })
+            })
+        })
+
+        $('.series_id').change(function () {
+            var series_id = $(this).val();
+            var serurl = "?action=cpindex-getdefaultmodelpic&sid=" + series_id;
+            var sel = this;
+
+            $.getJSON(serurl, function (ret) {
+                $(sel).parent().next().find('input').val(ret['msg']);
+                $(sel).parent().next().find('a').attr('href', '/admin/index.php?action=cpindex-pic&pic=' + ret['msg'] + '&sid=' + series_id);
+            })
+        })
+    })
+    function checkForm(key) {
+        $("#form" + key).submit();
+    }
+    function lookInit(key) {
+        return;
+        $(".alias" + key).prev().val($(".alias" + key).val());
+        $(".brand_id" + key).prev().val($(".brand_id" + key).val());
+        $(".factory_id" + key).prev().val($(".factory_id" + key).val());
+        $(".series_id" + key).prev().val($(".series_id" + key).val());
+    }
+</script>
+</body>
+</html>

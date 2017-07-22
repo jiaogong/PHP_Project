@@ -1,0 +1,58 @@
+{template wap_header}
+<!--<link rel="stylesheet" href="css/wapindex.css" />
+<link rel="stylesheet" href="css/reset.css"/>-->
+<!--<script src="js/jquery.js"></script>-->
+<!--<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>-->
+<script type="text/javascript">
+    $(function () {
+        $('#home_slider').flexslider({
+            animation: 'slide',
+            controlNav: true,
+            directionNav: true,
+            animationLoop: true,
+            slideshow: false,
+            useCSS: false
+        });
+    });
+
+</script>
+<style>
+    .download span a{ color:#e61a16;}
+</style>
+<body>
+ 
+    {if $iphone=='iphone'}
+    <div class="downapp" id="xiazai">
+        <div class="downsp1 fl"><img src="images/downlogo.png" /></div> 
+        <div class="downdiv fl">
+            <p class="p-one">ams车评 APP</p>
+            <p class="p-two">专业试驾评测 车型导购</p>
+        </div> 
+        <div class="download fl">
+            <span>
+                {if $weixin=='weixin'}
+                <a href="http://mp.weixin.qq.com/mp/redirect?url=https%3A%2F%2Fitunes.apple.com%2Fcn%2Fapp%2Fche-ping%2Fid953001548%3Fmt%3D8">马上下载</a>
+                {else}
+                <a href="https://itunes.apple.com/cn/app/che-ping/id953001548?mt=8">马上下载</a>
+                {/if}
+            </span>
+        </div>
+        <div class="close fr"><img src="images/close.png" width="20px" height="20px;"/></div>
+
+        <div class="clear"></div>  
+    </div>
+    {/if}
+    <!--#include virtual="/ssi/ssi_banner_wap_index.shtml"-->
+    {template wap_nav}
+
+    <div class="index-con" style="margin-top:10px;">
+        <ul class="mainDiv">
+            <!--#include virtual="/ssi/ssi_index_wap_manual.shtml"-->
+        </ul>
+    </div>
+
+    <div class="clear"></div>
+    {template wap_footer}
+    {template wap_countjs}
+</body>
+</html>

@@ -1,0 +1,6 @@
+<div class="hd">
+    <span></span>
+    {loop $bulletin $k $art}
+        <a class="a$k" href="html/article/{eval echo date('Ym', $art['created'])}/{eval echo date('d', $art['created'])}/{$art['id']}.html">$art['title'] $art['title2']</a>
+    {/loop}
+</div>    

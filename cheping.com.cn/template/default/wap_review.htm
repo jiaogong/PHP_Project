@@ -1,0 +1,114 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <style>
+            .ui-btn-text{ display:none;}
+            .ui-loader{ display:none;}
+        </style>
+    </head>
+    {template wap_header} 
+    <body>
+        <div class="con">
+            <div class="biaoti">$article[title]</div>
+            <div class="xinxi">
+                <span class="respon">责任编辑：{$article['author']}&nbsp;&nbsp;</span>{if $article['photor']}<span class="xx_jv">摄影：{$article['photor']}</span>{/if}
+                <div class="time">{eval echo date('Y-m-d  H:i',$article[uptime])}</div>
+            </div>
+
+            {if $rview}
+            <div class="person-con">
+                <!--这里是一级的评论-->
+                <span class="tables"></span>
+                {loop $rview $key $v}
+                <div class="model-first">
+
+                    <div class="circleimg fl"><img src="{if $v[avatar]}/attach/$v[avatar]{else}images/cricleimg.png{/if}"/></div> 
+                    <div class="discript fl">
+                        <p class="padg8">$v[uname]</p>
+                        <p class="padg8 discrp1">{eval echo date("i",time()-$v[created])}分钟前</p>
+                        <p class="padg8 discrp2" id="reviewTtwo">
+                            <span id="reviewtwo" class="return-con">$v[content]</span><input type="hidden" name="" value="$v[id]" id="wang">
+                            <span  class="return fr"><a >回复</a></span>
+                        </p>
+                    </div>
+                    <div class="clear"></div>
+
+                </div>
+                {if $v[reviewson]}
+                {loop $v[reviewson] $key $other}
+                <div class="model-first">
+                    <div class="circleimg fl"><img src="{if $other[avatar]}/attach/$other[avatar]{else}images/cricleimg.png{/if}"/></div>   
+                    <div class="discript fl">
+                        <p class="padg8">$other[uname]</p>
+                        <p class="padg8 discrp1">{eval echo date("i",time()-$other[created])}分钟前</p>
+                        <p class="padg8 discrp2" id="reviewTtwo"><span id="reviewtwo">$other[content]</span></p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                {/loop}
+                {/if}
+                {/loop}
+
+                <span class="others"></span>
+            </div> 
+            {else}
+            <span class="tables"></span>
+            <table class="table">
+                <tr>
+                    <td><img src="images/bupinglun.jpg" width="100%"/></td>
+                </tr>
+            </table>
+            {/if}
+            <p class="duo"><textarea placeholder="发表评论" id="textarea"></textarea></p>
+            <input type="hidden" value=''  id="btn1"/>
+            <input type="submit" id="btn2" class="btn2 fr" value="发 布"/>
+
+        </div> 
+        <!--</div>-->
+        <script>
+            function tabs(i) {
+                var articleid = $("#article_id").val();
+                var typeid = $("#type_id").val();
+                $("#select_tab" + i).addClass("ll").siblings().removeClass("ll");
+                $("#select_tab" + i).addClass("ff").siblings().removeClass("ff");
+
+                var tab = $("#select_tab" + i).attr("title");
+                if (tab == 'f1') {
+                    $("#type").val(1);
+                    location.href = "/review.php?action=list&type=1&article_id=" + articleid + "&type_id=" + typeid;
+                } else {
+                    $("#type").val(2);
+                    location.href = "/review.php?action=list&type=2&article_id=" + articleid + "&type_id=" + typeid;
+                }
+                //$("#" + tab).show().siblings().hide(); 
+            }
+
+            //这里是点击回复把值赋给隐藏域
+            $(".return > a").on("click", function () {
+                var returnReid = $(this).parent().prev().attr("value");//获取父级前一个的值
+                $("#btn1").val(returnReid);
+                $(".duo > #textarea").focus();
+            });
+            //这里是点击发布回复的时候触发的事件 
+            $("#btn2").live("click", function () {
+                var rid = $("#btn1").val(); //获取评论的id
+                var content = $("#textarea").val();
+                var articleId = $article[id];
+                if (rid) {
+                    var rids = rid;
+                } else {
+                    var rids = 0;
+                }
+                $.post("/wapuinfo.php?action=AjaxReview", {"content": content, "articleId": articleId, "rids": rids}, function (msg) {
+                    if (msg == 90) {
+                        location.href = "/waplogin.php?action=login";
+                    } else {
+                        $(".tables").append(msg);
+                        $('.table').hide();
+                        $("#textarea").val('');
+                    }
+                });
+            })
+        </script>
+    </body>
+</html>

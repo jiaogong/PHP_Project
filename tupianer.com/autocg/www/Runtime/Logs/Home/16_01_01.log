@@ -1,0 +1,1079 @@
+[ 2016-01-01T08:48:18+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.083747s ]
+INFO: [ app_init ] --END-- [ RunTime:0.130054s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.031226s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.031589s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0160s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0106s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T08:50:33+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004550s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005921s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001187s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001549s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0164s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0111s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T08:51:42+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000069s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.003940s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005150s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000920s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001278s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T08:53:33+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000068s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.005309s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006543s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001386s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001769s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0167s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0146s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T08:55:50+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000082s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.005548s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010368s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001502s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001869s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0166s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0145s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T08:56:57+08:00 ] 127.0.0.1 /index.php?s=Home/MadeOredr/made_index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000091s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004615s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009599s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001141s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001515s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0162s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0148s ]
+
+[ 2016-01-01T08:57:19+08:00 ] 127.0.0.1 /index.php?s=/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000078s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.003700s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001694s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0162s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0150s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T09:07:05+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/made_index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000094s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010307s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013141s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.031537s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.031987s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0131s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0148s ]
+
+[ 2016-01-01T09:07:26+08:00 ] 127.0.0.1 /index.php?s=/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000481s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004077s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006389s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001518s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001908s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0152s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0142s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T09:43:51+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.054444s ]
+INFO: [ app_init ] --END-- [ RunTime:0.077062s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.020271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020681s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0168s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0147s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T09:44:02+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000085s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.005240s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006802s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001166s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001583s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0161s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0147s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T09:45:10+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007532s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009110s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001225s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001598s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0173s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0119s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T09:46:34+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000080s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.013399s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014901s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001597s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0162s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0150s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T09:48:57+08:00 ] 127.0.0.1 /index.php?s=Home/Install/install.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007324s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008988s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001643s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0164s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0111s ]
+
+[ 2016-01-01T09:49:18+08:00 ] 127.0.0.1 /index.php?s=/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000093s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.014293s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018940s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001117s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001517s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0127s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0146s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T09:50:50+08:00 ] 127.0.0.1 /index.php?s=/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000078s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007880s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009965s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002845s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003247s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T09:52:25+08:00 ] 127.0.0.1 /index.php?s=/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000193s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004467s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008686s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001235s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001617s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0158s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0137s ]
+ERR: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+
+[ 2016-01-01T09:54:28+08:00 ] 127.0.0.1 /index.php?s=/Home/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.011995s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013566s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001483s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001872s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0157s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0116s ]
+
+[ 2016-01-01T09:54:28+08:00 ] 127.0.0.1 /index.php?s=/Home/User/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000220s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004995s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006633s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001658s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0164s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0171s ]
+
+[ 2016-01-01T09:54:34+08:00 ] 127.0.0.1 /index.php?s=/Home/User/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004816s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001152s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001528s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0162s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0109s ]
+
+[ 2016-01-01T09:54:35+08:00 ] 127.0.0.1 /index.php?s=/Home/User/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000090s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.009660s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001105s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001483s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0169s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0147s ]
+
+[ 2016-01-01T09:55:07+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/made_index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.005347s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001197s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001591s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0184s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0115s ]
+
+[ 2016-01-01T09:58:22+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/made_index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000069s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008223s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001645s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0167s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0148s ]
+
+[ 2016-01-01T09:59:22+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/made_index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.029795s ]
+INFO: [ app_init ] --END-- [ RunTime:0.031527s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001674s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0161s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0193s ]
+
+[ 2016-01-01T09:59:46+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/made_index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000072s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008418s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001101s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001471s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0162s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0125s ]
+
+[ 2016-01-01T10:01:10+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/made_index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.005458s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006767s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001123s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001472s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0169s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0140s ]
+
+[ 2016-01-01T10:01:21+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004671s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006081s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001520s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001883s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0222s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0141s ]
+
+[ 2016-01-01T10:04:06+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007549s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009320s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001616s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0163s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0110s ]
+
+[ 2016-01-01T10:04:53+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.006016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011899s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001322s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001691s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0169s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0149s ]
+
+[ 2016-01-01T10:12:53+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000116s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.006780s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008480s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001465s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001856s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0195s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0132s ]
+
+[ 2016-01-01T10:17:59+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.005969s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007426s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001700s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0156s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0138s ]
+
+[ 2016-01-01T10:19:53+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.003663s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005031s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001169s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001562s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0125s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0110s ]
+
+[ 2016-01-01T10:24:02+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000077s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.012369s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001403s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001811s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0163s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0133s ]
+
+[ 2016-01-01T10:24:57+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004248s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005608s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005041s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0135s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0118s ]
+
+[ 2016-01-01T10:25:30+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.006090s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001165s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001544s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0158s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0163s ]
+
+[ 2016-01-01T10:37:24+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000191s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.011084s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012900s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005386s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0166s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0140s ]
+
+[ 2016-01-01T10:38:09+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000082s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.030898s ]
+INFO: [ app_init ] --END-- [ RunTime:0.033052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001613s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002819s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0173s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0131s ]
+
+[ 2016-01-01T10:38:52+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.031429s ]
+INFO: [ app_init ] --END-- [ RunTime:0.032886s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007109s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0167s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0173s ]
+
+[ 2016-01-01T10:44:16+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.012771s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014256s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001334s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001718s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0160s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0142s ]
+
+[ 2016-01-01T10:47:06+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.006447s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008373s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003995s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004880s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0155s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0149s ]
+
+[ 2016-01-01T10:48:19+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010503s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001974s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0158s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0112s ]
+
+[ 2016-01-01T10:50:49+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000118s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010729s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013824s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001447s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001996s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0143s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0144s ]
+
+[ 2016-01-01T10:51:04+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007322s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010975s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010905s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011400s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0163s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0111s ]
+
+[ 2016-01-01T10:51:58+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000124s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008714s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011096s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002688s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003378s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0165s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0167s ]
+
+[ 2016-01-01T10:53:54+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.009142s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010902s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003099s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004234s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0162s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0141s ]
+
+[ 2016-01-01T10:54:16+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.006094s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007713s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001964s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0161s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0149s ]
+
+[ 2016-01-01T10:54:58+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.036405s ]
+INFO: [ app_init ] --END-- [ RunTime:0.038246s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001203s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001613s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0152s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0119s ]
+
+[ 2016-01-01T10:57:05+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000078s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.024998s ]
+INFO: [ app_init ] --END-- [ RunTime:0.026519s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001605s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001980s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0168s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0130s ]
+
+[ 2016-01-01T11:00:19+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.015578s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017044s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002049s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002452s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0162s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0151s ]
+
+[ 2016-01-01T11:05:36+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.006099s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007608s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001651s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002048s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0160s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0111s ]
+
+[ 2016-01-01T11:06:27+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000085s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.017047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020493s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001710s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002549s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0170s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0160s ]
+
+[ 2016-01-01T11:08:27+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.006139s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011339s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002992s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004483s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0178s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0135s ]
+
+[ 2016-01-01T11:17:15+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000079s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010575s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012683s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001369s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001763s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0167s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0142s ]
+
+[ 2016-01-01T11:22:02+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000109s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010611s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012846s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002505s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003871s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0165s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0111s ]
+
+[ 2016-01-01T11:27:00+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010297s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013451s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001978s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002413s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0166s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0132s ]
+
+[ 2016-01-01T11:27:53+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.021239s ]
+INFO: [ app_init ] --END-- [ RunTime:0.024721s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001627s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002095s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0162s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0152s ]
+
+[ 2016-01-01T11:34:29+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000107s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.015236s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016814s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001745s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0221s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0173s ]
+
+[ 2016-01-01T12:06:58+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000290s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.005192s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013152s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001573s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002234s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0164s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0148s ]
+
+[ 2016-01-01T12:07:00+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004266s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005673s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001035s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001407s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0165s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0142s ]
+
+[ 2016-01-01T12:09:19+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000107s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.016334s ]
+INFO: [ app_init ] --END-- [ RunTime:0.020111s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001287s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001681s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0163s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0144s ]
+
+[ 2016-01-01T12:10:47+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000072s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.013442s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001221s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001605s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0163s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0150s ]
+
+[ 2016-01-01T12:11:35+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.011771s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014038s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002495s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003099s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0166s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0107s ]
+
+[ 2016-01-01T12:12:20+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000105s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008118s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012010s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000986s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001444s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0153s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0140s ]
+
+[ 2016-01-01T12:14:05+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007993s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001922s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0161s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0140s ]
+
+[ 2016-01-01T12:15:29+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000511s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.018991s ]
+INFO: [ app_init ] --END-- [ RunTime:0.021849s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002634s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003148s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0164s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0229s ]
+
+[ 2016-01-01T12:16:28+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000603s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.016976s ]
+INFO: [ app_init ] --END-- [ RunTime:0.019856s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001676s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002086s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0172s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0139s ]
+
+[ 2016-01-01T12:19:55+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.016274s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017800s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001938s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002420s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0160s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0115s ]
+
+[ 2016-01-01T12:21:44+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000363s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004789s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006982s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001361s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001976s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0162s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0146s ]
+
+[ 2016-01-01T12:23:19+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.005872s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007330s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001677s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0179s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0163s ]
+
+[ 2016-01-01T12:39:07+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000508s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007240s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001499s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001888s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0172s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0178s ]
+
+[ 2016-01-01T12:41:47+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000113s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.012991s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014954s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004990s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0167s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0147s ]
+
+[ 2016-01-01T12:43:07+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000082s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008452s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001951s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002420s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0163s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0142s ]
+
+[ 2016-01-01T12:45:11+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008493s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012814s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001477s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001932s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0171s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0140s ]
+
+[ 2016-01-01T12:47:15+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.014461s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015974s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.007392s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007873s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0161s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0137s ]
+
+[ 2016-01-01T12:54:01+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.012144s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013870s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001178s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001698s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0170s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0150s ]
+
+[ 2016-01-01T12:55:52+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010242s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016578s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003931s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0180s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0159s ]
+
+[ 2016-01-01T12:56:12+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.006795s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008208s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002123s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004730s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0164s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0148s ]
+
+[ 2016-01-01T12:56:58+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000127s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.025571s ]
+INFO: [ app_init ] --END-- [ RunTime:0.028004s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002533s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0163s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0146s ]
+
+[ 2016-01-01T12:57:20+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000081s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004132s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005624s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001137s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001516s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0155s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0153s ]
+
+[ 2016-01-01T12:59:39+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.013010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014676s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001365s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001768s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0163s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0150s ]
+
+[ 2016-01-01T13:09:59+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007617s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010976s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001355s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001752s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0153s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0144s ]
+
+[ 2016-01-01T13:51:54+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.008334s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011728s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001657s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002110s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0164s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0150s ]
+
+[ 2016-01-01T13:53:50+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000072s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004403s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005867s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000932s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001285s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0163s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0150s ]
+
+[ 2016-01-01T14:00:40+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007589s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009562s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001738s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002156s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0159s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0150s ]
+
+[ 2016-01-01T14:34:53+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.012697s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001201s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001553s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0164s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0108s ]
+
+[ 2016-01-01T17:35:11+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007634s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009815s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002033s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003598s ]
+
+[ 2016-01-01T17:36:03+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000090s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004835s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006322s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000952s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001302s ]
+
+[ 2016-01-01T17:36:23+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007264s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009120s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000943s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001553s ]
+
+[ 2016-01-01T17:36:25+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000093s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.009376s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011409s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001479s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001925s ]
+
+[ 2016-01-01T17:36:30+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007886s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002731s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003157s ]
+
+[ 2016-01-01T17:36:45+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000107s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007265s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009307s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001103s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001461s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0163s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0149s ]
+
+[ 2016-01-01T17:38:12+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.005904s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007448s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001189s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001620s ]
+
+[ 2016-01-01T17:38:33+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000067s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.003194s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000947s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001290s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0166s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0158s ]
+
+[ 2016-01-01T17:39:58+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000099s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.011926s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013441s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001734s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002120s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0175s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0142s ]
+
+[ 2016-01-01T18:04:00+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video_script.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.007195s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008879s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001740s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002124s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0166s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0151s ]
+
+[ 2016-01-01T18:04:42+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video_script.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.004528s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005862s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001681s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0162s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0144s ]
+
+[ 2016-01-01T18:12:09+08:00 ] 127.0.0.1 /index.php?s=/Home/MadeOrder/video_script.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.005394s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006699s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002832s ]
+SQL: SHOW COLUMNS FROM `tu_config` [ RunTime:0.0162s ]
+SQL: SELECT `type`,`name`,`value` FROM `tu_config` WHERE `status` = 1  [ RunTime:0.0119s ]
+

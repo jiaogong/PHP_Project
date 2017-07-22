@@ -1,0 +1,52 @@
+/* 全局CSS 定义 */
+body {margin:0 auto; padding:0 auto;color: #333; font-family:"微软雅黑";}
+div, h1, h2, h3, p, ul, ol, li, dl, dt, dd, form, input{margin:0;padding:0;list-style:none;}
+h1,h2,h3 { font-size: 12px; font-weight: normal; }
+img, object, input, select, textarea{border:none;color:#333;font-family:"微软雅黑";}
+a {color:#333;text-decoration:none;}
+a:hover{color:#000;text-decoration:underline;}
+.clear{clear: both;display: block;font-size: 0;height: 0;line-height: 0;}
+/* 内容 */
+#contenter{width:425px; float:right;}
+
+
+/* 搜索机型 */
+/*.submit{background: url(../images/sousuo.png) no-repeat center center;width: 40px;background-color: #fff;height: 39px;color: #bc0000;cursor: pointer;float: right;border: none;padding-left: 25px;border-radius: 0px 5px 5px 0px;border: 0px;outline: none;}
+.searchModel{width:425px;float:left;}
+.search2{float:left;width:425px;position:relative;z-index:999; background-color:#FFF; border-radius:5px 5px 5px 5px;}
+.search2 input.sinputBox{width:365px;float:left;height:39px;font-size:13px;padding:0 10px;line-height:39px; border-radius:5px 5px 5px 5px;}
+.search2 input:-moz-placeholder{color:#ACA899;}
+input, textarea {color: #C8C8C8;font-size: 12px;margin: 0;outline: medium none;padding: 0;}
+.search2 .input, .selectsearch {background-color: #FFFFFF;border:none;float: left;height: 22px;line-height: 22px;padding: 0 5px;width: 265px;}
+.selectsearch {border-left: medium none;padding: 0;position: relative;text-align: center;width: 60px;z-index: 999;}
+.selectsearch a {background:#FFFFFF;display: block;height: 22px;padding-right: 12px;text-decoration: none;width: 48px;}
+.selectsearch a:hover {color:#747474;text-decoration: none;}
+.search3{float:left;padding-left:1px;}*/
+/*搜索下拉菜单*/
+/*#searchResult{position:absolute;top:26px;left:0;width:425px;z-index:999;}
+#searchResult em {color: #CC3333;font-style:normal;font-weight:normal;}
+.searchHover #searchResult{_top:51px;}
+.searchResultBg{position:relative;z-index:1; top:12px;width:423px;border:1px #e4e4e4 solid; border-top:none;}
+.searchResultCon{position:relative;z-index:1;width:423px;border-top:1px solid #e4e4e4;background-color:#fff;}
+.searchResultarticleCon{border-bottom:none;}
+.searchResultTitle{position:absolute;right:0;top:0;z-index:2;width:50px;height:100%;float:right;line-height:35px;text-align:center;}
+.searchResultCon a.searchResultTitle:hover{font-weight:bold;color:#47494a;}
+#searchResult ul{position:relative;width:425px;float:left;padding:3px 0;background-color:#fff;}
+.resourcesCon li{height:38px;font-size:13px;}
+.resourcesCon li a{display:block;width:405px;height:35px;overflow:hidden;padding:1px 10px 2px;padding:2px 10px 1px\9;line-height:35px;color:#47494a;}
+.resourcesCon li a img{width:35px;height:35px;overflow:hidden;margin-right:10px;}
+.resourcesCon li a:hover{color:#47494a;font-weight:bold;text-decoration:none;background-color:#f4f4f4;}
+.searchTitleHoverLi{color:#47494a;font-weight:bold;text-decoration:none;background-color:#f4f4f4;}
+.articleCon li{width:405px;height:25px;overflow:hidden;padding:0 10px;line-height:25px;font-size:13px;color:#adaeae;}
+.articleCon li a{color:#47494a;}
+.articleCon li span{margin-left:15px;font-size:12px;}
+.articleCon li:hover,.articleConHover{font-weight:bold;background-color:#f4f4f4;}
+.articleCon li a,.articleCon li a:hover, li .searchTitleHoverLi{color:#47494a;text-decoration:none;}
+.userCon li{height:44px;}
+.userCon li a{cursor:pointer;height:40px;padding:2px 10px;line-height:40px;}
+.userCon li a span{float:left;}
+.userCon li a span.img{width:36px;height:36px;overflow:hidden;padding:1px;_padding:0 1px 2px;margin-right:10px;border:1px solid #dcdcdc;}
+.userCon li a img{width:36px;height:36px;overflow:hidden;}
+.resourcesCon li img.searchicon{width:19px;height:19px;overflow:hidden;margin:-3px 0 0 2px;}
+.userCon li img.searchicon{margin:9px 0 0 2px;}
+.searchResultBottom{z-index:0;margin-top:-5px;padding-top:5px;background:url(searchoutbg.png) no-repeat -444px 0;}*/

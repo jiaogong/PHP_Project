@@ -1,0 +1,47 @@
+{template header} 
+<div class="user">
+    <div class="nav">
+        <ul>
+            <li><a href="<!--{$php_self}-->advice">app用户反馈</a></li> 
+            <li><a href="<!--{$php_self}-->advicef" class="song">app用户反馈详情页</a></li> 
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user-con">
+        <div class="user-table">
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tbody id="tobdy">
+                    <tr>
+                        <td style="width:150px;">用户ID：{$list[uid]}</td>
+                    </tr>           
+                    <tr>
+                        <td >用户名称：{$list[username]}</td>
+                    </tr>
+                    <tr>
+                        <td >反馈内容时间：{eval echo date('Y/m/d', $list[created]);}</td>
+                    </tr>
+                    <tr>
+                        <td >反馈内容：{$list[content]}</td>
+                    </tr>
+                    <form id="search_form" name="search_form" method="post" action="">
+                        <tr>
+                            <td>
+                                <input type="radio" name="state" value="0" {if $list[state]==0}checked{/if}/>删除
+                                <input type="radio" name="state" value="1" {if $list[state]==1}checked{/if}/>未处理
+                                <input type="radio" name="state" value="2" {if $list[state]==2}checked{/if}/>已处理
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="hidden" name="id" value="{$list[id]}"/>
+                                <input id="search_btn" name="search_btn" type="submit" value="处 理" />
+                            </td>
+                        </tr>
+                    </form>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('index_header');?>
+<script type="text/javascript">
+    $(function (){
+
+        //首页轮播图
+        Qfast.add('widgets', {path: "<?=$static_domain?>/js/terminator2.2.min.js", type: "js", requires: ['fx']});
+        Qfast(false, 'widgets', function () {
+            K.tabs({
+                id: 'fsD1', //焦点图包裹id
+                conId: "D1pic1", //** 大图域包裹id
+                tabId: "D1fBt",
+                tabTn: "a",
+                conCn: '.fcon', //** 大图域配置class
+                auto: 1, //自动播放 1或0
+                effect: 'fade', //效果配置
+                eType: 'click', //** 鼠标事件
+                pageBt: true, //是否有按钮切换页码
+                bns: ['.prev', '.next'], //** 前后按钮配置class
+                interval: 5000  //** 停顿时间
+            });
+        });
+    });
+    $(function () {
+        var p = 2;// 初始化页面，点击事件从第二页开始
+        var flag = false;
+        $("input[name=btn]").click(function () {
+            //初始状态，如果没数据return ,false;否则
+            if ($("#content h5").size() <= 0)
+            {
+                return false;
+            }
+            else {
+                send();
+            }
+        })
+
+        function send() {
+            if (flag) {
+                return false;
+            }
+            $.ajax({
+                type: 'post',
+                url: "/ajax.php?action=ajaxcontent",
+                data: {k: p}, //初始化页数,
+                beforeSend: function () {
+                    $("#content").append("<div id='load'></div>");
+                },
+                success: function (data) {
+                    if (data != '') {
+                        $("#content").append(data);
+                    } else {
+                        $("input[name=btn]").val('加载完毕');
+                        flag = true;
+                    }
+                },
+                complete: function () {
+                    $("#load").remove();
+                },
+                dataType: 'json'});
+            p++;
+        }
+    });
+    jQuery(document).ready(function ($) {
+        $('.theme-login').click(function () {
+            $('.theme-popover-mask').fadeIn(100);
+            $('.theme-popover').slideDown(200);
+        });
+        $('.theme-poptit .close').click(function () {
+            $('.theme-popover-mask').fadeOut(100);
+            $('.theme-popover').slideUp(200);
+        });
+    });
+</script>
+<style>
+  
+    .gao-con{ position:fixed; right:0px;bottom:5px; background:#9CF; width:200px; height:180px;z-index:9999;}
+    .gao-main{ position:relative; width:200px; height:180px; background:#FC9; }
+    .close{ position:absolute; right:0px; top:0px;  }
+    img{ border:0px;}
+    .zhuanye_ceping{margin-top:10px;}
+    .guangao{ width:250px; height:250px; position:fixed; z-index:222; bottom:0px; right:0px;}
+    .close{ position:absolute; top:0px; right:0px; }
+</style>
+<div class="clear"></div>
+
+<!--新增模块1-->
+<!--车系-->
+<div class="chexing">
+    <ul>
+        <li class="chexinglei"><a target="_blank" href="search.php?action=index&cs=2"><span class="span1_cx"></span> <span class="chexingzi">三厢车</span></a></li>
+        <li class="chexinglei"><a target="_blank" href="search.php?action=index&cs=1"><span class="span2_cx"></span> <span class="chexingzi">两厢车</span></a></li>
+        <li class="chexinglei"><a target="_blank" href="search.php?action=index&cs=4"><span class="span3_cx"></span> <span class="chexingzi">掀背车</span></a></li>
+        <li class="chexinglei"><a target="_blank" href="search.php?action=index&cs=5"><span class="span4_cx"></span> <span class="chexingzi">SUV</span></a></li>
+        <li class="chexinglei"><a target="_blank" href="search.php?action=index&cs=6"><span class="span5_cx"></span> <span class="chexingzi">MPV</span></a></li>
+        <li class="chexinglei"><a target="_blank" href="search.php?action=index&cs=3"><span class="span6_cx"></span> <span class="chexingzi">旅行车</span></a></li>
+        <li class="chexinglei"><a target="_blank" href="search.php?action=index&cs=7"><span class="span7_cx"></span> <span class="chexingzi">COUPE</span></a></li>
+        <li class="chexinglei"><a target="_blank" href="search.php?action=index&cs=8"><span class="span8_cx"></span> <span class="chexingzi">敞篷车</span></a></li>
+        <li class="chexinglei"><a target="_blank" href="search.php?action=index&ot=3"><span class="span9_cx"></span> <span class="chexingzi">新能源</span></a></li>
+    </ul>
+</div>
+<!--车系 end-->
+<div style="width:1180px; margin:0 auto;">
+    <!--价格区间-->
+    <!--#include virtual="ssi/ssi_newindex_hotcar.shtml"-->
+    <!--价格区间 end-->
+    <!--轻松选车-->
+    <!--#include virtual="ssi/ssi_newindex_rmdword.shtml"-->
+    <!--轻松选车 end-->
+</div>
+<div class="clear"></div>
+<!--轮播-->
+<!--#include virtual="/ssi/ssi_banner_banner_index.shtml"-->
+<!--轮播结束-->
+<div class="main">
+    <div class="main_left" style="margin-bottom: 50px;"><!--左列表-->
+        <div id='content'>
+            <!--#include virtual="/ssi/ssi_index_manual.shtml"-->
+            <!--手动添加信息结束-->
+        </div>
+        <input type='button' class="jiazai" name='btn' id='btn' style="border:0px;" value='点击继续浏览'>
+    </div><!--左列表结束-->
+    <div class="main_right"><!--右列表-->
+        <!--热门车型-->
+        <div class="hot_car">
+            <div class="hot_chexing"><a class="a1" href="/search.php?action=index" target="_blank" style="margin-left:5px;"><h3 style="font-size:16px;font-weight: bold;">热门车型</h3><a class="a2" href="/search.php?action=index" target="_blank">&raquo;</a></a></div>
+<!--            <div class="hot_chexing_gd"><a href="">&raquo;</a></div>-->
+            <div class="leixing">
+                <? foreach((array)$type as $tk=>$tv) {?>
+                <p><?=$tv?></p>
+                <?}?>
+            </div>
+            <div class="mingxi" style="font-size:12px;">
+                <p>
+                    <? foreach((array)$rweixing as $rwk=>$rwv) {?>
+                    <? if ($rwk<6) { ?>
+                    <font class="C_xh"><a href="/modelinfo_s<?=$rwv['series_id']?>.html" target="_blank"><?=$rwv['title']?></a></font>&nbsp;
+                    <? } ?>
+                    <?}?>
+                </p>
+                <p>
+                    <? foreach((array)$rxiaoxingche as $rxk=>$rxv) {?>
+                    <? if ($rxk<6) { ?>
+                    <font class="C_xh"><a href="/modelinfo_s<?=$rxv['series_id']?>.html" target="_blank"><?=$rxv['title']?></a></font>&nbsp;
+                    <? } ?>
+                    <?}?>
+                </p>
+                <p>
+                    <? foreach((array)$rjincouxing as $rjk=>$rjv) {?>
+                    <? if ($rjk<6) { ?>
+                    <font class="C_xh"><a href="/modelinfo_s<?=$rjv['series_id']?>.html" target="_blank"><?=$rjv['title']?></a></font>&nbsp;
+                    <? } ?>
+                    <?}?>
+                </p>
+                <p>
+                    <? foreach((array)$rzhongxingche as $rzk=>$rzv) {?>
+                    <? if ($rzk<6) { ?>
+                    <font class="C_xh"><a href="/modelinfo_s<?=$rzv['series_id']?>.html" target="_blank"><?=$rzv['title']?></a></font>&nbsp;
+                    <? } ?>
+                    <?}?>
+                </p>
+                <p>
+                    <? foreach((array)$zhongdaxing as $zk=>$zv) {?>
+                    <? if ($zk<6) { ?>
+                    <font class="C_xh"><a href="/modelinfo_s<?=$zv['series_id']?>.html" target="_blank"><?=$zv['title']?></a></font>&nbsp;
+                    <? } ?>
+                    <?}?>
+                </p>
+                <p>
+                    <? foreach((array)$rhaohuache as $rdk=>$rdv) {?>
+                    <? if ($rdk<6) { ?>
+                    <font class="C_xh"><a href="/modelinfo_s<?=$rdv['series_id']?>.html" target="_blank"><?=$rdv['title']?></a></font>&nbsp;
+                    <? } ?>
+                    <?}?>
+                </p>
+                <p>
+                    <? foreach((array)$rsuv as $rsk=>$rsv) {?>
+                    <? if ($rsk<6) { ?>
+                    <font class="C_xh"><a href="/modelinfo_s<?=$rsv['series_id']?>.html" target="_blank"><?=$rsv['title']?></a></font>&nbsp;
+                    <? } ?>
+                    <?}?>
+                </p>
+                <p>
+                    <? foreach((array)$rmpv as $rmk=>$rmv) {?>
+                    <? if ($rmk<6) { ?>
+                    <font class="C_xh"><a href="/modelinfo_s<?=$rmv['series_id']?>.html" target="_blank"><?=$rmv['title']?></a></font>&nbsp;
+                    <? } ?>
+                    <?}?>
+                </p>
+                <p>
+                    <? foreach((array)$rpaoche as $rpk=>$rpv) {?>
+                    <? if ($rpk<6) { ?>
+                    <font class="C_xh"><a href="/modelinfo_s<?=$rpv['series_id']?>.html" target="_blank"><?=$rpv['title']?></a></font>&nbsp;
+                    <? } ?>
+                    <?}?>
+                </p>
+            </div>
+        </div>
+        <!--热门车型结束-->
+        <!--#include virtual="/ssi/ssi_index_video.shtml"-->
+        <!--精彩视频结束-->
+        <!-- 新车上市 开始-->
+        <!--#include virtual="ssi/ssi_newindex_newcarmarket.shtml"-->
+        <!-- 新车上市 结束-->
+        <!-- 车型PK 开始-->
+        <!--#include virtual="/ssi/ssi_newindex_modelpk.shtml"-->
+        <!-- 车型PK 结束-->
+        <!--#include virtual="/ssi/ssi_index_tag.shtml"-->
+        <!--精品分类结束-->
+        <!--#include virtual="/ssi/ssi_index_evalu.shtml"-->
+        <!--ams专业测评结束-->
+        <!--#include virtual="/ssi/ssi_index_article.shtml"-->
+        <!--热门文章结束-->
+        <div class="erweima">
+            <div class="erweima_nr">
+                <div class="erweima_tu"></div>
+                <div class="wenzi">
+                    <p class="">车评网</p>
+                    <p class="wenzip2">官方微信公众号</p>
+                    <p style="color:#fd0e0b;">amscheping</p>
+                    <p style="font-size:16px; margin-top:5px; font-weight:bold;">专业车评天天看</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <a href="http://v.cheping.com.cn/1553.html" target="_blank">
+                    <img src="/images/theme_img/ttsrx.jpg" width="285" height="254">
+                </a>
+            </div>
+        </div>
+    </div><!--右列表结束-->
+</div><!--主体页面结束-->
+<div class="clear"></div>
+<!-- <div class="guangao">
+      <span class="gimg"><a href="http://v.cheping.com.cn/1553.html" target="_blank"><img src="/images/gbanner.jpg" width="250px" height="250px"/></a></span>
+      <span class="close"><img src="/images/close1.png" /></span>
+  </div> -->
+<script>
+    $(".pk1").mouseover(function(){
+        $(".pk1_hover").hide();
+        $(".pk1").show();
+        $(this).hide();
+        $(this).prev().show();
+    })
+    $(".tu_right_shang, .tu_right_xia").hover(function(){
+        $(this).find("span").stop(!0).animate({
+            top: "-90px"
+        }, 700);
+        $(this).find(".banner_dibushow").stop(!0).animate({
+            top: "-103px"
+        }, 700);
+        $(this).find(".hover_title").css("text-decoration","underline");
+    },function(){
+        $(this).find("span").stop(!0).animate({
+            top: "0px"
+        }, 700);
+        $(this).find(".banner_dibushow").stop(!0).animate({
+            top: "0px"
+        }, 700);
+        $(this).find(".hover_title").css("text-decoration","none");
+		 
+    })
+    $('.close img').click(function(){
+       $('.guangao').hide();
+       });
+</script>
+<script>
+    (function() {
+        var bct = document.createElement("script");
+        bct.src = "/js/counter.php?cname=index&c1=1";
+        bct.src += "&df="+document.referrer;
+        document.getElementsByTagName('head')[0].appendChild(bct);
+    })();
+</script>
+<!--#include virtual="/ssi/index_footer.shtml"-->

@@ -1,0 +1,203 @@
+{template header} 
+<div class="user_wrap">
+  <div class="module_con">
+    <div class="module_con1">
+    <form action="?action=realdata-edit" method="post" enctype="multipart/form-data">
+      <table cellpadding="0" cellspacing="0" class="table2">
+          {if $type == 1}
+          <tr> 
+            <td width="120" height="20" align="right">前排高度(mm):</td>
+            <td class="td_left">
+            <input type="text" name="front_height" id="front_height" size="20" value="{$data['0']['front_height']}">
+            </td>
+          </tr>
+          <tr> 
+            <td width="120" height="20" align="right">前排腿部空间(mm):</td>
+            <td class="td_left">
+            <input type="text" name="front_leg" id="front_leg" size="20" value="{$data['0']['front_leg']}">
+            </td>
+          </tr>          
+          <tr> 
+            <td width="120" height="20" align="right">前排椅垫深度(mm):</td>
+            <td class="td_left">
+            <input type="text" name="front_site" id="front_site" size="20" value="{$data['0']['front_site']}">
+            </td>
+          </tr>          
+          <tr> 
+            <td width="120" height="20" align="right">前排宽度(mm):</td>
+            <td class="td_left">
+            <input type="text" name="front_width" id="front_width" size="20" value="{$data['0']['front_width']}">
+            </td>
+          </tr>          
+          <tr> 
+            <td width="120" height="20" align="right">后排高度(mm):</td>
+            <td class="td_left">
+            <input type="text" name="back_height" id="back_height" size="20" value="{$data['0']['back_height']}">
+            </td>
+          </tr>          
+          <tr> 
+            <td width="120" height="20" align="right">后排腿部空间(mm):</td>
+            <td class="td_left">
+            <input type="text" name="back_leg" id="back_leg" size="20" value="{$data['0']['back_leg']}">
+            </td>
+          </tr>   
+          <tr> 
+            <td width="120" height="20" align="right">后排椅垫深度(mm):</td>
+            <td class="td_left">
+            <input type="text" name="back_site" id="back_site" size="20" value="{$data['0']['back_site']}">
+            </td>
+          </tr>          
+          <tr> 
+            <td width="120" height="20" align="right">后排宽度(mm):</td>
+            <td class="td_left">
+            <input type="text" name="back_width" id="back_width" size="20" value="{$data['0']['back_width']}">
+            </td>
+          </tr>
+          {elseif $type == 3}
+         <tr> 
+            <td width="120" height="20" align="right">请选择</td>
+            <td class="td_left">
+            <select name="flag"><!-- {value=1 type=1},{value=2 type=2} -->
+            {if substr($data['0']['type'],1) == 1}
+            	<option value="1" selected="selected">自编</option>
+            	<option value="2">实测</option>
+            {else}
+                <option value="1">自编</option>
+            	<option value="2" selected="selected">实测</option>          
+            {/if}
+            </select>
+            </td>
+          </tr> 
+          <tr> 
+            <td width="120" height="20" align="right">怠速噪音:</td>
+            <td class="td_left">
+            <input type="text" name="noise" id="back_site" size="20" value="{$data['0']['noise']}" />
+            </td>
+          </tr>          
+          <tr> 
+            <td width="120" height="20" align="right">60公里/小时:</td>
+            <td class="td_left">
+            <input type="text" name="60perh" id="back_width" size="20" value="{$data['0']['60perh']}" />
+            </td>
+          </tr>
+          <tr> 
+            <td width="120" height="20" align="right">80公里/小时:</td>
+            <td class="td_left">
+            <input type="text" name="80perh" id="back_site" size="20" value="{$data['0']['80perh']}" />
+            </td>
+          </tr>          
+          <tr> 
+            <td width="120" height="20" align="right">120公里/小时:</td>
+            <td class="td_left">
+            <input type="text" name="120perh" id="back_width" size="20" value="{$data['0']['120perh']}" />
+            </td>
+          </tr>
+          {elseif $type == 4}
+          <tr> 
+            <td width="120" height="20" align="right">原厂指定机油:</td>
+            <td class="td_left">
+            <input type="text" name="oil_level" id="back_width" size="20" value="{$data['0']['oil_level']}" />
+            </td>
+          </tr>          
+          <tr> 
+            <td width="120" height="20" align="right">换油周期:</td>
+            <td class="td_left">
+            <input type="text" name="change_cycle" id="back_width" size="20" value="{$data['0']['change_cycle']}" />
+            </td>
+          </tr>
+          <tr> 
+            <td width="120" height="20" align="right">机油机滤:</td>
+            <td class="td_left">
+            <input type="text" name="oil_filter" id="back_site" size="20" value="{$data['0']['oil_filter']}" />
+            </td>
+          </tr>          
+          <tr> 
+            <td width="120" height="20" align="right">机油三滤:</td>
+            <td class="td_left">
+            <input type="text" name="oil_3filter" id="back_width" size="20" value="{$data['0']['oil_3filter']}" />
+            </td>
+          </tr>
+          {elseif $type == 5}
+          <tr> 
+            <td width="120" height="20" align="right">节能补贴:</td>
+            <td class="td_left">
+            <input type="text" name="conservate" id="back_width" size="20" value="{$data['0']['conservate']}" />
+            </td>
+          </tr>
+          <tr> 
+            <td width="120" height="20" align="right">车船税减免:</td>
+            <td class="td_left">
+            <input type="text" name="purcharse_tax" id="back_site" size="20" value="{$data['0']['purcharse_tax']}" />
+            </td>
+          </tr>          
+          <tr> 
+            <td width="120" height="20" align="right">新能源补贴:</td>
+            <td class="td_left">
+            <input type="text" name="new_energy" id="back_width" size="20" value="{$data['0']['new_energy']}" />
+            </td>
+          </tr>                       
+          {else}
+          <tr>
+          	<td width="120" height="20" align="right">请选择</td>
+          	<td class="td_left">
+                <select id="is_true" name="is_true">
+                    <option value="2">实测</option>
+                    <option value="1">自编</option>
+                </select>
+                <script>$('#is_true').val(String($data[0]['road']).substr(0,1));</script>
+            </td>  
+          </tr>
+          <tr> 
+            <td width="120" height="20" align="right">路段:</td>          
+            <td class="td_left">
+                <select id="road" name="road">
+                    <option value="1">拥堵</option>
+                    <option value="2">高速</option>
+                    <option value="3">综合</option>
+                </select>
+                <script>$('#road').val(String($data[0]['road']).substr(1,1));</script>
+            </td>
+          </tr>  
+          <tr> 
+            <td width="120" height="20" align="right">测试总里程(km):</td>
+            <td class="td_left">
+            <input type="text" name="mileage" id="mileage" size="20" value="{$data['0']['mileage']}">
+            </td>
+          </tr>  
+          <tr> 
+            <td width="120" height="20" align="right">燃油总量(L):</td>
+            <td class="td_left">
+            <input type="text" name="fuel" id="fuel" size="20" value="{$data['0']['fuel']}">
+            </td>
+          </tr>  
+          <tr> 
+            <td width="120" height="20" align="right">综合油耗(L/km):</td>
+            <td class="td_left">
+            <input type="text" name="fuel_hour" id="fuel_hour" size="20" value="{$data['0']['fuel_hour']}">
+            </td>
+          </tr>              
+          {/if}
+          <tr align="center"> 
+            <td height="20" colspan="2">&nbsp; 
+            <input type="hidden" id="type" name="type" value="{$type}" />
+            <input type="hidden" id="series_id" name="series_id" value="{$series_id}" />
+            <input type="hidden" id="rid" name="rid" value="{$rid}" />
+            <input type="hidden" id="st4" name="st4" value="{$st4}" />
+            <input type="hidden" id="st21" name="st21" value="{$st21}" />
+            <input type="hidden" id="st15" name="st15" value="{$st15}" />
+            <input type="hidden" id="st27" name="st27" value="{$st27}" />
+            <input type="hidden" id="st41" name="st41" value="{$st41}" />
+            <input type="hidden" id="st28" name="st28" value="{$st28}" />
+            <input type="hidden" id="st48" name="st48" value="{$st48}" />            
+            <input type="hidden" id="date_id" name="date_id" value="{$date_id}"/>
+            <input type="submit" value="保存数据" name="button_factory" class='submit'>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="取消" name="cancel" class='submit' onclick="javascript:history.go('-1');window.close();">
+            &nbsp;&nbsp;&nbsp;
+          </tr>        
+      </table>
+      </form>
+    </div>
+    
+  </div>
+</div>
+{template footer} 

@@ -1,0 +1,44 @@
+<!-- 功能按钮 -->
+<div class="tools" style="margin-bottom:10px;">
+    <a class="btn" href="{:addons_url('Brand://Brand/add')}">新 增</a>
+    <a class="btn" href="{:addons_url('Brand://Brand/excel_in')}">excel导入</a>
+    <a class="btn" href="{:addons_url('Brand://Brand/export')}">excel导出</a>
+    <button class="btn ajax-post confirm" target-form="ids" url="{:addons_url('Brand://Brand/del')}">删 除</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th class="row-selected row-selected"><input class="check-all" type="checkbox"></th>
+            <th style="text-align: center;">序号</th>
+    <volist name="list_grid" id="vo">
+        <th style="text-align: center;"> {$vo.title}</th>
+    </volist>
+    <th style="text-align: center;">操作</th>
+</tr>
+</thead>
+<tbody>
+<volist name="_list" id="lv" key="vo">
+    <tr>
+        <td><input class="ids" type="checkbox" value="{$lv.id}" name="ids[]"></td>
+        <td style="text-align: center;">{$lv.id}</td>
+    <volist name="list_grid" id="lk">
+        <td style="text-align: center;">{:get_addonlist_field($lv, $lk, $name)}</td>
+    </volist>
+    <td style="text-align: center;">
+        <a href="{:addons_url('Brand://Brand/edit',array('id'=>$lv['id']))}">编辑</a>
+        <a class="confirm ajax-get" href="{:addons_url('Brand://Brand/del',array('id'=>$lv['id']))}">删除</a>
+    </td>
+    </tr>
+</volist>
+</tbody>
+</table>
+<script type="text/javascript">
+    $(function () {
+        $('a.update').click(function () {
+            id = $(this).data('id');
+            alert(id);
+        });
+        $('.cf').hide();
+    })
+</script>

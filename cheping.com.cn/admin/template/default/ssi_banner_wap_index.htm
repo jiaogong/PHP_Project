@@ -1,0 +1,20 @@
+<div class="block_home_slider">
+    <div id="home_slider" class="flexslider">
+        <ul class="slides">
+            {loop $banner $key $value}
+            {if $value[cname]=='article'}
+            <li>
+                <div class="slide">
+                    <a href="{if $value[p_category_id]==10}/wenhua/{eval echo date("Ym-d",$value["uptime"]);}-{$value[id]}.html{elseif $value[p_category_id]==7}/news/{eval echo date("Ym-d",$value["uptime"]);}-{$value[id]}.html{elseif $value[p_category_id]==8}/pingce/{eval echo date("Ym-d",$value["uptime"]);}-{$value[id]}.html{elseif $value[p_category_id]==9}/v/{$value[id]}.html{/if}"><img src="/attach/$value[pic]" alt="{$value[title]}" height="140px" /></a>
+                </div>
+            </li>
+            {else}
+            <li>
+                <div class="slide">
+                    <a href="/v/$value[id].html"><img src="/attach/$value[pic]" alt="{$value[title]}" height="140px" /></a>
+                </div>
+            </li>
+            {/if}
+            {/loop}
+        </ul>
+    </div>

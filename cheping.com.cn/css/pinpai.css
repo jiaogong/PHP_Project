@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+body{ background-color:#f9fafb;}
+body,ul,li { margin:0; padding:0; font-size:12px;}
+*{margin:0;padding:0;list-style-type:none; font-family:"微软雅黑"; color:#333;}
+a,img{border:0;}
+a{ text-decoration:none;}
+.zhuti{ width:100%; height:auto; margin:0 auto;}
+.clear{overflow: hidden;font-size:0;line-height:0;width:100%;clear:both;}
+/*头部*/
+.header{ width:100%;height:auto;}
+.nav{ width:100%;height:35px; background-color:#3f4952;}
+.nav_title{ width:1024px; height:35px; line-height:35px; font-size:14px; margin:0 auto; color:#fff;}
+.nav_title .title li{ float:left; font-size:14px; margin-right:23px;}
+.nav_title .title li a{color:#fff;}
+.nav_title .user li{ float:right; font-size:14px; margin-left:23px;}
+.nav_title .user li a{color:#fff;}
+
+.logo_banner{ width:100%; margin:0 auto; height:auto; background-color:#e51a14;}
+.logo{ width:1024px; height:auto; margin:0 auto;}
+.logo_img{ margin:10px auto;}
+.banner{ width:100%; height:auto; margin:0 auto;}
+/*头部结束*/
+.pinpai_main{ width:1180px; height:auto; margin:0 auto; }
+.pinpai{ text-align:center; font-size:36px; margin-top:35px; font-weight:bold;}
+.jiazhi{ text-align:right; margin-right:250px; font-size:36px; margin-top:10px; font-weight:bold;}
+.wenzhang{ width:1180px; height:auto; margin:0 auto; margin-top:30px; margin-bottom:30px;}
+.wenzhang_left{ width:575px; height:auto; font-size:18px; float:left; line-height:27px; font-weight:bold; margin-bottom:30px;}
+.wenzhang_right{ width:575px; height:auto; font-size:18px; float:right; line-height:27px; font-weight:bold;}
+
+/*页脚*/
+.footer{ width:100%; background-color:#222222; color:#;}
+#cen_right_top{ background-color:#222222;width:1180px;margin:0px auto; padding-top:20px; color:#fff; padding-bottom:15px;}
+#cen_right_top .active{ background-color:#666;color:#e8e8e8;}
+#cen_right_top span{line-height:35px;text-align:center;float:left;height:35px;width:150px;margin::0px;padding:0px;background-color:#222222;font-size:14px;color:#999999;font-weight:lighter;cursor:pointer; border:1px solid #666; border-radius:10px 10px 0px 0px;font-size:16px;}
+#cen_right_top div{display:none;clear:both;height:auto;padding:20px 0px 0px 20px;border-top:1px solid #666;}
+
+.youlian{ padding:5px 15px 5px 15px;height:25px; line-height:25px; color:#999999; text-decoration:none;display: inline-table; font-size:14px;}
+.youlian:hover{color:#999;}
+.hezuo{ padding:5px 15px 5px 15px;height:25px; line-height:25px; color:#999; text-decoration:none;display: inline-table; font-size:14px;}
+.hezuo:hover{color:#999;}
+.banquan{background-color:#141414; width:100%;height:auto; color:#999; text-align:center; padding-top:30px;padding-bottom:30px; font-size:14px;}

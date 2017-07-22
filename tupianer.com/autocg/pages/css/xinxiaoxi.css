@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+
+.xinxiaoxi_main{ width:1024px; height:auto; margin-top:40px;}
+.xinxiaoxin_right{ width:770px; height:auto; float:right;}
+.xiaoxi_zi{ font-size:18px;}
+.xiaoxi_xxk{width:770px; margin-top:25px;}
+
+ul,li{ margin:0px; padding:0px; list-style:none;}
+.tabxx {width:770px; height:42px;}
+.right-title { width:770px; height:42px; background:#f5f5f5; z-index:999;}
+.tabxx ul{ background-color:#F5F5F5; width:770px; height:42px;}
+.tabxx ul li{ float:left; width:85px; height:42px; margin-left:0px; line-height:42px; text-align:center;}
+.con{width:770px; margin-top:5px;}
+.tabxx ul li.ll{background: url(../images/hd1.png);height: 46px; color: #F3F3F3;} 
+.dingdan_xiaoxi{ width:770px; height:510px; background-color:#FC9; margin-top:30px;}
+.ddxx_list{ width:770px; height:50px; background-color:#fff; border-bottom:1px solid #eaeaea; line-height:50px;}
+.shijian{width:160px; background-color:#fff; float:left;}
+.dingdan_xx_dd{ width:154px; background-color:#fff; float:left; text-align:center;}
+.ddxxnr{ float:left;}
+.ddxx_list div{font-size:13px;}
+
+.dingdan_xiaoxi{ width:770px; height:510px; background-color:#FC9; margin-top:30px;}
+

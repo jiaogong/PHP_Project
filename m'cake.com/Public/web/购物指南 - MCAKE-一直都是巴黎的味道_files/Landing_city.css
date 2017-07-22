@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+body{ padding:0; margin:0;font-family:'Microsoft YaHei','微软雅黑','黑体','SimHei'; margin:0;padding:0;}
+ul,li{padding:0; margin:0; list-style:none;}
+img{border:none}
+input,textarea,div,span{font-family:'Microsoft YaHei','微软雅黑','黑体','SimHei';}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+/*************************************************************************/
+
+
+/**Dialog*/
+
+.tc-con1{ background:#f3f6f7;width:600px;height:350px; padding:0;margin:0 auto;
+    -webkit-box-shadow: 0px 0px 0px #999;
+	-moz-box-shadow: 0px 0px 0px #999;
+	box-shadow: 0px 0px 0px #999;
+	border-radius:2px;
+	-webkit-border-radius:2px;
+	-moz-border-radius: 2px;  
+	position:absolute;
+	z-index:99999; 
+	_position:absolute;
+	font-size:14px;
+	left:50%;/*FF IE7*/
+    top: 50%;/*FF IE7*/
+    margin-left:-288px!important;/*FF IE7 该值为本身宽的一半 */
+    margin-top:-225px!important;/*FF IE7 该值为本身高的一半*/
+    margin-top:0px;
+    position:fixed!important;/*FF IE7*/
+    position:absolute;/*IE6*/
+    _top: e­xpression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+
+}
+
+
+
+
+
+ul.list_c{ text-align:left; margin:35px;overflow:visible;}
+ul.list_c li{overflow:visible;}
+
+
+.tc-cover{width:100%;height:100%;position:absolute;z-index:200;top:0px;left:0px;opacity:0.5;-moz-opacity:0.5;filter:alpha(opacity=50);background-color:#000}
+
+.close_landing{width:30px; height:30px; display:block; position:absolute; top:1px; right:1px; background:url(/shop/theme/xth1/images/index/close.png) no-repeat center center; text-indent:-9999px; z-index:10000;}
+
+
+
+/********************************************/
+
+
+.Ejectbox_hy{display:block; text-align:center;color:#a5002f;font-size:18px;padding:20px 0 0 0}
+.Ejectbox_zd{ text-align:center;display:block;margin:0 auto; border-bottom:1px #b0916a solid; color:#767676; padding:20px 0}
+.Ejectbox_zx{border-bottom:#a5002f 1px solid;}
+ul.list_c li.Ex_btn_box{ text-align:center;  width:100%; padding:20px 0; overflow:hidden}
+.Experience{height:40px;
+	background:#8b7860;
+	width:155px;
+	color:#fff;
+	border:none;
+	cursor:pointer;
+	outline:none;
+	font-size:14px;
+	-moz-border-radius: 2px;  
+	-webkit-border-radius: 2px;
+	border-radius: 2px; margin:0 20px}
+.Experience:hover{background:#b0916a;}
+/*下拉菜单美化*/
+
+.select_box_landing{ position:relative;font-size:12px; text-align:center; color:#999;display:block;width:150px; float:left}
+ul.list_c li .clear{padding:0; margin:0; clear:both}
+.select_ul_box span{display:block;line-height:48px; float:left; font-size:18px;margin-right:20px;color:#767676}
+.select_ul_box{  width:320px;margin:20px auto;}
+.select_box_landing input{float:left;width:120px;height:48px;-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px; background:#c4c4c4 url(/shop/theme/xth1/images/index/select_icon.png) no-repeat 110px; padding-left:30px; border:none; cursor:pointer; overflow:hidden; line-height:48px;font-size:18px; color:#767676; text-align:left;}
+.select_box_landing ul{ width:100%;height:auto;-moz-border-radius: 2px; -webkit-border-radius: 2px;border-radius: 2px; position:absolute;top:48px; right:0;display:none;background:#c4c4c4;z-index:100;font-size:18px;color:#767676;}
+.select_box_landing ul li{display:block;overflow:hidden;line-height:40px;padding-left:30px;width:100%;cursor:pointer; text-align:left;}
+

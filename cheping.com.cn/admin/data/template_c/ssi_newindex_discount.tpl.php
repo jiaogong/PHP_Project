@@ -1,0 +1,46 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<div class="zonghe_right">
+    <div class="right_title2">
+        <h3 style="float:left; margin-left:9px; font-size:16px; color:#3399ff;">汽车暗访报告</h3>
+        <span style="width:80px; float:right">
+            <div style="float:left; margin-left:10px;"><span style="color:#ff9900;" id="zonghe_val">1</span>/<? echo count($result); ?></div>
+            <div class="fangkuang">
+                <img src="images/fangkuang_left.jpg" class="zh_left">
+                <img src="images/fangkuang_right.jpg" class="zh_right">
+            </div>
+        </span>
+    </div>    
+    <div class="zonghe_content">
+        <div class="zonghe_ul" style="width: 915px;">
+            <? foreach((array)$result as $ret) {?>
+            <div class="zonghe_dong">
+                <div class="zonghe_img">
+                    <dl>
+                        <dt><a href="/modelinfo_<?=$ret[0]['model_id']?>.html" target="_blank"><img width="122" height="93" src="/attach/images/model/<?=$ret[0]['model_id']?>/122x93<?=$ret[0]['model_pic1']?>" onerror="this.src='/images/122x93.jpg'"></a></dt>
+                        <dd>
+                            <a href="/modelinfo_<?=$ret[0]['model_id']?>.html" target="_blank">
+                                <p style="font-size:14px;"><?=$ret[0]['brand_name']?> <?=$ret[0]['series_name']?></p>
+                                <p><?=$ret[0]['model_name']?></p>
+                                <p style="font-size:14px;">指导价：<?=$ret[0]['model_price']?>万</p>
+                            </a>
+                        </dd> 
+                    </dl>
+                </div>
+                <div class="zonghe_baogao">
+                    <div class="baogao_title">
+                        <span class="baogao"></span>冰狗报告
+                        <span style=" margin-left:53px; color:#b9b9b9; font-size:12px;">到店日期：<? if ($ret[0]['get_time']) { ?><? echo date('Y-m-d', $ret[0]['get_time']) ?><? } else { ?>空<? } ?></span>                  
+                    </div>
+                    <div class="baogao_content">
+                        <p><? echo mb_substr($ret[0]['profile'], 0, 72, 'utf-8') ?>......</p>
+                    </div>
+                    <p class="baogao_fenxi">
+                        推荐指数：<span style="font-size:30px; color:#ff8f34;"><?=$ret[0]['index']?></span>/5分
+                        <span class="fenxi"><input type="button" onclick="window.open('/offers_<?=$ret[0]['model_id']?>__<?=$ret[0]['bingoid']?>_<?=$ret[0]['detail']?>.html#shangqing_<?=$ret[0]['bingoid']?>')"></span>
+                    </p>                
+                </div>
+            </div>                                               
+            <? } ?>
+		</div>    
+	</div>
+</div>

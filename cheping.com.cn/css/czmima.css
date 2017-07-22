@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+.denglu_main{ width:1180px; height:auto; margin:auto; margin-top:80px;}
+.zc_main_t{ width:1180px; height:100px; }
+.zhuce_bt{ font-size:22px; height:100px; line-height:100px; font-weight:bold;}
+.zhuce_bt1{ margin-left:100px; margin-top:-50px;}
+.denglu{ float:right; margin-top:-50px; font-size:16px;}
+.denglu a{color:#333;}
+.form{width:1180px;height: auto; overflow:hidden;font-size: 16px;color: #1b1b1b;text-align: left; margin:auto;}
+.dl_main_b{ width:750px; height:400px; margin:auto;}
+.yonghuming{ padding-top:50px; font-size:14px;}
+.yhmtxt{ width:350px; height:30px; padding-left:10px;outline: none;}
+.yhmtxt:hover{ border:2px solid #E56C71;}
+.mima{ margin-top:10px;font-size:14px;}
+.password{ width:350px; height:30px;padding-left:10px;outline: none;}
+.password:hover{ border:2px solid #E56C71;}
+.zddl{ margin-top:15px;}
+.wangji{ margin-left:295px; margin-top:-15px;}
+.wangji a:hover{ text-decoration:underline;}
+.dl_anniu{ padding-top:30px;}
+

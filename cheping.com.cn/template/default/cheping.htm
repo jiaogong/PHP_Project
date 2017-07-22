@@ -1,0 +1,106 @@
+{template index_header}
+<script type="text/javascript">
+	Qfast.add('widgets', { path: "{$static_domain}/js/terminator2.2.min.js", type: "js", requires: ['fx'] });  
+	Qfast(false, 'widgets', function () {
+		K.tabs({
+			id: 'fsD1',   //焦点图包裹id  
+			conId: "D1pic1",  //** 大图域包裹id  
+			tabId:"D1fBt",  
+			tabTn:"a",
+			conCn: '.fcon', //** 大图域配置class       
+			auto: 1,   //自动播放 1或0
+			effect: 'fade',   //效果配置
+			eType: 'click', //** 鼠标事件
+			pageBt:true,//是否有按钮切换页码
+			bns: ['.prev', '.next'],//** 前后按钮配置class                          
+			interval: 3000  //** 停顿时间  
+		}) 
+	})  
+</script>
+<script type="text/javascript">
+    $(function(){
+        $('.prevPage').click(function(){
+            if($('.song').length>0){
+                $('.song').prev().addClass('song').siblings('li').removeClass('song');
+            }
+        })
+        $('.nextPage').click(function(){
+            if($('.song').length>0){
+                $('.song').next().addClass('song').siblings('li').removeClass('song');
+            }
+        })
+        $('.ep-pages ol li a').click(function(){
+            $(this).parent('li').addClass('song').siblings('li').removeClass('song');
+        })
+    });
+   $(function(){
+   	$('.main-title ul li').click(function(){
+   		var c = $(this).index();
+   		$('.main-title ul li').eq(c).addClass('song').siblings('li').removeClass('song');
+   	})
+    });
+</script>
+ <!--#include virtual="/ssi/ssi_banner_banner_news.shtml"-->
+</div>
+<!--轮播结束-->
+<div class="concent">
+    <div class="main-title" >
+             <ul> 
+                <li {if !$ids}class="song"{/if} ><a href="article.php?action=CarReview&id={$id}">全部</a></li> 
+                {loop $ac $k $v}
+                    {if {$v[count]}==0}{else}
+                        <li {if $ids == $v[id]}class="song"{/if}><a href="article.php?action=CarReview&id={$id}&ids={$v[id]}" >{$v[category_name]}</a></li> 
+                    {/if}
+                {/loop} 
+            </ul> 
+   </div> 
+   <div class="main-title-con" >
+       <div class="left fl">
+            <div id="d1">
+                <div class="dl-main-left fl">
+                    <ul class="">     
+                        {loop $lists $k $v}
+                        <li>
+                                <span class="fl"><a href="/html/article/{eval echo date("Ym/d",$v["uptime"]);}/$v[id].html" target="_blank"><img class="huaguo" style="width:279px;height:184px;" src="{UPLOAD_DIR}{$v[pic]}" alt="$v[title]" /></a></span>
+                                    <div class="span-con fr">
+                                        <p class="p1"><a href="/html/article/{eval echo date("Ym/d",$v["uptime"]);}/$v[id].html" target="_blank">{$v[title]}</a></p>
+                                        <p class="p2">{loop {$v[series_name]} $key $val}<span class="spcolor">{if $key<6}{$val[series_name]}{/if}</span>&nbsp;&nbsp;{/loop}<span class="fr margr4px">{eval echo date("Y-m-d",$v["uptime"]);}</span></p>
+                                        <p class="p3 fade">{eval echo dstring::substring($v[chief],0,75),'...'}</p>
+                                        <p class="p-four"> 
+                                            {loop {$v[tag_name]} $keys $value}
+                                            {if $keys<6}
+                                                <span class="spa">
+                                                <i class="sppic fl"><img src="images/point.png" /></i>
+                                                <span class="spzi fl"><a href="article.php?action=ActiveList&id={$value[id]}" target="_blank">{$value[tag_name]}</a></span>
+                                              </span>
+                                            {/if}
+                                            {/loop}
+                                        </p>
+                                    </div>
+                            </li>
+                        {/loop}
+                    </ul>
+                    <div class="ep-pages">
+                        {$page_bar}
+                    </div>
+                </div>
+            </div>
+       </div>
+       <div class="right fr">
+        <div class="dl-main-right fr">
+         <!--#include virtual="/ssi/ssi_index_tag.shtml"-->
+         <!--精品分类结束-->
+         <!--#include virtual="/ssi/ssi_index_article.shtml"-->
+         <!--热门文章结束-->     
+        </div>
+   </div>
+   </div>
+    <script src='/js/counter.php?cname=article&c1=$id&c2=$ids&c3='></script>  
+   
+   <div class="clear"></div>
+</div>
+{if !$ids}
+{template index_footer}
+{else}
+{template article_footer}
+{/if}

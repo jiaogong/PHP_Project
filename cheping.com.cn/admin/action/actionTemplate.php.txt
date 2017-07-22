@@ -1,0 +1,38 @@
+<?php
+  /**
+  * factory action
+  * $Id: actionTemplate.php.txt 2 2015-06-03 04:39:17Z xiaodawei $
+  */
+  
+  class factoryAction extends action{
+    var $factory;
+    function __construct(){
+      parent::__construct();
+      $this->factory = new factory();
+    }
+    
+    function doDefault(){
+      $this->doList();
+    }
+    
+    function doList(){
+      
+    }
+    
+    function doAdd(){
+      
+    }
+    
+    function doEdit(){
+      
+    }
+    
+    function doDel(){
+      
+    }
+    
+    function checkAuth(){
+      
+    }
+  }
+?>

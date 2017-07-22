@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<include file="Public/head"/>
+<body>
+<div class="concent">
+    <!--头部-->
+    <include file="Public/header"/>
+    <!--头部结束-->
+    <div class="login-con">
+        <div class="login-con-left fl">
+            <span><img src="__IMG__/tutou.png" width="507px" height="435px"/></span>
+        </div>
+        <div class="login-con-right fr">
+            <div class="tab right-title">
+                <ul>
+                    <li   title="zhu">用户注册</li>
+                    <li class="other" title="deng">直接登录</li>
+                </ul>
+            </div>
+            <div class="nei">
+                <!--注册-->
+                <div class="zhu" style="display:none">
+                    <p class="zip">我是</p>
+                    <form action="{:U('Member/index/regist')}" method="post">
+                        <div class="fl dis-frist dis">
+                            <input type="radio" id="nba" checked="checked" name="user_type" value="1">
+                            <label name="nba" class="checked" for="nba">厂商设置</label>
+
+                        </div>
+                        <div class="fl dis-second dis">
+                            <input type="radio" id="cba" checked="checked" name="user_type" value="2">
+                            <label name="cba" for="cba">个人设置</label>
+                        </div>
+                        <div class="fl dis-third dis">
+                            <input type="radio" id="mba"  checked="checked" name="user_type" value="3">
+                            <label name="mba" for="mba">个人代理</label>
+                        </div>
+                        <div class="clear"></div>
+                        <input type="text" name="username"  placeholder="用户名" class="ym" value=""/><br />
+                        <input type="text" name="email"  placeholder="邮箱" class="ym" value=""/><br />
+                        <input type="text" name="password"  placeholder="密码" class="ym" value=""/><br />
+                        <input type="checkbox" style="vertical-align:middle; display:none;"/>
+                        <img src="__IMG__/checked.png" style=" vertical-align:middle;" onclick="javascript:mycheck(this);" />
+                        <span class="agree">同意条款服务</span><br />
+                        <button class="button" id="submit" type="submit">立即注册</button>
+                    </form>
+                </div>
+                <!--注册end-->
+                <!--登录-->
+                <div class="deng">
+                    <form action="{:U('Member/index/login')}" method="post">
+                        <input type="text" name="username" value="" placeholder="用户名/邮箱地址"/>
+                        <input type="text" name="password" value="" placeholder="密码"/>
+                        <span class="forget"><a href="">忘记密码</a></span>
+                        <button class="button" id="submit" type="submit">直接登录</button>
+                    </form>
+                </div>
+                <!--登录end-->
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <include file="Public/footer"/>
+</div>
+<script>
+    $(function(){
+        $(".tab > ul > li").click(tab);
+        function tab(){
+            $(this).addClass('other').siblings().removeClass('other');
+            var $tab = $(this).attr('title')
+            $("." + $tab).show().siblings().hide();
+        }
+    })
+
+
+    function mycheck(obj)
+    {  var fn=obj.src;
+        fn=fn.substring(fn.lastIndexOf("/")+1);
+        if(fn=='checked.png'){
+            obj.src='__IMG__/checks.png';
+            obj.previousSibling.checked = false;
+            document.getElementById("submit").disabled = true;
+
+        }else{
+            obj.src='__IMG__/checked.png';
+            obj.previousSibling.checked = true;
+
+
+        }
+    }
+
+
+</script>
+<script>
+    $(function() {
+        $('label').click(function(){
+            var radioId = $(this).attr('name');
+            $('label').removeAttr('class') && $(this).attr('class', 'checked');
+            $('input[type="radio"]').removeAttr('checked') && $('#' + radioId).attr('checked', 'checked');
+        });
+    });
+</script>
+
+</body>
+</html>

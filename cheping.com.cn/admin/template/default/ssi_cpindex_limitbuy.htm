@@ -1,0 +1,74 @@
+<style>
+    .sy_qgjs {background: url(images/v2/sy_qg3.png) no-repeat; _background: url(images/v2/sy_qg3.png) no-repeat !important;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=noscale, src="images/v2/sy_qg3.png");
+_background:none;}
+</style>
+<div id="limitbuy_div" class="sy_qg">
+        <div class="sy_qgt">
+        </div>
+        <div class="sy_qgl">
+            <ul>
+                {loop $limitcar $key $value}
+                <li>
+                    <a class="{if $key==0}sy_qglion1{/if} menu" index="{$key}" href="javascript:void(-1);">{eval echo $key+=1;}</a>
+                </li>
+                {/loop}
+                <div class="clear"></div>
+            </ul>
+            <div class="clear"></div>
+            {loop $limitcar $key $value}
+            <div <!--{if $key!=0}-->style="display:none;"<!--{/if}--> class="sy_qg_tu content1">
+                <a id="limit_pic_{$key}" target="_blank" href="modelinfo.php?modelid={$value['model']['model_id']}"><img width="260" height="150" alt="{$value['title']}" onerror="this.src='images/v2/col_bus.jpg'" src="attach/{if $value['pic']}images/$value['pic']{else}images/v2/col_bus.jpg{/if}"/></a>
+            </div>
+            {/loop}
+        </div>
+        {loop $limitcar $key $value}
+        <div class="sy_qgr content2" <!--{if $key!=0}-->style="display:none;"<!--{/if}-->>
+             <div id="time_show_{$key}" class="sy_qgs sy_qgs_1">    
+            </div>
+            <ul>
+                <li>
+                    <p>
+                        <a target="_blank" href="modelinfo.php?modelid={$value['model']['model_id']}">{$value['title']}</a>
+                    </p>
+                </li>
+                <li>
+                    <span style="text-decoration:line-through;">指导价：{$value['model']['model_price']}万</span>
+                </li>
+                <li>
+                    已优惠：{eval echo ($value['model']['model_price']-$value['model']['bingo_price']);}万
+                </li>
+                <li>
+                    冰狗参考价：<span style=" color:#3ea4d6; font-size:20px; font-weight:bold;">{$value['model']['bingo_price']}</span>万
+                </li>
+                <li style="position:relative;">
+                    <a class="sy_qgq" id="limitbuy_btn_{$key}" target="_blank" href="cardemand.php?brand_id={$value['model']['brand_id']}&series_id={$value['model']['series_id']}&model_id={$value['model']['model_id']}"></a>
+                    <img <!--{if $value['flag']==0}-->style="display: none;"<!--{/if}--> class="sy_qgw" src="images/v2/sy_qg7.jpg" />
+                </li>
+            </ul>
+        </div>
+        <script>
+           var intertime<!--{$key}--> = setInterval('_fresh(new Date("{eval echo date("Y/m/d,H:i:s",$value["starttime"]+($value["enddate"]*3600))}"),{time_show:$("#time_show_{$key}"),button:$("#limitbuy_btn_{$key}"),pic_a:$("#limit_pic_{$key}"),timeout:intertime<!--{$key}-->})',1000);
+        </script>
+        {/loop}
+        <div class="clear"></div>
+    </div>
+
+<script>
+    function _fresh(endtime,o) {
+        var nowtime = new Date();
+        var leftsecond = parseInt((endtime.getTime() - nowtime.getTime()) / 1000);
+        __d = parseInt(leftsecond / 3600 / 24);
+        __h = parseInt((leftsecond / 3600) % 24);
+        __m = parseInt((leftsecond / 60) % 60);
+        __s = parseInt(leftsecond % 60);
+        o.time_show.html( __d + "天" + __h + "小时" + __m + "分" + __s + "秒");
+        if (leftsecond <= 0) {
+            clearInterval(o.timeout);
+            o.time_show.removeClass("sy_qgs_1").html("抢购结束");
+            o.button.siblings("img").show();
+            o.pic_a.before('<div class="sy_qgjs"></div>');
+        }
+    }
+    commonfocus("limitbuy_div","sy_qglion1",2,5000);
+</script>

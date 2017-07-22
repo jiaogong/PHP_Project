@@ -1,0 +1,19 @@
+<div class="brand_letter">
+    <ul id="brand1" class="brand_ul">
+        <!--{loop $brand $key $value}-->
+        <li class="out">
+            <a href="javascript:void(-1);" class="letter">$key</a>
+            <div class="arrows">
+                <div class="arrows_con">
+                    <ul>
+                        <!--{loop $value $k $v}-->
+                        <li><a href="brand.php?brandid=$v['brand_id']">$v["brand_name"]</a></li>
+                        <!--{/loop}-->
+                    </ul>
+                    <div class="arrows_r"></div>
+                </div>
+            </div>
+        </li>
+        <!--{/loop}-->
+    </ul>
+</div>

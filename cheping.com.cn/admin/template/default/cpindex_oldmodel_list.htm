@@ -1,0 +1,50 @@
+{template header} 
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+        <li><a href="{$php_self}allModelList">信息预览</a></li>
+        <li><a href="javascript:void(0);" class="song">历史信息</a></li>
+        <li><a href="{$php_self}modelCountList">数据分析</a></li>
+        <li><a href="{$php_self}hotcarNotice&act=allmodel">逻辑说明</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">           
+            <div style=" width: 925px; overflow: auto;">
+                <table cellpadding="0" cellspacing="0"  class="table2 table_border" style="width:1100px;">                
+                    <tr>
+                        <td style="width: 85px;">名称</td>
+                        {loop $result $k $v}
+                        <td style="width: 100px;">{$k}</td>
+                        {/loop}
+                    </tr>
+                    {eval $j = 0}
+                    {loop $allModel $kk $vv}                                    
+                    {eval $j++}
+                    <tr>
+                        <td {if $j % 2 == 0}class="deep"{/if}>{$vv}</td>
+                        {loop $result $k $v}
+                            {if !empty($result[$k][$kk])}
+                                <td {if $j % 2 == 0}class="deep"{/if}>{eval echo implode(' ', $result[$k][$kk])}</td>
+                            {else}
+                                <td {if $j % 2 == 0}class="deep"{/if}><font style="color:red;">未录入</font></td>
+                            {/if}         
+                        {/loop}
+                    </tr>
+                    {/loop}
+                </table>
+                {if $pageBar}
+                <div>
+                    <div class="ep-pages">
+                        {$pageBar}
+                    </div>
+                </div>
+            </div>
+            {/if}
+        </div>
+        <div class="user_con2"><img src="<!--{$admin_path}-->images/conbt.gif"  height="16" /></div>
+    </div>
+</div>
+    </body>
+</html>

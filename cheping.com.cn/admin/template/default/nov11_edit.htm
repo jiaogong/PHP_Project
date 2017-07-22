@@ -1,0 +1,95 @@
+{template header}
+<div class="user">
+	<div class="nav">
+		<ul id="nav">
+			<li>{if $price_admin}<a href="{$price_admin}">返回</a>{else}<a href="{$php_self}nov11&brand_id={$receiver['brand_id']}&factory_id={$receiver['factory_id']}&series_id={$receiver['series_id']}&model_id={$receiver['model_id']}&from_channel={$receiver['from_channel']}&order_mode={$receiver['order_mode']}&offline_end_date={$receiver['offline_end_date']}&page={$receiver['page']}">返回</a>{/if}</li>
+			<li><a href="javascript:void(0);" class="song">活动详情</a></li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            <form id="bingoprice_form" action="index.php?action=websaleinfo-nov11save" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="phpself" value="{$php_self}" />
+                <table cellpadding="0" cellspacing="0" class="table2" border="0">
+					<tr>
+						<td class="td_right" width="150px">车款信息：</td>
+						<td class="td_left" width="600px">{$websaleinfo['brand_name']}-{$websaleinfo['factory_name']}-{$websaleinfo['series_name']}-{$websaleinfo['model_name']}</td>
+					</tr>
+					<tr>
+						<td class="td_right" width="150px">指导价：</td>
+						<td class="td_left" width="600px" id="model_price">{$websaleinfo['model_price']}</td>
+					</tr>
+					<tr>
+						<td class="td_right" width="150px">折扣：</td>
+						<td class="td_left" width="600px" id="discount">{$websaleinfo['discount']}</td>
+					</tr>
+					{loop $nov11 $infok $infov}
+						<tr>
+							<td class="td_right" width="200px">{if in_array($infok,array('deposit', 'get_time', 'offline_end_date', 'dealer_name', 'dealer_area', 'from_type', 'from_channel', 'activity_property', 'buy_discount_rate', 'nude_car_rate', 'buy_discount_price', 'nude_car_price'))}<font color="red">*</font>{/if}$infov：</td>
+							<td class="td_left"  width="600px">
+								{if strpos($infok, 'date') or $infok=='get_time'}
+									<input type="text" id="$infok" value="{if $websaleinfo[$infok]}{eval echo date('Y-m-d', $websaleinfo[$infok])}{/if}" name="$infok" size="50" class="datepicker" />
+								{elseif strpos($infok, 'content')}
+									<textarea rows="5" cols="40" name="$infok">$websaleinfo[$infok]</textarea>
+								{elseif in_array($infok,array('buy_discount_rate','nude_car_rate','buy_discount_price','nude_car_price'))}
+									<input type="text" id="$infok" class="webprice" value="$websaleinfo[$infok]" name="$infok" size="50" />
+								{else}
+									<input type="text" id="$infok" value="$websaleinfo[$infok]" name="$infok" size="50" />
+								{/if}
+							</td>
+						</tr>
+					{/loop}
+					<tr>
+						<td class="td_right" width="150px"></td>
+						<td class="td_left"  width="600px">
+							<input type="button" value="提交" onclick="checkRequired()" />
+							<input type="hidden" name="id" value="{$id}" />
+							<input type="hidden" name="brand_id" value="{$receiver['brand_id']}" />
+							<input type="hidden" name="factory_id" value="{$receiver['factory_id']}" />
+							<input type="hidden" name="series_id" value="{$receiver['series_id']}" />
+							<input type="hidden" name="model_id" value="{$receiver['model_id']}" />
+							<input type="hidden" name="offline_end_date2" value="{$receiver['offline_end_date']}" />
+							<input type="hidden" name="from_channel2" value="{$receiver['from_channel']}" />
+							<input type="hidden" name="order_mode" value="{$receiver['order_mode']}" />
+							<input type="hidden" name="page" value="{$receiver['page']}" />
+							<input type="hidden" name="model_price" value="{$websaleinfo['model_price']}" />
+							<input type="hidden" name="m_id" value="{$websaleinfo['model_id']}" />
+						</td>
+					</tr>
+				</table>
+            </form>
+        </div>
+        <div class="user_con2"><img src="<!--{$admin_path}-->images/conbt.gif"  height="16" /></div>
+    </div>
+</div>
+<script type="text/javascript">
+	function checkRequired(){
+		if($("input[name='buy_discount_rate']").val()=="" && $("input[name='nude_car_rate']").val()=="" && $("input[name='buy_discount_price']").val()=="" && $("input[name='nude_car_price']").val()==""){
+			alert('请检查必填项');
+			return;
+		}
+		var required_arr = new Array('deposit', 'get_time', 'offline_end_date', 'dealer_name', 'dealer_area', 'from_type', 'from_channel', 'activity_property');
+		var required_flag = 0;
+		$.each(required_arr, function(k,v){
+			if($("input[name='" + v + "']").val()==""){
+				required_flag = 1;
+				return;
+			}
+		});
+		if(required_flag == 1){
+			alert('请检查必填项');
+			return;
+		}else{
+			$("form").submit();
+		}
+	}
+	$(function(){
+		$(".webprice").keyup(function(){
+			var discount_price = $(this).val();
+			var model_price = $("#model_price").html();
+			$("#discount").html((Number(discount_price)/model_price).toFixed(3)*10);
+		});
+	})
+</script>
+{template footer}

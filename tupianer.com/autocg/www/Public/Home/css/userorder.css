@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+.userorder{ width:980px; margin:0 auto;  margin-top:26px; color:#333;}
+.order-top{ width:980px;}
+.order-top .orderdis{ margin-left:30px;  width:428px; font-size:14px; }
+.order-top .orderdis span{ display:block; padding:17px 0;}
+.order-bottom{  width:540px; margin:0 auto; margin-top:30px;}
+.order-bottom h3{ font-style:normal; color:#333; }
+.choseorder{ margin-left:20px; margin-top:30px;}
+.choseorder ul li{ height:44px; border-bottom:1px solid #ededed; line-height:44px;}
+.choseorder input[type="radio"]{ display:none;}
+.choseorder label { padding-left: 20px; cursor: pointer; background:url(../images/radio.png) no-repeat left center; }
+.choseorder label.checked { background: url(../images/uploadradio.png) no-repeat left center; }
+.order-bottom .shopbtn{ width:205px; height:38px; background:#f99c50; color:white; font-size:16px;  margin:48px 180px 30px 180px;}

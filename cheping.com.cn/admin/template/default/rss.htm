@@ -1,0 +1,22 @@
+<rss version="2.0">
+  <channel>
+    <title>{$title}</title>
+    <link>{$startpage}</link>
+    <description>ams车评网</description>
+    <language>zh-cn</language>
+    <copyright>ams车评网</copyright>
+    <pubDate>{eval echo date("Y-m-d H:i:s +0800",$current_date);}</pubDate>
+    <ttl>10</ttl>
+    {loop $list $k $v}
+    <item>
+      <title>{eval echo htmlspecialchars($v[title]);}</title>
+      <link>{$v[url]}</link>
+      <description><![CDATA[{$v[contents]}]]></description>
+      <pubDate>{eval echo date("Y-m-d H:i:s +0800",$v["uptime"]);}</pubDate>
+      <author>{$v[author]}</author>
+      <guid isPermaLink="false" />
+    </item>
+    {/loop}
+  </channel>
+</rss>
+

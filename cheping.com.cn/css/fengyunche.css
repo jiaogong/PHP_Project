@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+body{ background-color:#f9fafb;}
+body,ul,li { margin:0; padding:0; font-size:12px;}
+*{margin:0;padding:0;list-style-type:none; font-family:"微软雅黑"; color:#333;}
+a,img{border:0;}
+a{ text-decoration:none;}
+.zhuti{ width:100%; height:auto; margin:0 auto;}
+.clear{overflow: hidden;font-size:0;line-height:0;width:100%;clear:both;}
+/*头部*/
+.header{ width:100%;height:auto;}
+.nav{ width:100%;height:35px; background-color:#3f4952;}
+.nav_title{ width:1024px; height:35px; line-height:35px; font-size:14px; margin:0 auto; color:#fff;}
+.nav_title .title li{ float:left; font-size:14px; margin-right:23px;}
+.nav_title .title li a{color:#fff;}
+.nav_title .user li{ float:right; font-size:14px; margin-left:23px;}
+.nav_title .user li a{color:#fff;}
+
+.logo_banner{ width:100%; margin:0 auto; height:auto; background-color:#e51a14;}
+.logo{ width:1024px; height:auto; margin:0 auto;}
+.logo_img{ margin:10px auto;}
+.banner{ width:100%; height:auto; margin:0 auto;}
+/*头部结束*/
+/*页面主体*/
+.main{ width:1024px; height:auto; background-image:url(../images/bg.png); margin:0 auto;}
+.the_vote{ font-size:24px; margin-left:10px; margin-top:30px; font-weight:bold;}
+.leading{ font-size:18px; margin-left:10px; margin-top:10px; font-weight:bold;}
+.xinxi{ font-size:18px; font-weight:bold; color:#e51a14; margin-top:35px; margin-left:35px; margin-bottom:15px;}
+.xinxi_text{ width:1024px; height:70px;}
+.xinxi_wen{ width:210px; height:36px; line-height:36px; font-size:16px; font-weight:bold; float:left;}
+.xinxi_wen div{ float:right; position:relative;}
+.xinxi_wen div span{ position:absolute; color:#e51a14; top:-5px;}
+.text{width:660px; height:36px; float:right; margin-right:140px; border:1px solid #ddd; padding-left:10px;}
+.danxuan{ float:left; font-size:16px; margin-top:8px;}
+.time{ width:172px; height:37px; text-align:center; margin-right:70px; border:1px solid #ddd;}
+.xiaobiaoti{ font-size:18px; margin-top:10px; margin-left:150px; font-weight:bold;}
+.fuxuan{ font-size:16px; width:695px; float:left; margin-left:170px; line-height:30px;display: inline-table;}
+.jianjv{ margin-left:50px;display: inline-table;}
+.licheng{ border:1px solid #ddd; width:150px; height:36px; padding-left:10px;}
+.yuedu{ float:left;font-size:16px; margin-top:8px; margin-left:220px; display:inline-table;}
+.gouche{ float:left;font-size:16px; margin-left:220px; height:40px; line-height:40px; display:inline-table;}
+.nian{width:100px; height:36px; border:1px solid #ddd; padding-left:10px;}
+.xiaobiaowen{ font-size:18px; margin-top:10px; margin-left:150px; font-weight:bold; float:left;}
+.xiaobiaowen1{ font-size:18px; margin-top:10px; margin-left:50px; font-weight:bold; float:left;}
+.wenk{ width:100px; height:36px;border:1px solid #ddd;}
+.yixiangchexing{ float:left;font-size:16px; margin-top:8px; margin-left:220px; display:inline-table;}
+.nextcar{ font-size:16px; width:695px; float:left; margin-left:170px; line-height:30px;}
+.tijiao{ width:804px; height:58px; margin:25px auto; text-align:center;background-color:#e51a14; color:#fff; border:1px solid #e51a14; border-radius:10px; cursor:pointer; margin-left:100px; font-size:18px; font-weight:bold;}
+/*页面主体结束*/
+
+/*页脚*/
+.footer{ width:100%; background-color:#222222; color:#;}
+#cen_right_top{ background-color:#222222;width:1180px;margin:0px auto; padding-top:20px; color:#fff; padding-bottom:15px;}
+#cen_right_top .active{ background-color:#666;color:#e8e8e8;}
+#cen_right_top span{line-height:35px;text-align:center;float:left;height:35px;width:150px;margin::0px;padding:0px;background-color:#222222;font-size:14px;color:#999999;font-weight:lighter;cursor:pointer; border:1px solid #666; border-radius:10px 10px 0px 0px;font-size:16px;}
+#cen_right_top div{display:none;clear:both;height:auto;padding:20px 0px 0px 20px;border-top:1px solid #666;}
+
+.youlian{ padding:5px 15px 5px 15px;height:25px; line-height:25px; color:#999999; text-decoration:none;display: inline-table; font-size:14px;}
+.youlian:hover{color:#999;}
+.hezuo{ padding:5px 15px 5px 15px;height:25px; line-height:25px; color:#999; text-decoration:none;display: inline-table; font-size:14px;}
+.hezuo:hover{color:#999;}
+.banquan{background-color:#141414; width:100%;height:auto; color:#999; text-align:center; padding-top:30px;padding-bottom:30px; font-size:14px;}
+
+

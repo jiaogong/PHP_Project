@@ -1,0 +1,19 @@
+<div class="zhuanye_ceping"><!--ams专业测评-->
+    <div class="hot_chexing"><a class="a1" href="javascript:void(0)" style="margin-left:5px;cursor:default">ams专业评测</a><a class="a2" href="$local_host/article.php?action=CarReview&id=8">&raquo;</a></div>
+    {loop $value $k $v}
+    {if $v[cname]=='article'}
+     <div class="list_1">
+         <div class="right_list_tu"><a href="{$v['url']}" target="_blank"><img src="/attach/$v[pic]" width="247" height="156" alt="$v[alt]"></a></div>
+          <div class="list_bt"><a href="{$v['url']}" target="_blank">$v[title]</a></div>
+        </div>
+    {else}
+     <div class="list_1">
+          <div class="right_list_tu"><a href="{$v['url']}" target="_blank"><img src="/attach/$v[pic]" width="247" height="156" alt="$v[alt]"></a></div>
+          <div class="list_bt"><a href="{$v['url']}" target="_blank">$v[title]</a></div>
+        </div>
+    {/if}
+        
+    {/loop}
+     
+
+</div>

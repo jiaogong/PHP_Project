@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>上传视频优酷</title>
+        <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="__CSS__/bootstrap.css" rel="stylesheet">
+        <link href="__CSS__/bootstrap-responsive.css" rel="stylesheet">
+        <script src="__JS__/jquery-2.1.4.min.js"></script>
+        <script src="__JS__/youku-upload.js"></script>
+    </head>
+    <body>
+        <div id="youku-upload">
+        <div class="container">
+            <form action="__URL__/videoUpload" method="post" enctype ="multipart/form-data" name="form" >
+                标题：<input type="text" name="title" /><br />
+                <input id="file" name="filevideo" type="file" />
+                <input id="file" name="filevideo" type="file" />
+                <input type="submit" value="上传" id="Button1" />
+            </form>
+    <script>
+        //document.domain = "youku.com";
+        var USE_STREAM_UPLOAD = true;
+        jQuery(document).ready(function(){
+            //Oauth授权的三种页面跳转方式iframe,newWindow,currentWindow
+            //iframe跳转方式
+            var param = {client_id:"5e7a386cb241b328",access_token:"",oauth_opentype:"iframe",oauth_redirect_uri:"http://www.tpr.com/index.php?s=/Home/Upload/oauth_result.html",oauth_state:"",completeCallback:"uploadComplete",categoryCallback:"categoryLoaded"};
+            //newWindow新弹出窗口方式
+            //var param = {client_id:"",access_token:"",oauth_opentype:"newWindow",oauth_redirect_uri:"http://test.youku.com/youkuupload/oauth_result_newwindow.html",oauth_state:"",completeCallback:"uploadComplete",categoryCallback:"categoryLoaded"};
+            //currentWindow当前窗口方式
+            /*
+            var param = {client_id:"",access_token:"",oauth_opentype:"currentWindow",oauth_redirect_uri:"http://test.youku.com/youkuupload/upload.html",oauth_state:"",completeCallback:"uploadComplete",categoryCallback:"categoryLoaded"};
+            var reg = new RegExp("(^|\\#|&)access_token=([^&]*)(\\s|&|$)", "i");
+            if (reg.test(location.href)){
+                    var access_token = unescape(RegExp.$2.replace(/\+/g, " "));
+                    param.access_token = access_token;
+            }
+            */
+            youkuUploadInit(param);
+
+       });
+            //上传完成时回调方法
+            function uploadComplete(data){
+//                    alert("videoid="+data.videoid+";title="+data.title);
+                if(data){      
+                   var vid = data.videoid; // 上传后的视频id 
+                   var vtitle = data.title; // 上传后的视频标题
+                   var thumbnail = data.thumbnail; // 截图
+                   var published = data.published; // 发布时间
+                   var view_count = data.view_count; // 总播放数
+                   var category = data.category; // 分类
+                   var seconds = data.seconds; // 视频时长（分：秒)
+                   var link  = data.link;  // 播放链接 
+                   var user = data.user // 上传者信息
+                   var tags = data.tags // 标签
+                   //发送ajax
+                }else{
+                   alert('\n视频上传失败！');
+                }
+                   
+            }
+
+            //分类加载后回调方法
+            function categoryLoaded(data){
+            if(data.categories) {
+                    var tpl = '';
+                    for (var i=0; i<data.categories.length; i++) {
+                    if(data.categories[i].term == 'Ads'){
+                    tpl += '<option value="' + data.categories[i].term + '" selected>' + data.categories[i].label + '</option>';
+                    }else{
+                            tpl += '<option value="' + data.categories[i].term + '" >' + data.categories[i].label + '</option>';
+                    }
+            }
+            $("#category-node").html(tpl);
+        }
+    }
+    </script>
+    </body>
+</html>

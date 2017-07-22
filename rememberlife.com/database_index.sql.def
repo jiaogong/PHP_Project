@@ -1,0 +1,165 @@
+create database if not exists rememberlife;
+use rememberlife;
+drop table if exists user;
+create TABLE user (
+  user_id int(10) unique not null auto_increment primary key comment '用户id',
+  user_name varchar(150) unique not null default '' comment '用户名',
+  password varchar(200) not null default '' comment '用户密码',
+  phone varchar(20) unique not null default '' comment'手机号',
+  email varchar(120) not null default '' comment '邮箱',
+  salt char(6) not null default '' comment '密码盐',
+  created_at int(11) default '0' comment '创建时间',
+  updated_at int(11) default '0' comment '更新时间'
+) engine=innodb default charset=utf8 comment '前台用户表';
+
+drop table if exists user_true_info;
+create table user_true_info (
+	user_id int(10) not null unique comment '用户id',
+	true_name varchar(100) not null default '' comment '用户真实姓名',
+	loves varchar(150) not null default '' comment '爱好',
+	job varchar(100) not null default '' comment '职业',
+	address varchar(200) not null default '' comment '住址',
+	sex enum('man','woman','secret') NOT NULL default 'secret' comment '性别',
+	age tinyint(4) not null default '0' comment '年龄',
+	created_at int(11) not null default 0 comment '创建时间'
+)engine=innodb default charset=utf8 comment '用户翰·真空信息详细表';
+
+drop table if exists user_site_info;
+create table user_site_info(
+	user_id int(10) not null unique comment '用户id',
+	nick_name varchar(200) not null default '' comment '用户别名',
+	avatar varchar(200) not null default '' comment '用户头像',
+	signature varchar(200) not null default '' comment '用户签名',
+	profile varchar(250) not null default '' comment '个人简介',
+	created_at int(11) not null default 0 comment '创建时间'
+)engine=innodb default charset=utf8 comment '用户网站信息表';
+
+drop table if exists user_function;
+create table user_function(
+	id int(11) not null unique auto_increment primary key comment 'id',
+	user_id int(10) not null unique comment '用户id',
+	function_name varchar(200) not null default '' comment '职能名称',
+	function_type tinyint(3) not null default 0 comment '职能类型 0:普通 1:群主 2:管理员',
+	created_at int(11) not null default 0 comment '创建时间',
+	updated_at int(11) not null default 0 comment '修改时间'
+)engine=innodb default charset=utf8 comment '用户职能表';
+
+drop table if exists user_hobbies;
+create table ser_hobbies(
+	user_id int(10) not null unique comment '用户id',
+	hobbies_names text not null comment '兴趣类型id,用英文逗号隔开'
+)engine=innodb default charset=utf8 comment '用户兴趣表';
+
+drop table if exists user_hobbies_type;
+create table user_hobbies_type(
+	type_id int(10) not null unique auto_increment primary key comment '兴趣类别id',
+	type_name varchar(200) not null default '' comment '类别名称'
+)engine=innodb default charset=utf8 comment '兴趣类型表';
+
+drop table if exists user_firend_info;
+create table user_firend_info(
+	id int(11) not null unique auto_increment primary key comment 'id',
+	user_id int(10) not null default 0 comment '用户id',
+	firend_user_id int(10) not null default 0 comment '好友用户id',
+	firend_status tinyint(2) not null default 0 comment '用户与好友状态: 0:非好友 1:好友 2:黑名单',
+	created_at int(11) not null default 0 comment '创建时间'
+)engine=innodb default charset=utf8 comment '朋友信息表';
+
+drop table if exists blog_content;
+create table blog_content(
+	id int(11) not null unique auto_increment primary key comment 'id',
+	type_id int(10) not null default 0 comment 'blog类型id',
+	user_id int(10) not null default 0 comment '用户id',
+	title varchar(200) not null default '' comment '内容标题',
+	subtitle varchar(200) not null default '' comment '内容副标题',
+	summary text not null comment '内容摘要',
+	banner varchar(220) not null default '' comment '头图',
+	content text not null comment '内容正文',
+	created_at int(11) not null default 0 comment '创建时间',
+	updated_at int(11) not null default 0 comment '修改时间'
+)engine=innodb default charset=utf8 comment 'blog内容表';
+
+drop table if exists blog_type;
+create table blog_type(
+	type_id int(10) not null unique auto_increment primary key comment '类别id',
+	type_name varchar(200) not null default '' comment '类别名称',
+	pid int(10) not null default 0 comment '父级id',
+	level tinyint(3) not null default 1 comment '级别 1:为最高级 2:为1的子级',
+	sort tinyint(3) not null default 1 comment '同级别排序'
+)engine=innodb default charset=utf8 comment 'blog类型';
+
+drop table if exists user_comment;
+create table user_comment(
+    id int(11) not null unique auto_increment primary key comment 'id',
+    user_id int(10) not null default 0 comment '用户id',
+    user_name varchar(150) NOT NULL default '' comment '用户名',
+    user_email varchar(150) NOT NULL default '' comment '邮箱',
+    title varchar(200) not null default '' comment '标题',
+    content text not null comment '留言内容',
+    type tinyint(2) not null default 0 comment '留言类型 0:普通 1:紧急',
+    status tinyint(2) not null default 0 comment '留言状态 0:未查看 1:已查看 2:已回复 3:已完成',
+    created_at int(11) not null default 0 comment '创建时间',
+	updated_at int(11) not null default 0 comment '修改时间'
+)engine=innodb default charset=utf8 comment '用户留言表';
+
+drop table if exists blog_comment;
+create table blog_comment(
+    id int(11) not null unique auto_increment primary key comment 'id',
+    blog_content_id int(11) not null default 0 comment '评论日志内容id',
+    user_id int(10) not null default 0 comment '用户id',
+    content text not null comment '评论内容',
+    like_num  int(11) not null default 0 comment '评论被点赞数',
+    stauts tinyint(2) not null default 0 comment '0:正常 1:删除',
+    created_at int(11) not null default 0 comment '创建时间',
+    updated_at int(11) not null default 0 comment '修改时间'
+)engine=innodb default charset=utf8 comment '用户blog评论表';
+
+drop table if exists blog_comment_relation;
+create table blog_comment_relation(
+    id int(11) not null unique auto_increment primary key comment 'id',
+    blog_comment_id int(11) not null default 0 comment 'blog评论id',
+    comment_super_id int(11) not null default 0 comment 'blog评论父id',
+    level tinyint(3) not null default 1 comment '级别 1:为最高级 2:为1的子级'
+)engine=innodb default charset=utf8 comment '用户blog评论关系表';
+
+drop table if exists blog_content_stauts;
+create table blog_content_stauts(
+    blog_comment_id int(11) not null default 0 comment 'blog评论id',
+    read_num int(11) not null default 0 comment 'blog阅读数量',
+    like_num int(11) not null default 0 comment 'blog被点赞数',
+    complaint_num int(11) not null default 0 comment 'blog被举报数',
+    stauts tinyint(2) not null default 0 comment '0:正常 1:被修改 2:关闭 3:锁',
+    operator_id int(11) not null default 0 comment '操作人id',
+    updated_at int(11) not null default 0 comment '修改时间'
+)engine=innodb default charset=utf8 comment 'blog内容状态表';
+
+drop table if exists blog_comment_complaint;
+create table blog_comment_complaint(
+    id int(11) not null unique auto_increment primary key comment 'id',
+    blog_comment_id int(11) not null default 0 comment 'blog评论id',
+    user_id int(10) not null default 0 comment '举报人id',
+    content text not null comment '举报内容',
+    type tinyint(2) not null default 1 comment '1:blog内容 2:评论',
+    complaint_type tinyint(2) not null default 1 comment '举报类型 1:非法 2:无关 3:垃圾',
+    status tinyint(2) not null default 0 comment '留言状态 0:未查看 1:已查看 2:已回复 3:已完成',
+    created_at int(11) not null default 0 comment '创建时间',
+	updated_at int(11) not null default 0 comment '修改时间'
+)engine=innodb default charset=utf8 comment '用户blog评论举报表';
+
+
+drop table if exists home_picture;
+create table home_picture(
+  id int(11) not null auto_increment primary key comment 'id',
+  title varchar(100) not null default '' comment '标题',
+  subheading varchar(255) not null default '' comment '副标题',
+  image_path varchar(200) not null default '' comment '图片地址',
+  url varchar(150) not null default '' comment '产品或文章的url地址',
+  user_name varchar(50) not null default '' comment '后台管理发布者',
+  user_id int(10) not null default 0 comment '后台管理发布者id',
+  price decimal(11,2) not null default 0 comment '价格',
+  status tinyint(2) not null default 1 comment '是否显示',
+  sort tinyint(2) not null default 0 comment '排序(0:默认无序)',
+  type tinyint(2) not null default 0 comment '前台：1:顶部6小轮播图;2:顶部6小轮播图背景;3:中间2中图;4:中下4小图;5:下图大图',
+  created_at char(20) not null default '0' comment '创建时间',
+  updated_at char(20) not null default '0' comment '修改时间'
+)engine=innodb default charset=utf8 comment '前台首页图';

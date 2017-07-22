@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>找回密码</title>
+<link rel="stylesheet" href="css/login.css" />
+<script src="js/jquery.js"></script>
+<link rel="stylesheet" href="css/communal.css" />
+</head>
+
+<body>
+   <div class="concent">
+   <!--头部-->
+       <div class="header"  id="heads">
+  <!--logo nav-->
+            <ul class="ull">
+              <li class="lil"><a href="#"><img src="images/logo.png" width="111" height="57" alt="logo" /></a></li>
+              <li class="lil"><a href="#" class="xuanze">首页</a></li>
+              <li class="lil"><a href="#">我要查找</a></li>
+            </ul>
+	<!--sousuo-->
+            <div class="sousuo">
+               <form action="#">
+                 <input type="text" placeholder="请输入要搜索的内容" class="sousuok" />
+                 <input type="submit" value="" class="sousuoa" />
+               </form>
+            </div>
+            <div class="wdlzc" style="display:none">
+               <a href="#">登录</a>&nbsp;/&nbsp;<a href="#">注册</a>
+            </div>
+            <div class="dlzck">
+            
+            <div class="dlzc">
+                <span><img id="tx" src="images/tx.png" width="44" height="44" style="vertical-align:middle;" /></span>
+                      <div id="tanchu">
+                           <ul>
+                              <li>用户名</li>
+                              <li>个人中心</li>
+                              <li>我的收藏</li>
+                              <li>我的关注</li>
+                              <li>我的作品</li>
+                              <li>我的订单</li>
+                              <li>我的交易</li>
+                              <li>我的个人页</li>
+                           </ul>
+                           <div class="tuichu">退出</div>
+                      </div>             
+	   </div>
+        <span class="dlzcld">
+        <img src="images/ld.png" width="44" height="44" style="vertical-align:middle;" />
+          <span class="xiaoxi">(2)</span>
+        </span>
+    </div>
+    
+ </div>
+<!--头部结束-->
+       <div class="password-con">
+          <div class="password-nei">
+            <h4>找回密码</h4>
+            <div class="tab passw-top-title">
+                <ul>
+                   <li class="passactive" title="zhang">1.填写账号信息</li>
+                   <li title="email">2.验证邮箱</li>
+                   <li title="passw">3.设置密码</li>
+                   <li title="scuess">4.修改成功</li>
+                </ul>
+            </div>
+            <div class="pass-con">
+                 <!--填写账号信息-->
+                 <div class="zhang">
+                     <form>
+                         注册邮箱 ：<input type="text" placeholder="example@example.com" class="zinput1"/><br />
+                         <span class="yan">
+                         验证码 ：<input type="text"  placeholder="验证码" class="zinput2"/>
+                         <img src="images/yanzhengma.png" />
+                         <label>看不清，换一张</label>
+                         </span>
+                         <button class="button">下一步</button>
+                     </form>   
+                 </div>
+                 <!--填写账号信息结束-->
+                 <!--验证邮箱-->
+                 <div class="email" style="display:none;">
+                     <h3>为保证账号安全，需验证邮箱的有效性:</h3> 
+                     <p class="emailp">一封含有验证码的邮箱已发送至邮箱：1526847521@qq.com</p> 
+                     <span class="code">
+                      验证码 : <input type="text" /> 
+                              <label><button class="button"> 重新发送 </button> </label>
+                     </span> 
+                     <button class="bnt">下一步</button>
+                 </div>
+                 <!--验证邮箱结束-->
+                 <!--设置密码-->
+                 <div class="passw" style="display:none;">
+                     <h3>请重新设置您的密码</h3>
+                     <form>
+                         <input type="password"  placeholder="新密码"/><br />
+                         <input type="password"  placeholder="确认新密码"/>
+                         <button type="submit" class="button">完成</button>
+                     </form>
+                 </div>
+                 <!--设置密码结束-->
+                 <!--修改成功-->
+                 <div class="scuess" style="display:none;">
+                     <h3>密码修改成功</h3>
+                     <a href="" class="return">返回首页</a>   
+                 </div>
+                 <!--修改成功结束-->
+             </div>  
+          </div>
+       </div>
+          <div class="footer">
+                <div class="guanyv_lianxi">
+                <a href="#" target="_blank" class="ys">关于我们</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#" target="_blank" class="ys">联系我们</a>
+                </div>
+                <div class="banquan">
+                  版权所有:**********<br />
+                  Copyright:2006-2013&nbsp;www.justeasy.cn&nbsp;All&nbsp;rights&nbsp;reserved<br />
+                  南京设易网络科技有限公司&nbsp;登记序号：苏ICP备11003578号-2<br />
+                </div>
+         </div> 
+   </div>
+  <script>
+
+	   $(function(){
+		   $(".tab ul li").click(function(){
+			   $(this).addClass("passactive").siblings().removeClass('passactive');
+			    $tab = $(this).attr('title');
+				 $("." + $tab).show().siblings().hide(); 
+			   })	   
+		   })
+
+  </script> 
+</body>
+</html>

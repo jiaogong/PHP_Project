@@ -1,0 +1,35 @@
+<div class="content_ykj">
+    <div class="top_01">
+        <div class="content_ykj_title">一口价</div>
+        <div class="content_ykj_more"><a href="#">more..</a></div>
+    </div>
+    <div class="clear"></div>
+    <div class="cont_02">
+        {loop $pricelow $k $price}
+        {eval $k++}
+        <div class="content_ykj_cont" {if $k == 4}style="background:none;"{/if}>
+             <p><img width="45px" height="15px" src="/brand/{$price['model']['brand_logo']}"></p>
+            <dl>
+                <dt><img width="180px" height="100px" src="
+                    {if $price['model']['model_pic1']}
+                        attach/images/model/{$price['model']['model_id']}/180x100{$price['model']['model_pic1']}
+                    {else}
+                        attach/images/model/{$price['model']['model_id']}/180x100{$price['model']['model_pic2']}
+                    {/if}" 
+                    onerror="this.src='images/nopic180.gif'"></dt>
+                <dd><b>{$price['model']['brand_name']} {$price['model']['series_name']}</b><br>
+                    <span style="color:#3399ff; display:inline; font-size:14px;"><a href="modelinfo.php?modelid={$price['model']['model_id']}">{$price['model']['model_name']}</a></span><br>
+                    <span style="color:#000000;">厂商指导价：{$price['model']['model_price']}万</span><br>
+                    <span style="color:#555555;">活动时间：{eval echo $price['title_'.$k]}</span><br>
+                    <p><img src="/images/ckjg.jpg"> <span style="line-height:36px;"><a href="#">查看价格行情分析行情</a></span></p>
+                </dd>
+            </dl>
+            <div class="ckxq">
+                <p style="margin-bottom:5px; color:#000000;"><span style="font-size:21px; color:#000000;">冰狗帮买价 :</span></p>
+                <p><span style="font-size:34px; color:#ed7001;">{$price['model']['bingo_price']}</span>万</p>
+                <a href="#"><img src="/images/ckxq.jpg"></a> </div>
+        </div>
+        {if $k != 4}<div class="clear"></div>{/if}
+        {/loop}
+    </div>
+</div>

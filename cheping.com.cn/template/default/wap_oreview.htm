@@ -1,0 +1,62 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<title>wap-我的评论</title>
+<link rel="stylesheet" href="css/reset.css"/>
+<link rel="stylesheet" href="css/people.css"/>
+<script src="js/jquery.js"></script>
+</head>
+
+<body>
+ <div class="header">
+         <span class="sp1">我的评论</span>
+         <span class="fl hsp2" onclick='location.href="/wapuinfo.php?action=Uinfo"' style="cursor:hand" > < </span> 
+ </div>
+ <div class="comment">
+        <div class="comm-nav">
+          <a href="/wapuinfo.php?action=uReview"  title="d1">发出的评论</a>
+          <a href="/wapuinfo.php?action=Oreview" class="active" title="d2">评论回复</a>
+      </div>
+      <div class="comm-nei">
+            <div class="comm-con" id="d1"><!--我的评论-->
+                {loop $list $key $val}
+                    {loop $val $k $v}
+               <div class="borbott">
+                     <div class="fl padt comm-confl1"><img src="{if $v['avatar']}attach/$v['avatar']{else}images/cricleimg.png{/if}" width="50px" height="50px"/></div>
+                     <div class="fl comm-confl2">
+                         <h2>$v[uname]</h2> 
+                         <p class="commp1 gray">{eval echo round((time()-$v['created'])/3600/24,0);}天前</p>
+                         <p class="commp2">$v[content]</p>
+                         <div class="bag"> 
+                             <span class="bagfei fl">{if $v[type_id]}文章{else}视频{/if}</span>
+                             <span class="xiangbag gray fl">
+                                <em><a href="/waparticle.php?action=Final&id={eval echo $v[ids];}">$v[title]</a></em>
+<!--                                <em>吉利博瑞</em>
+                                <em>1.8T旗舰版</em> -->
+                             </span>
+                         </div>
+                     </div>
+                     <div class="clear"></div>
+                 </div>
+                 {/loop}
+                 {/loop}
+            </div><!--我的评论-->
+      </div>
+ </div>
+ <script>
+    $(function(){
+		$(".comm-nav a").click(function(){
+			$(this).addClass("active").siblings().removeClass("active")
+			var tab = $(this).attr('title');
+			$("#"+ tab).show().siblings().hide();
+			})
+		
+		})
+ </script>
+</body>
+
+
+</html>

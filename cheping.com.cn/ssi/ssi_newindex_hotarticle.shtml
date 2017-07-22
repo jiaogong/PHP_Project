@@ -1,0 +1,38 @@
+<div class="news_zhong">
+    <div class="news_title">
+        <h3 style="float:left; margin-left:12px; font-size:16px;">热点新闻</h3>
+        <span style="float:right; font-size:12px;"><a href="article.php?action=CarReview&id=7" target="_blank">更多</a></span>
+    </div>
+            <div class="news_title_01">
+            <a target="_blank" href="html/article/201402/25/4317.html" title="锐界将在长安福特杭州工厂国产">
+                                锐界将在长安福特杭州工厂国产                            </a>
+        </div>
+            <div class="news_title_01">
+            <a target="_blank" href="html/article/201402/25/4318.html" title="或巴黎车展亮相新smart forfour">
+                                或巴黎车展亮相新smart forf                            </a>
+        </div>
+            <div class="news_title_01">
+            <a target="_blank" href="html/article/201402/25/4319.html" title="昂科拉将“换标”凯迪拉克">
+                                昂科拉将“换标”凯迪拉克                            </a>
+        </div>
+            <div class="news_title_02">
+            <a target="_blank" href="html/article/201402/24/4276.html" title="东风日产新奇骏将于3月26日上市">
+                                东风日产新奇骏将于3月26日上市                            </a>
+        </div>
+            <div class="news_title_02">
+            <a target="_blank" href="html/article/201402/24/4303.html" title="新奔驰C旅行版谍照曝光 14年上市">
+                                新奔驰C旅行版谍照曝光 14年上市                            </a>
+        </div>
+            <div class="news_title_02">
+            <a target="_blank" href="html/article/201402/24/4302.html" title="雾霾来袭 再提发展低速短程电动车">
+                                雾霾来袭 再提发展低速短程电动车                            </a>
+        </div>
+            <div class="news_title_02">
+            <a target="_blank" href="html/article/201402/24/4304.html" title="奔驰S600L长轴距版 旗舰豪华或售300万元">
+                                奔驰S600L长轴距版 旗舰豪华或售300万                            </a>
+        </div>
+            <div class="news_title_02">
+            <a target="_blank" href="html/article/201402/24/4305.html" title="改款福克斯官图 日内瓦车展首发">
+                                改款福克斯官图 日内瓦车展首发                            </a>
+        </div>
+    </div>

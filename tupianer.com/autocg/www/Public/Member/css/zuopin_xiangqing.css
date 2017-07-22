@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+.zuopin_xq_main{ width:1024px; height:auto; margin:0 auto;}
+.zuopin_zhaiyao{ width:1024px; height:150px; border-bottom:1px solid #f5f5f5; margin:0 auto;}
+/*zuo*/
+.zp_zy{ width: 720px;height: 100px;border-right: 1px solid #f5f5f5;position: relative;top: 25px;left: 50px;}
+.zp_m{ font-size:18px;}
+.zp_zyxq{ height:20px; line-height:20px; font-size:12px;}
+.zp_jv{ margin-left:30px;}
+.zp_bq{ height:20px; line-height:20px; font-size:12px; color:#F00; font-weight:bold;}
+/*you*/
+.zp_zz{ background-color:#fff; width:220px; height:100px; float:right; margin-top:-75px; margin-right:15px;}
+.zzzp_tx{ width:62px; height:62px; margin-top:20px;}
+.gz{ height:25px; line-height:25px; font-size:14px; float:right; margin-top:-70px; margin-right:50px;}
+.jgz{ position:relative; top:3px;}
+.zp_shipin{ width:1024px; height:700px; position:relative;}
+.zp_video{ width:816px; height:615px; margin:0 auto; position:absolute; top:50px; left:100px;}
+.zp_bf{ position:absolute; top:300px; left:50%;}
+.zp_miaoshu{ width:900px; height:145px;  margin:0 auto;}
+.zp_ms{ font-size:18px;  float:left}
+.zp_msnr{ width:800px; height:auto; float:right}
+.zp_xq{width:800px; height:30px; float:right; margin-top:20px;}
+.sz{ font-size:18px;}
+.sc{ font-size:14px;}
+.wx{ float:right; margin-right:30px;}
+.wb{ float:right;}

@@ -1,0 +1,160 @@
+a{cursor:pointer}
+small {
+    font-size:inherit;
+}
+.red{color: #a5002f;}
+samp.Grey{color:#CCC}
+
+samp.red{color: #a5002f;}
+.Gold{ color:#b0916a;}
+a.go{background:#b0916a; padding:3px 10px;color:#FFF; cursor:pointer; -moz-border-radius: 2px;/* Gecko browsers */-webkit-border-radius: 2px;   /* Webkit browsers */
+    border-radius:2px;/* W3C syntax */margin:0 10px}
+a.go:hover{background:#8B7860;}
+a.go small{font-size:9px; font-family:"LiHei Pro", "微软雅黑"}
+
+a.red:link,a.red:visited,a.red:active{color: #a5002f;}
+a.red:hover{color: #a5002f;}
+
+a.link_line:link,a.link_line:visited,a.link_line:active{
+    color: #8C8C8C;
+    text-decoration:underline;
+}
+a.link_line:hover{
+    color: #ABABAB;
+    text-decoration:underline
+}
+
+.user_box{ max-width:1200px; min-width:990px; margin:auto}
+.user_title{ border-bottom:1px #d6d6d6 solid; padding:20px 0 10px 0}
+.user_title p i{background:url(/shop/theme/xth1/images/comm/icon.png) no-repeat; background-position:-8px -460px; display:block; width:160px; height:30px;}
+.user_t_img{ width:160px; margin:auto; text-align:center}
+.car_t_img{ width:400px; margin:auto; text-align:center}
+
+.confirmation_t_img{width: 480px;display: block;margin: auto;}
+.confirmation_t_img span{display:block; text-align:center}
+.user_title p.car_t_img i{ background:url(/shop/theme/xth1/images/cart/buy_car.png) no-repeat;background-position: -10px 0;width:400px; height:30px;}
+
+.user_title p.confirmation_t_img i {
+background: url(/shop/theme/xth1/images/cart/confirmation.png) no-repeat;
+width: 480px;
+height: 30px;
+}
+
+ul.view_list{ margin:20px 0 0 35px; overflow:hidden; min-height:200px; max-width:700px;}
+ul.view_list.all_list{ margin:0 auto; overflow:hidden; min-height:200px; max-width:1000px; }
+ul.view_list li{display:none; color:#767676}
+ul.view_list.all_list li{ overflow:hidden}
+.all_list li b{ font-weight:normal; font-size:18px; padding:30px 100px 10px 100px; display:block}
+ul.view_list li.cur{display:block}
+ul.view_list dl.news_list dd{ overflow:hidden; line-height:24px; border-bottom:1px #d9e8ec solid; padding:5px 0;}
+ul.view_list dl.news_list dd.Used samp + span{ color:#c4c4c4}
+ul.view_list dl.news_list dd span{ width:27%; float:left; display:block; text-align:center}
+ul.view_list dl.news_list dd samp{ width:46%; float:left; display:block; text-align:center;margin:0;line-height:24px; color:#767676}
+ul.view_list dl.news_list dd.Used samp{color:#c4c4c4}
+ul.view_list dl.news_list dd span a{ padding:0 20px;}
+ul.view_list dl.news_list dd span.y_name{ width:15%; padding-left:20px; text-align:left}
+ul.view_list dl.news_list dd span.y_name a{ width:auto; padding:0; display:block}
+ul.view_list dl.news_list dd span.y_name a i{background:url(/shop/theme/xth1/images/comm/icon.png) no-repeat -176px -18px; margin:5px 5px 0 0; width:19px; height:13px; display:block; float:left;s}
+ul.view_list dl.news_list dd span.y_name a:hover i{ background-position:-176px -31px;}
+ul.view_list li ul li{display:block}
+
+ul.order_th{}
+ul.order_th,ul.order_td{overflow:hidden}
+
+ul.order_th li{ float:left; width:18%; padding:0; text-align:center; line-height:30px; font-size:14px}
+ul.order_th li.order_pro{ width:20%}
+ul.order_th li.order_Price,ul.order_th li.order_num{ width:13%}
+
+
+ul.order_td li{ float:left; width:14%; padding:0; text-align:center; line-height:35px; background:#f2f6f7;}
+ul.order_td li.order_pro{ width:30%}
+ul.order_td li.order_Remarks,.order_Remarks_top,ul.order_td li.order_view{ width:99%; text-align:left; }
+ul.order_td li.order_Remarks{background:#d9e8ec; margin-top:3px;border:1px #d9e8ec solid}
+.order_Remarks_top{background:#f2f6f7; margin-top:3px; line-height:35px;}
+ul.order_td li.order_Remarks span,.order_Remarks_top span{ padding:0 10px;}
+ul.order_td li.order_view{border:1px #d9e8ec solid}
+ul.order_td li.order_view table{ width:99%}
+ul.order_td li.order_view td{line-height:20px;text-align:center;}
+ul.order_td li.order_view td td{  padding:8px;}
+a.Strip{ padding:2px 25px;}
+ul.order_td li.order_view td.aleft{ text-align:left}
+
+ul.order_th.buy_Cart li{ float:left; width:10%; padding:0; text-align:center; line-height:30px; font-size:14px}
+ul.order_th.buy_Cart li.order_pro{ width:50%}
+ul.order_td li.buy_car_list{ width:100%; float:left}
+ul.order_td li.buy_car_list .aleft{ text-align:left}
+ul.order_td li.buy_car_list td{line-height:20px;text-align:center;}
+ul.order_td li.buy_car_list td.pro_left{padding:20px; line-height:20px; text-align:left;}
+ul.order_td li.buy_car_list td.pro_left span.left{ float:left}
+ul.order_td li.buy_car_list td.pro_left span.right{float:right}
+ul.order_td li.buy_car_list td.pro_left span i{ background:url(/shop/theme/xth1/images/comm/icon.png) no-repeat -170px -607px; width:10px; height:15px; display:inline-block}
+ul.order_td li.buy_car_list td.Order_activity{padding:10px 20px; line-height:20px; text-align:left;}
+
+ul.order_td li.buy_car_list td span.Discount i{ background:url(/shop/theme/xth1/images/comm/icon.png) no-repeat -170px -607px; width:10px; height:15px; display:inline-block}
+
+ul.order_td li.buy_car_list td.pro_left b{ padding:0; margin:0;}
+ul.order_td li.buy_car_list .buy_pro_img{ float:left; margin:0 10px 0 0;}
+ul.order_td li.buy_car_list .cake_num{margin:0 auto; overflow:hidden; width:56px;}
+ul.order_td li.buy_car_list.cake_num dl{ margin:auto; float:none;}
+ul.order_td li.buy_car_list .cake_num dl dd{ float:left; width:16px; height:20px; line-height:20px; font-size:16px; background:none; cursor:pointer}
+ul.order_td li.buy_car_list .cake_num dl dd:hover{ color:#b0916a;}
+ul.order_td li.buy_car_list .cake_num dl dt{float:left; width:24px; height:23px;}
+ul.order_td li.buy_car_list .cake_num dl dt input{ width:24px; height:16px; background:none; color:#767676; margin-top:2px; border:none; text-align:center}
+ul.order_td li.buy_car_list .cake_num dl dd.nopoint{ color:#CCC}
+.border_top td{border-top:1px #d9e8ec solid;}
+ul.buy_flow{width:880px; margin:30px auto 50px auto; overflow:hidden}
+ul.buy_flow li{ float:left; width:176px; text-align:center; font-size:14px}
+ul.buy_flow li p{ border-bottom:5px #d9e8ec solid; line-height:40px;}
+ul.buy_flow li.cur{ color:#7b9196}
+ul.buy_flow li.cur p{border-bottom:5px #7b9196 solid; }
+ul.buy_flow li span{ color:#d9e8ec; margin:20px 0 0 0; display:inline-block;font-size:18px;}
+ul.buy_flow li.cur span{color:#7b9196}
+li.Total{ padding:0 0 40px 0; width:100%; overflow:hidden}
+li.Total span{ margin:30px 0 10px 0; float: right;}
+li.Total div.Total_all{float:right; width:500px;}
+li.Total div.Total_all span font{ margin-right:50px;}
+li.Total div.Total_all div input{ float:right}
+li.Total div.Total_all b{padding: 0; display:inline-block}
+li.Total div.Total_all div{float: right;}
+li.Total span samp{color:#b0916a}
+li.Total span b{font-size:30px; color:#b0916a}
+
+/*蛋糕是否切分下拉*/
+.butchery i{background:url(/shop/theme/xth1/images/comm/icon.png) no-repeat -150px -612px; width:10px; height:10px; display:inline-block}
+.no_butchery i{ background-position:100px 100px; }
+ul.view_list li .no_butchery{color:#CCC}
+.butchery{position:relative; width:70px; display:inline-block; cursor:pointer;}
+.butchery ul{position:absolute; width:100%; display:none; left:-17px; padding:3px 10px 10px 10px; background:#f2f6f7;}
+.butchery ul li{width:100%; line-height:24px;cursor:pointer;}
+
+
+/*空购物车*/
+.car_Empty{
+    background:url(/shop/theme/xth1/images/cart/car_un.png) no-repeat;
+    padding:10px 0 20px 140px;
+    display:block;
+    margin:100px auto 200px auto;
+    width:390px;
+    line-height:34px;
+    font-size:14px;
+}
+.car_Empty  span{font-size:24px}
+a.blue_link:link,a.blue_link:visited,a.blue_link:active{ color:#7b9196;text-decoration:underline;}
+a.blue_link:hover{ color:#8B7860;}
+
+
+/*新增删除样式*/
+.pro_del_box{ position:relative}
+.del_confirm_box{position:absolute; top:0; right:10px;}
+.del_confirm_box input{font-size:12px; background:#B2926C; color:#fff; outline:none;}
+.del_confirm_box input:hover{ background:#8A7860;}
+.btn_del{ border:none;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius:3px;}
+table tr.border_top:first-child td{border:none}
+
+/**购物车复选框*/
+.cartCheck span{position:relative; width:30px; height:20px; display:inline-block;}
+.cartCheck span em{ width:40px; height:35px; position:absolute; z-index:1; left:0;*top:-16px;_top:-16px; background:url(/shop/theme/xth1/images/comm/ok.png) no-repeat;*margin-left:10px;_margin-left:10px }
+.cartCheck span i{ width:15px; height:15px; position:absolute; display:block;top:0;*top:-12px;_top:-12px; z-index:-1px; margin:8px 0 0 4px; background:#ccc;}
+.cartCheck .cur{background-position: 0px -280px;}
+.cartCheck span input{display: none;}
+

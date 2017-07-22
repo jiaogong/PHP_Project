@@ -1,0 +1,35 @@
+<div class="recent_v1 column2_v1">
+  <div class="header6_v1">
+    <div class="title9_v1"></div>
+    <ul class="cartype">
+      <!--{loop $hotcar $k $v}-->
+      <li><a href="javascript:void(0);" <!--{if !$k}--> class="focus"<!--{/if}-->>{$v['hotcar'][0][type_name]}</a></li>
+      <!--{/loop}-->
+    </ul>
+  </div>
+  <!--{loop $hotcar $k $v}-->
+  {if $v['hotcar'][0][series_id]}
+  <ul class="focus_con_v1"  style="display:<!--{if !$k}-->block<!--{else}-->none<!--{/if}-->;">
+    <!--{loop $v[hotcar] $kk $vv}-->
+    {if $kk>4}{eval break;}{/if}
+    <li>
+      <h3><a target="_blank" href="{$relat_dir}series.php?seriesid={$vv['series_id']}">{$vv[factory_name]}  {$vv[series_name]}</a></h3>
+      <a target="_blank" href="{$relat_dir}series.php?seriesid={$vv['series_id']}"><img src="images/a.gif" imgsrc="{$relat_dir}attach/images/series/{$vv[series_id]}/130x73{$vv[pic_name]}" onerror='this.src="images/nopic130.gif"' width="140" height="80" /></a>
+      <p>
+          品牌：<a target="_blank" href="{$relat_dir}brand.php?brandid=$vv['brand_id']">{$vv[brand_name]}</a><br />排量：<!--{eval echo @preg_replace("/,/","/",$vv[s1]);}-->
+      </p>
+      <div class="focus_wrap">
+        ￥{$vv[min_price]}万起
+        <input type="button" class="focus_btn" onclick="mark('{$vv[series_id]}');"/>
+      </div>
+      <dl>
+        <dd><a target="_blank" href="{$relat_dir}comment.php?action=seriescomment&seriesid={$vv['series_id']}#reviewcomment">点评</a></dd>
+        <dd><a target="_blank" href="{$relat_dir}series.php?action=parameters&seriesid={$vv['series_id']}">参数</a></dd>
+        <dd><a target="_blank" href="{$relat_dir}series.php?action=seriespic&seriesid={$vv['series_id']}">图片</a></dd>
+      </dl>
+    </li>
+    <!--{/loop}-->
+  </ul>
+  {/if}
+<!--{/loop}-->
+</div>

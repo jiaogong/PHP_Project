@@ -1,0 +1,55 @@
+{template header}
+<div class="user">
+  <div class="nav">
+    <ul id="nav">
+    <li><a href="<!--{$php_self}-->">文本参数列表</a></li>
+    <li><a href="<!--{$php_self}-->add"  class="song">添加文本参数</a></li>
+    </ul>
+</div>
+<div class="clear"></div>
+<div class="user_con">
+  <div class="user_con1">
+    <form action="<!--{$php_self}-->edit" method="post">
+    <table class="table2" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="td_right" width="150">
+        车款名称：        
+        </td>
+        <td class="td_left">
+        <!--{if $paramtxt}-->
+          $model[brand_name] $model[series_name] $model[model_name]
+        <!--{/if}-->
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="td_right">
+        <!--{$paramtxt[pname]}-->：
+        </td>
+        <td class="td_left">
+        <textarea cols="50" rows="3" id="val" name="val"><!--{$paramtxt[value]}--></textarea>
+        </td>
+      </tr>
+      
+      <tr>
+        <td align="center" colspan="2">
+        <input type="hidden" name="id" id="id" value="$paramtxt[id]">
+        <input type="hidden" name="extra" id="extra" value="$extra">
+        <input type="submit" name="btn" value="  提  交  ">&nbsp;&nbsp;
+        <input type="reset" name="btn" value="  重  填  ">&nbsp;&nbsp;  
+        <input type="button" name="btn" value="  返  回  " onclick="javascript:location.href='<!--{eval echo $_ENV[PHP_SELF] . "&" . base64_decode($extra);}-->';">
+        </td>
+      </tr>
+    </table>
+    </form>
+    </div>
+    <div class="user_con2"><img src="{$admin_path}images/conbt.gif" height="16" ></div>
+  </div>
+</div>
+<script type="text/javascript">
+$().ready(function(){
+  
+});  
+</script>
+</body>
+</html>

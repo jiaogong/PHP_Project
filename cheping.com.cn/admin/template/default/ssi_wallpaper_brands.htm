@@ -1,0 +1,35 @@
+<div class="letter2_wrap">
+    <div class="letter2"></div>
+    <ul class="letters">
+        {loop $brand $key $value}
+        <li>
+            <a href="javascript:void(-1);">$key</a>
+            <div class="letter_alert_wrap">
+                <div class="letter_alert">
+                    <div class="brand_logo">
+                        <div class="logo_wrap"><img style="max-height: 30px;max-width: 44px;" src="{$relat_dir}attach/wp_brand_logo/{$value[0]['brand_logo']}" /></div>
+                        <p>
+                            {$value[0]["scount"]}款车<br />{$value[0]["mcount"]}张图
+                        </p>
+                    </div>
+                    {if $value}
+                    <dl>
+                        {loop $value $k $v}
+                        {eval $i=$k+1;}
+                        {if $i%5==0}
+                        <dd><a logo="{$v['brand_logo']}" class="{if $k==0}a_focus{/if}" scount="{$v['scount']}" mcount="{$v['mcount']}" href="wallpaper.php?action=wallpaper_brand&id={$v['id']}">{if $v["chinese_name"]}$v["chinese_name"]{else}$v["brand_name"]{/if}</a></dd>
+                    </dl>
+                    <dl>
+                        {else}
+                        <dd><a logo="{$v['brand_logo']}" class="{if $k==0}a_focus{/if}" scount="{$v['scount']}" mcount="{$v['mcount']}" href="wallpaper.php?action=wallpaper_brand&id={$v['id']}">{if $v["chinese_name"]}$v["chinese_name"]{else}$v["brand_name"]{/if}</a></dd>
+                        {/if}
+                        {/loop}
+
+                    </dl>
+                    {/if}
+                </div>
+            </div>
+        </li>
+        {/loop}  
+    </ul>
+</div>

@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+.gr_main{ margin-top:30px;}
+.ge_right{ float:right; width:770px; height:auto;}
+.renzheng{ font-size:18px; font-weight:bold;}
+.rzzt{ color:#F99C50; float:left; margin-left:100px; margin-top:-23px;}
+.rzan{ display:inline-table; width:68px; height:24px; text-align:center; background-color:#F99C50; color:#fff; border-radius:4px; font-size:12px;line-height:25px; margin-left:160px; margin-top:-25px;}
+.sfrz{margin-left:100px;}
+.rzwz{ margin-left:170px; margin-top:-20px;}
+.xiadan{ width:136px; height:36px; text-align:center; line-height:36px; background-color:#F99C50; color:#FFF; margin-left:461px; margin-top:-36px;}
+.shangchuan{ width:136px; height:36px; text-align:center; line-height:36px; background-color:#F99C50; color:#FFF; margin-left:617px; margin-top:-36px;}
+.woddbg{ width:752px; height:42px; background-color:#f5f5f5; margin-top:30px;}
+.dingdanl{width:83px; height:46px; text-align:center; line-height:42px; background-image:url(../images/hd.png); color:#fff;}
+.qbdingdan{ float:right; font-size:12px; margin-top:5px;}
+.dingdan_xiangqing{ width:752px; height:120px; border:1px solid #F0F0F0; margin-top:30px; font-size:14px;}
+.dingdan_tu{ float:left; padding:10px 10px 10px 10px;}
+.ddyhm{ float:left; width:100px; text-align:center; margin-top:50px;}
+.dd_video{ float:left; width:100px; text-align:center; line-height:120px;}
+.dd_time{ float:left; width:130px; text-align:center; margin-top:40px;}
+.dd_money{ float:left; width:100px; text-align:center; line-height:120px;}
+.dd_ok{ float:left; width:100px; text-align:center; line-height:120px;}
+.dd_ck{ float:left; width:100px; text-align:center; line-height:120px;}
+.dd_ck a{color:#F99C50;}
+
+.tanrzh{ position:absolute; top:0px; width:100%;  background:url(../images/tanbg.png); left:0px; z-index:1; display:none;}
+.rzhcon{ position:absolute; top:200px; left:50%; width:368px;  background:#FFF; z-index:2; margin-left:-150px; padding-bottom:30px; display:none;}
+.rzhcon-title ul li{ width:122px; height:40px; background:#f8f8f8; line-height:40px; text-align:center; float:left; color:#333; font-size:16px;}
+.rzhcon-title ul li.tanxuan{ background:url(../images/tanxuan.png) no-repeat; color:white; height:49px;}
+.rzhcon-main{ width:492px; overflow:hidden;}
+.fuyin{ font-size:14px; margin:20px 5px; display:block;  }
+.cybiao{ padding:0px 10px;}
+.cybiao input{ width:346px; height:30px; border:1px solid #ededed; margin-top:20px; text-indent:10px; color:#333; font-size:14px; }
+.cybiao button{ width:346px; height:42px; background:#f99c50; font-size:16px; color:#FFF; }
+.tishi{ display:block; color:#f64747; font-size:12px; margin:30px 20px;}
+.cyanniu{ width:280px; height:34px; margin-left:56px;}
+.cyanniu button{ width:122px; height:30px; background:#f99c50; color:#FFF;}

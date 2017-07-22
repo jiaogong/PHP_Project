@@ -1,0 +1,105 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+    });
+</script>
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+        <li><a href="<?=$php_self?>"  class="song">友情链接</a></li>
+        <li><a href="<?=$php_self?>addlink">添加友情链接</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            <form action="<?=$php_self?>" method="post" id="form">
+                <table class="table2" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr  style="height: 36px;">
+                            <td width="16%">
+                                <select id="pagetype" name="pagetype">
+                                    <option value="">==请选择页面==</option>
+                                    <? foreach((array)$pagetype as $key=>$value) {?>
+                                    <option <? if ($pagetypes==$key) { ?>selected="true"<? } ?> value="<?=$key?>"><?=$value?></option>
+                                    <?}?>
+                                </select>
+                            </td>
+                            <td width="16%">
+                                <select id="type" name="type">
+                                    <option value="">==请选择类型==</option>
+                                    <? foreach((array)$type as $key=>$value) {?>
+                                    <option <? if ($types==$key) { ?>selected="true"<? } ?> value="<?=$key?>"><?=$value?></option>
+                                    <?}?>
+                                </select>
+                            </td>
+                            <td width="15%">
+                                <input type="submit" name="search" value=" 搜 索 ">&nbsp;&nbsp;
+                                <a href="javascript:void(0);" class="btn_tofile" tourl="index.php?action=cpstatic-makefile&id=9">生成友情链接内容</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+                <table id="content" class="table2" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th width="15%">页面类型</th>
+                        <th width="20%">名称</th>
+                        <th width="15%">链接</th>
+                        <th width="15%">图片</th>
+                        <th width="10%">排序</th>
+                        <th width="15%">添加时间</th>
+                        <th width="10%"></th>
+                    </tr>
+                    <? if ($list) { ?>
+
+                    <? foreach((array)$list as $key=>$value) {?>
+                    <tr>
+                        <td><? echo $pagetype[$value['pagetype']]; ?></td>
+                        <td><?=$value['name']?></td>
+                        <td><?=$value['link']?></td>
+                        <td><? if ($value['pic']) { ?><a class="jTip" id="vpic_index_<?=$k?>" href="<?=$php_self?>imgcode&code=<? echo base64_encode($relat_dir.'images/friendlink/'.$value['pic']); ?>">查看图片</a><? } else { ?>暂无图片<? } ?></td>
+                        <td><?=$value['queen']?></td>
+                        <td><? echo date("Y-m-d",$value['created']) ?></td>
+                        <td>
+                        <a href="<?=$php_self?>addlink&id=<?=$value['id']?>">修改</a>&nbsp;
+                        <a href="<?=$php_self?>del&id=<?=$value['id']?>">删除</a>
+                        </td>
+                    </tr>
+                    <?}?>
+
+                    <? } ?>
+
+                    <? if (empty($list)) { ?>
+                    <tr>
+                        <th colspan="7"  class="page_bar_css">
+                            <h3 style="color:red;">暂无相关数据</h3>
+                        </th>
+                    </tr>
+                    <? } ?>
+                </table>
+        </div>
+        <div class="user_con2">
+            <img src="<?=$admin_path?>images/conbt.gif" height="16" >
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$().ready(function(){
+  $('a.btn_tofile').click(function(){
+    var tourl=$(this).attr('tourl');
+    $.get(tourl, function(ret){
+      if($.trim(ret) == '1'){
+        alert('友情链接更新成功！');
+      }else{
+        alert('友情链接更新失败！');
+      }
+    });
+    return false;
+  });
+});
+</script>
+</body>
+</html>

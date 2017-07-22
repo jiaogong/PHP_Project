@@ -1,0 +1,60 @@
+<!--//最新入库-->
+<div class="left_v1">
+    <div class="column2_v1">
+      <div class="header1_v1">
+        <div class="title2_v1"></div>
+      </div>
+      <div class="new_v1">
+          <div class="download"><a target="_blank" href="series.php?seriesid=$newseries['series_id']"><img src="images/a.gif" imgsrc="attach/images/series/$newseries['series_id']/180x100<!--{if $newseries['series_pic']}-->$newseries['series_pic']<!--{else}-->$newseries['series_pic2']<!--{/if}-->" onerror="this.src='images/pic3.gif'" width="180" height="100" /></a></div>
+        <h3><a target="_blank" href="series.php?seriesid=$newseries['series_id']"><!--{$newseries["factory_name"]}--> <!--{$newseries["series_name"]}--></a></h3>
+        <ul>
+          <li>厂商指导价：{$newseries["price_low"]}万起</li>
+          <li>冰狗参考价：<span class="bingo_v1">{$newseries["dealer_price_low"]}万起</span></li>
+          <li>
+            <p>
+              <span>介绍：</span><!--{eval echo string::substring($newseries["series_intro"],0,20);}-->..<a target="_blank" href="series.php?seriesid=$newseries['series_id']&go=search">查看详细</a>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!--//限时抢购-->
+<div class="mid_v1">
+    <div class="column2_v1">
+      <div class="header3_v1">
+        <div class="title3_v1"></div>
+      </div>
+      <div class="order_v1">
+        <div class="order_img"> <a target="_blank" href="modelinfo.php?modelid={$limit_info['model_id']}"><img src="attach/images/{$limit_info['model_pic']}" width="259" height="144"></a>
+          <div class="time"><img width="261" height="60" src="attach/images/{$limit_info['pic']}" /></div>
+        </div>
+        <div class="order_con">
+          <h2><a target="_blank" href="modelinfo.php?modelid={$limit_info['model_id']}">{$limit_model['brand_name']}{$limit_model['series_name']} {$limit_model['model_name']}</a></h2>
+          <p>{$limit_info['ad_word']}</p>
+          <ul>
+            <li>厂商指导价：{$limit_model['model_price']}万</li>
+            <li>折扣率：<span>{eval echo round($limit_model['dealer_price_low'] / $limit_model['model_price'], 3) * 10}折</span></li>
+            <li>冰狗参考价：<span class="bingo_v1">{$limit_model['dealer_price_low']}万</span></li>
+          </ul>
+          <input type="button" {if $limit_info['flag'] == 1}style="background: url('../images/close_xianshi_polo.gif') no-repeat scroll 0 0 transparent; margin-bottom:2px;"{/if} class="order_btn" {if $limit_info['flag'] == 0} onclick="javascript:window.open('cardemand.php?brand_id={$limit_model['brand_id']}&series_id={$limit_model['series_id']}&model_id={$limit_info['model_id']}', '_blank')" {/if}>
+        </div>
+      </div>
+    </div>
+</div>
+  
+  
+<!--//即将上市-->
+<div class="right_v1">
+    <div class="column2_v1">
+      <div class="header1_v1">
+        <div class="title4_v1"></div>
+      </div>
+      <ul class="newcar_v1">
+        <!--{loop $series_inner $key $value}-->
+        <li>$value["sale_date"]<span>{$value["factory_name"]}{$value["series_name"]}</span></li>
+        <!--{/loop}-->
+      </ul>
+    </div>
+  </div>

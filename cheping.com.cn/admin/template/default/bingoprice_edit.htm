@@ -1,0 +1,337 @@
+{template header}
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+            <li><a href="{$php_self}">返回</a></li>
+            <li><a href="javascript:void(0);"  class="song">报价详情</a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            <form id="bingoprice_form" action="index.php?action=bingoprice-edits" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="phpself" value="{$php_self}" />
+                <table cellpadding="0" cellspacing="0" class="table2" border="0">
+                    {if $type==4}
+                    <tr>
+                        <td class="td_left" width="100%" colspan="2"><font color='red'>*</font> id:$id </td>
+                    </tr>
+					<tr width="100%">
+					<td class="td_left" width="100%" colspan="2" style="text-align:center">
+                            <select name="brand_id" id="brand_id">
+                                <option value="">==请选择品牌==</option>
+                                <!--{loop $brand $k $v}-->
+                                <option value="$v[brand_id]">$v[brand_name]</option>
+                                <!--{/loop}-->
+                            </select>
+							<select name="factory_id" id="factory_id">
+							    <option value="">请选择厂商</option>
+								<!--{loop $factory $fv}-->
+                                <option value="$fv[factory_id]">$fv[factory_name]</option>
+								<!--{/loop}-->
+                            </select>
+							 <select id="series_id" name="series_id">
+                                <option value="">请选择车系</option>
+								<!--{loop $series $sv}-->
+                                <option value="$sv[series_id]">$sv[series_name]</option>
+								<!--{/loop}-->
+                            </select>
+                            <select id="model_id" name="model_id">
+                                <option value="">请选择车款</option>
+								<!--{loop $modellist $mv}-->
+                                <option value="$mv[model_id]">$mv[model_name]</option>
+								<!--{/loop}-->
+                            </select>
+                        </td>
+					</tr>
+                    {else}
+                    <tr>
+                        <td class="td_right" width="100px"><font color='red'>*</font> 车款：</td>
+                        <td class="td_left"  width="600px">
+                            <!--{$model['factory_name']}--> <!--{$model['series_name']}--> <!--{$model['model_name']}-->
+                        </td>
+                    </tr>
+					{/if}
+                    <tr>
+                        <td class="td_right" width="100px"><font color='red'>*</font> 指导价：</td>
+                        <td class="td_left"  width="600px">
+                            <input name="model_price" id ="bingo_price" value="{$model['model_price']}" style="font-size: 14px;" size="10" readonly="readonly" />万元
+                        </td>
+                    </tr>
+                    <!-- {if $type==2} -->
+                    <tr>
+                        <td class="td_right" width="100px">成本价：</td>
+                        <td class="td_left"  width="600px">
+                            <input name="price2" id ="price2" value="{$price['price']}" style="font-size: 14px;" size="10" >万元
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_right" width="100px">备注：</td>
+                        <td class="td_left"  width="600px">
+                            <textarea rows="10" cols="40" name="memo">{$price['memo']}</textarea>
+                        </td>
+                    </tr>
+                    <!-- {/if} -->
+                    <!-- {if $type==3} -->
+                    <tr>
+                        <td class="td_right" width="100px">最多人购买价：</td>
+                        <td class="td_left"  width="600px">
+                            <input name="price2" id ="price3" value="{$price['price']}" style="font-size: 14px;" size="10" >万元
+                        </td>
+                    </tr>
+                    <!-- {/if} -->
+                    <!-- {if $type==5} -->
+                    <tr>
+                        <td class="td_right" width="100px">冰狗价：</td>
+                        <td class="td_left"  width="600px">
+                            <input name="price2" id ="price2" value="{$model['bingo_price']}" style="font-size: 14px;" size="10" >万元
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_right" width="100px">备注：</td>
+                        <td class="td_left"  width="600px">
+                            <textarea rows="10" cols="40" name="memo">{$model['model_memo']}</textarea>
+                        </td>
+                    </tr>
+                    <!-- {/if} -->
+                    <!-- {if $type==4} -->
+					<tr>
+                        <td class="td_right" width="100px">购置税：</td>
+                        <td class="td_left"  width="600px">
+                            <input id ="purchase_tax" style="font-size: 14px;" size="10" readonly="readonly" />元
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_right" width="200px">交强险(950)+上牌费(373)：</td>
+                        <td class="td_left"  width="600px">
+                            <input value="1323" style="font-size: 14px;" size="10" readonly="readonly" />元
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_right" width="100px">提车价：</td>
+                        <td class="td_left"  width="600px">
+                            {eval $deliver_price = $price['deliver_price'] ? $price['deliver_price'] : $price['price']*10000+round(($price['price']*10000)/11.7, 2)+950+373}
+                            <input id ="deliver_price" value="{$deliver_price}" style="font-size: 14px;" size="10" readonly="readonly" />元
+                            <span style="color: red">提车价仅供参考</span>
+							<input type="hidden" value="" name="modelchange" id="modelchange" />
+                        </td>
+                    </tr>
+					{eval $price['get_time'] = date('Y-m-d', $price['get_time'])}
+					{loop $dbfields $dbfk $dbfv}
+						<tr>
+							<td class="td_right" width="100px">{if $dbfv=='报告内容1.2'||$dbfv=='报告内容2.2'||$dbfv=='报告内容3.2'}{else}$dbfv{/if}</td>
+							<td class="td_left"  width="600px">
+							{if $dbfk=='saler_gender'}
+								<select name="$dbfk">
+									<option value="1" {eval echo $price['saler_gender']==1 ? "selected=selected" : ''}>男</option>
+									<option value="0" {eval echo $price['saler_gender']==0 ? "selected=selected" : ''}>女</option>
+								</select>
+							{elseif $dbfk=='province' or $dbfk=='city' or $dbfk=='area'}
+								{eval $xx=$$dbfk}
+								<select id="$dbfk" name="$dbfk">
+									<option value="0">==请选择$dbfv==</option>
+									{loop $xx $list}
+									<option value="$list['id']|$list['name']">$list['letter'] $list['name']</option>
+									{/loop}                                
+								</select>
+							{elseif $dbfk=='salestate'}
+								<input type="text" id="$dbfk" value="$beijing" name="$dbfk" size="50" />
+                                                       {elseif $dbfk=='report_content11'}
+                                                               <textarea  name="report_content11" id="ke_text1.1" >{$price['report_content11']}</textarea>
+                                                               <textarea  name="report_content12" id="ke_text1.2">{$price['report_content12']}</textarea>
+                                                       {elseif $dbfk=='report_content12'}
+                                                           {eval continue;}
+                                                       {elseif $dbfk=='report_content21'}
+                                                               <textarea  name="report_content21" id="ke_text2.1" >{$price['report_content21']}</textarea>
+                                                               <textarea  name="report_content22" id="ke_text2.2">{$price['report_content22']}</textarea>
+                                                        {elseif $dbfk=='report_content22'}
+                                                           {eval continue;}
+                                                        {elseif $dbfk=='report_content31'}
+                                                               <textarea  name="report_content31" id="ke_text3.1" >{$price['report_content31']}</textarea>
+                                                               <textarea  name="report_content32" id="ke_text3.2">{$price['report_content32']}</textarea>
+                                                        {elseif $dbfk=='report_content32'}
+                                                          {eval continue;}
+							{else}
+								<input type="text" id="$dbfk" value="$price[$dbfk]" name="$dbfk" size="50" />
+							{/if}
+							</td>
+						</tr>
+					{/loop}   
+                                        
+                                  
+                    <!-- {/if} -->
+                    <tr>
+                        <td colspan="2">
+                            <input type="hidden" name="id" id="id" value="{$id}">
+                            <input type="hidden" value="{$f}" name="f" />
+                            <input type="hidden" value="{$type}" name="type" />
+                            <input type="hidden" value="{$model['model_id']}" name="mId" />
+                            <input id="bingoprice_btn" type="button" value="  提  交  " onclick="javascript:chkbpfrom();">&nbsp;&nbsp;&nbsp;
+                            <input type="button" value="  重  填  " onclick="resets()">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="user_con2"><img src="<!--{$admin_path}-->images/conbt.gif"  height="16" /></div>
+    </div>
+</div>
+{template footer}
+<script charset="utf-8" src="<!--{$relative_dir}-->vendor/editor/kindeditor.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.datepicker').datepicker('option', 'maxDate', new Date());
+        $('#nude_car_rate').keyup(function(){
+            getDeliverPrice();
+        });
+		$('#brand_id').val({$model['brand_id']});
+		$('#factory_id').val({$model['factory_id']});
+		$('#series_id').val({$model['series_id']});
+		$('#model_id').val({$model['model_id']});
+		var xjprice = $("#nude_car_price").val();
+		$("#purchase_tax").val(Math.round((xjprice * 10000) / 11.7));
+		$('#brand_id').change(function() {
+            var brand_id = $(this).val();
+            var fact = $('#factory_id')[0];
+            var facturl = "?action=factory-json&brand_id=" + brand_id;
+            var sel = $(this)[0];
+            $('#brand_name').val(sel.options[sel.selectedIndex].text)
+
+            $.getJSON(facturl, function(ret) {
+                $('#factory_id option[value!=""]').remove();
+                $('#series_id option[value!=""]').remove();
+                $('#model_id option[value!=""]').remove();
+
+                $.each(ret, function(i, v) {
+                    fact.options.add(new Option(v['factory_name'], v['factory_id']));
+                });
+            });
+        });
+		 $('#factory_id').change(function() {
+            var fact_id = $(this).val();
+            var ser = $('#series_id')[0];
+            var serurl = "?action=series-json&factory_id=" + fact_id;
+            var sel = $(this)[0];
+            $('#factory_name').val(sel.options[sel.selectedIndex].text)
+
+            $.getJSON(serurl, function(ret) {
+                $('#series_id option[value!=""]').remove();
+                $('#model_id option[value!=""]').remove();
+
+                $.each(ret, function(i, v) {
+                    ser.options.add(new Option(v['series_name'], v['series_id']));
+                });
+            });
+        });
+
+        $('#series_id').change(function() {
+            var sel = $(this)[0];
+            $('#series_name').val(sel.options[sel.selectedIndex].text)
+
+            var sid = $(this).val();
+            var mod = $('#model_id')[0];
+            var modurl = "?action=model-json&sid=" + sid;
+            $.getJSON(modurl, function(ret) {
+                $('#model_id option[value!=""]').remove();
+                $.each(ret, function(i, v) {
+                    mod.options.add(new Option(v['model_name'], v['model_id']));
+                });
+            });
+        });
+        $('#model_id').change(function() {
+            var sid = $(this).val();
+            var modurl = "?action=orderentry-modelPrice&sid=" + sid;
+            $.getJSON(modurl, function(ret) {
+                $('#bingo_price').val(ret['model_price']);
+                $('#nude_car_rate').val('');
+                $("#deliver_price").val('');
+				$("#pricee").val('');
+				$("#modelchange").val(ret['model_id']);
+            });
+        });
+		$('#province').change(function(){
+			changeProvince($(this).val());
+		})
+		$('#city').change(function(){
+			changeCity($(this).val());
+		})
+    });
+    var province = "{$pid['id']}|{$pid['name']}";
+    var city = "{$cid['id']}|{$cid['name']}";
+    var county = "{$countyid['id']}|{$countyid['name']}";
+    $("#province").val(province);
+    $("#city").val(city);
+    $("#area").val(county);
+    function getDeliverPrice(){
+        if ($('#nude_car_rate').val() == "" || (Number($("#nude_car_rate").val()) > Number($("#bingo_price").val()))){
+            $('#deliver_price').val('');
+            return;
+        }
+        var trunprice = Number($("#bingo_price").val()) - Number($("#nude_car_rate").val());
+        trunprice = trunprice.toFixed(2);
+        var purchase_tax = Math.round((trunprice * 10000) / 11.7);
+        var temp = Number(trunprice * 10000) + Number(purchase_tax) + Number(1323);
+        $('#purchase_tax').val(purchase_tax);
+        $('#deliver_price').val(temp);
+        $('#nude_car_price').val(trunprice);
+    }
+
+    function chkbpfrom(){
+        if ($("#brand_id").val() == '' || $("#factory_id").val() == '' || $("#series_id").val() == '' || $("#model_id").val() == '' || $('#bingo_price').val() == '' || $('#price2').val() == '' || $('#price3').val() == '' || $('#nude_car_rate').val() == '' || $('#province_id').val() == '0' || $('#city_id').val() == '0' || $('#county_id').val() == '0' || $('#dealer_name').val() == '' || $('#dealer_addr').val() == '' || $('#creator').val() == '' || $('#start_time').val() == ''){
+            alert('信息不能为空!');
+            return false;
+        }
+        $('#bingoprice_form').submit();
+    }
+    function changeProvince(pid) {
+        var option = '<option value="0">==请选择地级地区==</option>';
+        $.getJSON("index.php?action=dealer-City&pid=" + pid, function(data) {
+            for (var key in data) {
+                option += '<option value="' + data[key]['id'] + '|' + data[key]['name'] + '">' + data[key]['letter'] +'&nbsp;'+ data[key]['name'] + '</option>' + "\n";
+            }
+            $('#city').html(option);
+            $("#area").html('<option value="0">==请选择县级地区==</option>');
+        });
+    }
+    function changeCity(cid) {
+        var option = '<option value="0">==请选择县级地区==</option>';
+        $.getJSON("index.php?action=dealer-County&cid=" + cid, function(data) {
+            for (var key in data) {
+                option += '<option value="' + data[key]['id'] + '|' + data[key]['name'] + '">' + data[key]['letter'] +'&nbsp;'+ data[key]['name'] + '</option>' + "\n";
+            }
+            $('#area').html(option);
+        });
+   }
+    function resets(){
+        var url = "?action=bingoprice-edit&model_id={$model['model_id']}&type={$type}&id={$id}";
+        window.location.href=url;
+    }
+    
+     for(i=1;i<4;i++){
+          KE.show({
+        id : 'ke_text' + i +'.1',
+        width : "31em",
+        imageUploadJson : '<!--{$admin_path}-->index.php?action=upload-brandcms',
+        urlType : 'domain',
+        allowUpload : true,
+        items : [
+            'source', '|','undo', 'redo','cut', 'copy', 'paste','plainpaste', 'wordpaste', '|','fontname', 'fontsize', '|', 
+            'textcolor', 'bgcolor', 'bold', 'italic', 'underline','removeformat', '|', 'justifyleft', 
+            'justifycenter', 'justifyright','advtable', 'hr','image', 'link', '-']
+    });
+   
+     KE.show({
+        id : 'ke_text' + i +'.2',
+        width : "31em",
+        imageUploadJson : '<!--{$admin_path}-->index.php?action=upload-brandcms',
+        urlType : 'domain',
+        allowUpload : true,
+        items : [
+            'source', '|','undo', 'redo','cut', 'copy', 'paste','plainpaste', 'wordpaste', '|','fontname', 'fontsize', '|', 
+            'textcolor', 'bgcolor', 'bold', 'italic', 'underline','removeformat', '|', 'justifyleft', 
+            'justifycenter', 'justifyright','advtable', 'hr','image', 'link', '-']
+      });
+    }
+    
+    
+</script>

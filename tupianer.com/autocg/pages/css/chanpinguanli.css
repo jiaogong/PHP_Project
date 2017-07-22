@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+.yingyonggl_main{ width:1024px; height:auto; margin-top:30px;}
+.chanpin_main_right{ width:770px; height:auto; background-color:#fff; float:right;}
+
+/*右顶部轮播样式*/
+.picScroll-left{ width:752px; height:60px;overflow:hidden; position:relative; border:1px solid #ddd;}
+.picScroll-left .prev{ background-image:url(../images/left.jpg); width:38px; height:60px; position:absolute;  left:0px; z-index:2;}
+.picScroll-left .next{ background-image:url(../images/right.jpg); width:38px; height:60px; position:absolute;  right:0px; z-index:2;}
+.picScroll-left .hd{ overflow:hidden;  height:30px; width:770px;  }
+.picScroll-left .hd ul{ width:100px; margin-top:10px; margin-left:300px; margin:auto;  }
+.picScroll-left .hd ul li{ float:left;  width:9px; height:9px;  margin-top:12px; overflow:hidden; margin-right:5px; cursor:pointer;  border:1px solid #f77206; border-radius:255px; line-height:30px;}
+.picScroll-left .hd ul li.on{ background:yellow; background:#f77206; }
+.picScroll-left .bd{  width:720px;  margin:0 auto; margin-left:30px; }
+.picScroll-left .bd ul{ overflow:hidden;}
+.picScroll-left .bd ul li{margin:0 15px; float:left; _display:inline; overflow:hidden; text-align:center;  }
+.picScroll-left .bd ul li .pic{ text-align:center; }
+.picScroll-left .bd ul li .pic img{ width:105px; height:58px; display:block;  padding:2px; }
+.picScroll-left .bd ul li .pic a:hover img{   }
+.picScroll-left .bd ul li .title{ line-height:24px;   }
+/*车型筛选*/
+.xuanxiangka_gl{width:760px; margin-top:30px;}
+ul,li{ margin:0px; padding:0px; list-style:none;}
+.tab {width:770px; height:78px;}
+.tab ul li{ background:#f5f5f5; float:left; width:57px; height:68px; margin-left:0px;text-align:center; border-left:1px solid #dfdfdf; border-right:1px solid #dfdfdf; margin-left:-1px; font-size:13px;}
+ .con{width:770px; margin-top:10px;}
+.tab ul li.ll{ background:#fff; color:#f77205; background-image:url(../images/glbg.png); font-size:13px;} 
+.bianxian{width:57px; height:3px; background-color:#f77205;}
+.con{ width:760px;}
+/*车型筛选结束*/
+
+/*车型下的车系*/
+/* select */
+.select{position:relative;float:left; font-size:13px;}
+.select dt{height: 30px;display: inline-block;border: 1px solid #d2ccc4;background: #fcfcfb url(../images/triangle.png) no-repeat 180px center;line-height: 30px;font-weight: bold;padding-left: 10px;cursor: pointer;width: 180px;padding-right: 12px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;position: relative;z-index: 99;}
+/*.select dt:hover,.select dt.cur{border:1px solid #409DFE;box-shadow:0 0 3px #409DFE;}*/
+.select dd{position:absolute;left:0;top:29px;border:1px solid #d2ccc4;background:#fff;display:none; z-index:999;}
+.select dd ul{padding:4px;width:194px;max-height:250px;overflow:auto; z-index:999;}
+.select dd ul li a{line-height:28px;display:block;padding:0 8px;}
+.select dd ul li a:hover{background:#f5f5f5;}
+
+.zjcx{color:#f77206; float:right; margin-right:5px; font-size:13px; height:30px; line-height:30px;}
+.zjcx a{color:#f77206;}
+
+/*车系列*/
+.chexi_list{ width:755px; height:110px; border:1px solid #dfdfdf; margin-top:20px; position:relative;}
+.chexi_ming{ width:745px; height:28px; border-bottom:1px solid #dfdfdf;line-height:28px; font-size:13px; font-weight:bold; padding-left:10px;}
+.chexi_1{ width:96px; height:40px;border-right:1px solid #dfdfdf; margin-top:10px; float:left;}
+.chexi_1 img{ width:62px; height:37px; margin-top:2px; margin-left:10px;}
+.chexi_2{ width:90px; height:40px;border-right:1px solid #dfdfdf; margin-top:10px;  text-align:center;float:left; font-size:12px; line-height:20px;}
+.chexi_2 a{color:#f77206;}
+.chexi_3{width:202px; height:40px; margin-top:10px;  text-align:center;float:left; font-size:12px; line-height:20px;}
+.list_quanxian{width:150px; height:22px; float:right; margin-right:10px; margin-top:2px;}
+.list_zb{ float:left; font-size:12px; line-height:25px;}
+.list_zb img{ position:relative;top:-2px;}
+.list_qx{ width:60px; height:25px; background-color:#f77206; color:#fff; float:right; position:absolute; right:10px; padding-left:10px; font-size:12px; line-height:25px; border-radius:4px;}
+
+
+#mx{ width:90px; height:40px;border-right:1px solid #dfdfdf; margin-top:10px;  text-align:center;float:left; font-size:12px; line-height:20px;}
+#mx a{color:#f77206;}
+#tc{ display:none; background-image:url(../images/hgk.png); width:242px; height:58px; position:relative; top:0px; left:-70px;}
+#mx:hover #tc{ display:block;}
+#zh{ float:left; font-size:12px; line-height:25px;}
+#zh img{ position:relative;top:-2px;}
+#zh_tc{ display:none; position:relative; left:10px; top:-5px;}
+#zh:hover #zh_tc{ display:block;}
+.czxq{ float:left; margin-top:15px;color:#fff; background-color:#f77206; padding:5px 15px 5px 16px; margin-left:20px; border-radius:4px;}
+.jiao{ background-image:url(../images/jiao.png); width:12px; height:6px;}
+.zh_k{ width:170px; height:auto; max-height:360px;overflow:auto; border:2px solid #f77206; position:relative; right:100px; background-color:#fff;}
+.glzh{ margin-left:10px;}
+.delete{ float:right; margin-right:10px;}
+.zh_k ul li{ border-bottom:1px solid #f5f5f5;}
+.list_qx a{ color:#fff;}
+
+
+.theme-popover {z-index: 9999;position: fixed;top: 50%;left: 50%;width:366px;height:auto;margin: -230px 0 0 -200px;border-radius: 5px;background-color: #fff;display: none;box-shadow: 0 0 10px #666;}
+.theme-popover-mask {z-index: 9998;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.4;filter:alpha(opacity=40);display:none;}
+.wenben{ width:330px; height:30px; border-radius:5px; margin-left:12px; margin-top:25px; border:1px solid #ededed; padding-left:10px;outline:none;}
+.queding{ display:inline-table; float:left; padding:5px 25px 5px 25px; background-color:#f77206; color:#FFF; margin-left:90px; margin-top:30px;}
+.close{ display:inline-table; float:left; padding:5px 25px 5px 25px; background-color:#f77206; color:#FFF; margin-left:15px; margin-top:30px; margin-bottom:0px;}
+.zhzt{ margin-top:15px;}
+.glyyzh{ padding-left:25px; line-height:25px;}
+.kx{height:30px;}
+
+
+
+/*滚动轴*/
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background-color:#f5f5f5;}
+::-webkit-scrollbar-thumb{background-color:#d2d2d2;}
+::-webkit-scrollbar-thumb:hover {background-color:#d2d2d2}
+::-webkit-scrollbar-thumb:active {background-color:#d2d2d2}
+

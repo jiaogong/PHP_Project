@@ -1,0 +1,16 @@
+	<div class="fenlie"><!--精品分类-->
+	   <div class="hot_chexing"><a class="a1" href="javascript:void(0)" style="margin-left:5px;cursor:default">精品分类</a><!--<a class="a2" href="">&raquo;</a>--></div>
+	   <div class="biaoqian_liebiao"><!--标签-->
+               {loop $value $k $v}
+                 {if $k>=0&&$k<5}
+                 <a href="{$v['url']}" class="bq1" target="_blank">$v[tag_name]</a>
+                 {elseif $k>=5&&$k<10}
+                 <a href="{$v['url']}" class="bq2" target="_blank">$v[tag_name]</a>
+                 {else}
+                 <a href="{$v['url']}" class="bq3" target="_blank">$v[tag_name]</a>
+                 {/if}
+
+               {/loop}
+		
+	   </div>
+	</div>

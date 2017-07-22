@@ -1,0 +1,9 @@
+<div class="content_cont">
+    {loop $focus $f}
+    <dl>
+        <dd><a href="{if $f['link']==''}javascript:void(0);{else}$f['link']{/if}" target="_blank"><img width="220px" height="220px" src="attach/images/{$f['pic']}"></a></dd>
+        <dt>{$f['title']}<br>
+        <span style="float:left;">￥{$f['price']}</span> <div style="float:right">最近成交{$f['time']}笔</span></dt>
+    </dl>
+    {/loop}
+</div>

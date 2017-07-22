@@ -1,0 +1,79 @@
+<extend name="Index/index" />
+<block name="title">
+后台管理--配置修改页
+</block>
+<block name="con">
+
+    <div class="x_title">
+        <h2>网站配置<small>Click to validate</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li class="dropdown">
+                <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-wrench"></i></a>
+                <ul role="menu" class="dropdown-menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+
+        <!-- start form for validation -->
+        <form data-parsley-validate="" id="demo-form" novalidate="">
+            <label for="fullname" class="fa fa-cog"s>数据库配置* :AJAX鼠标点击修改，鼠标离开自动保存</label><br/>
+             <i class="fa fa-cog">数据库类型&nbsp;:&nbsp;</i><input type="text" required="" name="DB_TYPE" class="dbtype" id="full" data-parsley-id="9619" value="{:C('DB_TYPE')}" >
+            <br style="margin-top:10px;">
+            <i class="fa fa-cog">数据库名字&nbsp;:&nbsp;</i><input type="text" required="" name="DB_NAME" class="dbname" data-parsley-id="9619" value="{:C('DB_NAME')}" >
+            <br style="margin-top:10px;">
+            <i class="fa fa-cog">数据用户名&nbsp;:&nbsp;</i><input type="text" required="" name="DB_USER" class="dbuser" data-parsley-id="9619"value="{:C('DB_USER')}" >
+            <br style="margin-top:10px;">
+            <i class="fa fa-cog">数据库密码&nbsp;:&nbsp;</i><input type="text" required="" name="DB_PWD" class="dbpwd" data-parsley-id="9619" value="{:C('DB_PWD')}" >
+            <br style="margin-top:10px;">
+            <i class="fa fa-cog">主机的名称&nbsp;:&nbsp;</i><input type="text" required="" name="DB_HOST" class="dbht" data-parsley-id="9619"value="{:C('DB_HOST')}">
+            <br style="margin-top:10px;">
+            <i class="fa fa-toggle-on">网站的开关&nbsp;&nbsp;</i><input type="text" required="" name="WEBPOW" class="webpow" data-parsley-id="9619"value="{:C('WEBPOWER')}">
+            <br style="margin-top:10px;">
+            <i class="fa fa-cog">暂停的理由&nbsp;:&nbsp;</i><input type="text" required="" name="WEBPOW" class="webpow" data-parsley-id="9619"value="{:C('WEBPOWER')}">
+            <br style="margin-top:5px;">
+            <hr style="margin-top:10px;">
+            <!--ajax修改 数据库配置-->
+          
+            <script type="text/javascript">
+          $(function(){
+            $('.dbtype').blur(function(){
+            	var database=$('.dbtype').val();
+            	$.post('__CONTROLLER__/update',{DB_TYPE:database},function(){alert('修改成功!');console.log(data);});
+      		});
+            $('.dbname').blur(function(){
+            	var database=$('.dbname').val();
+            	$.post('__CONTROLLER__/update',{DB_NAME:database},function(){alert('修改成功!');console.log(data);});
+           });
+            $('.dbuser').blur(function(){
+            	var database=$('.dbuser').val();
+            	$.post('__CONTROLLER__/update',{DB_USER:database},function(){alert('修改成功!');console.log(data);});
+          });
+            $('.dbpwd').blur(function(){
+            	var database=$('.dbpwd').val();
+            	$.post('__CONTROLLER__/update',{DB_PWD:database},function(){alert('修改成功!');console.log(data);});
+            });
+           
+            $('.dbht').blur(function(){
+            	var database=$('.dbht').val();
+            	$.post('__CONTROLLER__/update',{DB_HOST:database},function(){alert('修改成功!');console.log(data);});
+       		});
+       		$('.webpow').blur(function(){
+            	var database=$('.webpow').val();
+            	$.post('__CONTROLLER__/update',{WEBPOWER:database},function(){alert('修改成功!');console.log(data);});
+      		});
+        });
+            </script>
+            <!--数据库修改完成-->   
+   </form>                    
+</block>

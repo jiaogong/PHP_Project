@@ -1,0 +1,91 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<? include $this->gettpl('header');?> 
+        <div class="user-add">
+            <div class="nav">
+                <ul>
+                    <li><a href="<?=$php_self?>">频道列表</a></li>
+                    <li><a href="<?=$php_self?>add"  class="song"><? if ($tag['id']) { ?>编辑频道<? } else { ?>新增频道<? } ?></a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="user-add-con">
+                <div style=" padding:0 10px; border-radius:4px;">
+                    <form name="tag_form" id="tag_form" action="index.php?action=category-add" method="post" enctype="multipart/form-data">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td class="right" >频道级别：</td>
+                                <td class="margin46">
+                                    <select name='type' onchange="checktype(this.value)">
+                                        <option value='1'>一级频道</option>
+                                        <option value='2' <? if ($parentid) { ?>selected='selected'<? } ?>>二级频道</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr <? if (!$category['parentid']) { ?>style="display:none"<? } ?> id="typeid">
+                                <td class="right" >父级频道名称：</td>
+                                <td class="margin46">
+                                    <select name='parentid' id="parentid">
+                                        <option value='0'>选择一级频道</option>
+                                        <? foreach((array)$categorylist as $k=>$v) {?>
+                                        <option value='<?=$v[id]?>' <? if ($parentid==$v[id]) { ?>selected<? } ?>><?=$v[category_name]?></option>
+                                        <?}?>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="right" >频道名称：</td>
+                                <td class="margin46"><input type="text" name="category_name" id="category_name" size="40" value="<?=$category['category_name']?>"></td>
+                            </tr>
+                            <tr>
+                                <td  colspan="2" align="center" style=" border:none;" >
+                                    <input type="hidden" name="id" id="id" value="<?=$category['id']?>"/>
+                                    <button type=" submit" id="tag_btn" name="tag_btn" class="button">确定</button>&nbsp;&nbsp;
+                                    <button type=" reset" class="button">取消</button>
+                                </td>
+                            </tr>
+                        </table> 
+                    </form>
+                </div>  
+            </div>
+        </div>  
+        <script type="text/javascript">
+            function checktype(i) {
+                if (i == 1) {
+                    $("#typeid").hide()
+                } else {
+                    $("#typeid").show();
+                }
+            }
+            $('#tag_btn').click(function () {
+                if ($('#category_name').val() == '') {
+                    alert('标签名称为必填项!');
+                    return false;
+                }
+
+                $('#tag_btn').attr("disabled", "value");
+                $('#tag_form').submit();
+            });
+
+            $().ready(function () {
+                $('#btn_checktitle').click(function () {
+                    if ($.trim($('#tag_name').val()) == '') {
+                        alert('标签名称不能为空！');
+                        $('#tag_name').focus();
+                        return false;
+                    }
+                    $.blockUI({
+                        message: "<h1><p>标签名称检查中，请稍等...</p></h1>"
+                    });
+                    $.post("<?=$php_self?>rtitle", {tag_name: $('#tag_name').val()}, function (ret) {
+                        if ($.trim(ret) != 1) {
+                            alert('标签名称可用，没有重复！')
+                        } else {
+                            alert('已经有相同标签存在！')
+                        }
+                        $.unblockUI();
+                    });
+                });
+            })
+        </script>
+    </body>
+</html>

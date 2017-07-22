@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<title>找回密码 - MCAKE-一直都是巴黎的味道</title>
+<meta name="Keywords" content="Mcake,M'cake,蓝莓轻乳拿破仑,经典香草拿破仑,拿破仑莓恋,拿破仑，胡桃布拉吉，榛果摩卡布拉吉，魅影歌剧院，巧克力格调，天使巧克力，魔鬼巧克力，蒸清抹茶，蔓越莓红丝绒，沙布雷巴菲，巧克力狂想曲，卡法香缇，瑞可塔厚爱，法香奶油可丽，莓果青柠慕斯＂" />
+<meta name="Description" content="Mcake把法国传统蛋糕文化带入中国，提供纯正的欧式味觉体验，同时也将欧洲的上好材质、经典工艺以及优雅的文艺气质，融入产品的每一个细节之中，带给客户更多的享受与愉悦。" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="cache-control" content="max-age=1800" />
+<link rel="shortcut icon" href="__PUBLIC__/Index/images/icons/favicon.ico" >
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Index/css/comm_header.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Index/css/Landing_city.css" />
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Index/css/ebsig.css" />
+
+<script type="text/javascript" src="__PUBLIC__/Index/js/jquery.js"></script>
+<link href="__PUBLIC__/Index/css/login.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<!-- header结束 -->
+<a name="top"></a>
+<div class="header">
+    
+    <div class="header_top_box">
+        <div class="header_top">
+            <div style="width:100%; height:100px; background:#FFF; position:absolute; z-index:9;webkit-box-shadow: 3px 3px 3px #e1e1e1;-moz-box-shadow: 3px 3px 3px #e1e1e1;box-shadow: 3px 3px 3px #e1e1e1">
+                <div style="width:100%; height:30px; border-bottom:1px solid #eaeaea">
+                    <div class="wallbox wall_top">
+                        <div id="scrollobj" style="position:absolute; left:50%;margin-left:-300px;top:0; width:560px; line-height:30px;white-space:nowrap;overflow:hidden; color:#F00"></div>
+                        <div class="logoer">
+                            <a href="{:U(Home/Index/index)}">
+                                <img src="__PUBLIC__/Index/images/logo/logo.png">
+                            </a>
+                        </div>
+                        <ul class="navbar" id="welcome">
+                            <if condition="isset($_SESSION['id'])">
+                                <li><a href="{:U('Home/Members/center')}" class="Gold">欢迎您{$Think.session.usercount}</a></li>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <li><a href="{:U('Home/Login/logout')}" class="Gold" id="clearsession">[&nbsp;退出&nbsp;]</a></li>
+                            <else />
+                                <li><a href="{:U('Home/Login/dologin')}" class="Gold">LOG IN 登录</a></li>
+                                <li>
+                                    <a href="{:U('Home/Login/signin')}" class="Gold">SIGN UP 注册</a>
+                                </li>
+                            </if>
+                        </ul>
+                        <ul class="navbar">
+                            <li class="m_mail" style="display: none;">
+                                <a href="http://www.mcake.com/shop/member_message.html" class="Gold" target="_blank"><i></i> <span id="msg_count">0</span>封</a>
+                            </li>
+                            <li class="m_cart">
+                                <a href="{:U('Home/ShopCart/index')}" class="Gold" target="_blank"><i></i>
+                                <span id="cart_amount">
+                                    <!--判断件数 session['goodsnum']-->
+                                     <if condition="isset($_SESSION['goodsnum'])&&isset($_SESSION['id'])">
+                                        {$Think.session.goodsnum}
+                                    <else />
+                                        <!--判断件数 结束-->
+                                        0
+                                    </if>
+                                </span>件</a>
+                            </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="wallbox">
+                    <div class="header_right">
+                        <ul class="phone_delivery">
+                            <li class="phone">
+                                <span>4006-678-678</span><i></i>
+                            </li>
+                            <li class="delivery">
+                                <span>
+                                    <a href="{:U('Home/Article/express')}" target="_blank" id="addresscity">北京配送范围免费配送</a>
+                                </span><i></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="menu">
+                        <li>
+                            <a href="{:U('Home/Index/index')}" class="ebsig_all_goods" target="_blank"><samp>Nos Produits</samp><span>全部产品</span>
+                            </a>
+                        </li>
+                        <li>
+                                    
+                            <a href="{:U('Home/Napolen/napolen')}" target="_blank"><samp>Napoléon</samp><span>拿破仑系列</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:U('Home/Active/index')}" target="_blank"><samp>Nouveauté</samp><span>最新活动</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:U('Home/Members/center')}" target="_blank">
+                                <samp>Mon M'CAKE</samp>
+                                <span>会员中心</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--header 结束 -->
+
+<div id="page_mainer">
+
+    <div class="login_box">
+
+        <form id="get_pwd_form" action="{:U('Home/Login/dogetPwd')}" method="post">
+
+            <div class="login_right Forget_box">
+
+                <ul>
+                    <li>
+                        <p class="top_border">
+                            <span>找回密码</span>
+                        </p>
+                    </li>
+                    <li>
+                        <input type="text" class="input_txt Mobile_icon" placeholder="注册时的手机号" name="phone" maxlength="11" />
+                        <span class="err" id="mobile_error"></span>
+                    </li>
+                    <li>
+                        <input type="text" class="input_txt Mobile_icon" placeholder="验证码" name="vcode" maxlength="4"/>
+                        <span class="err" id="loginPwd_error"><img src="{:U('Home/Public/vcode')}" name="vcode" style="cursor:pointer;width: 100px;height: 40px;margin: 5px 0 0 5px;"></span>
+                    </li>
+
+                    <li>
+                        <input type="text" class="input_txt Mobile_code_icon" placeholder="手机验证码" name="scode" maxlength="6" />
+                        <div class="send">
+                            <a href="javascript: void(0);" class="go" id="sms_btn" >发送验证码 <small>>></small></a>
+                            <p class="err" id="smsyzm_error"></p>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="password" class="input_txt password_icon" placeholder="新密码" name="pass" />
+                        <span class="err" id="new_pwd_error">密码必须是6-30位字符，可使用字母、数字或符号</span>
+                    </li>
+                    <li>
+                        <input type="password" class="input_txt Confirm_password_icon" placeholder="密码确认" name="repass" />
+                        <span class="err" id="re_new_pwd_error"></span>
+                    </li>
+                    <li>
+                        <div class="btn_c_box">
+                            <input type="submit" value="提交" class="login_btn" />
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+        </form>
+
+        <div class="back_right">
+            <a href="{:U('Home/Login/dologin')}">
+                <span>
+                    <i class="back"></i>
+                    <p>返回<br />登陆页面</p>
+                </span>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- footer开始 -->
+<div id="footer">
+    <!-- 底部小活动li 开始 -->
+    <div id="wallbox" class="wallbox">
+        <ul class="activity_list" id="activity_list">
+            <li>
+                <a href="" target="_blank">
+                    <img src="__PUBLIC__/Index/images/2015072811191115080.jpg" alt="" width="100%">
+                </a>
+            </li>
+            <li>
+                <a href="" target="_blank">
+                    <img src="__PUBLIC__/Index/images/2015082009154299636.jpg" alt="" width="100%">
+                </a>
+            </li>
+            <li>
+                <a href="" target="_blank"><img src="__PUBLIC__/Index/images/2015070313312260770.jpg" alt="" width="100%">
+                </a>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <!-- 底部小活动li 结束 -->
+    <div class="wallbox_1000">
+        <div class="m_copy">
+            <ul class="Share">
+                <li class="Swb">
+                    <a href="http://weibo.com/mcake1893" target="_blank"></a>
+                </li>
+                <li class="Twx">
+                    <a href="javascript:void(0);"></a>
+                </li><!--<li class="Tkj"><a href="#"></a></li>-->
+            </ul>
+            <div class="wxqr"><samp></samp></div>
+            <p>Copyright © 2012-2015            </p>
+            <p>上海卡法电子商务有限公司 版权所有</p>
+            <p class="icp_no">沪ICP备12022075号</p>
+            <p class="icp_no">地址：上海市普陀区同普路1130弄3号</p>
+            <p class="icp_no">客服热线：4006-678-678</p>
+            <p class="icp_no">客服邮箱：cs@mcake.com</p>
+        </div>
+        <div class="foot_nav_bar">
+            <dl>
+                <dt>
+                    <a href="{:U('Home/Article/express')}">发现</a>
+                </dt>
+                <dd>
+                    <a href="{:U('Home/Article/express')}" target="_blank">配送服务</a>
+                </dd>
+                <dd>
+                    <a href="http://weibo.com/mcake1893" target="_blank">微博</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="{:U('Home/Article/express')}">关于我们</a>
+                </dt>
+                <dd>
+                    <a href="{:U('Home/Article/index')}" target="_blank">媒体合作</a>
+                </dd>
+                <dd>
+                    <a href="{:U('Home/Article/job')}" target="_blank">招贤纳士</a>
+                </dd>
+                <dd>
+                    <a href="{:U('Home/Article/call')}" target="_blank">呼叫中心</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="{:U('Home/Article/express')}">帮助中心</a>
+                </dt>
+                <dd>
+                    <a href="{:U('Home/Article/vip')}" target="_blank">会员权益</a>
+                </dd>
+                <dd>
+                    <a href="{:U('Home/Article/shop')}" target="_blank">购物指南</a>
+                </dd>
+                <dd>
+                    <a href="{:U('Home/Article/pay')}" target="_blank">支付类</a>
+                </dd>
+                <dd>
+                    <a href="{:U('Home/Article/order')}" target="_blank">订单相关</a>
+                </dd>
+            </dl>
+        </div>
+        <div class="m_wb" style="text-align: center;">
+            <img src="__PUBLIC__/Index/images/icons/wx_icon.png" <="" div="">
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- footer结束 -->
+
+<script type="text/javascript">
+    var R = false;
+    var E = false;
+    var W = false;
+    //检测手机号
+    $('input[name=phone]').blur(function(){
+        var v = $(this).val();
+        var reg = /^1([3,5,8]{1})\d{9}$/;
+        if(!reg.test(v)){
+            R = false;
+            $(this).next().html('手机号输入有误,请重新输入');
+        }else{
+            R = true;
+            $(this).next().html('');
+        }
+    })
+
+    //点击更新验证码
+    $('img[name=vcode]').click(function(){
+        this.src = this.src+'?b';
+    })
+
+    // 检测密码
+    $('input[name=pass]').blur(function(){
+        var v = $(this).val();
+        var reg = /^([A-Za-z0-9]){6,30}$/;
+        if(!reg.test(v)){
+            E = false;
+            $(this).next().html('密码格式有误,请输入6-30位字母,数字')
+        }else{
+            E = true;
+            $(this).next().html('');
+        }
+    })
+
+    //检测确认密码
+    $('input[name=repass]').blur(function(){
+        var v = $('input[name=pass]').val();
+        var rv = $(this).val();
+        if(rv!=v){
+            W = false;
+            $(this).next().html('两次密码不一致,请重新输入');
+        }else{
+            W = true;
+            $(this).next().html('');
+        }
+    })
+
+    //绑定提交
+    $('#get_pwd_form').submit(function(){
+        $('input[name=phone]').trigger('blur');
+        $('input[name=scode]').trigger('blur');
+        $('input[name=pass]').trigger('blur');
+        $('input[name=repass]').trigger('blur');
+        $('input[name=vcode]').trigger('blur');
+
+        if(!$('input[name=vcode]').val()){
+            alert('请输入验证码');
+        }
+
+        if(!$('input[name=scode]').val()){
+            alert('请输入手机验证码');
+        }
+
+        if(R && E && W){
+            return true;
+        }else{
+            return false;
+        }
+    })
+
+    //点击发送验证码
+    $('#sms_btn').click(function(){
+        var phone = $('input[name=phone]').val();
+        // alert(phone);
+        if(!phone){
+            alert('请填写手机号码');
+            return false;
+        }
+        $.get("{:U('Home/Login/scode')}",{phone:phone});
+        alert('验证码已发送到手机');
+        
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="format-detection" content="telephone=no" />
+        <title>{if $title}$title{else}ams车评网-移动版{/if}</title>
+        <meta name="keywords" content="{if $keywords}$keywords{else}ams车评网-移动版{/if}" />
+        <meta name="description" content="{if $description}$description{else}ams车评网-移动版{/if}" />
+        <meta name="applicable-device"content="mobile">
+        <meta name="apple-itunes-app" content="app-id=953001548" />
+        <link rel="canonical"href=" http://www.cheping.com.cn/" >
+        {if $css}
+        {loop $css $k $v}
+        <link rel="stylesheet" href="{$static_domain}/css/wap/{$v}.css?v=0.4" />
+        {/loop}
+        {/if}
+        {if $js}
+        {loop $js $k $v}
+        <script src="{$static_domain}/js/wap/{$v}.js?v=0.2" type="text/javascript"></script>
+        {/loop}
+        {/if}
+        <script type="text/javascript">
+            $(function(){
+                $(".close").click(function(){
+                    $("#xiazai").hide();
+                });
+                {if in_array('jquery.flexslider-min', $js)}
+                $('#home_slider').flexslider({
+                    animation: 'slide',
+                    controlNav: true,
+                    directionNav: true,
+                    animationLoop: true,
+                    slideshow: false,
+                    useCSS: false
+                });
+                {/if}
+            });
+            
+        </script>
+    </head>
+    <body>
+        <div class="top_bt">
+            <span class="biaoq">ams车评网</span>
+            <div class="fr gerentou" style=" padding-right:10px;" >
+            {if $name}
+                <a href="/wapuinfo.php?action=Uinfo"><div class="loafter"><img src="{if $avatar}/attach/$avatar{else}images/peple.png{/if}" width="20px" height="20px" class="loafter" /></div></a>
+                {else}
+                <a href="/wapuinfo.php?action=Uinfo"><div><img src="{if $avatar}/attach/$avatar{else}images/peple.png{/if}" width="20px" height="20px" class="lobefore"/></div></a>
+           <span class="log"><a href="/waplogin.php?action=login">登录</a></span
+           {/if}
+           </div>
+        </div>

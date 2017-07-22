@@ -1,0 +1,86 @@
+{template header} 
+<div class="user_wrap">
+<ul class="nav2">
+    <li class="li1"><a href="<!--{$php_self}-->">频道列表</a></li>
+    <li><a href="<!--{$php_self}-->add">新增频道</a></li>
+   
+</ul>
+<div class="user_con">
+    <div class="user_con1">
+     
+      <table cellpadding="0" cellspacing="0" class="table2" border="0">
+
+        <form id="form1" name="del_form" action="{$php_self}ds" method="post"> 
+        <tr>
+          <td>ID</td>
+          <td>标签名称</td>
+          <td>状态</td>
+          <td>操作</td>
+        </tr>
+        {loop $list $k $v}
+        <tr>
+          <td>{$v[id]}</td>
+          <td width="200">{$v[category_name]}</td>
+         
+          <td>
+          {if $v[state] ==0}
+          不正常
+          {else}
+          正常
+          {/if}
+          </td>
+          <td>
+          <a href="{$php_self}edit&id={$v[id]}">
+          <img src="{$admin_path}images/rewrite.gif" width="12" height="12" />修改</a>
+          <a href="{$php_self}shen&id={$v[id]}&state=$v[state]">审核状态</a>&nbsp;
+          <a href="{$php_self}childlist&id={$v[id]}">查看子频道</a>
+          </td>
+        </tr>
+        {/loop}
+<!--        <tr>
+            <td colspan="1">
+                <input type="checkbox"  id="allselect"  onclick="SelectAllCheckboxes(allselect)" />全选
+            </td>
+            <td colspan="1">
+               　<input type="submit" class="sbt" name= 'submit2' value="批量审核/隐藏"/>
+            </td>
+            <td colspan="6"></td>
+        </tr>-->
+        </form> 
+        <tr><td colspan="8" align="center" class="page_bar_css">{$page_bar}</td></tr>
+      </table>
+   </div>
+   
+</div>
+</div> 
+
+<script type="text/javascript">
+$().ready(function(){
+  $('.click_pop_dialog').live('click', function(){
+    pop_window($(this), {message:'您确定要删除该标签吗？', pos:[200,150]});
+  });
+});
+</script>  
+
+<script language="javascript" type="text/javascript">
+//全选
+function SelectAllCheckboxes(spanChk)
+    {
+        var xState=spanChk.checked;
+        //alert(xState);
+ 
+        elm = spanChk.form.elements;
+        //alert(elm.length);
+        for(i = 0; i < elm.length-1; i++)
+        { 
+            if(elm[i].type == "checkbox" && elm[i].id != spanChk.id)
+            {
+                 
+                if(elm[i].checked!=xState)
+                elm[i].click(); 
+            }
+             
+        }
+     }
+</script>
+{template footer}    

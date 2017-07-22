@@ -1,0 +1,19 @@
+<div class="content_v3_xw">
+    <div class="xw_top">
+        <div class="content_v3_xw_title">新闻</div>
+        <div class="content_v3_xw_more"><a href="article.php" target="_blank">more..</a></div>
+    </div>
+    <div class="clear"></div>
+    <div class="xw_cont1">
+        <div class="xw_cont">
+            <div id="div" style="visibility: hidden;"></div>
+            <div class="wenzhang">{$articles['hotArticle'][0][title]}</div>
+            <a href="article/{$articles['hotArticle'][0]['ym']}/{$articles['hotArticle'][0]['d']}/{$articles['hotArticle']['0']['id']}.html" target="_blank" onmousemove="over('div')" onmouseout="out('div')"><img src="attach/images/article/{$articles['hotArticle'][0]['ym']}/{$articles['hotArticle'][0]['d']}/{$articles['hotArticle'][0]['pic']}" width="305px" height="220px"></a>
+            <ul>
+                {loop $articles['articles'] $art}
+                <li class="first_11"><a href="article/{$art['ym']}/{$art['d']}/{$art['id']}.html" target="_blank" title="{$art['title']} {$art['title2']}">{$art['title']}</a></li>
+                {/loop}
+            </ul>
+        </div>
+    </div>
+</div>

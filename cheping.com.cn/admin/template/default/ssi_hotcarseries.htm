@@ -1,0 +1,34 @@
+<ul>
+    <!--{loop $hotcarseries $k $v}-->
+    <li>
+        <a href="series.php?seriesid={$v['series']['series_id']}" target="_blank"><img src="{$relative_dir}attach/images/series/{$v['series']['series_id']}/<!--{if $v['series']['pic']}-->$v['series']['pic']<!--{else}-->{$v['series']['series_pic2']}<!--{/if}-->" onerror='this.src="images/nopic140.gif"' width="450" height="337" /></a>
+        <div class="show_con_cover"></div>
+        <div class="show_con_text">
+            <h2>
+                <a href="series.php?seriesid={$v['series']['series_id']}" target="_blank"><!--{$v['series']['factory_name']}--> <!--{$v['title']}--></a>
+            </h2>
+            <div class="as_ul">
+                <div class="as_li">
+                    <h3>用户评分</h3>
+                    <div class="stars" style="background-position:0 -{eval echo (intval($v['commentavg']['s1'])*15)+43}px"></div>
+                    <p>
+                        <a href="comment.php?action=seriescomment&seriesid=$v['series']['series_id']">已有<!--{if $v['commentavg']['s7']}-->{$v['commentavg']['s7']}<!--{else}-->0<!--{/if}-->条用户评论</a>&nbsp;&nbsp;&nbsp;<a href="series.php?seriesid=$v['series']['series_id']&t=coment">写评论</a>
+                    </p>
+                </div>
+                <div class="as_li">
+                    <h3>厂商指导价</h3>
+                    <p>
+                        {$v['series']['price_low']}万 - {$v['series']['price_high']}万
+                    </p>
+                </div>
+                <div class="as_li as_li_last">
+                    <h3>BINGO参考价</h3>
+                    <p>
+                        {$v['series']['price_low']}万 - {$v['series']['price_high']}万
+                    </p>
+                </div>
+            </div>
+        </div>
+    </li>
+    <!--{/loop}-->
+</ul>

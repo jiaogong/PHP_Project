@@ -1,0 +1,38 @@
+<div class="banner_tu_left">
+	<ul class="banner_guntu" style="width:2534px; left:-362px;">
+		{eval $firstResult = reset($result);}
+		{eval $lastResult = end($result);}
+		{eval $firstTitle = explode('|', $firstResult['title'])}
+		{eval $lastTitle = explode('|', $lastResult['title'])}
+		<li><a href="{$lastResult['url']}" target="_blank"> <img title="{$lastTitle[0]}" src="{if $lastResult['createfiletime']}/attach/images/focus/{$lastResult['createfiletime']}/{$lastResult['pic']}{else}/attach/images/carouselpic/focus/{$lastResult['pic']}{/if}" width="362" height="274" alt="$lastResult['picalt']"></a></li>
+		{loop $result $k $v}
+			{eval $titleArr = explode('|', $v['title'])}
+			{eval $title = $titleArr[0]}
+			<li><a href="{$v['url']}" target="_blank"> <img title="{$title}" src="{if $v['createfiletime']}/attach/images/focus/{$v['createfiletime']}/{$v['pic']}{else}/attach/images/carouselpic/focus/{$v['pic']}{/if}" width="362" height="274" alt="$v['picalt']"></a></li>
+        {/loop}
+		<li><a href="{$firstResult['url']}" target="_blank"> <img title="{$firstTitle[0]}" src="{if $firstResult['createfiletime']}/attach/images/focus/{$firstResult['createfiletime']}/{$firstResult['pic']}{else}/attach/images/carouselpic/focus/{$firstResult['pic']}{/if}" width="362" height="274" alt="$firstResult['picalt']"></a></li>
+	</ul>
+	<div class="gundong_show">
+		<em class="gd_show"></em>
+		{loop $result $k $v}
+			{eval $titleArr = explode('|', $v['title'])}
+			{eval $title = $titleArr[0]}
+			{if $k==1}
+				<span><a href="{$v['url']}" target="_blank">{$title}</a></span>
+			{else}
+				<span style="display:none"><a href="{$v['url']}" target="_blank">{$title}</a></span>
+			{/if}
+        {/loop}
+	</div>
+	<div class="gundong_shu">
+		<ul>
+		{loop $result $k $v}
+			{if $k==1}
+				<li style="cursor: pointer" class="shu_1 shu_1_hover" onmouseover="coverHover({$k});">{$k}</li>
+			{else}
+				<li style="cursor: pointer" class="shu_1" onmouseover="coverHover({$k});">{$k}</li>
+			{/if}
+        {/loop}
+		</ul>
+	</div>
+</div>

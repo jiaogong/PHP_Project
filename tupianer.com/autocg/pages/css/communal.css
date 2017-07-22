@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, h1, h2, h3, h4, h5, h6, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, object, code, legend, button, input, textarea, label, th, td, a, img {margin: 0;padding: 0;border: 0;outline: 0;list-style: none;}
+.clear{overflow: hidden;font-size:0;line-height:0;width:100%;clear:both;}
+body{ background-color:#fff;}
+body,ul,li { margin:0; padding:0;}
+*{margin:0;padding:0;list-style-type:none; font-family:"微软雅黑"; color:#333; }
+a,img{border:0;}
+a{ text-decoration:none;}
+.fl{ float:left;}
+.fr{ float:right;}
+.zhengti{ width:1024px; height:auto; margin:0 auto; background-color:#fff; box-shadow:0px 0px 10px 0px #666;}
+.concent{ width:1037px; margin:0 auto; background:url(../images/dabg.png);}
+/*toubu*/
+/*logo nav*/
+.header{width:1024px; height:110px;  margin:0 auto; background-image:url(../images/headerbg.png);}
+.header .ull .lil{ float:left; font-size:20px; font-weight:bold; margin-left:30px; position:relative; top:40px;}
+.header .ull .lil a{ font-size:20px;}
+.header .ull .lil a img{ margin-top:-20px;}
+.xuanze{ color:#f76f00;}
+
+/*sousuo*/
+.sousuo{ width:285px;background-color:#f77206; margin-left:480px; position:relative; top:40px; height:32px;}
+.sousuo form{ height:32px; background-color:#f77206;}
+.sousuok{ width:214px; height:28px; border:2px solid #f77206; position:position; bottom:10px;outline:none; padding-left:5px;}
+.sousuoa{ background-image:url(../images/sousuoa.png); width:53px; height:32px; border:2px solid #f77206; position:absolute; right:5px;}
+.wdlzc{ float:right; font-size:16px; margin-right:15px; font-weight:bold; position:relative;}
+.dlzck{ float:right; font-size:16px; padding-top:0px; font-weight:bold; position:relative; width:50px;}
+.dlzc{font-size:16px;font-weight:bold; position:relative;float:right; margin-right:100px;}
+.dlzcld{ float:right; margin-top:-44px; margin-right:20px; width:50px;}
+.dlzc span{ margin-right:35px; color:#f77206; width:30px;}
+#tx{ width:44px;}
+.dlzc #tanchu{display:none; width:158px; height:323px; background-image:url(../images/dlhg.png); text-align:center; line-height:30px; padding-top:6px; background-color:#fff;}
+#tanchu ul{ margin-top:15px;}
+.dlzc:hover #tanchu{ display:block; position:absolute; z-index:66; top:43px; right:-70px;}
+#tanchu li:hover{ width:156px; height:30px; margin:0 auto; background-color:#e8e8e8;}
+.xiaoxi{ margin-left:35px; position:relative; top:-40px; color:#f77206;}
+.tuichu{ margin-top:30px;}
+
+/*尾部*/
+.footer{ width:1024px; height:150px; background-color:#666666; margin:0px auto; font-size:12px; margin-top:30px; }
+.guanyv_lianxi{ background-color:#999; width:1024px; height:30px; line-height:30px; text-align:center; color:#7E7E7E;}
+.guanyv_lianxi a{ color:#fff;}
+.banquan{ width:500px; height:70px; margin:0 auto; margin-top:30px; text-align:center; line-height:20px; color:#fff;}
+/*个人中心左侧*/
+.people-left{ width:242px; background:#f5f5f5;}
+.people-left-top{ width:242px; height:132px; border-bottom:1px solid #eaeaea;}
+.people-left-top dt{ width:109px; height:110px; vertical-align:middle; margin:9px 8px; }
+.people-left-top dd{ width:114px; height:130px;  float:right; border-left:1px solid #eaeaea;   }
+.people-left-top dd a{ display:block; padding:10px 10px; border-bottom:1px solid #eaeaea; color:#f77206; font-size:14px;   }
+.people-left-top dd a span{ color:#f77206; padding-left:5px;}
+.people-left-top dd .bornone{ border:none;}
+.people-left-top dd a b{ font-size:20px; color:#f77206; }
+.people-left-bottom{ margin-top:22px; width:242px; color:#6a6a6a; }
+.people-left-bottom ul li{ padding:14px 0; border-bottom:1px solid #eaeaea; text-align:center; }
+.people-left-bottom ul li.active{ background:#e9e7e7;}
+/*工具栏*/
+.gjl{ width:36px; height:426px; background-color:#fff; position:fixed; top:30%; left:50%; margin-left:550px;}
+.gjl_1{ background-image:url(../images/gjl_1.png); width:36px; height:71px; margin-top:5px;}
+.gjl_1:hover{ background-image:url(../images/gjl_1hg.png); width:36px; height:71px;}
+.gjl_2{ background-image:url(../images/gjl_2.png); width:36px; height:71px;margin-top:5px;}
+.gjl_2:hover{ background-image:url(../images/gjl_2hg.png); width:36px; height:71px;}
+.gjl_3{ background-image:url(../images/gjl_3.png); width:36px; height:71px;margin-top:5px;}
+.gjl_3:hover{ background-image:url(../images/gjl_3hg.png); width:36px; height:71px;}
+.gjl_4{ background-image:url(../images/gjl_4.png); width:36px; height:71px;margin-top:5px;}
+.gjl_4:hover{ background-image:url(../images/gjl_4hg.png); width:36px; height:71px;}
+.gjl_5{ background-image:url(../images/gjl_5.png); width:36px; height:71px;margin-top:5px;}
+.gjl_5:hover{ background-image:url(../images/gjl_5hg.png); width:36px; height:71px;}
+.gjl_6{ background-image:url(../images/gjl_6.png); width:36px; height:71px;margin-top:5px;}
+.gjl_6:hover{ background-image:url(../images/gjl_6hg.png); width:36px; height:71px;}
+
+
+/*分页样式*/
+.fenye{ width:480px; height:28px; margin:auto; margin-top:50px; margin-bottom:30px; line-height:28px;}
+.fenye_ge{ float:left; width:34px; height:28px; line-height:28px; text-align:center; border:1px solid #ddd; margin-right:10px;}
+.fenye_dian{ float:left; width:34px; height:28px; line-height:28px; text-align:center; margin-left:-10px;}
+.tiaozhuan{ width:34px; height:28px; float:left; margin-right:10px; border:1px solid #ddd;}
+.tz{ float:left; margin-right:10px;}
+.bg{ background-color:#333; color:#fff;}
+
+
+
+/* 个人简介弹出框样式 */
+.tanclick,.tantx{ width:100%;  background:url(../images/tanbg.png); position:absolute; top:0px; z-index:1; display:none; left:0;}
+.tancon{  width:468px; height:324px; position:absolute; top:200px; left:50%; z-index:2; background:#FFF; margin-left:-220px; border-radius:10px; -webkit-border-radius:10px; display:none;}
+.tancon .jianjie{ height:42px; line-height:42px; background:#f77205;  border-radius:10px 10px 0px 0px; -webkit-border-radius:10px 10px 0px 0px; display:block; text-indent:10px; color:white;}
+.tancon textarea{ width:442px; height:178px; border:1px solid #dddddd; margin-left:11px; margin-top:10px;}
+.tancon p{ float:right; margin-right:11px; overflow:hidden; display:block; }
+.tancon .tananniu{ width:303px; margin:0 auto; margin-top:10px;}
+.tancon .tananniu button{ width:122px; height:33px; background:#f99c50; font-size:16px; color:white;}
+/* 修改头像弹出框样式 */
+.tantxcon{ width:368px; height:424px; background:#fff; border-radius:10px; -webkit-border-radius:10px; position:absolute; top:200px; left:50%; margin-left:-189px; z-index:2; display:none; }
+.tantxcon button{width:104px; height:36px; background:#f99c50; color:#FFF; font-size:16px; }
+.tximg{ display:block; padding:20px 35px; position:relative;}
+.tximg button{ position:absolute; bottom:20px; right:32px; opacity:0.9;}
+.txniu{ width:283px; height:34px; margin:0 auto; padding:10px 0;}

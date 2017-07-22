@@ -1,0 +1,127 @@
+{template wap_header}
+<link rel="stylesheet" type="text/css" href="http://player.youku.com/h5player/play.css?ver=2015/08/03150207" />
+<script type="text/javascript" src="http://player.youku.com/jsapi"></script>
+<link rel="stylesheet" type="text/css" href="css/wap/wapindex.css" />
+<link rel="stylesheet" type="text/css" href="css/wap/reset.css"/>
+<link rel="stylesheet" type="text/css" href="css/wap/wenzhangzuizhongt.css"/>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+    $(function () {
+        var url = $("#url").val();
+        $('.allcc').wrap(function () {
+            return '<a href="' + url + '"></a>';
+        })
+    })
+</script>
+<style>
+    .allview{max-width: 280px;max-height: 186px;} 
+    .allcc{max-width: 280px;max-height: 186px;} 
+    .xinxi,.fbt,.wap_wenzi2{color:#333} 
+</style>
+    <div class="top_bg2">
+        <div class="dizhi"><a href="/">首页</a>><a href="{if $article[category_id]==16}/pingce/jiashi/{elseif $article[category_id]==56}/pingce/ceshi/{elseif $article[category_id]==59}/pingce/duibi/{elseif $article[category_id]==54}/news/xinche/{elseif $article[category_id]==55}/news/zixun/{elseif $article[category_id]==63}/news/hangye/{elseif $article[category_id]==50}/wenhua/jingdianche/{elseif $article[category_id]==51}/wenhua/saiche/{elseif $article[category_id]==52}/wenhua/fengyunche/{elseif $article[category_id]==65}/wenhua/lvxing/{/if}">{$article[category_name]}</a>>{eval echo dstring::substring($article[title],0,8),'...'}</div>
+    </div>
+    <div class="biaoti">{$article[title]}</div>
+    <div class="xinxi">
+        <span>责任编辑：{$article['author']}</span>{if $article['photor']}<span class="xx_jv">摄影：{$article['photor']}</span>{/if}
+        <div class="time">{eval echo date('Y-m-d',$article[uptime])}<!--<span><a href="#"><img src="images/sx.png"></a></span>--></div>
+        <hr>
+    </div>
+    <div class="fbt">{$article['title2']}</div>
+    <div class="daoyv" style="color:#333"><span>导语</span>     {$article['chief']}</div>
+
+    <div class="zt_border">
+        <div class="wap_wenzi2" style="color:#333">
+            {$article['content']}
+        </div>
+        {if $tui}
+        <div class="qita_wenzhang">
+            <div class="xgwz">相关文章</div>
+            <div style="height:30px;"></div>
+            {loop $tui $key $val}
+            <div class="wenzhangk">  
+                <div class="wap_bt"><a href="{if $val[parentid]==10}/wenhua/{eval echo date("Ym-d",$val["uptime"]);}-{$val[id]}{elseif $val[parentid]==7}/news/{eval echo date("Ym-d",$val["uptime"]);}-{$val[id]}{elseif $val[parentid]==8}/pingce/{eval echo date("Ym-d",$val["uptime"]);}-{$val[id]}{elseif $val[parentid]==9}/v/{$val[id]}{/if}.html">{if $val[title]}{$val[title]}{else}{$val[title2]}{/if}</a></div>
+                <div class="wap_time">{eval echo date("Y-m-d",$val["uptime"]);}</div>
+            </div>
+            {/loop}
+        </div><br /><br /><br />
+        {/if}
+    </div>
+    <div class="foot">
+        <ul>
+            <li id="one" class="one_2"><a href="/wapreview.php?action=review&articleId=$article['id']">评论</a></li>
+            <li id="two" class="two_1"><a href="#">收藏</a></li>
+        </ul> 
+    </div>  
+    <script>
+        $(document).ready(function () {
+            var state = $state;
+            if (state == 1) {
+                $("#two").removeClass('two_1').addClass('two_2');
+
+            } else {
+                $("#two").removeClass('two_2').addClass('two_1');
+            }
+        });
+    </script>
+    <script>
+        $(function () {
+            var div_two = $("#two");
+//            var div_one = $("#one");
+//            div_one.click(function () {
+////                $("#one").removeClass('one_2').addClass('one_1');
+//            });
+            //这里是收藏
+            var n = 0;
+            div_two.click(function () {
+                if (n > 0) {
+                    $("#two").removeClass('two_2').addClass('two_1');
+                    n = 0;
+                    var articleId = $article['id'];
+                    var categoryId = $article['category_id'];
+                    var typeId = $article['type_id'];
+                    $.post("/wapuinfo.php?action=Collect", {"articleId": articleId, "n": 0}, function (msg) {
+                        if (msg == 3) {
+                            alert("取消收藏");
+                        } else if (msg == 2) {
+                            alert("收藏成功");
+                        } else if (msg == 90) {
+                            location.href = "/waplogin.php?action=login";
+                        }else if(msg==1){
+                            alert("收藏成功");
+                        }
+                    });
+
+                } else {
+                    $("#two").removeClass('two_1').addClass('two_2');
+                    n = 1;
+                    var articleId = $article['id'];
+                    var categoryId = $article['category_id'];
+                    var typeId = $article['type_id'];
+
+                    $.post("/wapuinfo.php?action=Collect", {"articleId": articleId, "categoryId": categoryId, "typeId": typeId, "n": 1}, function (msg) {
+                        if (msg == 3) {
+                            alert("取消收藏");
+                        } else if (msg == 2) {
+                            alert("收藏成功");
+                        } else if (msg == 90) {
+                            location.href = "/waplogin.php?action=login";
+                        }else if(msg==1){
+                            alert("收藏成功");
+                        }
+                    });
+                }
+
+//                $('#one').removeClass('one_1').addClass('one_2');
+
+            });
+
+        });
+
+    </script>
+
+    <input type="hidden" id="url" value="/waparticle.php?action=Waparticlepic&type_id=$article[pic_org_id]"/>
+    {template wap_countjs}
+</body>
+</html>

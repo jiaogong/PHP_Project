@@ -1,0 +1,66 @@
+{template header}
+<div class="user">
+    <ul class="nav">
+        <!--        <li><a href="{$php_self}searchstatpic" target="_blank">网站流量曲线图</a></li>-->
+        <li ><a href="<!--{$php_self}-->">按日期统计</a></li>
+        <li><a href="<!--{$php_self}-->historystat" class="song">历史统计</a></li>
+<!--        <li ><a href="{$php_self}webdetail">详细流量统计</a></li>-->
+    </ul>
+    <div class="user_con">
+        <div class="user-table">
+            <form id="info_form" name="info_form" method="post" action="index.php?action=article-list">
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="20%"></td>
+                        <td width="20%">浏览量(PV)</td>
+                        <td width="20%">访问(IP)</td>
+                        <td width="20%">独立客户端(UV)</td>
+                        <td width="20%">人均浏览量(PV/UV)</td>
+                    </tr>
+                    <tbody>
+                    {if $stat}
+                        {loop $stat $key $value}
+                            <tr>
+                                <td colspan="5" style="text-align: left;padding-left: 40px;"><h3>{eval echo $pagetype[$key];}</h3>
+    <!--                                <a href="{$php_self}statpic&c1={$key}">查看过去30天 {eval echo $pagetype[$key];} 流量走势图</a>-->
+                                </td>
+                            </tr>
+                            {loop $value $k $v}
+                            {if $k!="历史最高发生在"}
+                            {if $v}
+                            <tr>
+                                <td>{$k}</td>
+                                <td>{if $v['pv']}{eval echo round($v['pv'])}{else}0{/if}(pv)</td>
+                                <td>{if $v['ip']}{eval echo round($v['ip'])}{else}0{/if}(ip)</td>
+                                <td>{if $v['uv']}{eval echo round($v['uv'])}{else}0{/if}(uv)</td>
+                                <td>{if $v['uv']}{eval echo intval((round($v["pv"])/round($v["uv"]))*100)/100}{else}0{/if}</td>
+                            </tr>
+                            {/if}
+                            {else}
+                            {if $v}
+                            <tr>
+                                <td>{$k}</td>
+                                <td>{if $v['pv']['pv']}{$v['pv']['pv']}(pv)<br/>{eval echo date('Y-m-d',$v['pv']['timeline']);}{else}0{/if}</td>
+                                <td>{if $v['ip']['ip']}{$v['ip']['ip']}(ip)<br/>{eval echo date('Y-m-d',$v['ip']['timeline']);}{else}0{/if}</td>
+                                <td>{if $v['uv']['uv']}{$v['uv']['uv']}(uv)<br/>{eval echo date('Y-m-d',$v['uv']['timeline']);}{else}0{/if}</td>
+                                <td></td>
+                            </tr>
+                            {/if}
+                            {/if}
+                            {/loop}
+                        {/loop}
+                    {/if}
+                    {if empty($stat)}
+                    <tr>
+                        <th colspan="8"  class="page_bar_css">
+                    <h3 style="color:red;">暂无相关数据</h3>
+                    </th>
+                    </tr>
+                    {/if}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+{template footer}

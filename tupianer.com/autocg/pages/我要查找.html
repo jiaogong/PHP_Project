@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我要查找</title>
+<link rel="stylesheet" href="css/communal.css" />
+<link rel="stylesheet" href="css/people.css" />
+<script src="js/jquery.js"></script>
+<style>
+img { border:none; }
+.wrapper { width:1000px; margin:0 auto; background:#F69; overflow:hidden; }
+.wrapper h3{color:#3366cc;font-size:16px;height:35px;line-height:1.9;text-align:center;border-bottom:1px solid #E5E5E5;margin:0 0 10px 0;}
+#con1_1 { position:relative; }
+#con1_1 .product_list { position:absolute; left:0px; top:0px; padding:10px; background:#eee; margin:5px;}
+.product_list img { width:200px;}
+.product_list p { padding:5px 0px; font-size:12px; text-align:center; color:#333;  white-space:normal; width:200px;}
+</style>
+</head>
+
+<body>
+<div class="concent">
+   <div class="header"  id="heads">
+  <!--logo nav-->
+            <ul class="ull">
+              <li class="lil"><a href="#"><img src="images/logo.png" width="111" height="57" alt="logo" /></a></li>
+              <li class="lil"><a href="#" class="xuanze">首页</a></li>
+              <li class="lil"><a href="#">我要查找</a></li>
+            </ul>
+	<!--sousuo-->
+            <div class="sousuo">
+               <form action="#">
+                 <input type="text" placeholder="请输入要搜索的内容" class="sousuok" />
+                 <input type="submit" value="" class="sousuoa" />
+               </form>
+            </div>
+            <div class="wdlzc" style="display:none">
+               <a href="#">登录</a>&nbsp;/&nbsp;<a href="#">注册</a>
+            </div>
+            <div class="dlzck">
+            
+            <div class="dlzc">
+                <span><img id="tx" src="images/tx.png" width="44" height="44" style="vertical-align:middle;" /></span>
+                      <div id="tanchu">
+                           <ul>
+                              <li>用户名</li>
+                              <li>个人中心</li>
+                              <li>我的收藏</li>
+                              <li>我的关注</li>
+                              <li>我的作品</li>
+                              <li>我的订单</li>
+                              <li>我的交易</li>
+                              <li>我的个人页</li>
+                           </ul>
+                           <div class="tuichu">退出</div>
+                      </div>             
+	   </div>
+        <span class="dlzcld">
+        <img src="images/ld.png" width="44" height="44" style="vertical-align:middle;" />
+          <span class="xiaoxi">(2)</span>
+        </span>
+    </div>
+   
+ </div>
+<!--头部结束--> 
+<!--我要查找内容-->
+<div class="find-main">
+    <div class="find-top">  
+       <div class="fenlei">
+             <div class="fenleiindex fl">
+                <h3 style=" color:#333;">类别<span style="padding-left:20px; color:#e8e8e8;">|</span></h3>
+             </div> 
+             <div class="fenleibiao fl">
+                 <dl>
+                 <dd><a href="">模型</a></dd>
+                 <dd><a href="">视频</a></dd>
+                 <dd><a href="">广告图片</a></dd>
+                 <dd><a href="">背景图片</a></dd>
+                 <dd><a href="">脚本</a></dd>
+                 <dd><a href="">产品手册</a></dd>  
+                 </dl>    
+             </div>
+             <div class="clear"></div>   
+       </div>
+       <div class="fenlei">
+             <div class="fenleiindex fl">
+                <h3 style=" color:#333;">品牌<span style="padding-left:20px; color:#e8e8e8;">|</span></h3>
+             </div> 
+             <div class="fenleibiao fl">
+                 <dl>
+                 <dd><a href="">奥迪</a></dd>
+                 <dd><a href="">宝马</a></dd>
+                 <dd><a href="">一汽大众</a></dd>
+                 <dd><a href="">路虎</a></dd>
+                 <dd><a href="">兰博基尼</a></dd>
+                 <dd><a href="">本田</a></dd>
+                 <dd><a href="">丰田</a></dd>
+                 <dd><a href="">保时捷</a></dd>
+                 <dd><a href="">悍马</a></dd>
+                 <dd><a href="">英菲尼迪</a></dd>
+                 <dd><a href="">福特</a></dd>
+                 <dd><a href="">法拉利</a></dd>
+                  <dd><a href="">奥迪</a></dd>
+                 <dd><a href="">宝马</a></dd>
+                 <dd><a href="">一汽大众</a></dd>
+                 <dd><a href="">路虎</a></dd>
+                 <dd><a href="">兰博基尼</a></dd>
+                 <dd><a href="">本田</a></dd>
+                 <dd><a href="">丰田</a></dd>
+                 <dd><a href="">保时捷</a></dd>
+                 <dd><a href="">悍马</a></dd>
+                 <dd><a href="">英菲尼迪</a></dd>
+                 <dd><a href="">福特</a></dd>
+                 <dd><a href="">法拉利</a></dd>
+                 <dd class="text">展开<!-- <span style=" padding-left:20px;"><img src="images/text1.png" style=" vertical-align:middle" /></span>--></dd> 
+                 </dl>    
+             </div>
+             <div class="clear"></div>   
+       </div>
+    </div>
+    
+       <div class="find-bottom">
+         
+         <div class="jiazai">
+            <span class="mark">标签</span>
+            <div class="inline"></div>
+             <dl>
+                <dd class="coye">花儿</dd>
+                <dd>Faxness</dd>
+                <dd>你手机</dd>
+                <dd>少年历险记</dd>
+                <dd>控制资料</dd>
+                <dd>查看</dd>
+                <dd>康咪</dd>
+                <dd>康咪看你</dd>
+                <dd>可爱</dd>
+                <dd>快乐财主</dd>
+                <dd>吗杀敌</dd>
+                <dd>奔驰</dd>
+                <dd>四级没</dd>
+                <dd>宝马</dd>
+                <dd>四季美苏坡羡慕回落</dd>
+             </dl>
+             <div class="clear"></div>
+         </div>
+         <div class="jiazai">
+             <span class="jiazaisp spimg"><img src="images/findimg.png" /> </span>
+             <span class="jiazaisp bor">标签名称福建人</span>
+             
+              <span class="jiazaisp">
+                   <span>￥1200起</span>
+                   <span><img src="images/xing.png" style="vertical-align:middle;"/> <b style="color:#333; vertical-align:middle;">100</b></span>
+                   <span>成品图片</span>
+             </span> 
+         </div>
+         <div class="jiazai">
+             <span class="jiazaisp spimg"><img src="images/findimgs.png" /> </span>
+             <span class="jiazaisp bor">标签名称福建人</span>
+             
+              <span class="jiazaisp">
+                   <span>￥1200起</span>
+                   <span><img src="images/xing.png" style="vertical-align:middle;"/> <b style="color:#333; vertical-align:middle;">100</b></span>
+                   <span>成品图片</span>
+             </span> 
+         </div>
+         <div class="jiazai">
+             <span class="jiazaisp spimg"><img src="images/findimg0.png" /> </span>
+             <span class="jiazaisp bor">标签名称福建人</span>
+             
+              <span class="jiazaisp">
+                   <span>￥1200起</span>
+                   <span><img src="images/xing.png" style="vertical-align:middle;"/> <b style="color:#333; vertical-align:middle;">100</b></span>
+                   <span>成品图片</span>
+             </span> 
+         </div>
+         <div class="jiazai">
+             <span class="jiazaisp spimg"><img src="images/findimg2.jpg" /> </span>
+             <span class="jiazaisp bor">标签名称福建人</span>
+             
+              <span class="jiazaisp">
+                   <span>￥1200起</span>
+                   <span><img src="images/xing.png" style="vertical-align:middle;"/> <b style="color:#333; vertical-align:middle;">100</b></span>
+                   <span>成品图片</span>
+             </span> 
+         </div>
+         <div class="jiazai">
+             <span class="jiazaisp spimg"><img src="images/findimg3.jpg" /> </span>
+             <span class="jiazaisp bor">标签名称福建人</span>
+             
+              <span class="jiazaisp">
+                   <span>￥1200起</span>
+                   <span><img src="images/xing.png" style="vertical-align:middle;"/> <b style="color:#333; vertical-align:middle;">100</b></span>
+                   <span>成品图片</span>
+             </span> 
+         </div>
+         <div class="jiazai">
+             <span class="jiazaisp spimg"><img src="images/findimg0.png" /> </span>
+             <span class="jiazaisp bor">标签名称福建人</span>
+             
+              <span class="jiazaisp">
+                   <span>￥1200起</span>
+                   <span><img src="images/xing.png" style="vertical-align:middle;"/> <b style="color:#333; vertical-align:middle;">100</b></span>
+                   <span>成品图片</span>
+             </span> 
+         </div>
+         <div class="jiazai">
+             <span class="jiazaisp spimg"><img src="images/findimg2.jpg" /> </span>
+             <span class="jiazaisp bor">标签名称福建人</span>
+             
+              <span class="jiazaisp">
+                   <span>￥1200起</span>
+                   <span><img src="images/xing.png" style="vertical-align:middle;"/> <b style="color:#333; vertical-align:middle;">100</b></span>
+                   <span>成品图片</span>
+             </span> 
+         </div>
+         <div class="jiazai">
+             <span class="jiazaisp spimg"><img src="images/findimg3.jpg" /> </span>
+             <span class="jiazaisp bor">标签名称福建人</span>
+             
+              <span class="jiazaisp">
+                   <span>￥1200起</span>
+                   <span><img src="images/xing.png" style="vertical-align:middle;"/> <b style="color:#333; vertical-align:middle;">100</b></span>
+                   <span>成品图片</span>
+             </span> 
+         </div>
+         <div class="clear"></div>  
+    </div>        
+</div> 
+<!--我要查找内容end-->
+<div class="footer">
+	    <div class="guanyv_lianxi">
+        <a href="#" target="_blank" class="ys">关于我们</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="#" target="_blank" class="ys">联系我们</a>
+        </div>
+        <div class="banquan">
+          版权所有:**********<br />
+          Copyright:2006-2013&nbsp;www.justeasy.cn&nbsp;All&nbsp;rights&nbsp;reserved<br />
+          南京设易网络科技有限公司&nbsp;登记序号：苏ICP备11003578号-2<br />
+        </div>
+	</div>
+</div>
+
+<script>
+ $(function(){
+	 $(".fenleibiao dl dd:gt(11):not(:last)").hide();
+	 $(".text").click(function(){
+		  if($(this).text()=="展开"){
+			 $(".fenleibiao dl dd:gt(11):not(:last)").show();
+			  $(this).text("收起").addClass('jiantou'); 
+			  }else{
+				 $(this).text("展开").removeClass('jiantou');
+				 $(".fenleibiao dl dd:gt(11):not(:last)").hide(); 
+				  }
+		 })
+	
+ })
+</script>
+<script type="text/javascript">
+/*
+原理：1.把所有的li的高度值放到数组里面
+     2.第一行的top都为0
+     3.计算高度值最小的值是哪个li
+     4.把接下来的li放到那个li的下面
+*/
+var margin = 18;//设置间距
+var li=$(".jiazai");//区块名称
+var    li_W = li[0].offsetWidth+margin;//取区块的实际宽度
+function liuxiaofan(){
+    var h=[];//记录区块高度的数组
+    var n = 1024/li_W|0;
+    for(var i = 0;i < li.length;i++) {
+        li_H = li[i].offsetHeight;//获取每个li的高度
+        if(i < n) {//n是一行最多的li，所以小于n就是第一行了
+            max_H =Math.max.apply(null,h);
+            h[i]=li_H;//把每个li放到数组里面
+            li.eq(i).css("top",0);//第一行的Li的top值为0
+            li.eq(i).css("left",i * li_W);//第i个li的左坐标就是i*li的宽度
+            }
+        else{
+            min_H =Math.min.apply(null,h) ;//取得数组中的最小值，区块中高度值最小的那个
+            minKey = getarraykey(h, min_H);//最小的值对应的指针
+            h[minKey] += li_H+margin ;//加上新高度后更新高度值
+            li.eq(i).css("top",min_H+margin);//先得到高度最小的Li，然后把接下来的li放到它的下面
+            li.eq(i).css("left",minKey * li_W);    //第i个li的左坐标就是i*li的宽度
+        }
+      //  $("p").eq(i).text("高度："+li_H);//把区块高度值写入对应的区块H2标题里面
+    }
+    max =Math.max.apply(null,h) ;
+    $(".find-bottom").css("height",max+6);
+}
+/* 使用for in运算返回数组中某一值的对应项数(比如算出最小的高度值是数组里面的第几个) */
+function getarraykey(s, v) {for(k in s) {if(s[k] == v) {return k;}}}
+/*这里一定要用onload，因为图片不加载完就不知道高度值*/
+window.onload = function() {liuxiaofan();};
+window.onresize = function() {liuxiaofan();};
+
+
+
+
+</script>
+</body>
+</html>

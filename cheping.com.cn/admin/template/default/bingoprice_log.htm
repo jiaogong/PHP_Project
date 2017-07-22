@@ -1,0 +1,79 @@
+{template header}
+<div class="user">
+    <div class="nav">
+        <ul id="nav">
+            <li><a href="?action=bingoprice">车辆报价列表</a></li>
+            <li><a href="#"  class="song">车款报价历史记录</a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="user_con">
+        <div class="user_con1">
+            
+            <table id="content" class="table2" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="td_right" width="100px">车款：</td>
+                    <td class="td_left"  width="600px" colspan="3" >
+                        <!--{$model['factory_name']}--> <!--{$model['series_name']}--> <!--{$model['model_name']}-->
+                    </td>
+                </tr>
+                <tr>
+                    <th width="8%">编号(ID)</th>
+                    <th width="20%">冰狗价</th>
+                    <th width="30%">注释</th>
+                    <th width="14%">修改日期</th>
+                </tr>
+                <!--{loop $bingoprice $val}-->
+                <tr>
+                    <td>{$val["id"]}</td>
+                    <td>{$val["price"]}万</td>
+                    <td>{$val[memo]}</td>
+                    
+                    <td><!--{eval echo date('Y/m/d H:i:s',$val["updated"])}--></td>
+                </tr>
+                <!--{/loop}-->
+                <tr>
+                    <th width="8%">编号(ID)</th>
+                    <th width="20%">用户反馈价</th>
+                    <th width="30%">注释</th>
+                    <th width="14%">修改日期</th>
+                </tr>
+                <!--{loop $saleprice $val}-->
+                <tr >
+                    <td>{$val["id"]}</td>
+                    <td>{$val["price"]}万</td>
+                    <td><!--{eval echo string::get_str($val['memo'],28)}--></td>
+                    <td><!--{eval echo date('Y/m/d H:i:s',$val["updated"])}--></td>
+                </tr>
+                <!--{/loop}-->
+
+                <tr>
+                    <th width="30%">经销商名称</th>
+                    <th width="10%">经销商报价</th>
+                    <th width="10%">状态</th>
+                    <th width="14%">修改日期</th>
+                </tr>
+                <!--{loop $dealerprice $val}-->
+                <tr >
+                    <td>{$val["dealer_name"]}</td>
+                    <td>{$val["bingo_price"]}万</td>
+                    <td>{if $val['state']==0}待审核{elseif $val['state']==1} 正常 {elseif $val['state']==2}未通过{elseif $val['state']==3} 申请删除 {else}删除通过{/if} </td>
+                    <td><!--{eval echo date('Y/m/d H:i:s',$val["updated"])}--></td>
+                </tr>
+                <!--{/loop}-->
+
+
+
+                <tr>
+                    <td colspan="4">
+                        <a href="index.php?action=bingoprice-list$condition">返回</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="user_con2">
+            <img src="{$admin_path}images/conbt.gif" height="16" >
+        </div>
+    </div>
+</div>
+{template footer}

@@ -1,0 +1,32 @@
+<? if(!defined('SITE_ROOT')) exit('Access Denied');?>
+<div class="baojia_right">
+    <h3 style="height:30px; line-height:30px; padding-left:7px; background-color:#f5f7f8; font-size:16px; color:#666;">汽车图片</h3>
+    <div class="tupian_neirong">
+        <div style="float:left; width:160px;" class="tupian_left">
+            <div style=" width:160px; height:120px;" class="r_left">
+                <a href="image_searchlist_series_id_<?=$resultlist[0]['series_id']?>.html" target="_blank"><img width="160" height="120" src="/attach/images/model/<?=$resultlist[0]['model_id']?>/160x120<?=$resultlist[0]['model_pic1']?>" onerror="this.src='/images/188x140.jpg'" title="<?=$resultlist[0]['series_name']?>"></a>
+                <div class="on_show" style="top: 120px;">
+                    <em class="bj_show2"></em>
+                    <span><?=$resultlist[0]['series_name']?></span>
+                </div>
+            </div>
+            <div class="tupian_xia"><a href="pic.php" target="_blank">更多精彩图片&gt;&gt;</a></div>
+        </div>
+        <div style="float:right; width:123px;" class="tupian_left">
+            <div style=" width:122px; height:93px;" class="r_left">
+                <a href="image_searchlist_series_id_<?=$resultlist[1]['series_id']?>.html" target="_blank"><img width="122" height="93" src="/attach/images/model/<?=$resultlist[1]['model_id']?>/122x93<?=$resultlist[1]['model_pic1']?>" onerror="this.src='/images/188x140.jpg'" title="<?=$resultlist[1]['series_name']?>" title="<?=$resultlist[1]['series_name']?>"></a>
+                <div class="on_show1" style="top: 93px;">
+                    <em class="bj_show1"></em>
+                    <span><?=$resultlist[1]['series_name']?></span>
+                </div>
+            </div>
+            <div style="margin-top:10px;width:122px; height:93px;" class="r_left">
+                <a href="image_searchlist_series_id_<?=$resultlist[2]['series_id']?>.html" target="_blank"><img width="122" height="93"  src="/attach/images/model/<?=$resultlist[2]['model_id']?>/122x93<?=$resultlist[2]['model_pic1']?>" onerror="this.src='/images/188x140.jpg'" title="<?=$resultlist[2]['series_name']?>" title="<?=$resultlist[2]['series_name']?>"></a>
+                <div class="on_show1" style="top: 93px;">
+                    <em class="bj_show1"></em>
+                    <span><?=$resultlist[2]['series_name']?></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

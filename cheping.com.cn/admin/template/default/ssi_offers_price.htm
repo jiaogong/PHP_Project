@@ -1,0 +1,37 @@
+<div style="margin-top:10px;" class="content_right_modle">
+    <div class="content_right_title">
+        <p style="padding-left:10px;">最新商情价</p>
+    </div>
+    <ul class="zxsq_title">
+        <li style="width:140px;padding-left:5px;">车款</li>
+        <li style="width:120px;">商情价</li>
+        <li>更新时间</li>
+    </ul>
+    <ul class="hd_con">
+        {loop $offers $of}
+        <li>
+            <div class="sqj_ckt">
+                <samp class="sqj_ck">
+                    {$of['model_name']}
+                </samp>
+            </div>
+            <span class="carus_1 
+                {if $of['trend'] == 'down'}
+                    yhfd_xj
+                {elseif $of['trend'] == 'eq'}
+                    yhfd_sp
+                {else}
+                    yhfd
+                {/if}                                                  
+                  ">
+                {if $of['price'] == 0}
+                    暂无
+                {else}
+                    $of['price']万
+                {/if}                                
+            </span>
+            {eval echo date('Y-m-d', $of['get_time'])}
+        </li>
+        {/loop}
+    </ul>
+</div>

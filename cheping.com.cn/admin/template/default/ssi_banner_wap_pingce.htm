@@ -1,0 +1,15 @@
+<div class="block_home_slider">
+    <div id="home_slider" class="flexslider">
+        <ul class="slides">
+            {loop $banner $key $value}
+            <li>
+                <div class="slide">
+                    <a href="{if $value[url]}{$value[url]}{else}/pingce/{eval echo date("Ym-d",$value["uptime"]);}-{$value[id]}.html{/if}"><img src="/attach/$value[pic]" alt="{$value[title]}" /></a>
+                    <div class="caption">
+                        <p class="title"><a href="{if $value[url]}{$value[url]}{else}/pingce/{eval echo date("Ym-d",$value["uptime"]);}-{$value[id]}.html{/if}">{$value[title]}</a></p>
+                    </div>
+                </div>
+            </li>
+            {/loop}
+        </ul>
+    </div>
