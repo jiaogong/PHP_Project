@@ -17,4 +17,4 @@
 
 <font color=#999 size=4>click here：</font>[M'acke](http://www.mcake.com '网站地址')
 
-<p align="center">![logo](https://github.com/bodii/PHP_Project/tree/master/m'cake.com/logo.png)</p>
+<p align="center"> ![logo](logo.png) </p>
