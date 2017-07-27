@@ -1,0 +1,28 @@
+<?php
+return array(
+	'WEBPOWER'=>'ON',
+	'DB_TYPE'=>'mysql',
+	'DB_NAME'=>'mcake',
+	'DB_USER'=>'root',
+	'DB_PWD'=>'',
+	'DB_PREFIX'=>'mcake_',
+	'DB_HOST'=>'localhost',
+	'DB_CHARSET'=>'utf8',
+	'OFFLINEMESSAGE'=>'本站正在维护中，暂不能访问。<br /> 请稍后再访问本站。',
+	'__UPLOAD__'=>'/Uploads/Admin/images',
+	'MESG_URL'=>'http://www.xiaohigh.com/SendMessage/send.php',
+	'WEB'=>'MCAKE马克西姆蛋糕',
+	'CLASS'=>110, 
+	'CODE'=>123456789, 
+	'HOST'=>'smtp.163.com',
+	'PORT'=>25, 
+	'USERNAME'=>'ruiyi@163.com',
+	'MAILNAME'=>'mcake马克西姆蛋糕网',
+	'MAILPWD'=>'987654321a',
+	'MAILTITLE'=>'Mcake蛋糕',
+	'COMPANY'=>'上海麦心食品有限公司',
+	'ICP'=>'沪ICP备12022075号',
+	'HTTPURL'=>'www.mcake.com',
+	'COMPANYDES'=>'马克西姆-法国百年品牌1893',
+);
+?>

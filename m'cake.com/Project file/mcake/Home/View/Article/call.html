@@ -1,0 +1,108 @@
+<extend name="Index/indextemp" />
+<block name="con">
+  <!-- contents 开始-->
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/comm_header.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/Landing_city.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/custom.css">
+
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/ebsig.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/goods.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/index.css">
+
+
+        <!-- 文章外部css -->
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/article.css">
+
+        <!-- 引入外部js -->
+        
+        <script src="__PUBLIC__/Home/js/goods.js" async="" type="text/javascript"></script>
+        <script src="__PUBLIC__/Home/js/mv.js" async="" type="text/javascript"></script>
+        <!--<script src="__PUBLIC__/Home/js/mba.js" async="" type="text/javascript"> </script>-->
+        <script src="__PUBLIC__/Home/js/s.js" async="" type="text/javascript"></script>
+        <!-- <script src="__PUBLIC__/Home/js/mvl.js" async="" type="text/javascript"></script> -->
+        <!-- <script src="__PUBLIC__/Home/php/core.php" charset="utf-8" async="" type="text/javascript"></script> -->
+        <!-- <script src="__PUBLIC__/Home/js/v.htm" charset="utf-8"></script> -->
+        <script type="text/javascript" src="__PUBLIC__/Home/js/jquery.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Home/js/LandingDialog.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Home/js/superscrollorama.js"></script>
+
+       
+
+        <script type="text/javascript" src="__PUBLIC__/Home/js/uaredirect.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Home/php/iplookup.php"></script>
+        <script type="text/javascript"></script> 
+  <!-- contents 开始-->
+    
+  
+    <!--文章 新闻 开始-->
+
+<div id="page_mainer">
+
+    <div class="user_box">
+        <div class="user_title"> <p class="help_t_img"><i></i><span>帮助中心</span></p></div>
+        <div class="user_left">
+
+            <ul class="user_nav" style="border-bottom:none;border-top:none;">
+            <li>
+        <a href="javascript:%20void(0);">关于我们</a>
+            <dl class="my_Interest">
+                <dd><span></span><a href="{:U('Home/Article/index')}">媒体合作</a><em></em></dd>
+                <dd><span></span><a href="{:U('Home/Article/job')}">招贤纳士</a><em></em></dd>
+                 <dd><span></span><a href="{:U('Home/Article/call')}">呼叫中心</a><em></em></dd>
+            </dl>
+            </li>
+             <li>
+        <a href="javascript:%20void(0);">帮助中心</a>
+            <dl class="my_Interest">
+                 <dd><span></span><a href="{:U('Home/Article/order')}">订单相关</a><em></em></dd>
+                 <dd><span></span><a href="{:U('Home/Article/pay')}">支付类</a><em></em></dd>
+                 <dd><span></span><a href="{:U('Home/Article/shop')}">购物指南</a><em></em></dd>
+                 <dd><span></span><a href="{:U('Home/Article/vip')}">会员权益</a><em></em></dd>
+                 <dd><span></span><a href="{:U('Home/Article/express')}">配送服务</a><em></em></dd>
+             </dl>
+        </li>
+                                    
+            </ul>
+            <div class="user_exit"></div>
+        </div>
+        <div class="login_right mynews_box" style="height: 320px;" >
+            <ul class="help_all">
+
+                <li class="border_top" style="margin-top: 10px;">
+
+                    <span style="color:#b0916a;"><span style="line-height:1.5;">{$article[0]['type']}</span> 
+                <p style="border-bottom:1px #767676 solid;">
+                    <br>
+                </p>
+                </span>
+
+
+        <foreach name="article" item="article" >
+
+        <p>
+            <b style="line-height:43.5pt;"><b style="line-height:13.5pt;white-space:normal;"></b><b style="line-height:13.5pt;white-space:normal;font:16px 黑体;margin-right: 10px;">{$article['title']}</b><b style="line-height:13.5pt;white-space:normal;font:12px 宋体;">{$article['addtime']} {$article['derivation']}</b></b> 
+        </p>
+        <p style="margin-top: 10px;margin-bottom: 10px;font-size:14px;font-family: 宋体;line-height:16.5pt;">
+            {$article['content']|htmlspecialchars_decode}
+        </p>
+        <p >
+            <img src="/mcake/{$article['image']}" alt="" title=""> 
+        </p>
+        <div style="mso-element:para-border-div;border:none;border-bottom:dashed #767676 1.0pt;mso-border-bottom-alt:dashed #767676 .75pt;padding:0cm 0cm 0cm 0cm;">
+        <p align="left" style="margin:3.75pt 0cm;line-height:13.5pt;border:none;padding:0cm;" class="MsoNormal">
+            &nbsp;
+        </p>
+    </div>
+    </foreach>
+</li>
+</ul>
+</div>
+</div>
+    <!--文章 新闻 结束-->
+    
+    <!-- contents 结束-->
+
+
+
+</block>

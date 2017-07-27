@@ -1,0 +1,9 @@
+用于IP地址的定位，解压后的类库文件放入ThinkPHP/Extend/Library/ORG/Net（如果不存在请手动创建）目录下面
+然后使用import方法引入后操作
+
+    import('ORG.Net.IpLocation');// 导入IpLocation类
+    $Ip = new IpLocation('UTFWry.dat'); // 实例化类 参数表示IP地址库文件
+    $area = $Ip->getlocation('203.34.5.66'); // 获取某个IP地址所在的位置
+
+复制代码
+如果传入的参数为空，则会自动获取当前的客户端IP地址，要正确输出位置，必须配合UTF8编码的ip地址库文件，否则可能还需要进行编码转换。IP地址库文件和IpLocation类库位于同一目录即可。

@@ -1,0 +1,870 @@
+﻿#mainer{ margin:auto; height:auto}
+.class_title{  max-width:1136px;max-width:1040px\9;max-width:1160px\9\0; margin:auto; border-bottom:1px #ccc solid; padding-bottom:10px;}
+.class_title div{width:120px; margin:auto; font-size:14px}
+.class_title span{ display:block; text-align:center}
+.class_title samp{ display:block;background:url(/shop/theme/xth1/images/comm/icon.png) no-repeat; width:120px; height:30px;}
+.class_title .all_pro{width:290px}
+.class_title .all_pro samp{background:url(http://www.mcake.com//postsystem/docroot/images/kindeditor/20141015/2014101511500772931.png) no-repeat; width:290px}
+.class_title .all_pro.Screening{ width:389px;}
+.class_title .all_pro.Screening samp{background:url(http://www.mcake.com//postsystem/docroot/images/kindeditor/20141015/2014101511495864670.png) no-repeat; width:389px}
+.class_title .other_pro{ width:400px;}
+.class_title .other_pro samp{ width:400px;background:url(/shop/theme/xth1/images/comm/other_pro.png) no-repeat;}
+
+
+
+.allmenu{width:1145px;width:1060px\9;width:1145px\9\0;height:1px; margin:auto; position:relative}
+.Class{ width:83px; position:absolute; right:-80px;top:30px;zoom: 1; text-align:right; }
+.Class ul li ul li{ padding:5px 0px; }
+.Class ul li ul li span{display:block; font-weight:normal; line-height:18px; padding-right:15px;}
+.Class ul li ul li a{display:block}
+.Class ul li ul li a:hover span{background:url(/shop/theme/xth1/images/comm/icon.png) no-repeat; background-position:61px -217px;}
+.Class ul li ul li.onc a{ color:#C90}
+.splitter{ margin-top:25px;}
+.splitter li{}
+.splitter li ul li ul{display:none}
+.splitter li ul li.cur ul{ display:block}
+.splitter li ul li b{ cursor:pointer; color:#7b9196; display:block; padding:5px 12px 10px 0px;background:url(/shop/theme/xth1/images/comm/icon.png) no-repeat; background-position:-314px -124px; }
+.splitter li ul li b{ background:none;}
+.splitter li ul li.v_cur b{background:url(/shop/theme/xth1/images/comm/icon.png) no-repeat;background-position:-314px -126px;}
+.other_box{display:none}
+
+
+.listbox{ width:1132px;width:1040px\9;width:1160px\9\0; overflow:hidden; margin:auto; }
+.image-grid{ margin:auto; margin-top:15px;margin-left:7px;_margin-left:5px; *margin-left:5px;overflow:hidden}
+.image-grid li{float:left; overflow:hidden; width:225px;*width:206px;_width:206px; padding-bottom:20px; cursor:pointer}
+.image-grid li .pro_box{position:relative;margin-right:10px; overflow:hidden;*height:197px;_height:197px;}
+.image-grid li .pro_box img{ height:216px; width:216px;height:197px\9;height:216px\9\0;width:197px\9;width:216px\9\0;  }
+.image-grid li .pro_box div.mask{ position:absolute; bottom:-55px; left:0; width:100%; height:55px; background:rgba(0,0,0,.5);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000); /* For IE 8*/ -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)"; z-index:90;}
+.image-grid li .pro_box div.mask font{ display:block; padding: 10px 15px 5px 15px;*padding: 5px 15px 5px 15px;_padding: 5px 15px 5px 15px; text-align:left;color:#FFF;cursor:pointer}
+.image-grid li div.Sweetness_box{float:left;  width:100%; position:relative;cursor:pointer}
+.image-grid li div.Sweetness_box span{ float:left;padding:0 10px 0 15px;color:#FFF;cursor:pointer}
+.image-grid li div.Sweetness_box .buy_icon{ position:absolute; right:10px; top:50%;margin-top: -30px; width:36px; height:36px; background:url(/shop/theme/xth1/images/comm/icon.png) #f2f6f7; background-position:-39px -6px;}
+.image-grid li div.Sweetness_box .buy_icon a{display:block; height:36px;}
+.image-grid li div.Sweetness_box ul{float:left}
+.image-grid li div.Sweetness_box ul li{ height:16px; padding:0; }
+.image-grid li div samp{ display:none}
+.pro_title img {float: left;margin-top: 5px;}
+.pro_title span{ display:block; text-align:center; height:18px; overflow:hidden;padding: 0 20px;}
+.pro_title{position:relative;padding-right: 10px;height: 40px;}
+.pro_title a{position: absolute; top:0;left: 0; width:100%;}
+.pro_title i{position:absolute;background:url(/shop/theme/xth1/images/comm/icon.png); width:30px; height:30px; left:0px; top:5px;}
+.pro_title i.m_hot{ background-position:-214px -8px}
+.pro_title i.m_glod{ background-position:-260px -8px}
+
+ul.Sweetness{ float:left}
+ul.Sweetness li{ background:url(/shop/theme/xth1/images/comm/icon.png); width:16px; height:16px; background-position:-268px -65px; margin-right:0px;}
+
+span.font01{ font-weight:bold;  padding-top:5px;}
+span.font02{  }
+
+
+
+
+
+
+
+
+
+
+/*幻灯片css*/
+.Slidebox { width: 100%; height: 618px;float:right;  position: relative; overflow:hidden;}
+.Slidebox ul li div{position: relative;}
+.Slidebox ul li div img{ position:absolute; left:50%; margin-left:-1100px;}
+
+/*数字按钮样式*/
+.Slidebox .num { overflow:hidden; height: 0px; position: absolute; bottom:12px; left: 15px; zoom:1; z-index:3 }
+.Slidebox .num li { width: 25px; height: 25px; line-height: 25px; text-align: center; font-weight: 400; font-family: "微软雅黑", Arial; color: #FFFFFF; background: #444444; margin-right: 10px; border-radius:50%; cursor:pointer; float: left; }
+.Slidebox .num li.on { background: #FF7700; } /*当前项*/
+
+/*上一个  下一个*/
+.Slidebox .prev,
+.Slidebox .next { display:block; width: 54px; height: 105px; background: url(/shop/theme/xth1/images/index/banner_btn.png) no-repeat; position: absolute; top: 115px;top:50%; margin-top:-32px;}
+.Slidebox .prev { left: 30px;  }
+.Slidebox .next { right: 30px; background-position: right }
+
+
+
+/**首页弹出购物车   start */
+
+.tc-con{ width:330px; height:350px; padding:0;background:#f2f6f7; margin:0 auto;
+    position:absolute;
+    z-index:300;
+    _position:absolute;
+    font-size:14px;
+    left:50%;/*FF IE7*/
+    top: 50%;/*FF IE7*/
+    margin-left:-165px!important;/*FF IE7 该值为本身宽的一半 */
+    margin-top:-175px!important;/*FF IE7 该值为本身高的一半*/
+    margin-top:0px;
+    position:fixed!important;/*FF IE7*/
+    position:absolute;/*IE6*/
+    _top: e­xpression(eval(document.compatMode &&
+    document.compatMode=='CSS1Compat') ?
+    documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+
+    }
+
+.tc-con-1{ margin:25px 10px 0 10px;}
+.m_t{border-bottom:1px #b0916a solid; padding-bottom:10px;}
+.m_t span{font-size:10px}
+ul.change_p {overflow:hidden; margin:10px 0 15px 0;}
+ul.change_p li{width:20%; float:left; text-align:center; cursor:pointer; height:35px; line-height:40px; background:url(/shop/theme/xth1/images/comm/ok.png) no-repeat; background-position:10px 0;}
+ul.change_p li.cur{background-position:10px -280px;}
+ul.Explain_list{ margin:0 0 0 30px;}
+ul.Explain_list li{padding-left:16px; font-size:12px; margin:12px 0;background: url(/shop/theme/xth1/images/comm/icon.png) no-repeat;background-position: -285px -102px;}
+.cake_num{ margin:30px 0 0 30px; overflow:hidden;padding-bottom: 20px;}
+.cake_num span{float:left; line-height:26px; display:block; padding-right:5px;}
+.cake_num dl{ float:left;}
+.cake_num dl dd{ float:left; width:35px; height:25px; background:url(/shop/theme/xth1/images/comm/icon.png) -7px -253px #fff; cursor:pointer}
+.cake_num dl dd.nopoint{background:url(/shop/theme/xth1/images/comm/icon.png) -7px -282px #fff;}
+.cake_num dl dd.n_right{ background-position:-67px -253px}
+.cake_num dl dd.n_right.nopoint{background:url(/shop/theme/xth1/images/comm/icon.png) -67px -282px #fff; border:none}
+.cake_num dl dt{float:left; width:35px; height:23px;}
+.cake_num dl dt input{ width:35px; height:20px; background:none; color:#b0916a; margin-top:2px; border:none; text-align:center}
+
+ul.buy_btn_box{overflow:hidden;}
+ul.buy_btn_box li{ width:50%; float:left}
+ul.buy_btn_box li input{ width:98%; background:#b0916a; border:none; margin:2px; height:30px; color:#FFF; cursor:pointer; -moz-border-radius: 2px;/* Gecko browsers */-webkit-border-radius: 2px;   /* Webkit browsers */
+    border-radius:2px;/* W3C syntax */}
+ul.buy_btn_box li input:hover{ background:#8B7860;}
+ul.buy_btn_box li input.disable{ background:#c4c4c4; cursor:default;}
+/**商品售罄   start */
+.image-grid li .pro_box div.mask_shade { width:216px;height: 216px; display:block; position: absolute;top: 0px;left: 0; width: 100%;z-index: 90;background:rgba(0,0,0,.5);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000); /* For IE 8*/ -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";}
+.image-grid li .pro_box div.mask_shade a{width:216px;height: 216px; display:block; text-align:center}
+.image-grid li .pro_box div.mask_shade a img{ width:45px; height:60px; padding-top:78px}
+/**商品售罄   end */
+
+.tc-cover{width:100%;height:100%;position:absolute;z-index:200;top:0px;left:0px;opacity:0.3;-moz-opacity:0.3;filter:alpha(opacity=30);background-color:#000}
+.close{width:30px; height:30px; display:block; position:absolute; top:0;right:0; background:url(/shop/theme/xth1/images/comm/icon.png); background-position:-221px -94px; text-indent:-9999px; z-index:10000;}
+
+/**首页弹出购物车   end */
+
+@media(max-width:1360px){
+.class_title{  max-width:1110px;  margin:auto; border-bottom:1px #ccc solid; padding-bottom:10px;}
+.allmenu{width:1130px;height:1px; margin:auto; position:relative}
+.listbox{ width:1110px; overflow:hidden; margin:auto; }
+.image-grid li{float:left; overflow:hidden; width:220px; padding-bottom:35px; cursor:pointer}
+.image-grid li .pro_box img{ height:210px; width:210px; }
+}
+
+
+@media(max-width:1280px){
+.class_title{  max-width:1040px; margin:auto; border-bottom:1px #ccc solid; padding-bottom:10px;}
+.allmenu{width:1060px;height:1px; margin:auto; position:relative}
+.listbox{ width:1040px; overflow:hidden; margin:auto; }
+.image-grid li{float:left; overflow:hidden; width:206px; padding-bottom:35px; cursor:pointer}
+.image-grid li .pro_box img{ height:197px; width:197px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*3.9 banner*/
+.BannerBoxLoveYou{height:1178px; background:#f2f6f7;margin-bottom:20px; position:relative;overflow: hidden;}
+#BannerLoveYou{  margin:auto;  width:1200px; position:relative; height:1178px;  }
+
+
+.Pen{
+    position: absolute;
+	left: 357px;
+	top: 38px;
+	background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150306/2015030617034662402.png) no-repeat;
+	width:140px;
+	height:240px;
+}
+.LoveYou{
+	position: absolute;
+	left: 90px;
+	top: 215px;
+	/*http://www.mcake.com/postsystem/docroot/images/kindeditor/20150306/2015030617034554108.png*/
+	background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150306/2015030617034536931.png) no-repeat;
+	width:279px;
+	height:174px;
+}
+.Strawberry{
+	position: absolute;
+	left: 80px;
+	top: 393px;
+	background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150306/2015030617034651231.png) no-repeat;
+	width:347px;
+	height:204px;
+}
+.Scrolldown{
+	position: absolute;
+	left: 240px;
+	top: 548px;
+	background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150306/2015030617034637178.png) no-repeat;
+	width:70px;
+	height:49px;
+	animation: Scrolldown .3s infinite;
+	-moz-animation: Scrolldown .3s infinite;
+	-webkit-animation: Scrolldown .3s infinite;
+	-o-animation: Scrolldown .3s infinite;
+}
+
+.FraiseCitron{
+	position: absolute;
+	top: 429px;
+	left: 456px;
+	width:300px;
+	height:130px;
+}
+.FraiseCitron em,.FraiseCitron samp,.Fraise em,.Fraise samp{background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150306/2015030617034699804.png) no-repeat;}
+.FraiseCitron em{
+	width:261px;
+	height:20px;
+	display:block;
+}
+.FraiseCitron p{ padding:3px 0 5px 0; border-bottom:1px #CED2D3 solid; margin:0 0 5px 0; line-height:14px; position:relative; color:#B1B5B4;}
+.FraiseCitron samp{ width:150px; height:33px; background-position:0 -40px; position:absolute; display:block; left:190px; top:58px}
+
+
+.Fraise{
+	position: absolute;
+	right: 155px;
+	top: 943px;
+	width:300px;
+	height:130px;
+}
+.Fraise em{
+	width:178px;
+	height:20px;
+	display:block;
+	background-position:0 -20px;
+}
+.Fraise p{ padding:3px 0 5px 0; border-bottom:1px #CED2D3 solid; margin:0 0 5px 0; line-height:14px; position:relative; color:#B1B5B4;}
+.Fraise samp{ width:150px; height:33px; background-position:0 -80px; position:absolute; display:block; left:-180px; top:62px}
+.FraiseCake{
+	position: absolute;
+	left: 150px;
+	top: 705px;
+	width:382px;
+	height:443px;
+	background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150306/2015030617034670211.png) no-repeat
+}
+.FraiseCake a{ display:block; height:443px}
+.Sauce{ background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150306/2015030617034660951.png) no-repeat; width:238px; height:196px; position:absolute;top: 740px;left: 590px;}
+.SCake{ background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150306/2015030617034618932.jpg) no-repeat; width:633px; height:593px; position:absolute; top: 28px;right: 29px;}
+.SCake a{display:block; height:593px}
+.glod-btn{
+	background:#B1916A;
+	height:23px;
+	line-height:23px;
+	width:108px;
+	text-align:center;
+	display:block;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-o-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+.glod-btn:link,.glod-btn:visited,.glod-btn:active{color:#fff;}.glod-btn:hover{background:#AA875B;}
+
+
+
+#element14 {
+position: absolute;
+left: 27px;
+top: 550px;
+left: -8px;
+top: 640px;
+width: 406px;
+height: 334px;
+background: url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150306/2015030617034564030.png)  no-repeat;
+z-index:6;
+display:none;
+}
+#element14 a{ display:block; height:334px}
+#element13 {
+position: absolute;
+top: 490px;
+left: -600px;
+width: 700px;
+height: 617px;
+background: url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150306/2015030617034594729.png)  no-repeat;
+z-index: 4;
+display:none;
+}
+
+	/*动画效果*/
+	@keyframes Scrolldown{0%{top:548px}50%{top:552px}100%{top:548px}} 
+	@-webkit-keyframes Scrolldown{0%{top:548px}50%{top:552px}100%{top:548px}}
+	@-moz-keyframes Scrolldown{0%{top:548px}50%{top:552px}100%{top:548px}}
+	@-o-keyframes Scrolldown{0%{top:548px}50%{top:552px}100%{top:548px}}
+
+/*banner end*/
+
+
+/*拿破仑新品 banner*/
+.banner_box_nn{background:#f2f6f7; height:870px;margin-bottom:20px; position:relative;overflow: hidden;}
+#banner{  margin:auto;  width:1280px; position:relative; height:800px; }
+#nn-01{ width:327px; height:335px; position:absolute;  top:-100px;left:100px;z-index:15; }
+#nn-01 a{ display:block; height:292px; width:280px;}
+#nn-02{ position:absolute; width:353px; height:122px;left: 400px;top: 240px;z-index:1; line-height:24px;background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20140910/2014091010045330376.png) no-repeat 200px bottom;}
+#nn-02 p,#nn-04 p{line-height:14px; padding:10px 0 0 0; color:#b9b9b9;font-family:"Arial Narrow";}
+
+div.banner_btn {width:100%;width:250px; border:none;  border-top:1px #d1d1d1 solid; padding-top:5px; margin-top:5px;} 
+div.banner_btn a{background:#b0916a; padding:3px 20px;color:#FFF; cursor:pointer; -moz-border-radius: 2px;/* Gecko browsers */-webkit-border-radius: 2px;   /* Webkit browsers */
+border-radius:2px;/* W3C syntax */}
+#nn-03{ width:697px; height:712px; position:absolute;top:-100px;right: -140px;z-index:1;}
+#nn-03 img{ margin:0 0 0 10px; position:absolute; z-index:1; left:0; top:0;}
+#nn-03 div{position:relative}
+samp.nn-03-bg{background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20140911/2014091117331623791.png) no-repeat; top:0; left:0; z-index:0; display:block; width:697px; height:712px; position:absolute;}
+#nn-04{ position:absolute; width:363px; padding-left:180px; height:162px;right: 110px;bottom: 100px;z-index:1; line-height:24px;background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20140910/2014091010045349340.png) no-repeat 0 85px}
+#nn-Chapter{
+position:absolute; width:270px; height:138px; right: 500px; top:50px;
+}
+#nn-Blueberry{position:absolute; width:260px; height:209px; right:470px; bottom:150px;display:none}
+#nn-05{ 
+  position:absolute;
+  width:708px; 
+  height:649px;
+  left:0px; 
+  top:350px;
+  z-index:0;
+}
+#nn-05 div{position:relative}
+#nn-05 img{position:absolute; left:0; top:0; z-index:1;}
+samp.nn-05-bg{
+  background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20140911/2014091117331660480.png) no-repeat; 
+  top:0; 
+  left:0; 
+  z-index:0; 
+  display:block;  
+  width:708px; 
+  height:649px; 
+  position:absolute;
+}
+#element24 {
+position: absolute;
+top: 125px;
+right: 299px;
+width: 308px;
+height: 426px;
+background: url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20140910/2014091010045263911.png)  no-repeat;
+z-index:5;
+display:none;
+}
+#element23 {
+position: absolute;
+top: 90px;
+right: 370px;
+width: 236px;
+height: 453px;
+background: url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20140910/2014091010045219384.png)  no-repeat;
+z-index: 4;
+display:none;
+}
+#element25 {
+position: absolute;
+top: 505px;
+right: 585px;
+width: 43px;
+height: 45px;
+z-index:6;
+display:none;
+}
+
+/*banner end*/
+
+
+
+.banner-0410{ width:100%; height:700px; background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150414/2015041417570175608.jpg) no-repeat center; overflow:hidden; margin-bottom:20px;position:relative; }
+.banner-0410 .banner{ width:1200px; height:700px; margin:0 auto; position:relative;_margin-top:100px;*margin-top:100px; }
+.banner-0410  a{ position:absolute;width:100%;height:700px; display:block; z-index:999; left:0; top:0;}
+.banner-0410 .banner .dabai-1{ width:450px; height:500px;margin-top:60px;  background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150414/2015041417570223300.png) 0 0 no-repeat;position: absolute; left:-230px;
+
+animation-iteration-count: 1; /*动画无限播放 */
+animation-timing-function:step-end; /*马上跳到动画每一结束桢的状态 */
+
+-webkit-animation-iteration-count: 1; /*动画无限播放 */
+-webkit-animation-timing-function:step-end; /*马上跳到动画每一结束桢的状态 */
+
+-moz-animation-iteration-count: 1; /*动画无限播放 */
+-moz-animation-timing-function:step-end; /*马上跳到动画每一结束桢的状态 */
+
+-o-animation-iteration-count: 1; /*动画无限播放 */
+-o-animation-timing-function:step-end; /*马上跳到动画每一结束桢的状态 */
+}
+
+
+/*大白-1 从左自右*/
+.banner-0410 .normal .dabai-1{/* 正常 */ 
+animation-name: person-normal;
+animation-duration: 2500ms;
+animation-fill-mode:forwards;
+
+-webkit-animation-name: person-normal;
+-webkit-animation-duration: 2500ms;
+-webkit-animation-fill-mode:forwards;
+
+-moz-animation-name: person-normal;
+-moz-animation-duration: 2500ms;
+-moz-animation-fill-mode:forwards;
+
+-o-animation-name: person-normal;
+-o-animation-duration: 2500ms;
+-o-animation-fill-mode:forwards;
+}
+@keyframes person-normal{/* 正常 */
+     0% {background-position: 0 0;}
+    10% {background-position: -450px 0; left:-180px;}
+    20% {background-position: -0px 0; left:-130px}
+    30% {background-position: -450px 0; left:-80px}
+    40% {background-position: -0px 0; left:-30px}
+    50% {background-position: -450px 0; left:20px}
+    60% {background-position: -0 0; left:70px}
+    70% {background-position: -1350px 0; left:120px}
+	80% {background-position: -1350px 0; left:120px}
+	90% {background-position: -1350px 0; left:120px}
+	100% {background-position: -0 0; left:150px}
+}
+@-webkit-keyframes person-normal{/* 正常 */
+    0% {background-position: 0 0;}
+    10% {background-position: -450px 0; left:-180px;}
+    20% {background-position: -0px 0; left:-130px}
+    30% {background-position: -450px 0; left:-80px}
+    40% {background-position: -0px 0; left:-30px}
+    50% {background-position: -450px 0; left:20px}
+    60% {background-position: -0 0; left:70px}
+    70% {background-position: -1350px 0; left:120px}
+	80% {background-position: -1350px 0; left:120px}
+	90% {background-position: -1350px 0; left:120px}
+	100% {background-position: -0 0; left:150px}
+}
+@-moz-keyframes person-normal{/* 正常 */
+     0% {background-position: 0 0;}
+    10% {background-position: -450px 0; left:-180px;}
+    20% {background-position: -0px 0; left:-130px}
+    30% {background-position: -450px 0; left:-80px}
+    40% {background-position: -0px 0; left:-30px}
+    50% {background-position: -450px 0; left:20px}
+    60% {background-position: -0 0; left:70px}
+    70% {background-position: -1350px 0; left:120px}
+	80% {background-position: -1350px 0; left:120px}
+	90% {background-position: -1350px 0; left:120px}
+	100% {background-position: -0 0; left:150px}
+}
+@-o-keyframes person-normal{/* 正常 */
+     0% {background-position: 0 0;}
+    10% {background-position: -450px 0; left:-180px;}
+    20% {background-position: -0px 0; left:-130px}
+    30% {background-position: -450px 0; left:-80px}
+    40% {background-position: -0px 0; left:-30px}
+    50% {background-position: -450px 0; left:20px}
+    60% {background-position: -0 0; left:70px}
+    70% {background-position: -1350px 0; left:120px}
+	80% {background-position: -1350px 0; left:120px}
+	90% {background-position: -1350px 0; left:120px}
+	100% {background-position: -0 0; left:150px}
+}
+
+
+/*蛋糕-1 从左自右*/
+.banner-0410 .banner .cake-1{ width:1440px; height:200px;margin-top:60px;  background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150414/2015041417570278237.png) 0 0 no-repeat;position: absolute; left:130px; top:300px;
+
+animation-iteration-count: 1; /*动画无限播放 */
+animation-timing-function:step-end; /*马上跳到动画每一结束桢的状态 */
+
+-webkit-animation-iteration-count: 1; /*动画无限播放 */
+-webkit-animation-timing-function:step-end; /*马上跳到动画每一结束桢的状态 */
+
+-moz-animation-iteration-count: 1; /*动画无限播放 */
+-moz-animation-timing-function:step-end; /*马上跳到动画每一结束桢的状态 */
+
+-o-animation-iteration-count: 1; /*动画无限播放 */
+-o-animation-timing-function:step-end; /*马上跳到动画每一结束桢的状态 */
+}
+
+
+.banner-0410 .normal .cake-1{/* 正常 */
+animation-name: cake-normal;
+animation-duration: 2500ms;
+animation-fill-mode:forwards;
+
+-webkit-animation-name: cake-normal;
+-webkit-animation-duration: 2500ms;
+-webkit-animation-fill-mode:forwards;
+
+-moz-animation-name: cake-normal;
+-moz-animation-duration: 2500ms;
+-moz-animation-fill-mode:forwards;
+
+-o-animation-name: cake-normal;
+-o-animation-duration: 2500ms;
+-o-animation-fill-mode:forwards;
+}
+
+
+
+@keyframes cake-normal{/* 正常 */
+    0% {left:90px; }
+    10% { left:140px;}
+    20% { left:190px;}
+    30% { left:240px;}
+    40% {left:290px;}
+    50% { left:340px;}
+    60% { left:390px;}
+    70% { left:440px;}
+	90% {left:440px;}
+	100% { left:440px;}
+}
+
+@-webkit-keyframes cake-normal{/* 正常 */
+    0% {left:90px; }
+    10% { left:140px;}
+    20% { left:190px;}
+    30% { left:240px;}
+    40% {left:290px;}
+    50% { left:340px;}
+    60% { left:390px;}
+    70% { left:440px;}
+	90% {left:440px;}
+	100% { left:440px;}
+}
+
+@-moz-keyframes cake-normal{/* 正常 */
+    0% {left:90px; }
+    10% { left:140px;}
+    20% { left:190px;}
+    30% { left:240px;}
+    40% {left:290px;}
+    50% { left:340px;}
+    60% { left:390px;}
+    70% { left:440px;}
+	90% {left:440px;}
+	100% { left:440px;}
+}
+
+@-o-keyframes cake-normal{/* 正常 */
+    0% {left:90px; }
+    10% { left:140px;}
+    20% { left:190px;}
+    30% { left:240px;}
+    40% {left:290px;}
+    50% { left:340px;}
+    60% { left:390px;}
+    70% { left:440px;}
+	90% {left:440px;}
+	100% { left:440px;}
+}
+
+
+
+/*勺子 开始*/
+.banner-0410 .banner .spoon-1 { width:100%; min-width:1200px;  width:280px; height:700px; position:relative; right:0px; top:100px;*top:0px;_top:0px;  opacity:0.0; z-index:2;  }
+.banner-0410 .banner .spoon-1 .spoon-box {  width:100%; min-width:1200px; height:360px;position:fixed; right:-50px; top:100px; opacity:1.0; z-index:1}
+
+.banner-0410 .banner .spoon-1 .spoon-box .bottom-spoon{ width:240px; height:300px;  background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150414/2015041417570279037.png) no-repeat;position:absolute; right:0px; top:50px;}
+
+.banner-0410 .banner .spoon-1 {
+animation:spoon-1 1.0s ease-in-out 7.5s forwards;
+-webkit-animation:spoon-1 1.0s ease-in-out 7.5s forwards;
+-moz-animation:spoon-1 1.0s ease-in-out 7.5s forwards;
+-o-animation:spoon-1 1.0s ease-in-out 7.5s forwards;
+}
+@keyframes spoon-1{
+	 0% { opacity:0.0}
+    50% { opacity:0.5}
+	100% { opacity:1.0}
+}
+
+@-webkit-keyframes spoon-1{
+	  0% { opacity:0.0}
+    50% { opacity:0.5}
+	100% { opacity:1.0}
+}
+@-moz-keyframes spoon-1{
+	  0% { opacity:0.0}
+    50% { opacity:0.5}
+	100% { opacity:1.0}
+}
+@-o-keyframes spoon-1{
+	   0% { opacity:0.0}
+    50% { opacity:0.5}
+	100% { opacity:1.0}
+}
+.banner-0410 .banner .spoon-1 .spoon-box {/* 正常 */
+animation:spoon-box 4s ease-in-out 8.5s infinite;
+-webkit-animation:spoon-box 4s ease-in-out 8.5s infinite;
+-moz-animation:spoon-box 4s ease-in-out 8.5s infinite;
+-o-animation:spoon-box 4s ease-in-out 8.5s infinite;}
+
+
+
+
+@keyframes spoon-box{
+	 0% { top:100px;}
+    25% { top:105px;}
+	50% { top:100px;}
+	75% { top:105px;}
+	100% { top:100px;}
+}
+
+@-webkit-keyframes spoon-box{
+	 0% { top:100px;}
+    25% { top:105px;}
+	50% { top:100px;}
+	75% { top:105px;}
+	100% { top:100px;}
+}
+@-moz-keyframes spoon-box{
+	  0% { top:100px;}
+    25% { top:105px;}
+	50% { top:100px;}
+	75% { top:105px;}
+	100% { top:100px;}
+}
+@-o-keyframes spoon-box{
+	 0% { top:100px;}
+    25% { top:105px;}
+	50% { top:100px;}
+	75% { top:105px;}
+	100% { top:100px;}
+}
+
+/*勺子 开始*/
+.banner-0410 .banner .spoon-1 .spoon-box .top-glisten{ width:190px; height:90px;  background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150414/2015041417570289199.png) no-repeat;position:absolute; right:70px; top:0;}
+.banner-0410 .banner .spoon-1 .spoon-box .top-glisten{
+animation:top-glisten 3s ease-in-out 0s infinite;
+-webkit-animation:top-glisten 3s ease-in-out 0s infinite;	
+-moz-animation:top-glisten 3s ease-in-out 0s infinite;
+-o-animation:top-glisten 3s ease-in-out 0s infinite;
+}
+@keyframes top-glisten{
+	 0% { opacity:0}
+	 25% { opacity:1.0}
+     50% { opacity:0}
+	 75% { opacity:1.0}
+	 100% {opacity:0}
+}
+@-webkit-keyframes top-glisten{
+	 0% { opacity:0}
+	 25% { opacity:1.0}
+     50% { opacity:0}
+	 75% { opacity:1.0}
+	 100% {opacity:0}
+}
+@-moz-keyframes top-glisten{
+	 0% { opacity:0}
+	 25% { opacity:1.0}
+     50% { opacity:0}
+	 75% { opacity:1.0}
+	 100% {opacity:0}
+}
+@-o-keyframes top-glisten{
+	 0% { opacity:0}
+	 25% { opacity:1.0}
+     50% { opacity:0}
+	 75% { opacity:1.0}
+	 100% {opacity:0}
+}
+
+/*勺子 结束*/
+
+
+
+/*第二个大白 从上到下 开始*/
+.banner-0410 .banner .step-2 .dabai-2{ width:484px; height:619px; background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150414/2015041417570240009.png) no-repeat; position:absolute; left:-120px; bottom:20px;bottom:-380px;
+animation:dabai-2 1.0s ease-in-out 0s forwards;
+-webkit-animation:dabai-2 1.0s ease-in-out 0s forwards;
+-moz-animation:dabai-2 1.0s ease-in-out 0s forwards;
+-o-animation:dabai-2 1.0s ease-in-out 0s forwards;
+}
+
+/**/
+@keyframes dabai-2{
+	 0% {bottom:-380px;}
+	 10% { bottom:-340px;}
+     20% { bottom:-300px;}
+	 30% { bottom:-260px;}
+	 40% {bottom:-220px;}
+	 50% { bottom:-180px;}
+     60% { bottom:-140px;}
+	 70% { bottom:-100px;}
+	 80% {bottom:-60px;}
+	 90% { bottom:-20px;}
+	 100% {bottom:20px;}
+}
+@-webkit-keyframes dabai-2{
+	 0% {bottom:-380px;}
+	 10% { bottom:-340px;}
+     20% { bottom:-300px;}
+	 30% { bottom:-260px;}
+	 40% {bottom:-220px;}
+	 50% { bottom:-180px;}
+     60% { bottom:-140px;}
+	 70% { bottom:-100px;}
+	 80% {bottom:-60px;}
+	 90% { bottom:-20px;}
+	 100% {bottom:20px;}
+}
+@-moz-keyframes dabai-2{
+	 0% {bottom:-380px;}
+	 10% { bottom:-340px;}
+     20% { bottom:-300px;}
+	 30% { bottom:-260px;}
+	 40% {bottom:-220px;}
+	 50% { bottom:-180px;}
+     60% { bottom:-140px;}
+	 70% { bottom:-100px;}
+	 80% {bottom:-60px;}
+	 90% { bottom:-20px;}
+	 100% {bottom:20px;}
+}
+@-o-keyframes dabai-2{
+	 0% {bottom:-380px;}
+	 10% { bottom:-340px;}
+     20% { bottom:-300px;}
+	 30% { bottom:-260px;}
+	 40% {bottom:-220px;}
+	 50% { bottom:-180px;}
+     60% { bottom:-140px;}
+	 70% { bottom:-100px;}
+	 80% {bottom:-60px;}
+	 90% { bottom:-20px;}
+	 100% {bottom:20px;}
+}
+/*大标题 开始*/
+.banner-0410 .banner .step-2 .headline-1{ width:700px; height:250px; background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150414/2015041417570243920.png) no-repeat; position:absolute; left:360px; top:50px;opacity:0;
+animation:headline-1 5s ease-in-out 0s forwards;
+-webkit-animation:headline-1 5s ease-in-out 0s forwards;
+-moz-animation:headline-1 5s ease-in-out 0s forwards;
+-o-animation:headline-1 5s ease-in-out 0s forwards;
+}
+/**/
+@keyframes headline-1{
+	 0% { opacity:0}
+     20% { opacity:0.0}
+	 40% { opacity:0}
+     60% { opacity:0}
+	 80% {opacity:0.5}
+	 100% {opacity:1.0}
+}
+@-webkit-keyframes headline-1{
+	 0% { opacity:0}
+     20% { opacity:0.0}
+	 40% { opacity:0}
+     60% { opacity:0}
+	 80% {opacity:0.5}
+	 100% {opacity:1.0}
+}
+@-moz-keyframes headline-1{
+	 0% { opacity:0}
+     20% { opacity:0.0}
+	 40% { opacity:0}
+     60% { opacity:0}
+	 80% {opacity:0.5}
+	 100% {opacity:1.0}
+}
+@-o-keyframes headline-1{
+	 0% { opacity:0}
+     20% { opacity:0.0}
+	 40% { opacity:0}
+     60% { opacity:0}
+	 80% {opacity:0.5}
+	 100% {opacity:1.0}
+}
+/*第二个蛋糕  开始*/
+.banner-0410 .banner .step-2 .cake-2{ width:691px; height:324px; background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150414/2015041417570269307.png) no-repeat; position:absolute; left:290px; bottom:50px; opacity:0;
+animation:cake-2 2.5s ease-in-out 0s forwards;
+-webkit-animation:cake-2 2.5s ease-in-out 0s forwards;
+-moz-animation:cake-2 2.5s ease-in-out 0s forwards;
+-o-animation:cake-2 2.5s ease-in-out 0s forwards;
+
+}
+/**/
+@keyframes cake-2{
+	 0% { opacity:0}
+     20% { opacity:0.0}
+	 40% { opacity:0}
+     60% { opacity:0}
+	 80% {opacity:0.5}
+	 100% {opacity:1.0}
+}
+@-webkit-keyframes cake-2{
+	 0% { opacity:0}
+     20% { opacity:0.0}
+	 40% { opacity:0}
+     60% { opacity:0}
+	 80% {opacity:0.5}
+	 100% {opacity:1.0}
+}
+@-moz-keyframes cake-2{
+	 0% { opacity:0}
+     20% { opacity:0.0}
+	 40% { opacity:0}
+     60% { opacity:0}
+	 80% {opacity:0.5}
+	 100% {opacity:1.0}
+}
+@-o-keyframes cake-2{
+	 0% { opacity:0}
+     20% { opacity:0.0}
+	 40% { opacity:0}
+     60% { opacity:0}
+	 80% {opacity:0.5}
+	 100% {opacity:1.0}
+}
+
+/*草莓 开始*/
+.banner-0410 .banner .step-2 .strawberry-1{width:320px; height:220px; background:url(http://www.mcake.com/postsystem/docroot/images/kindeditor/20150414/2015041417570275382.png) no-repeat; position:absolute; right:-50px; bottom:20px;opacity:0;
+animation:strawberry-1 4s ease-in-out 0s forwards ;
+-webkit-animation:strawberry-1 4s ease-in-out 0s forwards ;
+-moz-animation:strawberry-1 4s ease-in-out 0s forwards ;
+-o-animation:strawberry-1 4s ease-in-out 0s forwards ;
+}
+
+/**/
+@keyframes strawberry-1{
+	 0% { opacity:0}
+     25% { opacity:0.0}
+	 50% { opacity:0}
+     75% { opacity:0.5}
+	 100% {opacity:1.0}
+}
+@-webkit-keyframes strawberry-1{
+	 0% { opacity:0}
+     25% { opacity:0.0}
+	 50% { opacity:0}
+     75% { opacity:0.5}
+	 100% {opacity:1.0}
+}
+
+@-moz-keyframes strawberry-1{
+	 0% { opacity:0}
+     25% { opacity:0.0}
+	 50% { opacity:0}
+     75% { opacity:0.5}
+	 100% {opacity:1.0}
+}
+
+@-o-keyframes strawberry-1{
+	 0% { opacity:0}
+     25% { opacity:0.0}
+	 50% { opacity:0}
+     75% { opacity:0.5}
+	 100% {opacity:1.0}
+}
+
+
+
+
+.btnimg{cursor:pointer;border:0;margin:0;padding:0;}
+
+#ScrollToTop{
+	position:fixed;_position:absolute;z-index:999;right:15px;bottom:-10px;width:140px;margin:00px 20px 30px;display:block;font-size:15px;font-weight:800;text-align:center;}
+#ScrollToTop.Offscreen{bottom:-300px;}

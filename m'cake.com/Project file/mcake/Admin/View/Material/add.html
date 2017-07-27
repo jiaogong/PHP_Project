@@ -1,0 +1,153 @@
+<extend name="Index/index" />
+<block name="con">
+    
+<div class="page-title">
+    <div class="title_left">
+        <h3>原料添加</h3>
+    </div>
+</div>
+<div class="x_panel">
+    <div class="x_title">
+        <h2>原料信息 <small>请认真填写</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+            	<a class="collapse-link">
+            		<i class="fa fa-chevron-up"></i>
+            	</a>
+            </li>
+            <li class="dropdown">
+                <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                	<i class="fa fa-wrench"></i>
+                </a>
+                <ul role="menu" class="dropdown-menu">
+                    <li>
+                    	<a href="#">Settings 1</a>
+                    </li>
+                    <li>
+                    	<a href="#">Settings 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+            	<a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+	<div class="x_content">
+	    <br>
+	    <form class="form-horizontal form-label-left" data-parsley-validate="" id="demo-form2" novalidate="" action="{:U('Admin/Material/insert')}" method="post">
+
+	        <div class="form-group">
+	            <label for="first-name" class="control-label col-md-3 col-sm-3 col-xs-12">原料名称 <span class="required">*</span>
+	            </label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+	                <input type="text" name="name" class="form-control col-md-7 col-xs-12" required="required" id="first-name" data-parsley-id="4702">
+	            </div>
+	        </div>
+<!--	        <div class="form-group">
+	            <label for="last-name" class="control-label col-md-3 col-sm-3 col-xs-12">原料国籍 <span class="required">*</span>
+	            </label>
+	            <div class="col-md-6 col-sm-6 col-xs-12">
+					<select class="form-control" name="pid">
+                        <option value="0">请选择</option>
+                        <option value="1"><img src="">法国</option>
+                        <option value="2"><img src="">新西兰</option>
+                        <option value="3"><img src="">美国</option>
+                        <foreach name="types" item="vo">
+                        <option value="{$vo['id']}">{$vo['name']}</option>
+                        </foreach>
+                    </select>
+	            </div>
+	        </div>
+-->
+            <div class="form-group">
+                <label for="first-name" class="control-label col-md-3 col-sm-3 col-xs-12">来自国家 <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12" style="width:700px;">
+                    <div style="width:10px;height:10px"></div>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="0" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 法国 <img src="__PUBLIC__/country/fg.jpg">&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="1" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 新西兰 <img src="__PUBLIC__/country/xxl.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="2" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 比利时 <img src="__PUBLIC__/country/bls.jpg">&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="3" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 马来西亚 <img src="__PUBLIC__/country/mlxy.jpg">&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="4" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 波多黎各 <img src="__PUBLIC__/country/bdlg.jpg">
+                    </label>
+                    <br><br>
+
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="5" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 韩国 <img src="__PUBLIC__/country/hg.jpg">&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="6" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 云南 <img src="__PUBLIC__/country/yn.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="7" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 土耳其 <img src="__PUBLIC__/country/trq.jpg">&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="8" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 也门 <img src="__PUBLIC__/country/ym.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="9" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 巴基斯坦 <img src="__PUBLIC__/country/bjst.jpg">
+                    </label>
+                    <br><br>
+
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="10" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 美国 <img src="__PUBLIC__/country/mg.jpg">&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="11" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 马达加斯加 <img src="__PUBLIC__/country/mdjsj.jpg">&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="12" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 瑞士 <img src="__PUBLIC__/country/rs.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="13" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 伊朗 <img src="__PUBLIC__/country/yl.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="14" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 爱尔兰 <img src="__PUBLIC__/country/arl.jpg">
+                    </label>
+                    <br><br>
+
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="15" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 意大利 <img src="__PUBLIC__/country/ydl.jpg">
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="16" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 墨西哥 <img src="__PUBLIC__/country/mxg.jpg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="18" checked="" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 澳大利亚 <img src="__PUBLIC__/country/adly.jpg">
+                    </label>
+                    <label class="" style="margin-right:15px">
+                        <div class="iradio_flat-green " style="position: relative;"><input type="radio" name="country" value="17" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0px none; opacity: 0;"></ins></div> 甄选及其它 <img src="__PUBLIC__/country/zx.png">
+                    </label>
+                    <br><br>
+
+
+
+                </div>
+            </div>
+	        <div class="ln_solid"></div>
+	        <div class="form-group">
+	            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+	                <button class="btn btn-success" type="submit">添加</button>
+	                <button class="btn btn-primary" type="reset">重置</button>
+	            </div>
+	        </div>
+
+	    </form>
+	</div>
+</div>
+
+<!-- <script type="text/javascript" src="__PUBLIC__/Admin/production/js/parsley/parsley.min.js"></script> -->
+        
+       
+</block>

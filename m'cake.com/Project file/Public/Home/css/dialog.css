@@ -1,0 +1,47 @@
+ul.Remote_payment.quick_login {
+    height: 320px;
+    margin: 30px 12px 0;
+    width: 290px;
+}
+ul.Remote_payment li.quick_txt {
+    border-bottom: 1px solid #b0916a;
+    color: #767676;
+    margin-bottom: 15px;
+    padding: 0 0 10px;
+}
+ul.Remote_payment li {
+    overflow: hidden;
+    padding: 5px 0;
+    position: relative;
+}
+.quick_login li.import {
+    position: relative;
+}
+.quick_login li.import label {
+    color: #c4c4c4;
+    cursor: text;
+    font-size: 14px;
+    left: 50px;
+    line-height: 50px;
+    position: absolute;
+    top: 5px;
+}
+
+.quick_login li input.input_txt.user_icon {
+    background-position: -350px -285px;
+}
+.quick_login li input.input_txt {
+    background: #f0f0f0 url("http://www.mcake.com/shop/theme/xth1/images/comm/icon.png") no-repeat scroll 0 0;
+    border: medium none;
+    border-radius: 2px;
+    color: #767676;
+    float: left;
+    font-size: 18px;
+    height: 40px;
+    margin: 0;
+    padding: 5px 10px 5px 45px;
+    width: 235px;
+}
+.quick_login li input.input_txt.password_icon {
+    background-position: -350px -335px;
+}

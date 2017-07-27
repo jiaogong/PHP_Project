@@ -1,0 +1,945 @@
+<extend name="Index/indextemp" />
+<block name="con">
+
+<!--=== 轮播 ===-->
+<!--=== Style Switcher ===-->    
+<div class="style-switcher">
+    <div class="theme-close"><i class="icon-remove"></i></div>
+    <div class="theme-heading">Theme Colors</div>
+    <ul class="unstyled">
+        <li class="theme-default theme-active" data-style="default" data-header="light"></li>
+        <li class="theme-blue" data-style="blue" data-header="light"></li>
+        <li class="theme-orange" data-style="orange" data-header="light"></li>
+        <li class="theme-red" data-style="red" data-header="light"></li>
+        <li class="theme-light" data-style="light" data-header="light"></li>
+    </ul>
+</div><!--/style-switcher-->
+<!--=== End Style Switcher ===-->    
+
+<!--=== Slider ===-->
+<div class="slider-inner">
+    <div id="da-slider" class="da-slider" style="background: transparent url(__ROOT__{$res[0]['path']}) repeat 0% 0%;">
+        <div class="da-slide">
+            <h2>
+                <i>{$res[1]['theme']|mb_substr=0,6,"utf-8"}</i> <br /> 
+                <i>{$res[1]['theme']|mb_substr=6,10,"utf-8"}</i> <br /> 
+                <i>{$res[1]['theme']|mb_substr=16,4,"utf-8"}</i>
+            </h2>
+            <p>
+                <i>{$res[1]['subhead']|mb_substr=0,16,"utf-8"}</i> <br /> 
+                <i>{$res[1]['subhead']|mb_substr=16,11,"utf-8"}</i> <br /> 
+                <i>{$res[1]['subhead']|mb_substr=27,8,"utf-8"}</i>
+            </p>
+            <div class="da-img"><a href="{$res[1]['link']}"><img src="__ROOT__{$res[1]['path']}" alt="" /></a></div>
+        </div>
+        <div class="da-slide">
+            <h2>
+                <i>{$res[2]['theme']|mb_substr=0,6,"utf-8"}</i> <br /> 
+                <i>{$res[2]['theme']|mb_substr=6,10,"utf-8"}</i> <br /> 
+                <i>{$res[2]['theme']|mb_substr=16,4,"utf-8"}</i>
+            </h2>
+            <p>
+                <i>{$res[2]['subhead']|mb_substr=0,16,"utf-8"}</i> <br /> 
+                <i>{$res[2]['subhead']|mb_substr=16,11,"utf-8"}</i> <br /> 
+                <i>{$res[2]['subhead']|mb_substr=27,8,"utf-8"}</i>
+            </p>
+            <div class="da-img"><a href="{$res[2]['link']}"><img src="__ROOT__{$res[2]['path']}" alt="" /></a></div>
+<!--        <div class="da-img span6">
+                <div class="span6">
+                    <iframe src="http://player.vimeo.com/video/47911018" width="100%" height="320" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe> 
+                </div>
+            </div>-->
+        </div>
+        <div class="da-slide">
+            <h2>
+                <i>{$res[3]['theme']|mb_substr=0,6,"utf-8"}</i> <br /> 
+                <i>{$res[3]['theme']|mb_substr=6,10,"utf-8"}</i> <br /> 
+                <i>{$res[3]['theme']|mb_substr=16,4,"utf-8"}</i>
+            </h2>
+            <p>
+                <i>{$res[3]['subhead']|mb_substr=0,16,"utf-8"}</i> <br /> 
+                <i>{$res[3]['subhead']|mb_substr=16,11,"utf-8"}</i> <br /> 
+                <i>{$res[3]['subhead']|mb_substr=27,8,"utf-8"}</i>
+            </p>
+            <div class="da-img"><a href="{$res[3]['link']}"><img src="__ROOT__{$res[3]['path']}" alt="image01" /></a></div>
+        </div>
+        <nav class="da-arrows">
+            <span class="da-arrows-prev"></span>
+            <span class="da-arrows-next"></span>        
+        </nav>
+    </div><!--/da-slider-->
+</div><!--/slider-->
+        <!--=== End Slider ===-->
+        <!-- JS Global Compulsory -->           
+        <script type="text/javascript" src="__PUBLIC__/BannerS/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/BannerS/bootstrap.min.js"></script> 
+        <!-- JS Implementing Plugins -->      
+        <script type="text/javascript" src="__PUBLIC__/BannerS/jquery.flexslider-min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/BannerS/modernizr.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/BannerS/jquery.cslider.js"></script> 
+        <!-- JS Page Level -->           
+        <!--<script type="text/javascript" src="__PUBLIC__/BannerS/app.js"></script>-->
+        <!--<script type="text/javascript" src="__PUBLIC__/BannerS/index.js"></script>-->
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                App.init();
+                App.initSliders();
+                Index.initParallaxSlider();
+            });
+        </script>
+        <div style="display:none">
+            <script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'>
+            </script>
+        </div>
+        <!--外部app.js粘贴-->
+        <script type="text/javascript">
+            var App = function(){
+
+                function handleIEFixes() {
+                    //fix html5 placeholder attribute for ie7 & ie8
+                    if (jQuery.browser.msie && jQuery.browser.version.substr(0, 1) < 9) { // ie7&ie8
+                        jQuery('input[placeholder], textarea[placeholder]').each(function () {
+                            var input = jQuery(this);
+
+                            jQuery(input).val(input.attr('placeholder'));
+
+                            jQuery(input).focus(function () {
+                                if (input.val() == input.attr('placeholder')) {
+                                    input.val('');
+                                }
+                        });
+                        jQuery(input).blur(function () {
+                            if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                                input.val(input.attr('placeholder'));
+                            }
+                        });
+                    });
+                }
+            }
+            function handleBootstrap() {
+                jQuery('.carousel').carousel({
+                    interval: 15000,
+                    pause: 'hover'
+                });
+                jQuery('.tooltips').tooltip();
+                jQuery('.popovers').popover();
+            }
+            function handleMisc() {
+                jQuery('.top').click(function () {
+                    jQuery('html,body').animate({
+                        scrollTop: jQuery('body').offset().top
+                    }, 'slow');
+                }); //move to top navigator
+            }
+            function handleSearch() {    
+                jQuery('.search').click(function () {
+                    if(jQuery('.search-btn').hasClass('icon-search')){
+                        jQuery('.search-open').fadeIn(500);
+                        jQuery('.search-btn').removeClass('icon-search');
+                        jQuery('.search-btn').addClass('icon-remove');
+                    } else {
+                        jQuery('.search-open').fadeOut(500);
+                        jQuery('.search-btn').addClass('icon-search');
+                        jQuery('.search-btn').removeClass('icon-remove');
+                    }   
+                }); 
+            }
+            function handleSwitcher() {    
+                var panel = $('.style-switcher');
+                $('.style-switcher-btn').click(function () {
+                    $('.style-switcher').show();
+                });
+                $('.theme-close').click(function () {
+                    $('.style-switcher').hide();
+                });       
+                $('li', panel).click(function () {
+                    var color = $(this).attr("data-style");
+                    var data_header = $(this).attr("data-header");
+                    setColor(color, data_header);
+                    $('.unstyled li', panel).removeClass("theme-active");
+                    $(this).addClass("theme-active");
+                });
+
+                var setColor = function (color, data_header) {
+                    $('#style_color').attr("href", "assets/css/themes/" + color + ".css");
+                    if(data_header == 'light'){
+                        $('#style_color-header-1').attr("href", "assets/css/themes/headers/header1-" + color + ".css");
+                        $('#logo-header').attr("src", "assets/img/logo1-" + color + ".png");
+                        $('#logo-footer').attr("src", "assets/img/logo2-" + color + ".png");
+                    } else if(data_header == 'dark'){
+                        $('#style_color-header-2').attr("href", "assets/css/themes/headers/header2-" + color + ".css");
+                        $('#logo-header').attr("src", "assets/img/logo2-" + color + ".png");
+                        $('#logo-footer').attr("src", "assets/img/logo2-" + color + ".png");
+                    }
+                }
+            }
+            return {
+                init: function () {
+                    handleBootstrap();
+                    handleIEFixes();
+                    handleMisc();
+                    handleSearch();
+                    handleSwitcher();
+                },
+
+                initSliders: function () {
+                    $('#clients-flexslider').flexslider({
+                        animation: "slide",
+                        easing: "swing",
+                        animationLoop: true,
+                        itemWidth: 1,
+                        itemMargin: 1,
+                        minItems: 2,
+                        maxItems: 9,
+                        controlNav: false,
+                        directionNav: false,
+                        move: 2
+                    });
+                    
+                    $('#photo-flexslider').flexslider({
+                        animation: "slide",
+                        controlNav: false,
+                        animationLoop: false,
+                        itemWidth: 80,
+                        itemMargin: 0
+                    }); 
+                    
+                    $('#testimonal_carousel').collapse({
+                        toggle: false
+                    });
+                },
+
+                initFancybox: function () {
+                    jQuery(".fancybox-button").fancybox({
+                    groupAttr: 'data-rel',
+                    prevEffect: 'none',
+                    nextEffect: 'none',
+                    closeBtn: true,
+                    helpers: {
+                        title: {
+                            type: 'inside'
+                            }
+                        }
+                    });
+                },
+
+                initBxSlider: function () {
+                    $('.bxslider').bxSlider({
+                        minSlides: 3,
+                        maxSlides: 3,
+                        slideWidth: 360,
+                        slideMargin: 10
+                    });            
+                },
+
+                initBxSlider1: function () {
+                    $('.bxslider').bxSlider({
+                        minSlides: 4,
+                        maxSlides: 4,
+                        slideWidth: 360,
+                        slideMargin: 10
+                    });            
+                }
+            };
+        }();
+        </script>
+<!--外部app.js粘贴-->
+<!--外部index.js粘贴-->
+        <script type="text/javascript">
+        var Index = function () {
+
+            return {
+                
+                //Parallax Slider
+                initParallaxSlider: function () {
+                    $(function() {
+                        $('#da-slider').cslider();
+                    });
+                },
+
+                //Revolution Slider
+                initRevolutionSlider: function () {
+                    var api;
+                    jQuery(document).ready(function() {
+                         api =  jQuery('.fullwidthabnner').revolution(
+                            {
+                                delay:9000,
+                                startheight:500,
+                                startwidth:960,
+
+                                hideThumbs:10,
+
+                                thumbWidth:100,                         // Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
+                                thumbHeight:50,
+                                thumbAmount:5,
+
+                                navigationType:"bullet",                // bullet, thumb, none
+                                navigationArrows:"solo",                // nexttobullets, solo (old name verticalcentered), none
+
+                                navigationStyle:"round",                // round,square,navbar,round-old,square-old,navbar-old, or any from the list in the docu (choose between 50+ different item), custom
+
+
+                                navigationHAlign:"center",              // Vertical Align top,center,bottom
+                                navigationVAlign:"bottom",              // Horizontal Align left,center,right
+                                navigationHOffset:0,
+                                navigationVOffset:20,
+
+                                soloArrowLeftHalign:"left",
+                                soloArrowLeftValign:"center",
+                                soloArrowLeftHOffset:20,
+                                soloArrowLeftVOffset:0,
+
+                                soloArrowRightHalign:"right",
+                                soloArrowRightValign:"center",
+                                soloArrowRightHOffset:20,
+                                soloArrowRightVOffset:0,
+
+                                touchenabled:"on",                      // Enable Swipe Function : on/off
+                                onHoverStop:"on",                       // Stop Banner Timet at Hover on Slide on/off
+
+                                stopAtSlide:-1,
+                                stopAfterLoops:-1,
+
+                                shadow:1,                               //0 = no Shadow, 1,2,3 = 3 Different Art of Shadows  (No Shadow in Fullwidth Version !)
+                                fullWidth:"on"                          // Turns On or Off the Fullwidth Image Centering in FullWidth Modus
+                            });
+                    });
+                }
+
+            };
+        }();
+        </script>
+<!--外部index.js粘贴-->
+
+<!--以下样式侧栏导航-->
+        <script>
+             $(function() {              
+             $(".step-4").hover(function(){
+                 $(this).find("p").addClass("b").html("Mojito 柠·漾，柔滑慕斯内蕴Q弹酒冻，绝妙配比带来口感<br>的平衡，不太浓烈也不过于寡淡，<br>青柠独特的酸甜带出白朗姆酒的微醺之意。 ");  
+                },function(){
+                 $(this).find("p").removeClass("b").html("Une mousse au citron vert légèrement aromatisée au rhum blanc,<br /> une gélée verte de menthe, le Mojito vous présente une<br />harmonie entre l’acidité et la fraîcheur.");  
+              });
+              
+              $('.step-1,.step-1-yin,.step-2,.step-3,.step-4,.step-5').show();
+
+              (new TimelineLite({onComplete:initScrollAnimations}))  
+
+                .from( $('.step-1'), .3, { css:{opacity:"0",left:'80%', top:'100%'}})
+                .from( $('.step-1-yin'), .3, { css:{opacity:"0"}})
+                
+                .from( $('.step-2'), .3, {css:{opacity:"0",left:'-20%', top:'80%'}})
+                .from( $('.step-3'), .3, { css:{opacity:"0",top:'-20px'}})
+                
+                .from( $('.step-4'), .3, { css:{opacity:"0"}})
+                
+                .from( $('.step-5'), .3, { css:{opacity:"0",bottom:"-40px"}})
+                
+               function initScrollAnimations() {  /*回调函数*/
+                //var controller = $.superscrollorama();
+                /*controller.addTween('#mainer', TweenMax.to( $('#bestie_fixed'), .1, {css:{opacity:"0"}}),0);*/
+               }  
+             });
+        </script>
+    <!-- banner-content结束 -->
+    <!---------------------****************************************-->
+
+    <!--***************************************************-->
+      <div id="mainer" >
+        <div class="allmenu" style="width:120px;">
+        <div class="Class">
+            <ul class="splitter" style="width:120px;margin-left:430px;">
+                 <li>
+                     <ul>
+                         <li class="v_cur cur" style="margin-left:8px;">
+                               <b>#口味筛选</b>
+                         </li>
+                       <ul>
+                         <li class="segment-0 all_m_pro" style="width:80px;margin-left:-20px;">
+                            <a href="__CONTROLLER__" data-value="all" name="#main">
+                                <span class="font02">全部产品</span>
+                            </a>
+                         </li>
+                        <div style="clear:both;"></div>
+                        <foreach name="category" item="vo">
+                            <li class="segment-0" style="width:80px;margin-left:-20px;">
+                                <a href="__CONTROLLER__/index/id/{$vo['id']}" data-value="kw_{$vo['id']}">
+                                    <span class="font02">{$vo['name']}</span>
+                                </a>
+                            </li>
+                        </foreach>          
+                       </ul>
+                </li>
+            </ul>
+        </div>
+      </div>
+    <div class="class_title"><div class="all_pro"><samp></samp><span>{$typeshow}</span></div></div>
+    <!--产品列表-->
+    <div class="listbox ebsig-edit" id="product-box" ebsig-module="product">
+         <ul class="image-grid ebeizhu" id="list">
+             <foreach name="goodsList" item="goods">
+                         <li class="" data-id="id-{$goods['id']}">
+                                <div class="pro_box">
+                            <span style="position:absolute;top:0px;left:0px;display:block;">
+                            <a href="{:U('Home/Members/shouadd',array('id'=>$goods['id'],'cn_gname'=>$goods['cn_gname']))}">收藏本品</a>
+                                </span>
+                                    <a href="{:U('Home/Index/details',array('id'=>$goods['id']))}"><img src="/mcake/Uploads/Admin/images/GoodsImg/<?php
+                                        $arr=explode(',',$goods['picname']);
+                                        $arr[0];
+                                     echo (substr($goods['addtime'],0,8)."/"."m_".$arr[0]);?>" height="216" width="216">
+                                     </a>
+                                    <div class="mask">
+                                        <a href="{:U('Home/Index/details',array('id'=>$goods['id']))}" target="_blank"><!--跳转详情-->
+                                            <font>{$goods['cn_gname']}<!--产品中文名字--></font>
+                                        </a>
+                                        <div class="Sweetness_box">
+                                            <a href="{:U('Home/Index/details',array('id'=>$goods['id']))}" target="_blank">
+                                                <samp>1</samp>
+                                                <span>甜度指数：</span>
+                                                <ul class="Sweetness">
+                                                    <li></li>
+                                                </ul>
+                                            </a>
+                                            <div class="buy_icon">
+                                                <a class="tobuy" id={$goods['id']} name="$goods['cn_name']">
+                                                <input type="hidden" value="{$goods['id']}" name="cartgoodsid" id="goodsid">
+                                                </a>
+                                            </div>                                   
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pro_title">
+                                    <!--此处是人气，新品，语音标识，这里通过判断 status状态 来判断 是显示哪个图标识-->
+                                    <img 
+                                        <?php 
+                                        
+                                        $status=$goods['status'];
+                                        if($status==1){
+                                            echo 'src="__PUBLIC__/Index/images/xinpin.png"','height="30" width="30"';
+                                        }elseif($status==2){
+                                            echo 'src="__PUBLIC__/Index/images/renqi.png"','height="30" width="30"';
+                                        }elseif($status==3){
+                                            echo 'src="__PUBLIC__/Index/images/jinpai.png"','height="30" width="30"';
+                                        }elseif($status==4){
+                                            echo 'src="__PUBLIC__/Index/images/0512-icaon.png"','height="30" width="30"';
+                                        }else{
+                                        } 
+
+                                        ?> >
+                                        <a href="{:U('Home/Index/details',array('id'=>$goods['id']))}" target="_blank">
+                                             <span class="font01">
+                                            
+                                             {$goods['en_gname']}</span>
+                                             <span>
+                                            <?php
+                                            $arr=explode(',',$goods['weight']);
+                                            $arr[0];
+                                                echo $arr[0];
+                                            ?>
+                                             磅/<?php
+                                                $arr=explode(',',$goods['price']);
+                                            $arr[0];
+                                                echo $arr[0];
+                                            ?>RMB</span>
+                                        </a>
+                                </div>
+                         </li>
+                         <?php
+                             if($status==4){
+                                ?>
+                             <li class="kw_05 kw_01 gj_10 gj_02" data-id="id-29">
+                                 <div class="pro_box">
+                                    <a href="#" target="_blank"><img src="__PUBLIC__/Index/goods_images/list_1959_1.jpg" height="216" width="216">
+                                    </a>
+                                    <div class="mask mask_shade" style="bottom: -55px;">
+                                        <a href="#" target="_blank"><img src="__PUBLIC__/Index/images/0512-icaon.png"></a>
+                                    </div>
+                                 </div>
+                              </li>
+                        <?php } ?>
+                <form action="{:U('Home/ShopCart/index')}" method="get">
+                    <div id="carshop" style="background:url(__PUBLIC__/Index/images/bgquantou.jpg);position:fixed;width:100%;height:100%;z-index:1000;display:none;">
+                        <div id="maximPanel" class="tc-con" style="">
+                            <a class="close close_2 off" href="javascript:void(0);">关闭</a>
+                            <!--通过ajax把数据传回-->
+                            <!--<form action="{:U('Home/ShopCart/insert')}" method="get">-->
+                        <div class="tc-con-1">
+                            <p class="m_t"><span>Sélectionnez la commande le nombre de livres：</span><br>选择您要订购的磅数：</p>
+                            <input type="hidden" name="gid" value="{$goods['id']}">
+                            <ul class="change_p" style="height:30px">
+                                <?php
+                                $arr=explode(',',$goods['weight']);
+                                $count=count($arr);
+                                //echo $count;
+                                for($i=0;$i<$count;$i++){
+                                    if($arr[$i]=="1"){
+                                        echo "<li aheadtime='需提前5小时预定' size='SIZE:15cm*4.5cm' edible='适合2-3人食用' useflg='1' id='s1' class='cur'>
+                                                <span><input type='hidden' value='1' name='weight'>1磅<\/span>
+                                <\/li>";
+                                    }
+                                    if($arr[$i]=="2"){
+                                        echo "<li aheadtime='需提前5小时预定' size='SIZE:18cm*5.0cm' edible='适合4-7人食用' useflg='1' id='s2' class=''>
+                                <span><input type='hidden' value='2'>2磅<\/span><\/li>";
+                                    }
+                                    if($arr[$i]=="3"){
+                                        echo "<li aheadtime='需提前24小时预定' size='SIZE:22cm*5.0cm' edible='适合8-12人食用' useflg='1' id='s3' class=''><span><input type='hidden' value='3'>3磅<\/span><\/li>";
+                                    }
+                                    if($arr[$i]=="5"){
+                                        echo "<li aheadtime='需提前5小时预定' size='SIZE:36cm*22cm*6cm' edible='适合12-20人食用' useflg='1' id='s5' class=''><span><input type='hidden' value='5'>5磅<\/span><\/li>";
+                                    }
+                                }
+                                ?>
+                            </ul>
+                            <div style="clear:both"></div>
+                            <ul class="Explain_list" style="height:30px;">
+                                <li id="g_aheadTime" style="padding-left:16px;font-size:12px;margin:12px 0;" style="margin-top:-40px;background:'aa';">需提前5小时预定</li><li id="g_edible" style="margin-top:-40px;background:'aa';">适合2-3人食用</li><li id="g_size" style="margin-top:-40px;background:'aa';">SIZE:15cm*4.5cm</li>
+                            </ul>
+                            <div style="clear:both"></div>
+                            <div >
+                                <div class="cake_num" style="margin-top:0px;width:200xp;height:50px;" ><span>数量</span><dl><dd class="n_left nopoint"></dd><dt><input type="text" id="buy_number" class="num_1" value="1" name="num"></dt><dd class="n_right"></dd></dl>
+                                </div>
+                                <ul class="buy_btn_box" style="margin-top:-30px;"><li><input type="button" value="立即购买" id="shopcart" class="shopcart"></li><li><input type="button" value="加入到购物车" id="buy_now" class=" now_buy" gid="{$goods['id']}"></li><input type="hidden" id="pro_id" value="">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--信息结束-->
+                </form>
+            </div>
+        </foreach>
+           
+            <!------------------------------------------------------------>   
+ </ul>
+
+</div>
+ <!--购物车弹框层结束-->
+            <script type="text/javascript">
+            var id=$('.tobuy');
+            
+            id.each(function(i){
+             //   alert($(this).children(input[name=cartgoodsid]).val());
+             
+                $(this).click(function(){
+
+                  //  var goodsid=$(this).children("#goodsid").val();
+                  //  alert(goodsid);
+                $('#carshop').css('display','block');
+                //var id=$('.tobuy').attr('name');
+
+                  
+                $('.off').hover(function(){
+                    $('.off').css('cursor','pointer');
+                });
+
+                $('.off').click(function(){
+                    $('#carshop').css('display','None');
+                     window.location.reload();
+                });
+
+                 var goodsid=$(this).children("#goodsid").val();
+                // alert(goodsid);
+          
+     //加入购物车时，留在当前页，但是数据插入进去
+
+ 
+//立即购买ajax传送
+//////////////////////////////////////////////////////////////////////
+                    $('.shopcart').click(function(){
+                        $.ajax({
+                            type:'get',
+                            url:'__ROOT__/index.php/Home/ShopCart/insert',
+                            async:true,
+                            dataType:'json',
+                            data:{gid:goodsid,weight:$("input[name='weight']").val(),num:$("input[name='num']").val()},
+                        success: function(data){
+                            if(data!=0){
+                                //alert("添加购物车成功!");
+                                location.href = "{:U('/Home/ShopCart/index')}"; 
+                            }else{
+                                alert("请先登陆！");
+                                location.href = "{:U('/Home/Login/dologin')}";            
+                            }
+                        }
+                        });
+               
+///////////////////////////////////////////////////////
+                    // $('#shopcart').click(function(){
+                    //     alert(hello);
+                    //     $.ajax({
+                    //     type:'get',
+                    //     url:'/index.php/Home/ShopCart/insert',
+                    //     async:true,
+                    //     dataType:'json',
+                    //     data:{gid:goodsid,weight:$("input[name='weight']").val(),num:$("input[name='num']").val()},
+                    //     success: function(data){
+                    //         //alert("添加购物车成功!");
+                    //         location.href = "{:U('/Home/Orders/sindex')}"
+                    //         console.log(data);
+                    //     },
+                    //     error:function(){
+                    //        alert("请先登陆！");
+                    //         location.href = "{:U('/Home/Login/dologin')}";
+                    //        console.log(data);
+                    //     },
+                    //     timeout: 2000//超时时间 
+                    // });
+
+                    //     });
+// 立即购买ajax结束
+// 单击弹出之后的事件结束
+        });
+      $('#buy_now').click(function(){
+                        $.ajax({
+                            type:'get',
+                            url:'__ROOT__/index.php/Home/ShopCart/insert',
+                            async:true,
+                            dataType:'json',
+                            data:{gid:goodsid,weight:$("input[name='weight']").val(),num:$("input[name='num']").val()},
+                            success: function(data){
+                                if(data!=0){
+                                    alert("添加购物车成功!");
+                                    window.location.reload();
+                                }else{
+                                    alert("请先登陆！");
+                                    location.href = "{:U('/Home/Login/dologin')}";            
+                                }
+                            }
+                            });
+                    });
+                        
+    //.TOBUY each end
+//<!--购物车-->
+});
+
+                $('#s1').click(function(){
+                   // alert('s1');
+                    $('#s1').attr('class','cur');
+                    $('#s2').attr('class','');
+                    $('#s3').attr('class','');
+                    $('#g_aheadTime').html($('#s1').attr('aheadtime'));
+                    $('#g_edible').html($('#s1').attr('edible'));
+                    $('#g_size').html($('#s1').attr('size'));
+                    $('#s1 span input').attr('name','weight');
+                    $('#s2 span input').attr('name','');
+                    $('#s3 span input').attr('name','');
+                    $('#s5 span input').attr('name','');
+                });
+                $('#s2').click(function(){
+                    //alert('s2');
+                    $('#s2').attr('class','cur');
+                    $('#s1').attr('class','');
+                    $('#s3').attr('class','');
+                    $('#g_aheadTime').html($('#s2').attr('aheadtime'));
+                    $('#g_edible').html($('#s2').attr('edible'));
+                    $('#g_size').html($('#s2').attr('size'));
+                    $('#s1 span input').attr('name','');
+                    $('#s2 span input').attr('name','weight');
+                    $('#s3 span input').attr('name','');
+                    $('#s5 span input').attr('name','');
+                });
+                $('#s3').click(function(){
+                    //alert('s3');
+                    $('#s3').attr('class','cur');
+                    $('#s1').attr('class','');
+                    $('#s2').attr('class','');
+                    $('#g_aheadTime').html($('#s3').attr('aheadtime'));
+                    $('#g_edible').html($('#s3').attr('edible'));
+                    $('#g_size').html($('#s3').attr('size'));
+                    $('#s1 span input').attr('name','');
+                    $('#s2 span input').attr('name','');
+                    $('#s3 span input').attr('name','weight');
+                    $('#s5 span input').attr('name','');
+                });
+                    $('#s5').click(function(){
+                        //alert('s5');
+                        $('#s5').attr('class','cur');
+                        $('#s1').attr('class','');
+                        $('#s2').attr('class','');
+                        $('#s3').attr('class','');
+                        $('#g_aheadTime').html($('#s5').attr('aheadtime'));
+                        $('#g_edible').html($('#s5').attr('edible'));
+                        $('#g_size').html($('#s5').attr('size'));
+                        $('#s1 span input').attr('name','');
+                        $('#s2 span input').attr('name','');
+                        $('#s3 span input').attr('name','');
+                        $('#s5 span input').attr('name','weight');
+                    });
+
+});
+
+</script>
+<!--由于整合时出现了样式问题，为了节省时间现在粗暴强制样式开始-->
+<script type="text/javascript">
+       var are2=$('.ebeizhu li:first div a img');
+        var shoucang=$('.ebeizhu li:first div span:nth-child(1)');
+        are2.css('margin-top','20px');
+        shoucang.css('margin-top','20px');
+</script>
+<!--粗暴结束^-^-->
+<!-- contents 结束-->
+     <!-- 友情链接块  开始 -->
+            <!-- 友情链接出现按钮  开始-->
+            <div class="youlian_but" style="position: absolute;z-index:100;top:2320px;left:-200px;"> <img src="__PUBLIC__/country2/youlian_but.png"/> </div>
+            <!-- 友情链接出现按钮  结束-->
+        <div class="youlian_zongceng" style="width:100%;height: 230px;display: none;position: absolute;z-index:100;top:2320px;background: rgba(33,33,33,0.5);">
+        <div class="youlian_guanbi" style="position: relative;left:92%;top:1%;color:#aaa;border: 1px solid #aaa;width:12px;height: 12px;text-align: center;line-height: 10px;cursor:pointer;">x</div>
+            <ul style="width:100%;margin-left: 30px;">
+            <li style="float: left;width:7%;"><img  class="left_but" src="__PUBLIC__/country2/youlian_left_but.png" style="width:30px;margin-top: 60px;cursor:pointer;" title="向前一页" alt="向前一页"></li>
+            <li style="float: left;width:85%;margin-left: 10px;"><div>
+            <ul class="flink_dange_list" style="width:100%;margin-top: 10px;">
+            <!-- 遍历友链  开始-->
+            <foreach name="flink" item="flink">
+                <li class="flink_dange_li" onmouseover="danger(this)" onmouseout="danget(this)" style="float: left;padding-right:40px;padding-bottom:20px;"><a href="http://{$flink.furl}" target ="_blank"><div style="width:150px;padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:2px;border: 1px solid #999;"><img class="flink_dange_img_bw" style="width:150px;" src="__UPLOAD__{$flink.fimage_bw}"><img class="flink_dange_img_c" style="width:150px;display: none;" src="__UPLOAD__{$flink.fimage_c}"></div></a></li>
+            </foreach>
+            <!-- 遍历友链  结束-->
+            </ul>
+            </div>
+            </li>
+            <li style="float: left;width:7%;"><img class="right_but" src="__PUBLIC__/country2/youlian_rigth_but.png" style="width: 30px;margin-top: 60px;margin-left: -38px; cursor:pointer;" title="向后一页" alt="向后一页"></li> 
+            </ul>
+        </div>
+			
+
+            
+            <script type="text/javascript">
+			
+			 //---------广告js  开始-----------
+
+        //当页面加载时
+
+        //显示广告的位置
+        var position = '<?php echo $adimg["position"];?>';
+
+        //----是否在header头部显示广告----
+        if(position=="header"){
+
+            //是否在header头部显示广告 1为显示
+            var num = '<?php echo $adimg["num"];?>';
+            if(num==1){
+                setTimeout(function(){$(document).ready(function(){
+                    $('body').prepend($('<div class ="guanggao" style="width:100%;height:50px;background:#1e90ff;position:absolute;z-index:1000;left:0px;top:0px;"><div><img width="100%" src="__UPLOAD__/<?php echo $adimg["image"];?>"/></div></div>'));
+                    $('.guanggao').animate({ 
+                            width: "100%",
+                            height: "600px", 
+                          }, 400 );
+
+                 })},<?php echo $adimg["adtime"]*1000;?>);
+                setTimeout(function(){
+
+                    $('.guanggao').fadeOut("slow");
+
+                 },<?php echo $adimg["adtime"]*2000;?>);
+
+                    //广告结束事件
+                    setTimeout(function(){
+
+                        $('.guanggao').slideUp(500);
+
+                    },<?php echo $adimg["adtime"]*800;?>);
+            }
+
+            //是否开始提示语 1为开启
+            var prompt = '<?php echo $adimg["prompt"];?>';
+            if(prompt==1){
+                setTimeout(function(){$(document).ready(function(){
+                    $('body').prepend($('<div class ="guanggao" style="width:100%;height:600px;background:#1e90ff;position:absolute;z-index:1000;left:0px;top:0px;"><div style="text-align:center;margin-top:200px;text-indent:60px;color:#fff;opacity:0.8">对不起,现在是广告时间</div></div>'));
+                    $('.guanggao').animate({ 
+                            width: "100%",
+                            height: "500px", 
+                            fontSize: "3em",
+                            letterSpacing:'7px',
+                          }, 1000 );
+
+                 })},500);
+            }
+        
+        }
+
+        //----是否在left+right左右两边显示广告----
+        if(position=="left+right"){
+
+            //是否开启 1为显示
+            var num = '<?php echo $adimg["num"];?>';
+            if(num==1){
+                setTimeout(function(){$(document).ready(function(){
+                    $('body').prepend($('<div class ="guanggao" style="width:150;height:500px;background:#1e90ff;position:absolute;z-index:1000;left:0px;top:50%;"><div><img width="150" src="__UPLOAD__/<?php echo $adimg["image"];?>"/></div></div>'));
+                    $('.guanggao').animate({ 
+                            width: "0",
+                            height: "0px",
+                            background:'#aaa', 
+                          }, 400 );
+                    $('body').prepend($('<div class ="guanggao" style="width:150;height:500px;background:#1e90ff;position:absolute;z-index:1000;left:88%;top:50%;"><div><img width="150" src="__UPLOAD__/<?php echo $adimg["image"];?>"/></div></div>'));
+                    $('.guanggao').animate({ 
+                            width: "0",
+                            height: "0px",
+                            background:'#aaa', 
+                          }, 400 );
+
+                 })},<?php echo $adimg["adtime"]*1000;?>);
+                setTimeout(function(){
+
+                    $('.guanggao').fadeOut("slow");
+
+                 },<?php echo $adimg["adtime"]*2000;?>);
+
+                    //广告结束事件
+                    setTimeout(function(){
+
+                        $('.guanggao').slideUp(<?php echo $adimg["adtime"]*500;?>);
+
+                    },<?php echo $adimg["adtime"]*800;?>);
+            }
+
+            //是否开始提示语 1为开启
+            var prompt = '<?php echo $adimg["prompt"];?>';
+            if(prompt==1){
+                setTimeout(function(){$(document).ready(function(){
+                    $('body').prepend($('<div class ="guanggao" style="width:100%;height:600px;background:#1e90ff;position:absolute;z-index:1000;left:0px;top:0px;"><div style="text-align:center;margin-top:200px;text-indent:60px;color:#fff;opacity:0.8">对不起,现在是广告时间</div></div>'));
+                    $('.guanggao').animate({ 
+                            width: "100%",
+                            height: "500px", 
+                            fontSize: "3em",
+                            letterSpacing:'7px',
+                          }, 1000 );
+
+                 })},500);
+            }
+        
+        }
+         
+         //----是否在footer头部显示广告----
+        if(position=="footer"){
+
+            //是否在footer头部显示广告 1为显示
+            var num = '<?php echo $adimg["num"];?>';
+            if(num==1){
+                setTimeout(function(){$(document).ready(function(){
+                    $('body').prepend($('<div class ="guanggao" style="width:100%;height:50px;background:#1e90ff;position:absolute;z-index:1000;left:0px;top:80%;"><div><img width="100%" src="__UPLOAD__/<?php echo $adimg["image"];?>"/></div></div>'));
+                    $('.guanggao').animate({ 
+                            width: "100%",
+                            height: "600px", 
+                          }, 400 );
+
+                 })},<?php echo $adimg["adtime"]*1000;?>);
+                setTimeout(function(){
+
+                    $('.guanggao').fadeOut("slow");
+
+                 },<?php echo $adimg["adtime"]*2000;?>);
+
+                    //广告结束事件
+                    setTimeout(function(){
+
+                        $('.guanggao').slideUp(500);
+
+                    },<?php echo $adimg["adtime"]*800;?>);
+            }
+
+            //是否开始提示语 1为开启
+            var prompt = '<?php echo $adimg["prompt"];?>';
+            if(prompt==1){
+                setTimeout(function(){$(document).ready(function(){
+                    $('body').prepend($('<div class ="guanggao" style="width:100%;height:600px;background:#1e90ff;position:absolute;z-index:1000;left:0px;top:0px;"><div style="text-align:center;margin-top:200px;text-indent:60px;color:#fff;opacity:0.8">对不起,现在是广告时间</div></div>'));
+                    $('.guanggao').animate({ 
+                            width: "100%",
+                            height: "500px", 
+                            fontSize: "3em",
+                            letterSpacing:'7px',
+                          }, 1000 );
+
+                 })},500);
+            }
+        
+        }
+    //---------广告js  结束-----------
+			
+	//---------友情链接js样式 开始-----------		
+            //当页面加载后,获取友情链接按钮的top位置
+                $(document).ready(function(){
+                    //获取文档的高度
+                    var dt = $(document).height();
+                    //获取友情链接隐藏大层的高度
+                    var ct = $('.youlian_zongceng').height();
+                    //计算友情链接隐藏大层和按钮top位置
+                    var newCt = dt-ct-10;
+                    $('.youlian_zongceng').css('top',newCt+"px");
+                    $('.youlian_but').css('top',newCt+"px");
+
+                })
+
+                //友情链接按钮样式 获取焦点时
+
+                $('.youlian_but').hover(function(){
+                    $(this).stop();
+                    $(this).animate({left: 0}, 500);
+                    $(this).css('cursor','pointer');
+                    $(this).click(function(){
+                        $(this).hide();
+                        $('.youlian_zongceng').slideDown(1);
+                    })
+                },function(){
+                    $(this).stop();
+                    $(this).animate({left: -200}, 500);
+                     $(this).css('cursor','')
+                })
+                //当点击关闭时的样式
+                $('.youlian_guanbi').click(function(){
+                    $('.youlian_zongceng').slideUp(10);
+                    $('.youlian_but').show();
+                })
+                
+                //单个友情链接logo样式
+            function danger(i){
+              
+                    // alert(i);
+                    $(i).children('a').children('div').children('.flink_dange_img_bw').hide();
+                    $(i).children('a').children('div').children('.flink_dange_img_c').show();
+                }
+               function danget(i){
+                    $(i).children('a').children('div').children('.flink_dange_img_bw').show();
+                    $(i).children('a').children('div').children('.flink_dange_img_c').hide();
+              }
+              //当点击左边友链页码按钮
+              var p=0;
+              $('.left_but').click(function(){
+                // alert(1);
+                p--;
+                $.get("{:U('Home/Index/flink')}",{p:p},function(data){
+                    if(data){
+                        
+                    $('.flink_dange_list').empty();
+                    $.each(data,function(key,val){
+                    var strsb = $('<li class="flink_dange_li" onmouseover="danger(this)" onmouseout="danget(this)" style="float: left;padding-right:40px;padding-bottom:20px;"><a href="http://'+val['furl']+'" target ="_blank"><div style="width:150px;padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:2px;border: 1px solid #999;"><img class="flink_dange_img_bw" style="width:150px;" src="__UPLOAD__'+val['fimage_bw']+'"><img class="flink_dange_img_c" style="width:150px;display: none;" src="__UPLOAD__'+val['fimage_c']+'"></div></a></li>');
+                    $('.flink_dange_list').append(strsb);
+                    })
+                    
+                }
+              });
+            })
+              //当点击右边友链页码按钮
+              $('.right_but').click(function(){
+                // alert(2);
+                p++;
+                $.get("{:U('Home/Index/flink')}",{p:p},function(data){
+
+                    if(data){
+                        
+                    $('.flink_dange_list').empty();
+                    $.each(data,function(key,val){
+                    var strsb = $('<li class="flink_dange_li" onmouseover="danger(this)" onmouseout="danget(this)" style="float: left;padding-right:40px;padding-bottom:20px;"><a href="http://'+val['furl']+'" target ="_blank"><div style="width:150px;padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:2px;border: 1px solid #999;"><img class="flink_dange_img_bw" style="width:150px;" src="__UPLOAD__'+val['fimage_bw']+'"><img class="flink_dange_img_c" style="width:150px;display: none;" src="__UPLOAD__'+val['fimage_c']+'"></div></a></li>');
+                    $('.flink_dange_list').append(strsb);
+                    })
+                    
+                }
+                });
+            })
+            
+            
+
+            </script>
+            <!-- 友情链接js样式 结束 -->
+
+        <!-- 友情链接块  结束 -->
+
+
+
+</block>

@@ -1,0 +1,116 @@
+<extend name="Index/index" />
+
+<block name="con">
+                <h2  class="title_right">打印订单：</h2>
+                <table border="1" id='print1'>
+                    <tr>
+                        <td  width="106px">订单编号：</td>
+                        <td  width="106px">{$data['oid']}</td>
+                        <td  width="106px">下单姓名：</td>
+                        <td  width="106px">{$data['linkman']}</td>
+                        <td  width="106px">下单时间</td>
+                        <td colspan="3">{$data['addtime']}</td>
+                    </tr>
+                    <tr>
+                        <td  width="106px">收件人姓名：</td>
+                        <td  width="106px">{$data['linkman']}</td>
+                        <td  width="106px">收货时间:</td>
+                        <td  width="106px">{$data['sendtime']}</td>
+                        <td  width="106px">付款方式：</td>
+                        <td colspan="3">货到付款</td>   
+                    </tr>
+                    <tr>
+                        <td>收货地址</td>
+                        <td colspan="3">{$data['address']}</td>
+                        <td>是否开发票</td>
+                        <if condition="$invodata['status'] eq 1"><td colspan="3">有发票</td> </tr>
+                    <tr>
+                        <td>发票类型：</td>
+                        <td>{$type}</td>
+                        <td>发票标题</td>
+                        <td>{$invodata['title']}</td>
+                        <td>发票内容</td>
+                        <td>{$invodata['content']}</td>
+                        <td>发票金额</td>
+                        <td>{$invodata['total']}</td>   
+                    </tr> 
+                    <else /><td>无发票</td></tr></if><br/>
+                        
+                   
+                </table>
+                <table border="1">
+                    <h2>商品清单</h2>
+                    <tr>
+                            <td width="60px">
+                                商品名
+                            </td>
+                             <td  width="60px">
+                                {$detaildata['name']}
+                            </td >
+                            <td  width="60px">
+                                数量
+                            </td>
+                            <td  width="60px">
+                                {$detaildata['num']}
+                            </td>
+                            <td  width="60px">
+                                尺寸
+                            </td>
+                            <td  width="60px">
+                                {$detaildata['weight']}磅
+                            </td>
+                            <td  width="60px">
+                                商品价
+                            </td>
+                            <td  width="60px">
+                                ￥&nbsp;{$detaildata['price']}元
+                            </td>
+                            <td  width="60px">
+                                小计
+                            </td>
+                             <td  width="60px">
+                                ￥{$total}元
+                            </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            订单备注:
+                        </td>
+                        <td colspan="9">
+                            {$data['beizhu']}
+                        </td>
+                    </tr>
+                </table>
+                <!--打印-->
+            <script language="javascript">
+function printsetup(){
+// 打印页面设置
+web.execwb(8,1);
+}
+function printpreview(){
+// 打印页面预览
+        
+web.execwb(7,1);      
+}
+function printit()
+{
+if (confirm('确定打印吗？')) {
+web.execwb(6,6)
+}
+}
+</script>
+</head>
+<body>
+<OBJECT classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"
+height=0 id=web name=web width=0>
+</OBJECT>
+<input type="button" name=button_print value="打印" onclick="javascript:printit()">
+<input type="button" name="button_setup" value="打印页面设置"
+onclick="javascript:printsetup();"> 
+<input type="button" name="button_show" value="打印预览"
+onclick="javascript:printpreview();"> 
+<input type="button" name="button_fh" value="关闭"
+onclick="javascript:window.close();">
+                <!--打印结束-->
+</block>
+            
