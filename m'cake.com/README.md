@@ -11,7 +11,7 @@
 ## directory
 1. [Databases](https://github.com/bodii/PHP_Project/tree/master/m'cake.com/Databases '数据库相关目录')
 2. [Description](https://github.com/bodii/PHP_Project/tree/master/m'cake.com/Description '网站相关设计文档')
-3. [Project file](https://github.com/bodii/PHP_Project/tree/master/m'cake.com/Project+file '网站项目根目录')
+3. [Project file](https://github.com/bodii/PHP_Project/tree/master/m'cake.com/Project file '网站项目根目录')
 4. [img](https://github.com/bodii/PHP_Project/tree/master/m'cake.com/Description/img '网站完成后的一些效果图片')
 
 
