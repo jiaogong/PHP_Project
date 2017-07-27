@@ -1,5 +1,0 @@
-<?php
-//云之讯  5分每条  http://www.xiaohigh.com/SendMessage/send.php?83114222758&code=879876&web=小狗网
-public function
-
-发送邮件 

@@ -1,3 +1,0 @@
-<extend name="Index/indextemp" />
-<block name="con">
-</block>
